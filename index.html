@@ -506,16 +506,22 @@
       <h2>お問い合わせ</h2>
       <p>下記フォーム、またはお電話にてお気軽にご連絡ください。<br />ご相談・お見積りは無料です。</p>
     </div>
-    <form class="glass reveal" style="max-width:680px;margin:0 auto;box-shadow:var(--shadow)" onsubmit="event.preventDefault();alert('お問い合わせありがとうございます。（デモ用フォームです）');">
+    <form class="glass reveal" style="max-width:680px;margin:0 auto;box-shadow:var(--shadow)" action="https://formsubmit.co/keisuke.tanikawa@nextray.jp" method="POST">
+      <!-- FormSubmit 設定 -->
+      <input type="hidden" name="_subject" value="【nextray.jp】ホームページからのお問い合わせ" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://nextrayjp.github.io/nextray-website/thanks.html" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">お名前 *</span><input required placeholder="山田 太郎" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
-        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">会社名</span><input placeholder="株式会社◯◯" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
+        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">お名前 *</span><input name="お名前" required placeholder="山田 太郎" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
+        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">会社名</span><input name="会社名" placeholder="株式会社◯◯" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">メールアドレス *</span><input required type="email" placeholder="mail@example.com" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
-        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">電話番号</span><input placeholder="000-0000-0000" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
+        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">メールアドレス *</span><input name="メールアドレス" required type="email" placeholder="mail@example.com" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
+        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">電話番号</span><input name="電話番号" placeholder="000-0000-0000" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
       </div>
-      <label style="display:block;margin-bottom:20px"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">ご相談内容 *</span><textarea required rows="4" placeholder="例）会社のホームページを新しく作りたい／採用ページを作りたい など" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit;resize:vertical"></textarea></label>
+      <label style="display:block;margin-bottom:20px"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">ご相談内容 *</span><textarea name="ご相談内容" required rows="4" placeholder="例）会社のホームページを新しく作りたい／採用ページを作りたい など" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit;resize:vertical"></textarea></label>
       <button type="submit" class="btn btn-primary" style="width:100%">この内容で送信する</button>
     </form>
   </div>
