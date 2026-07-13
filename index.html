@@ -287,7 +287,10 @@
   .cert-cat h3{font-size:1.06rem;margin-bottom:16px;display:flex;align-items:center;gap:10px}
   .cert-cat h3 .dot{width:11px;height:11px;border-radius:50%;background:var(--grad);flex:0 0 auto}
   .cert-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
-  .cert-list li{font-size:.82rem;font-weight:600;color:var(--ink-2);padding:7px 12px;border-radius:999px;background:var(--grad-soft);border:1px solid rgba(30,155,255,.14)}
+  .cert-list li{font-size:.82rem;font-weight:600;border-radius:999px;background:var(--grad-soft);border:1px solid rgba(30,155,255,.14);transition:border-color .2s,transform .2s,box-shadow .2s}
+  .cert-list li:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 8px 18px -10px rgba(30,155,255,.5)}
+  .cert-list a{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);padding:7px 12px}
+  .cert-list a::after{content:"↗";font-size:.72rem;color:var(--blue);opacity:.75}
   .cert-note{text-align:center;margin-top:30px;color:var(--muted);font-size:.86rem}
   .cert-cta{text-align:center;margin-top:22px}
   @media(max-width:640px){.cert-cats{grid-template-columns:1fr}}
@@ -575,45 +578,45 @@
       <div class="cert-cat reveal">
         <h3><span class="dot"></span>AI活用力（AI Fluency）</h3>
         <ul class="cert-list">
-          <li>Framework &amp; Foundations</li>
-          <li>Builders</li>
-          <li>Small Businesses</li>
-          <li>Educators</li>
-          <li>Nonprofits</li>
-          <li>Students</li>
-          <li>Teaching AI Fluency</li>
+          <li><a href="https://verify.skilljar.com/c/cdr7eoj5n35f" target="_blank" rel="noopener">Framework &amp; Foundations</a></li>
+          <li><a href="https://verify.skilljar.com/c/djy5rwoqtruw" target="_blank" rel="noopener">Builders</a></li>
+          <li><a href="https://verify.skilljar.com/c/ianjtq4k6u2p" target="_blank" rel="noopener">Small Businesses</a></li>
+          <li><a href="https://verify.skilljar.com/c/tc5shtk3sixp" target="_blank" rel="noopener">Educators</a></li>
+          <li><a href="https://verify.skilljar.com/c/mu4fvmu2doq5" target="_blank" rel="noopener">Nonprofits</a></li>
+          <li><a href="https://verify.skilljar.com/c/ex8xhhnrtywe" target="_blank" rel="noopener">Students</a></li>
+          <li><a href="https://verify.skilljar.com/c/wovvgm7vk7qy" target="_blank" rel="noopener">Teaching AI Fluency</a></li>
         </ul>
       </div>
       <div class="cert-cat reveal">
         <h3><span class="dot"></span>Claude 基礎</h3>
         <ul class="cert-list">
-          <li>Claude 101</li>
-          <li>Claude Platform 101</li>
-          <li>Claude Code 101</li>
-          <li>Claude Code in Action</li>
-          <li>AI Capabilities and Limitations</li>
-          <li>Introduction to Claude Cowork</li>
+          <li><a href="https://verify.skilljar.com/c/n6xctcjymdf3" target="_blank" rel="noopener">Claude 101</a></li>
+          <li><a href="https://verify.skilljar.com/c/h6zusstpcbkx" target="_blank" rel="noopener">Claude Platform 101</a></li>
+          <li><a href="https://verify.skilljar.com/c/w38o4qwf9p5s" target="_blank" rel="noopener">Claude Code 101</a></li>
+          <li><a href="https://verify.skilljar.com/c/rrz3s9gwsrgr" target="_blank" rel="noopener">Claude Code in Action</a></li>
+          <li><a href="https://verify.skilljar.com/c/2ptyq87dra5u" target="_blank" rel="noopener">AI Capabilities and Limitations</a></li>
+          <li><a href="https://verify.skilljar.com/c/744v8hzpx5j7" target="_blank" rel="noopener">Introduction to Claude Cowork</a></li>
         </ul>
       </div>
       <div class="cert-cat reveal">
         <h3><span class="dot"></span>開発・自動化（API / MCP / エージェント）</h3>
         <ul class="cert-list">
-          <li>Building with the Claude API</li>
-          <li>Model Context Protocol</li>
-          <li>MCP: Advanced Topics</li>
-          <li>Introduction to subagents</li>
-          <li>Introduction to agent skills</li>
+          <li><a href="https://verify.skilljar.com/c/cey4jgo8cqg8" target="_blank" rel="noopener">Building with the Claude API</a></li>
+          <li><a href="https://verify.skilljar.com/c/6ijjs5kq8urr" target="_blank" rel="noopener">Model Context Protocol</a></li>
+          <li><a href="https://verify.skilljar.com/c/hknziq3jk6ij" target="_blank" rel="noopener">MCP: Advanced Topics</a></li>
+          <li><a href="https://verify.skilljar.com/c/d6mxbk4hswzh" target="_blank" rel="noopener">Introduction to subagents</a></li>
+          <li><a href="https://verify.skilljar.com/c/vfgahe6r53d6" target="_blank" rel="noopener">Introduction to agent skills</a></li>
         </ul>
       </div>
       <div class="cert-cat reveal">
         <h3><span class="dot"></span>クラウド連携</h3>
         <ul class="cert-list">
-          <li>Amazon Bedrock 連携</li>
-          <li>Google Cloud Vertex AI 連携</li>
+          <li><a href="https://verify.skilljar.com/c/3urm2d5qtivi" target="_blank" rel="noopener">Amazon Bedrock 連携</a></li>
+          <li><a href="https://verify.skilljar.com/c/n6kwu8s8bbvs" target="_blank" rel="noopener">Google Cloud Vertex AI 連携</a></li>
         </ul>
       </div>
     </div>
-    <p class="cert-note reveal">※ すべて Anthropic Academy（anthropic.skilljar.com）修了。各修了証は検証可能です。</p>
+    <p class="cert-note reveal">※ 各バッジをクリックすると、Anthropic Academy 公式の修了証明ページ（verify.skilljar.com）が開きます。</p>
     <div class="cert-cta reveal">
       <a href="#contact" class="btn btn-primary">AI活用について相談する →</a>
     </div>
