@@ -279,6 +279,19 @@
   .work h3{font-size:1.14rem;margin:8px 0 6px}
   .work p{color:var(--muted);font-size:.9rem}
 
+  /* certifications */
+  .certs{background:var(--bg-soft)}
+  .cert-cats{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .cert-cat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;transition:transform .25s,box-shadow .25s}
+  .cert-cat:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .cert-cat h3{font-size:1.06rem;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .cert-cat h3 .dot{width:11px;height:11px;border-radius:50%;background:var(--grad);flex:0 0 auto}
+  .cert-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .cert-list li{font-size:.82rem;font-weight:600;color:var(--ink-2);padding:7px 12px;border-radius:999px;background:var(--grad-soft);border:1px solid rgba(30,155,255,.14)}
+  .cert-note{text-align:center;margin-top:30px;color:var(--muted);font-size:.86rem}
+  .cert-cta{text-align:center;margin-top:22px}
+  @media(max-width:640px){.cert-cats{grid-template-columns:1fr}}
+
   /* pricing note / CTA band */
   .cta-band{padding:20px 0}
   .cta-inner{position:relative;overflow:hidden;border-radius:30px;background:var(--grad);color:#fff;padding:64px 56px;text-align:center;box-shadow:var(--shadow)}
@@ -371,6 +384,7 @@
       <a href="#services">提供サービス</a>
       <a href="#why">選ばれる理由</a>
       <a href="#works">実績</a>
+      <a href="#certs">認定</a>
       <a href="#company">会社案内</a>
       <a href="#news">お知らせ</a>
     </nav>
@@ -389,6 +403,7 @@
   <a href="#services">提供サービス</a>
   <a href="#why">選ばれる理由</a>
   <a href="#works">実績</a>
+  <a href="#certs">認定</a>
   <a href="#company">会社案内</a>
   <a href="#news">お知らせ</a>
   <a href="#contact" class="btn btn-primary">無料相談する</a>
@@ -548,6 +563,63 @@
   </div>
 </section>
 
+<!-- Certifications -->
+<section class="block certs" id="certs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Certifications</span>
+      <h2>AI活用力の、<br class="sp" />確かな裏付け。</h2>
+      <p>NextRay代表・谷川恵介は、Claudeを開発する <b>Anthropic</b> の公式AI教育プログラム「Anthropic Academy」を <b class="grad-text">20コース修了</b>。最新AIを実務に落とし込む力で、集客・自動化・人材不足の課題に向き合います。</p>
+    </div>
+    <div class="cert-cats">
+      <div class="cert-cat reveal">
+        <h3><span class="dot"></span>AI活用力（AI Fluency）</h3>
+        <ul class="cert-list">
+          <li>Framework &amp; Foundations</li>
+          <li>Builders</li>
+          <li>Small Businesses</li>
+          <li>Educators</li>
+          <li>Nonprofits</li>
+          <li>Students</li>
+          <li>Teaching AI Fluency</li>
+        </ul>
+      </div>
+      <div class="cert-cat reveal">
+        <h3><span class="dot"></span>Claude 基礎</h3>
+        <ul class="cert-list">
+          <li>Claude 101</li>
+          <li>Claude Platform 101</li>
+          <li>Claude Code 101</li>
+          <li>Claude Code in Action</li>
+          <li>AI Capabilities and Limitations</li>
+          <li>Introduction to Claude Cowork</li>
+        </ul>
+      </div>
+      <div class="cert-cat reveal">
+        <h3><span class="dot"></span>開発・自動化（API / MCP / エージェント）</h3>
+        <ul class="cert-list">
+          <li>Building with the Claude API</li>
+          <li>Model Context Protocol</li>
+          <li>MCP: Advanced Topics</li>
+          <li>Introduction to subagents</li>
+          <li>Introduction to agent skills</li>
+        </ul>
+      </div>
+      <div class="cert-cat reveal">
+        <h3><span class="dot"></span>クラウド連携</h3>
+        <ul class="cert-list">
+          <li>Amazon Bedrock 連携</li>
+          <li>Google Cloud Vertex AI 連携</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cert-note reveal">※ すべて Anthropic Academy（anthropic.skilljar.com）修了。各修了証は検証可能です。</p>
+    <div class="cert-cta reveal">
+      <a href="#contact" class="btn btn-primary">AI活用について相談する →</a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA band -->
 <section class="cta-band">
   <div class="wrap">
@@ -653,6 +725,7 @@
         <a href="#services">提供サービス</a>
         <a href="#why">選ばれる理由</a>
         <a href="#works">実績</a>
+        <a href="#certs">認定</a>
         <a href="#company">会社案内</a>
         <a href="#news">お知らせ</a>
       </div>
