@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】hair salon LueN｜NextRay 制作サンプル</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（美容室・サロン向けデザイン）。上品でミニマルな、ヘアサロン向けホームページのデザイン例です。" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#f7f3ef;--ink:#2b2622;--rose:#c98f86;--beige:#e7ddd2;--sub:#9a8f84}
+  body{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:400;background:var(--bg);color:var(--ink);line-height:2;-webkit-font-smoothing:antialiased}
+  .cor{font-family:"Cormorant Garamond",serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 30px}
+  .demobar{background:var(--ink);color:#e7ddd2;text-align:center;font-size:.78rem;padding:9px 16px;letter-spacing:.05em}
+  .demobar a{color:#e6b8b0;text-decoration:underline}
+  header{position:absolute;top:42px;left:0;right:0;z-index:10}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  .logo{font-size:1.7rem;letter-spacing:.14em;font-weight:500}
+  .nav ul{display:flex;gap:36px;list-style:none;font-size:.8rem;letter-spacing:.22em}
+  .nav a{color:var(--sub)}.nav a:hover{color:var(--rose)}
+  .hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr}
+  .hero .txt{display:flex;flex-direction:column;justify-content:center;padding:0 8% 0 clamp(30px,7vw,110px)}
+  .hero .en{font-size:.75rem;letter-spacing:.5em;color:var(--rose);margin-bottom:30px}
+  .hero h1{font-size:clamp(2.8rem,5vw,4.4rem);line-height:1.25;font-weight:400;letter-spacing:.03em}
+  .hero h1 em{font-style:italic;color:var(--rose)}
+  .hero p{margin-top:28px;color:var(--sub);font-size:.95rem;font-weight:300;max-width:24em}
+  .hero .art{background:linear-gradient(160deg,var(--beige),#d9c9ba);position:relative;overflow:hidden}
+  .hero .art::before{content:"";position:absolute;width:60%;height:60%;border:1px solid rgba(201,143,134,.5);border-radius:50%;top:20%;left:20%}
+  .hero .art::after{content:"LueN";position:absolute;inset:0;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:clamp(3rem,8vw,7rem);color:rgba(43,38,34,.14);letter-spacing:.1em}
+  .btn{align-self:flex-start;margin-top:40px;border:1px solid var(--ink);padding:14px 42px;font-size:.78rem;letter-spacing:.28em;transition:.35s}
+  .btn:hover{background:var(--ink);color:var(--bg)}
+  section{padding:120px 0}
+  .lead{text-align:center;margin-bottom:70px}
+  .lead .en{font-size:.72rem;letter-spacing:.45em;color:var(--rose)}
+  .lead h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2rem,4vw,3rem);font-weight:500;letter-spacing:.06em;margin-top:12px}
+  .concept p{text-align:center;max-width:34em;margin:0 auto;font-weight:300;color:#5a524a;font-size:1.05rem}
+  .price{background:#fff}
+  .p-list{max-width:640px;margin:0 auto}
+  .p-row{display:flex;justify-content:space-between;align-items:baseline;padding:26px 4px;border-bottom:1px solid var(--beige)}
+  .p-row .n{letter-spacing:.06em}.p-row .n small{display:block;color:var(--sub);font-size:.78rem;font-weight:300}
+  .p-row .v{font-family:"Cormorant Garamond",serif;font-size:1.4rem;color:var(--rose)}
+  .info{text-align:center}
+  .info .tel{font-family:"Cormorant Garamond",serif;font-size:2.4rem;letter-spacing:.06em;margin:14px 0 6px}
+  .hours{display:inline-block;text-align:left;margin-top:20px;color:#5a524a;font-weight:300;font-size:.92rem;line-height:2.1}
+  footer{background:var(--ink);color:var(--beige);text-align:center;padding:46px 30px;font-size:.78rem;letter-spacing:.08em;font-weight:300}
+  footer a{color:var(--rose)}
+  @media(max-width:820px){.nav ul{display:none}.hero{grid-template-columns:1fr;min-height:auto}.hero .txt{padding:150px 30px 80px}.hero .art{min-height:340px}}
+</style>
+</head>
+<body>
+<div class="demobar">◆ これは <strong>NextRay</strong> が制作したサンプルデザイン（美容サロン向け）です ｜ ホームページ制作のご相談は <a href="https://nextray.jp/" target="_blank" rel="noopener">nextray.jp</a> へ</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo cor">LueN</div>
+    <ul><li><a href="#concept">Concept</a></li><li><a href="#price">Menu</a></li><li><a href="#info">Salon</a></li></ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="txt">
+    <div class="en">HAIR SALON</div>
+    <h1 class="cor">Your <em>beauty</em>,<br />designed.</h1>
+    <p>あなたらしさを引き出す、上質なプライベートサロン。丁寧なカウンセリングから始まる、特別な時間を。</p>
+    <a href="#info" class="btn">RESERVE</a>
+  </div>
+  <div class="art"></div>
+</section>
+
+<section class="concept" id="concept">
+  <div class="wrap">
+    <div class="lead"><div class="en">CONCEPT</div><h2>ととのう、うつくしさ。</h2></div>
+    <p>髪だけでなく、心まで軽くなるように。落ち着いた空間で、一人ひとりに向き合います。あなたの「なりたい」を、確かな技術でかたちにします。</p>
+  </div>
+</section>
+
+<section class="price" id="price">
+  <div class="wrap">
+    <div class="lead"><div class="en">MENU</div><h2>Price</h2></div>
+    <div class="p-list">
+      <div class="p-row"><div class="n">カット<small>シャンプー・ブロー込み</small></div><div class="v">¥5,500</div></div>
+      <div class="p-row"><div class="n">カット + カラー<small>トリートメント付き</small></div><div class="v">¥11,000</div></div>
+      <div class="p-row"><div class="n">デザインパーマ<small>カット込み</small></div><div class="v">¥13,200</div></div>
+      <div class="p-row"><div class="n">ヘッドスパ<small>30分・単品</small></div><div class="v">¥3,300</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div class="lead"><div class="en">SALON INFO</div><h2>Reservation</h2></div>
+    <p style="font-weight:300;color:#5a524a">ご予約はお電話、またはオンラインにて承ります。</p>
+    <div class="tel cor">03-0000-0000</div>
+    <div class="hours">
+      OPEN　10:00 – 20:00<br />
+      CLOSE　毎週火曜・第2月曜<br />
+      東京都渋谷区〇〇 1-2-3
+    </div>
+  </div>
+</section>
+
+<footer>© hair salon LueN（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></footer>
+</body>
+</html>

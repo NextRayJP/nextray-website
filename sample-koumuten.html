@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】大和建築工房｜NextRay 制作サンプル</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（工務店・建築会社向けデザイン）。力強く信頼感のある、施工会社向けホームページのデザイン例です。" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--navy:#0e2438;--steel:#16324f;--orange:#f26722;--gray:#eef1f4;--tx:#2a3542}
+  body{font-family:"Noto Sans JP",sans-serif;color:var(--tx);line-height:1.85;-webkit-font-smoothing:antialiased}
+  .os{font-family:"Oswald",sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+  .demobar{background:var(--orange);color:#fff;text-align:center;font-size:.8rem;padding:9px 16px;font-weight:700}
+  .demobar a{color:#fff;text-decoration:underline}
+  header{background:var(--navy);position:sticky;top:0;z-index:20}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:74px;color:#fff}
+  .brand{font-weight:900;font-size:1.4rem;letter-spacing:.02em}
+  .brand b{color:var(--orange)}
+  .nav ul{display:flex;gap:30px;list-style:none;font-size:.9rem;font-weight:700;align-items:center}
+  .nav .tel{background:var(--orange);padding:12px 22px;font-family:"Oswald";font-size:1.15rem;letter-spacing:.05em;border-radius:2px}
+  .hero{position:relative;background:linear-gradient(120deg,var(--navy) 0 55%,var(--steel));color:#fff;overflow:hidden}
+  .hero::after{content:"";position:absolute;top:0;right:0;width:45%;height:100%;
+    background:repeating-linear-gradient(45deg,rgba(242,103,34,.9) 0 30px,transparent 30px 60px);opacity:.12}
+  .hero-in{padding:110px 0 120px;position:relative;z-index:1}
+  .hero .tag{display:inline-block;background:var(--orange);font-weight:700;font-size:.8rem;padding:7px 16px;letter-spacing:.08em;margin-bottom:26px}
+  .hero h1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:900;line-height:1.3}
+  .hero h1 span{color:var(--orange)}
+  .hero p{margin-top:22px;font-size:1.1rem;max-width:34em;opacity:.9}
+  .hero .en{font-family:"Oswald";position:absolute;right:-10px;bottom:-30px;font-size:9rem;color:rgba(255,255,255,.05);letter-spacing:.05em;z-index:0}
+  .stats{background:var(--orange);color:#fff}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:38px 26px;text-align:center}
+  .stats b{font-family:"Oswald";font-size:2.6rem;display:block;line-height:1}
+  .stats small{font-size:.82rem;letter-spacing:.05em}
+  section{padding:96px 0}
+  .head{margin-bottom:52px}
+  .head .en{font-family:"Oswald";color:var(--orange);font-size:1rem;letter-spacing:.2em}
+  .head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:900;border-left:6px solid var(--orange);padding-left:18px;margin-top:8px}
+  .works{background:var(--gray)}
+  .w-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .w-card{background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 12px 30px -18px rgba(14,36,56,.5)}
+  .w-card .ph{height:180px;position:relative;display:flex;align-items:flex-end;padding:18px;color:#fff;font-weight:700}
+  .w1{background:linear-gradient(135deg,#16324f,#0e2438)}.w2{background:linear-gradient(135deg,#3a4a5c,#16324f)}.w3{background:linear-gradient(135deg,#5a4636,#2a3542)}
+  .w-card .ph span{background:var(--orange);font-size:.72rem;padding:4px 10px;border-radius:2px;letter-spacing:.05em}
+  .w-card .meta{padding:20px}
+  .w-card h3{font-size:1.1rem;font-weight:700}
+  .w-card p{color:#6a7482;font-size:.88rem;margin-top:6px}
+  .reasons .r-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .r-card{padding:34px 28px;border:2px solid var(--gray);border-radius:4px;transition:.25s}
+  .r-card:hover{border-color:var(--orange);transform:translateY(-4px)}
+  .r-card .no{font-family:"Oswald";color:var(--orange);font-size:2.2rem;line-height:1}
+  .r-card h3{font-size:1.25rem;font-weight:700;margin:12px 0 10px}
+  .r-card p{color:#6a7482;font-size:.92rem}
+  .cta{background:var(--navy);color:#fff;text-align:center;padding:80px 26px}
+  .cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:900}
+  .cta .tel{font-family:"Oswald";font-size:3rem;color:var(--orange);margin:16px 0 4px}
+  .cta a.btn{display:inline-block;margin-top:20px;background:var(--orange);color:#fff;font-weight:700;padding:16px 44px;border-radius:2px}
+  footer{background:#081827;color:#8a97a6;text-align:center;padding:40px 26px;font-size:.82rem}
+  footer a{color:var(--orange)}
+  @media(max-width:820px){.nav ul li:not(.tel){display:none}.w-grid,.r-grid,.stats .wrap{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.w-grid,.r-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demobar">◆ これは <strong>NextRay</strong> が制作したサンプルデザイン（工務店向け）です ｜ ホームページ制作のご相談は <a href="https://nextray.jp/" target="_blank" rel="noopener">nextray.jp</a> へ</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">大和<b>建築</b>工房</div>
+    <ul>
+      <li><a href="#works">施工事例</a></li>
+      <li><a href="#reasons">選ばれる理由</a></li>
+      <li><a href="#cta">お問い合わせ</a></li>
+      <li class="tel os">0120-00-0000</li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="tag">創業40年・地域密着</div>
+    <h1>建てるのは、<br /><span>暮らしの、土台。</span></h1>
+    <p>確かな技術と誠実な仕事で、100年先まで安心して住み継げる家づくりを。新築・リフォーム・店舗まで、まるごとお任せください。</p>
+    <div class="en">SINCE 1985</div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div><b class="os">40</b><small>年の実績</small></div>
+    <div><b class="os">1,200<span style="font-size:1.2rem">+</span></b><small>施工実績</small></div>
+    <div><b class="os">98<span style="font-size:1.2rem">%</span></b><small>お客様満足度</small></div>
+    <div><b class="os">10<span style="font-size:1.2rem">年</span></b><small>長期保証</small></div>
+  </div>
+</div>
+
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="head"><div class="en">WORKS</div><h2>施工事例</h2></div>
+    <div class="w-grid">
+      <div class="w-card"><div class="ph w1"><span>新築住宅</span></div><div class="meta"><h3>木の温もりを感じる二世帯住宅</h3><p>新潟市・木造2階建て</p></div></div>
+      <div class="w-card"><div class="ph w2"><span>リフォーム</span></div><div class="meta"><h3>築30年を、新築同様に再生</h3><p>燕市・フルリノベーション</p></div></div>
+      <div class="w-card"><div class="ph w3"><span>店舗</span></div><div class="meta"><h3>こだわりのカフェ店舗づくり</h3><p>三条市・鉄骨造</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reasons" id="reasons">
+  <div class="wrap">
+    <div class="head"><div class="en">REASONS</div><h2>選ばれる理由</h2></div>
+    <div class="r-grid">
+      <div class="r-card"><div class="no os">01</div><h3>自社大工の技術力</h3><p>経験豊富な自社の職人が、一棟一棟丁寧に施工。品質に責任を持ちます。</p></div>
+      <div class="r-card"><div class="no os">02</div><h3>明確な見積り</h3><p>「何にいくらかかるか」を明確にご提示。追加費用の不安をなくします。</p></div>
+      <div class="r-card"><div class="no os">03</div><h3>10年の長期保証</h3><p>お引き渡し後も定期点検とアフターフォローで、末永く安心をお届けします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <h2>まずは無料でご相談ください</h2>
+  <p style="opacity:.85;margin-top:12px">現地調査・お見積りは無料です。家づくりの不安、何でもご相談ください。</p>
+  <div class="tel os">0120-00-0000</div>
+  <p style="opacity:.7;font-size:.85rem">受付 8:00–19:00（水曜定休）</p>
+  <a href="#" class="btn">お問い合わせフォーム</a>
+</section>
+
+<footer>© 大和建築工房（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></footer>
+</body>
+</html>

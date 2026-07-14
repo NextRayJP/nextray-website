@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】さくら税理士事務所｜NextRay 制作サンプル</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（士業・税理士事務所向けデザイン）。信頼感と誠実さを伝える、専門家向けホームページのデザイン例です。" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--navy:#12294d;--navy-d:#0c1d38;--gold:#b48a45;--paper:#f7f8fa;--sub:#5c6b80;--line:#e3e8ef}
+  body{font-family:"Noto Sans JP",sans-serif;color:#1c2c40;line-height:1.9;-webkit-font-smoothing:antialiased;background:#fff}
+  .cg{font-family:"Cormorant Garamond",serif}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .demobar{background:var(--navy-d);color:#fff;text-align:center;font-size:.8rem;padding:9px 16px}
+  .demobar a{color:var(--gold);text-decoration:underline}
+  header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:78px}
+  .logo{font-size:1.3rem;font-weight:900;letter-spacing:.04em;display:flex;align-items:center;gap:12px}
+  .logo .em{width:38px;height:38px;border-radius:8px;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:"Cormorant Garamond",serif;font-size:1.4rem;font-weight:600}
+  .nav ul{display:flex;gap:30px;list-style:none;font-size:.9rem;font-weight:500}
+  .nav a:hover{color:var(--gold)}
+  .nav .cta-btn{background:var(--navy);color:#fff;padding:12px 26px;border-radius:4px;font-weight:700;font-size:.88rem}
+  .hero{background:linear-gradient(120deg,var(--navy),var(--navy-d));color:#fff;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.08;background:repeating-linear-gradient(45deg,transparent 0 30px,rgba(180,138,69,.6) 30px 31px)}
+  .hero-in{position:relative;padding:100px 0 104px;max-width:44em}
+  .hero .en{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:var(--gold);font-size:1.05rem;margin-bottom:20px}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:1.6;font-weight:900;letter-spacing:.02em}
+  .hero p{margin-top:26px;color:rgba(255,255,255,.82);max-width:32em}
+  .btn{display:inline-block;margin-top:36px;background:var(--gold);color:var(--navy-d);padding:16px 40px;border-radius:4px;font-weight:700;font-size:.92rem;transition:.25s}
+  .btn:hover{background:#c99a52}
+  section{padding:96px 0}
+  .lead{text-align:center;margin-bottom:56px}
+  .lead .en{font-family:"Cormorant Garamond",serif;color:var(--gold);letter-spacing:.25em;font-size:1rem}
+  .lead h2{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-top:8px;font-weight:900}
+  .serv{background:var(--paper)}
+  .s-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .s-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:6px;padding:38px 30px;transition:transform .25s,box-shadow .25s}
+  .s-card:hover{transform:translateY(-5px);box-shadow:0 24px 44px -28px rgba(18,41,77,.55)}
+  .s-card .no{font-family:"Cormorant Garamond",serif;color:var(--gold);font-size:1.6rem;font-weight:600}
+  .s-card h3{font-size:1.2rem;margin:8px 0 12px}
+  .s-card p{color:var(--sub);font-size:.92rem}
+  .why{max-width:900px;margin:0 auto}
+  .w-row{display:flex;gap:24px;align-items:flex-start;padding:28px 0;border-bottom:1px solid var(--line)}
+  .w-row .n{font-family:"Cormorant Garamond",serif;font-size:2rem;color:var(--navy);font-weight:600;line-height:1;flex:0 0 auto;width:56px}
+  .w-row h3{font-size:1.15rem;margin-bottom:6px}
+  .w-row p{color:var(--sub);font-size:.94rem}
+  .cta-band{background:linear-gradient(120deg,var(--navy),var(--navy-d));color:#fff;text-align:center}
+  .cta-band h2{color:#fff}
+  .cta-band .tel{font-family:"Cormorant Garamond",serif;font-size:2.8rem;color:var(--gold);margin:14px 0 6px;letter-spacing:.05em}
+  .cta-band p{color:rgba(255,255,255,.82)}
+  footer{background:var(--navy-d);color:#9fb2cc;text-align:center;padding:48px 28px;font-size:.85rem}
+  footer a{color:var(--gold)}
+  @media(max-width:820px){.nav ul,.nav .cta-btn{display:none}.s-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demobar">◆ これは <strong>NextRay</strong> が制作したサンプルデザイン（士業・税理士事務所向け）です ｜ ホームページ制作のご相談は <a href="https://nextray.jp/" target="_blank" rel="noopener">nextray.jp</a> へ</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="em cg">S</span>さくら税理士事務所</div>
+    <ul><li><a href="#serv">業務内容</a></li><li><a href="#why">選ばれる理由</a></li><li><a href="#contact">アクセス</a></li></ul>
+    <a href="#contact" class="cta-btn">無料相談のご予約</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="en">TAX &amp; ACCOUNTING</div>
+    <h1>経営者の、<br />いちばん近くにいる専門家。</h1>
+    <p>税務・会計はもちろん、資金繰りや事業承継まで。数字の向こう側にある経営の悩みに、親身に寄り添います。創業支援から相続まで、まずはお気軽にご相談ください。</p>
+    <a href="#contact" class="btn">初回相談は無料です →</a>
+  </div>
+</section>
+
+<section class="serv" id="serv">
+  <div class="wrap">
+    <div class="lead"><div class="en">SERVICES</div><h2>業務内容</h2></div>
+    <div class="s-grid">
+      <div class="s-card"><div class="no cg">01</div><h3>税務・記帳代行</h3><p>法人・個人の決算申告、記帳代行、月次顧問。日々の経理業務をまるごとサポートします。</p></div>
+      <div class="s-card"><div class="no cg">02</div><h3>創業・融資支援</h3><p>事業計画の作成から金融機関との交渉まで。創業期の資金調達を力強く後押しします。</p></div>
+      <div class="s-card"><div class="no cg">03</div><h3>相続・事業承継</h3><p>相続税の試算・申告、事業承継の設計。次の世代へ、円満な引き継ぎをお手伝いします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="lead"><div class="en">OUR STRENGTH</div><h2>選ばれる理由</h2></div>
+    <div class="why">
+      <div class="w-row"><div class="n cg">Ⅰ</div><div><h3>専門用語を使わない、わかりやすい説明</h3><p>難しい税金の話も、経営者の言葉に翻訳してお伝えします。「聞いてよかった」と思える相談を。</p></div></div>
+      <div class="w-row"><div class="n cg">Ⅱ</div><div><h3>クラウド会計に完全対応</h3><p>freee・マネーフォワードを活用し、経理の手間を大幅に削減。いつでも最新の経営状況が見えます。</p></div></div>
+      <div class="w-row"><div class="n cg">Ⅲ</div><div><h3>レスポンスの速さ</h3><p>ご連絡には原則当日〜翌営業日中に返信。「すぐ聞ける」安心感を大切にしています。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <div class="lead"><div class="en" style="color:var(--gold)">CONTACT</div><h2>まずは無料相談から</h2></div>
+    <p>顧問契約前のご相談・お見積りは無料です。お気軽にお問い合わせください。</p>
+    <div class="tel">025-000-0000</div>
+    <p style="font-size:.9rem">受付時間 平日 9:00–18:00　新潟県〇〇市〇〇 3-5-7 〇〇ビル4F</p>
+  </div>
+</section>
+
+<footer>
+  <div style="font-weight:900;color:#fff;font-size:1rem;margin-bottom:8px">さくら税理士事務所</div>
+  © SAKURA TAX ACCOUNTING OFFICE（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a>
+</footer>
+</body>
+</html>

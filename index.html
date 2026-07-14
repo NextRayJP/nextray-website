@@ -267,17 +267,26 @@
 
   /* works */
   .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .work{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#fff;transition:transform .25s,box-shadow .25s}
+  .work{display:block;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#fff;transition:transform .25s,box-shadow .25s;color:inherit;text-decoration:none}
   .work:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .work .thumb{height:180px;position:relative;overflow:hidden}
-  .work .thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 20% 10%,rgba(255,255,255,.35),transparent 55%)}
-  .w1{background:linear-gradient(135deg,#1e9bff,#12d4d0)}
-  .w2{background:linear-gradient(135deg,#12d4d0,#f6a94a)}
-  .w3{background:linear-gradient(135deg,#5b7cff,#1e9bff)}
+  .work .thumb{height:180px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:0 20px}
+  .work .thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 20% 10%,rgba(255,255,255,.28),transparent 55%)}
+  .work .wtxt{position:relative;z-index:1;color:#fff;font-weight:700;font-size:1.18rem;letter-spacing:.04em;text-align:center;text-shadow:0 2px 14px rgba(0,0,0,.28)}
+  .w1{background:linear-gradient(135deg,#0e2438,#f26722)}
+  .w2{background:linear-gradient(135deg,#3a2c18,#c8a45c)}
+  .w3{background:linear-gradient(135deg,#c99,#7a5a6a)}
+  .w4{background:linear-gradient(135deg,#12b3ac,#7fe0da)}
+  .w5{background:linear-gradient(135deg,#4a3527,#b98a55)}
+  .w6{background:linear-gradient(135deg,#12294d,#b48a45)}
   .work .meta{padding:22px 24px}
-  .work .tag{font-size:.74rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase}
+  .work .tag{font-size:.74rem;font-weight:700;letter-spacing:.08em;color:var(--blue)}
   .work h3{font-size:1.14rem;margin:8px 0 6px}
   .work p{color:var(--muted);font-size:.9rem}
+  .work .wlink{display:inline-block;margin-top:14px;font-size:.86rem;font-weight:700;color:var(--blue)}
+  .work:hover .wlink{color:var(--amber)}
+  .work-note{text-align:center;margin-top:30px;color:var(--muted);font-size:.84rem}
+  @media(max-width:900px){.work-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.work-grid{grid-template-columns:1fr}}
 
   /* certifications */
   .certs{background:var(--bg-soft)}
@@ -555,14 +564,18 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Works</span>
-      <h2>取り組み事例</h2>
-      <p>ホームページ制作・MEO対策・AI自動化。3つの強みで企業と地域を支えます。（一部イメージ）</p>
+      <h2>制作サンプル</h2>
+      <p>業種ごとに“らしさ”を引き出したホームページのデザイン例です。カードをクリックすると、実際のサンプルサイトをご覧いただけます。</p>
     </div>
     <div class="work-grid">
-      <div class="work reveal"><div class="thumb w1"></div><div class="meta"><span class="tag">Website</span><h3>集客できるコーポレートサイト</h3><p>信頼感と強みを伝え、問い合わせにつなげる企業サイト。</p></div></div>
-      <div class="work reveal"><div class="thumb w2"></div><div class="meta"><span class="tag">MEO</span><h3>Googleマップで上位表示</h3><p>「地域名＋業種」で見つかり、来店・問い合わせを増やす。</p></div></div>
-      <div class="work reveal"><div class="thumb w3"></div><div class="meta"><span class="tag">AI</span><h3>AIで業務を自動化</h3><p>問い合わせ対応や事務作業を自動化し、人手不足を解消。</p></div></div>
+      <a class="work reveal" href="sample-koumuten.html" target="_blank" rel="noopener"><div class="thumb w1"><span class="wtxt os">大和建築工房</span></div><div class="meta"><span class="tag">工務店・建築</span><h3>力強さと信頼を伝える</h3><p>施工実績と技術力を前面に。問い合わせにつなげる建築会社サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
+      <a class="work reveal" href="sample-restaurant.html" target="_blank" rel="noopener"><div class="thumb w2"><span class="wtxt mn">日本料理 花暦</span></div><div class="meta"><span class="tag">飲食・料理店</span><h3>和モダンで上質に</h3><p>お店の世界観を伝え、予約したくなる飲食店サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
+      <a class="work reveal" href="sample-salon.html" target="_blank" rel="noopener"><div class="thumb w3"><span class="wtxt">hair salon LueN</span></div><div class="meta"><span class="tag">美容・サロン</span><h3>洗練された特別感を</h3><p>ブランドイメージを高め、来店につなげるサロンサイト。</p><span class="wlink">サンプルを見る →</span></div></a>
+      <a class="work reveal" href="sample-dental.html" target="_blank" rel="noopener"><div class="thumb w4"><span class="wtxt">あおば歯科クリニック</span></div><div class="meta"><span class="tag">医療・クリニック</span><h3>清潔感と安心感を</h3><p>やさしい印象で、初診の予約につなげる医院サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
+      <a class="work reveal" href="sample-cafe.html" target="_blank" rel="noopener"><div class="thumb w5"><span class="wtxt">cafe KANATA</span></div><div class="meta"><span class="tag">カフェ・小売</span><h3>あたたかな居心地を</h3><p>お店の空気感を写真とともに伝える、カフェ・ショップサイト。</p><span class="wlink">サンプルを見る →</span></div></a>
+      <a class="work reveal" href="sample-zeirishi.html" target="_blank" rel="noopener"><div class="thumb w6"><span class="wtxt cg">さくら税理士事務所</span></div><div class="meta"><span class="tag">士業・専門職</span><h3>誠実さと専門性を</h3><p>信頼を醸成し、無料相談につなげる士業・専門家サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
     </div>
+    <p class="work-note reveal">※ 掲載しているサンプルはすべてNextRayが制作したデザイン例です。実在の企業・店舗とは関係ありません。</p>
   </div>
 </section>
 

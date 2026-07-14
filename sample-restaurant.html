@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】日本料理 花暦｜NextRay 制作サンプル</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（飲食店向けデザイン）。日本料理店をイメージした、和モダンで上質なホームページのデザイン例です。" />
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--gold:#c8a45c;--ink:#14110d;--cream:#f5efe3;--sub:#b6ab97}
+  body{font-family:"Noto Sans JP",sans-serif;background:var(--ink);color:var(--cream);line-height:1.9;-webkit-font-smoothing:antialiased}
+  .mincho{font-family:"Shippori Mincho",serif}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .demobar{background:#000;color:#c8a45c;text-align:center;font-size:.8rem;padding:9px 16px;letter-spacing:.03em;border-bottom:1px solid rgba(200,164,92,.3)}
+  .demobar a{color:#e6c987;text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  header{position:absolute;top:44px;left:0;right:0;z-index:10}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0}
+  .logo{font-size:1.5rem;letter-spacing:.35em;font-weight:700}
+  .logo small{display:block;font-size:.55rem;letter-spacing:.4em;color:var(--gold);margin-top:4px}
+  .nav ul{display:flex;gap:34px;list-style:none;font-size:.85rem;letter-spacing:.15em}
+  .nav a:hover{color:var(--gold)}
+  .hero{height:100vh;min-height:640px;position:relative;display:flex;align-items:center;overflow:hidden;
+    background:radial-gradient(120% 90% at 80% 20%,#3a2c18 0%,#14110d 60%)}
+  .hero::before{content:"";position:absolute;inset:0;opacity:.16;
+    background:repeating-linear-gradient(135deg,transparent 0 22px,rgba(200,164,92,.4) 22px 23px)}
+  .hero-in{position:relative}
+  .hero .en{color:var(--gold);letter-spacing:.5em;font-size:.8rem;margin-bottom:26px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.5;font-weight:800;letter-spacing:.08em}
+  .hero h1 .g{color:var(--gold)}
+  .hero p{margin-top:26px;color:var(--sub);max-width:30em;letter-spacing:.05em}
+  .btn{display:inline-block;margin-top:38px;border:1px solid var(--gold);color:var(--gold);padding:15px 44px;letter-spacing:.25em;font-size:.85rem;transition:.3s}
+  .btn:hover{background:var(--gold);color:var(--ink)}
+  section{padding:110px 0}
+  .lead{text-align:center;margin-bottom:64px}
+  .lead .en{color:var(--gold);letter-spacing:.4em;font-size:.75rem}
+  .lead h2{font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:.15em;margin-top:16px;font-weight:700}
+  .kodawari{background:#1c1811}
+  .k-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(200,164,92,.2)}
+  .k-grid .c{background:#1c1811;padding:46px 34px;text-align:center}
+  .k-grid .num{font-family:"Shippori Mincho",serif;color:var(--gold);font-size:1.1rem;letter-spacing:.3em}
+  .k-grid h3{font-size:1.35rem;letter-spacing:.1em;margin:18px 0 14px;font-weight:600}
+  .k-grid p{color:var(--sub);font-size:.92rem}
+  .menu-list{max-width:720px;margin:0 auto}
+  .m-item{display:flex;align-items:baseline;gap:16px;padding:24px 0;border-bottom:1px solid rgba(200,164,92,.18)}
+  .m-item .nm{font-size:1.25rem;letter-spacing:.08em;font-weight:600}
+  .m-item .dot{flex:1;border-bottom:1px dotted rgba(200,164,92,.4);transform:translateY(-4px)}
+  .m-item .pr{color:var(--gold);font-family:"Shippori Mincho",serif;font-size:1.1rem}
+  .m-item small{display:block;color:var(--sub);font-size:.82rem;margin-top:6px;font-weight:400}
+  .cta{text-align:center;background:radial-gradient(100% 100% at 50% 0,#2a2114,#14110d)}
+  .cta .tel{font-family:"Shippori Mincho",serif;font-size:2.6rem;color:var(--gold);letter-spacing:.05em;margin:20px 0 6px}
+  footer{background:#0d0b08;text-align:center;padding:50px 28px;color:var(--sub);font-size:.82rem;letter-spacing:.08em}
+  @media(max-width:760px){.nav ul{display:none}.k-grid{grid-template-columns:1fr}.hero{min-height:560px}}
+</style>
+</head>
+<body>
+<div class="demobar">◆ これは <strong>NextRay</strong> が制作したサンプルデザイン（飲食店向け）です ｜ ホームページ制作のご相談は <a href="https://nextray.jp/" target="_blank" rel="noopener">nextray.jp</a> へ</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo mincho">花暦<small>HANAGOYOMI</small></div>
+    <ul><li><a href="#kodawari">こだわり</a></li><li><a href="#menu">お品書き</a></li><li><a href="#access">ご予約</a></li></ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="en">JAPANESE CUISINE</div>
+    <h1 class="mincho">四季を、<span class="g">一皿に。</span></h1>
+    <p>旬の食材と、丁寧な仕事。移りゆく季節の彩りを、日本料理でお愉しみください。</p>
+    <a href="#access" class="btn">ご予約はこちら</a>
+  </div>
+</section>
+
+<section class="kodawari" id="kodawari">
+  <div class="wrap">
+    <div class="lead"><div class="en">OUR COMMITMENT</div><h2 class="mincho">三つのこだわり</h2></div>
+    <div class="k-grid">
+      <div class="c"><div class="num">壱</div><h3 class="mincho">旬の食材</h3><p>その日一番の食材を、市場から直接。季節の移ろいを大切にします。</p></div>
+      <div class="c"><div class="num">弐</div><h3 class="mincho">手仕事</h3><p>出汁も仕込みも一から。手間を惜しまず、素材の味を引き出します。</p></div>
+      <div class="c"><div class="num">参</div><h3 class="mincho">しつらえ</h3><p>器と盛り付けにもこだわり、目でも味わう一皿をお届けします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="lead"><div class="en">MENU</div><h2 class="mincho">お品書き</h2></div>
+    <div class="menu-list">
+      <div class="m-item"><div><div class="nm mincho">花暦 会席</div><small>先付から水菓子まで全八品</small></div><span class="dot"></span><span class="pr">8,800円</span></div>
+      <div class="m-item"><div><div class="nm mincho">季節の御膳</div><small>旬の味覚を少しずつ</small></div><span class="dot"></span><span class="pr">4,400円</span></div>
+      <div class="m-item"><div><div class="nm mincho">土鍋炊き込みご飯</div><small>二名様より・要予約</small></div><span class="dot"></span><span class="pr">2,200円</span></div>
+      <div class="m-item"><div><div class="nm mincho">本日のお造り盛り</div><small>三種・五種よりお選びいただけます</small></div><span class="dot"></span><span class="pr">1,650円〜</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="access">
+  <div class="wrap">
+    <div class="lead"><div class="en">RESERVATION</div><h2 class="mincho">ご予約・お問い合わせ</h2></div>
+    <p>お電話にて承っております。<br />個室のご用意もございます。お気軽にお問い合わせください。</p>
+    <div class="tel">03-1234-5678</div>
+    <p style="color:var(--sub);font-size:.85rem">営業時間 17:00–23:00（L.O. 22:00）／日曜定休</p>
+  </div>
+</section>
+
+<footer>
+  <div class="mincho" style="font-size:1.1rem;letter-spacing:.3em;color:var(--cream);margin-bottom:10px">日本料理 花暦</div>
+  © HANAGOYOMI（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" style="color:var(--gold)" target="_blank" rel="noopener">NextRay</a>
+</footer>
+</body>
+</html>
