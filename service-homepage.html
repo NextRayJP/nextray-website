@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ホームページ制作｜新潟のNextRay｜集客できるサイトを制作</title>
-<meta name="description" content="新潟のホームページ制作はNextRay。スマホ対応・高速表示・SEOに強い、集客できるサイトをデザインから公開まで一貫制作。作って終わりではなく成果につなげます。ご相談・お見積り無料。" />
+<meta name="description" content="新潟のホームページ制作はNextRay。スマホ対応・高速表示・SEOに強い集客サイトを、明朗な料金で制作。ライト98,000円〜／スタンダード248,000円〜／集客特化498,000円〜。月額保守5,500円〜。ご相談・お見積り無料。" />
 <meta name="keywords" content="新潟 ホームページ制作,新潟市 ホームページ作成,新潟 Web制作,ランディングページ 新潟,スマホ対応 サイト制作" />
 <link rel="canonical" href="https://nextray.jp/service-homepage.html" />
 <meta name="theme-color" content="#1e9bff" />
@@ -44,6 +44,81 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "料金が相場より安いのはなぜですか？", "acceptedAnswer": { "@type": "Answer", "text": "NextRayは『1人＋AI』の体制で固定費を極力抑え、AIによる効率化で生まれた余力を価格に還元しているためです。品質を落とすのではなく、無駄なコストを省くことで、費用対効果の高い制作を実現しています。" } },
+    { "@type": "Question", "name": "表示価格のほかに追加費用はかかりますか？", "acceptedAnswer": { "@type": "Answer", "text": "お見積り時にすべての費用を明示します。ご契約後に想定外の追加請求をすることはありません。ページ追加や撮影・原稿作成などのオプションが必要な場合も、事前にご説明し、ご納得いただいてから進めます。" } },
+    { "@type": "Question", "name": "制作期間はどのくらいですか？", "acceptedAnswer": { "@type": "Answer", "text": "規模により異なりますが、ライトプランで最短2週間〜、スタンダードで約1〜2ヶ月が目安です。お急ぎの場合もご相談ください。" } },
+    { "@type": "Question", "name": "新潟県外や遠方でも依頼できますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。オンライン打ち合わせで全国対応が可能です。新潟県内は直接訪問してのヒアリングも承ります。" } },
+    { "@type": "Question", "name": "公開後、自分でも更新できますか？", "acceptedAnswer": { "@type": "Answer", "text": "スタンダードプラン以上ではCMS（更新機能）を導入するため、専門知識がなくてもお知らせやブログを簡単に更新できます。更新作業そのものを代行する保守プランもご用意しています。" } }
+  ]
+}
+</script>
+<style>
+  /* --- page: homepage service extras (menu / pricing / maintenance / faq) --- */
+  .menu6{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .menu6 .mc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;transition:transform .25s,box-shadow .25s}
+  .menu6 .mc:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .menu6 .mc .mno{font-family:"Manrope",sans-serif;font-weight:800;font-size:.82rem;letter-spacing:.08em;color:var(--blue)}
+  .menu6 .mc h3{font-size:1.12rem;margin:8px 0 8px}
+  .menu6 .mc p{color:var(--muted);font-size:.92rem}
+
+  /* pricing */
+  .price-lead{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:-18px auto 40px;max-width:760px}
+  .price-lead .chip{font-size:.86rem;font-weight:700;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px}
+  .price-lead .chip b{color:var(--blue)}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .plan{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px 28px 30px;transition:transform .25s,box-shadow .25s}
+  .plan:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .plan.pop{border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,var(--grad) border-box;box-shadow:var(--shadow)}
+  .plan .ptop{position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.78rem;font-weight:800;letter-spacing:.06em;color:#fff;background:var(--grad);padding:6px 18px;border-radius:999px;box-shadow:0 10px 20px -8px rgba(30,155,255,.6)}
+  .plan .pname{font-size:1.18rem;font-weight:900}
+  .plan .pfor{color:var(--muted);font-size:.86rem;margin-top:4px;min-height:2.6em}
+  .plan .pprice{margin:16px 0 4px;font-family:"Manrope",sans-serif;font-weight:800;color:var(--ink);line-height:1}
+  .plan .pprice .yen{font-size:1.1rem;vertical-align:.35em;margin-right:2px}
+  .plan .pprice .num{font-size:2.5rem;letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .plan .pprice .tail{font-size:1rem;color:var(--ink-2);font-weight:700}
+  .plan .ptax{color:var(--muted);font-size:.78rem;margin-bottom:20px}
+  .plan .plist{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 0 26px;flex:1}
+  .plan .plist li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-2);font-size:.92rem}
+  .plan .plist li::before{content:"";width:20px;height:20px;flex:0 0 20px;margin-top:2px;border-radius:50%;background:var(--grad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e9bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+  .plan .btn{width:100%}
+  .price-allnote{text-align:center;color:var(--muted);font-size:.9rem;margin-top:26px}
+
+  /* maintenance */
+  .maint-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:840px;margin:0 auto}
+  .maint{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 30px}
+  .maint .mh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:18px}
+  .maint .mh h3{font-size:1.14rem}
+  .maint .mprice{font-family:"Manrope",sans-serif;font-weight:800;color:var(--blue);white-space:nowrap}
+  .maint .mprice b{font-size:1.5rem}
+  .maint ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .maint li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-2);font-size:.93rem}
+  .maint li::before{content:"";width:20px;height:20px;flex:0 0 20px;margin-top:2px;border-radius:50%;background:var(--grad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e9bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+
+  /* options */
+  .opt-wrap{max-width:900px;margin:30px auto 0;background:var(--bg-soft);border:1px solid var(--line);border-radius:20px;padding:28px 30px}
+  .opt-wrap h3{font-size:1.05rem;margin-bottom:6px}
+  .opt-wrap p.osub{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+  .opt-tags{display:flex;flex-wrap:wrap;gap:10px}
+  .opt-tags span{font-size:.88rem;font-weight:600;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px}
+
+  /* faq */
+  .faq{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:2px 24px;transition:box-shadow .2s}
+  .faq details[open]{box-shadow:var(--shadow)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;gap:14px;align-items:flex-start;font-weight:700;font-size:1.02rem;padding:20px 0}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::before{content:"Q";flex:0 0 auto;font-family:"Manrope",sans-serif;font-weight:800;color:var(--blue)}
+  .faq summary::after{content:"+";margin-left:auto;font-weight:400;font-size:1.4rem;color:var(--muted);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .fa{color:var(--ink-2);font-size:.95rem;padding:0 0 22px 30px}
+  @media(max-width:960px){.menu6{grid-template-columns:1fr 1fr}.price-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}.plan.pop{order:-1}}
+  @media(max-width:640px){.menu6{grid-template-columns:1fr}.maint-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -87,7 +162,7 @@
     <p class="lead">「作って終わり」のサイトでは、ビジネスは伸びません。NextRayは、スマホ対応・高速表示・SEOに配慮した“成果につながるサイト”を、企画から公開・運用まで一貫してご提供します。</p>
     <div class="hero-actions">
       <a href="index.html#contact" class="btn btn-primary">無料で相談する →</a>
-      <a href="tel:080-7517-4514" class="btn btn-ghost">電話で相談</a>
+      <a href="#pricing" class="btn btn-ghost">料金プランを見る</a>
     </div>
   </div>
 </section>
@@ -120,8 +195,27 @@
   </div>
 </section>
 
-<!-- 特徴（split） -->
+<!-- 制作メニュー（要望別） -->
 <section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Menu</span>
+      <h2>ご要望に合わせた、制作メニュー</h2>
+      <p>「何が必要か分からない」もご安心ください。目的に合わせて最適なかたちをご提案します。</p>
+    </div>
+    <div class="menu6">
+      <div class="mc reveal"><div class="mno">01</div><h3>コーポレートサイト</h3><p>会社の信頼と強みを伝える“顔”となるサイト。採用や取引先への安心感にも。</p></div>
+      <div class="mc reveal"><div class="mno">02</div><h3>店舗・サービスサイト</h3><p>飲食・美容・クリニックなど。世界観と情報を伝え、来店・予約につなげます。</p></div>
+      <div class="mc reveal"><div class="mno">03</div><h3>ランディングページ（LP）</h3><p>1ページで魅力を伝え切る、広告・キャンペーン用の成約特化ページ。</p></div>
+      <div class="mc reveal"><div class="mno">04</div><h3>採用サイト</h3><p>働く魅力を伝え、求める人材からの応募を集める採用専用ページ。</p></div>
+      <div class="mc reveal"><div class="mno">05</div><h3>ネットショップ（EC）</h3><p>商品を online で販売。決済・在庫まで、売れる仕組みをまるごと構築。</p></div>
+      <div class="mc reveal"><div class="mno">06</div><h3>リニューアル</h3><p>古い・スマホで見づらい・成果が出ない既存サイトを、今の時代に合わせて刷新。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 特徴（split） -->
+<section class="block">
   <div class="wrap">
     <div class="split reveal">
       <div class="visual v-blue">先端技術 × 高品質<br />“成果の出る”サイトへ</div>
@@ -150,8 +244,119 @@
   </div>
 </section>
 
-<!-- 流れ -->
+<!-- 料金プラン -->
+<section class="block soft" id="pricing">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Price</span>
+      <h2>明朗な、料金プラン</h2>
+      <p>「何にいくらかかるのか」を最初にはっきりと。目的とご予算に合わせて、最適なプランをご提案します。</p>
+    </div>
+    <div class="price-lead reveal">
+      <span class="chip">全プラン <b>スマホ対応</b></span>
+      <span class="chip"><b>独自SSL</b>（https化）</span>
+      <span class="chip"><b>お問い合わせフォーム</b></span>
+      <span class="chip">ご相談・お見積り <b>無料</b></span>
+    </div>
+    <div class="price-grid">
+      <div class="plan reveal">
+        <div class="pname">ライトプラン</div>
+        <div class="pfor">まずは名刺代わりに。小規模・個人事業の方へ。</div>
+        <div class="pprice"><span class="yen">¥</span><span class="num">98,000</span><span class="tail">〜</span></div>
+        <div class="ptax">税別／制作費一括</div>
+        <ul class="plist">
+          <li>1〜5ページ構成</li>
+          <li>スマホ・タブレット対応</li>
+          <li>お問い合わせフォーム</li>
+          <li>Googleマップ／SNS連携</li>
+          <li>独自SSL・基本的なSEO設定</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-ghost">このプランで相談する</a>
+      </div>
+      <div class="plan pop reveal">
+        <span class="ptop">人気No.1・おすすめ</span>
+        <div class="pname">スタンダードプラン</div>
+        <div class="pfor">集客の土台をしっかりと。多くの企業様に最適。</div>
+        <div class="pprice"><span class="yen">¥</span><span class="num">248,000</span><span class="tail">〜</span></div>
+        <div class="ptax">税別／制作費一括</div>
+        <ul class="plist">
+          <li>オリジナルデザイン（5〜10ページ）</li>
+          <li>集客を意識したSEO設計</li>
+          <li>お知らせ更新機能（CMS）</li>
+          <li>アクセス解析（GA4）設定</li>
+          <li>お問い合わせ・SNS連携</li>
+          <li>公開後の初期サポート付き</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-primary">このプランで相談する</a>
+      </div>
+      <div class="plan reveal">
+        <div class="pname">集客特化プラン</div>
+        <div class="pfor">本気で成果を出す。Web集客に力を入れたい方へ。</div>
+        <div class="pprice"><span class="yen">¥</span><span class="num">498,000</span><span class="tail">〜</span></div>
+        <div class="ptax">税別／制作費一括</div>
+        <ul class="plist">
+          <li>戦略設計・取材／撮影から対応</li>
+          <li>10ページ〜の本格構成</li>
+          <li>強化SEO・コンテンツ設計</li>
+          <li>LP・予約フォーム等の実装</li>
+          <li>MEO対策との連携</li>
+          <li>AI自動化（問い合わせ対応等）連携</li>
+          <li>公開後の改善運用まで伴走</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-ghost">このプランで相談する</a>
+      </div>
+    </div>
+    <p class="price-allnote reveal">※ 表示はすべて税別のスタート価格です。ページ数・ご要望により変動します。まずは無料でお見積りいたします。</p>
+  </div>
+</section>
+
+<!-- 保守プラン -->
 <section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Maintenance</span>
+      <h2>公開後も、安心の保守プラン</h2>
+      <p>ホームページは公開してからが本番。サーバー管理から更新代行まで、月額でまるごとお任せいただけます。</p>
+    </div>
+    <div class="maint-grid">
+      <div class="maint reveal">
+        <div class="mh"><h3>ライト保守</h3><div class="mprice"><b>¥5,500</b> /月〜</div></div>
+        <ul>
+          <li>サーバー・ドメインの管理代行</li>
+          <li>独自SSLの更新・維持</li>
+          <li>稼働状況の監視</li>
+          <li>障害発生時の一次対応</li>
+        </ul>
+      </div>
+      <div class="maint reveal">
+        <div class="mh"><h3>スタンダード保守</h3><div class="mprice"><b>¥11,000</b> /月〜</div></div>
+        <ul>
+          <li>ライト保守の内容をすべて含む</li>
+          <li>セキュリティ対策・定期バックアップ</li>
+          <li>軽微な修正・テキスト／画像の更新代行（月2回まで）</li>
+          <li>不具合対応・簡易な改善提案</li>
+        </ul>
+      </div>
+    </div>
+    <div class="opt-wrap reveal">
+      <h3>オプション・追加メニュー</h3>
+      <p class="osub">単品でのご依頼も可能です。組み合わせも含め、お気軽にご相談ください（別途お見積り）。</p>
+      <div class="opt-tags">
+        <span>ランディングページ制作</span>
+        <span>ネットショップ（EC）</span>
+        <span>ロゴ・名刺デザイン</span>
+        <span>写真撮影</span>
+        <span>原稿・ライティング</span>
+        <span>多言語対応</span>
+        <span>MEO対策</span>
+        <span>AI自動化・チャットボット</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section class="block soft">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Flow</span>
@@ -163,6 +368,38 @@
       <div class="flow-card reveal"><span class="num">2</span><span class="step">STEP 02</span><h3>ご提案・お見積り</h3><p>最適な構成と明確な料金をご提示。</p></div>
       <div class="flow-card reveal"><span class="num">3</span><span class="step">STEP 03</span><h3>制作・確認</h3><p>デザイン・構築し、ご確認いただきます。</p></div>
       <div class="flow-card reveal"><span class="num">4</span><span class="step">STEP 04</span><h3>公開・運用支援</h3><p>公開後も成果につながるよう伴走。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>よくあるご質問</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>料金が相場より安いのはなぜですか？</summary>
+        <div class="fa">NextRayは「1人＋AI」の体制で固定費を極力抑え、AIによる効率化で生まれた余力を価格に還元しているためです。品質を落とすのではなく、無駄なコストを省くことで、費用対効果の高い制作を実現しています。</div>
+      </details>
+      <details>
+        <summary>表示価格のほかに追加費用はかかりますか？</summary>
+        <div class="fa">お見積り時にすべての費用を明示します。ご契約後に想定外の追加請求をすることはありません。ページ追加や撮影・原稿作成などのオプションが必要な場合も、事前にご説明し、ご納得いただいてから進めます。</div>
+      </details>
+      <details>
+        <summary>制作期間はどのくらいですか？</summary>
+        <div class="fa">規模により異なりますが、ライトプランで最短2週間〜、スタンダードで約1〜2ヶ月が目安です。お急ぎの場合もまずはご相談ください。</div>
+      </details>
+      <details>
+        <summary>新潟県外や遠方でも依頼できますか？</summary>
+        <div class="fa">はい。オンライン打ち合わせで全国対応が可能です。新潟県内は直接訪問してのヒアリングも承ります。</div>
+      </details>
+      <details>
+        <summary>公開後、自分でも更新できますか？</summary>
+        <div class="fa">スタンダードプラン以上ではCMS（更新機能）を導入するため、専門知識がなくてもお知らせやブログを簡単に更新できます。更新作業そのものを代行する保守プランもご用意しています。</div>
+      </details>
     </div>
   </div>
 </section>
