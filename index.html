@@ -87,7 +87,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" /></noscript>
 <style>
   :root{
     --blue:#1e9bff;
@@ -208,7 +209,7 @@
 
   /* logo marquee */
   .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft);padding:22px 0}
-  .strip .wrap{display:flex;align-items:center;gap:34px;flex-wrap:wrap;justify-content:center;color:var(--muted);font-weight:600;font-size:.92rem}
+  .strip .wrap{display:flex;align-items:center;gap:34px;flex-wrap:wrap;justify-content:center;color:#646f80;font-weight:600;font-size:.92rem}
   .strip b{color:var(--ink-2)}
 
   /* ---------- Sections ---------- */
@@ -345,7 +346,7 @@
   .foot-sns{display:inline-flex;align-items:center;gap:9px;padding:9px 16px 9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:700;font-size:.9rem;transition:background .2s,border-color .2s}
   .foot-sns:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
   .foot-sns svg{width:20px;height:20px}
-  .foot-col h4{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;margin-bottom:18px}
+  .foot-col h3{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;opacity:.5;margin-bottom:18px}
   .foot-col a{display:block;opacity:.8;font-size:.94rem;margin-bottom:12px;transition:opacity .2s}
   .foot-col a:hover{opacity:1}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:12px;opacity:.55;font-size:.84rem}
@@ -390,7 +391,7 @@
 <!-- Header -->
 <header id="header">
   <div class="wrap nav">
-    <a href="#top" class="brand"><img src="assets/logo.png" alt="NextRay" /></a>
+    <a href="#top" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
     <nav class="nav-links">
       <a href="#problems">お悩み</a>
       <a href="#services">提供サービス</a>
@@ -727,14 +728,14 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <img src="assets/logo.png" alt="NextRay" />
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
         <p>お客様と共に――新潟のホームページ制作はNextRayにお任せください。成果の一部に、確実に貢献します。</p>
         <div class="foot-sns-row">
-          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="NextRay Instagram">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
             <span>@nextray_gk</span>
           </a>
-          <a class="foot-sns" href="https://x.com/NextRayGK" target="_blank" rel="noopener" aria-label="NextRay X（旧Twitter）">
+          <a class="foot-sns" href="https://x.com/NextRayGK" target="_blank" rel="noopener" aria-label="@NextRayGK（NextRay X・旧Twitter）">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             <span>@NextRayGK</span>
           </a>
@@ -745,7 +746,7 @@
         </div>
       </div>
       <div class="foot-col">
-        <h4>Menu</h4>
+        <h3>Menu</h3>
         <a href="#services">提供サービス</a>
         <a href="#why">選ばれる理由</a>
         <a href="#works">実績</a>
@@ -754,7 +755,7 @@
         <a href="#news">お知らせ</a>
       </div>
       <div class="foot-col">
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
         <a>受付時間：24時間</a>
         <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
