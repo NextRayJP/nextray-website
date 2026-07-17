@@ -108,7 +108,7 @@ section.block{padding:88px 0}
 /* Footer */
 footer{background:var(--ink);color:#fff;padding:66px 0 30px}
 .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
-.foot-brand img{height:30px;margin-bottom:18px;filter:brightness(0) invert(1)}
+.foot-brand img{height:30px;width:auto;margin-bottom:18px;filter:brightness(0) invert(1)}
 .foot-brand p{opacity:.6;font-size:.92rem;max-width:320px}
 .foot-sns{display:inline-flex;align-items:center;gap:9px;margin-top:18px;padding:9px 16px 9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:700;font-size:.9rem;transition:background .2s,border-color .2s}
 .foot-sns:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
