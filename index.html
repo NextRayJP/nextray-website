@@ -346,6 +346,25 @@
   .cert-list a::after{content:"↗";font-size:.72rem;color:var(--blue);opacity:.75}
   .cert-note{text-align:center;margin-top:30px;color:var(--muted);font-size:.86rem}
   .cert-cta{text-align:center;margin-top:22px}
+  /* パートナーシップ構築宣言 */
+  .pship{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;margin-top:34px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 34px;box-shadow:var(--shadow)}
+  .pship-logo{flex:0 0 auto;display:grid;place-items:center;padding:14px 18px;border-radius:14px;background:var(--bg-soft)}
+  .pship-logo img{width:205px;height:auto}
+  .pship-badge{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:#1263ad;
+    background:rgba(18,99,173,.09);border:1px solid rgba(18,99,173,.2);padding:5px 12px;border-radius:999px;margin-bottom:10px}
+  .pship-body h3{font-size:1.2rem;font-weight:900;margin-bottom:10px}
+  .pship-body p{color:var(--ink-2);font-size:.95rem;margin-bottom:14px}
+  .pship-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+  .pship-list li{display:flex;gap:9px;align-items:flex-start;color:var(--ink-2);font-size:.9rem}
+  .pship-list li::before{content:"";width:18px;height:18px;flex:0 0 18px;margin-top:3px;border-radius:50%;
+    background:rgba(18,99,173,.1);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231263ad' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size:11px;background-repeat:no-repeat;background-position:center}
+  .pship-link{font-size:.86rem;font-weight:700;color:#1263ad}
+  .pship-link:hover{text-decoration:underline}
+  @media(max-width:760px){.pship{grid-template-columns:1fr;gap:20px;padding:26px 22px;text-align:center}
+    .pship-logo img{width:180px}.pship-list{text-align:left}.pship-list li{justify-content:flex-start}}
   @media(max-width:640px){.cert-cats{grid-template-columns:1fr}}
 
   /* pricing note / CTA band */
@@ -386,6 +405,11 @@
   .foot-brand img{height:30px;width:auto;margin-bottom:18px;filter:brightness(0) invert(1)}
   .foot-brand p{opacity:.6;font-size:.92rem;max-width:320px}
   .foot-sns-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .foot-pship{display:inline-flex;flex-direction:column;align-items:center;gap:7px;margin-top:20px;
+    background:#fff;border-radius:12px;padding:12px 16px 10px;transition:transform .2s,box-shadow .2s}
+  .foot-pship:hover{transform:translateY(-3px);box-shadow:0 14px 28px -12px rgba(0,0,0,.5)}
+  .foot-pship img{width:152px;height:auto;margin:0;filter:none}
+  .foot-pship span{font-size:.72rem;font-weight:700;color:#1263ad;letter-spacing:.02em}
   .foot-sns{display:inline-flex;align-items:center;gap:9px;padding:9px 16px 9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:700;font-size:.9rem;transition:background .2s,border-color .2s}
   .foot-sns:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
   .foot-sns svg{width:20px;height:20px}
@@ -726,6 +750,25 @@
       </div>
     </div>
     <p class="cert-note reveal">※ 各バッジをクリックすると、公式の修了証明ページが開きます（Anthropic Academy＝verify.skilljar.com／OpenAI Academy＝academy.openai.com）。</p>
+
+    <!-- パートナーシップ構築宣言 -->
+    <div class="pship reveal">
+      <div class="pship-logo">
+        <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+      </div>
+      <div class="pship-body">
+        <span class="pship-badge">内閣府・中小企業庁が推進</span>
+        <h3>「パートナーシップ構築宣言」を宣言しています</h3>
+        <p>NextRayは、取引先の皆さまとの<b>共存共栄</b>を目指す「パートナーシップ構築宣言」を公表しました。下請けや外注先を「安く買い叩く相手」ではなく<b>対等なパートナー</b>と位置づけ、適正な取引価格・適正な支払条件を守ることをお約束します。</p>
+        <ul class="pship-list">
+          <li>取引先との適正な価格決定と、しわ寄せを生まない取引</li>
+          <li>手形などによる支払いサイトの適正化</li>
+          <li>働き方改革やサプライチェーン全体の付加価値向上への協力</li>
+        </ul>
+        <a class="pship-link" href="https://www.biz-partnership.jp/" target="_blank" rel="noopener">パートナーシップ構築宣言 ポータルサイト ↗</a>
+      </div>
+    </div>
+
     <div class="cert-cta reveal">
       <a href="#contact" class="btn btn-primary">AI活用について相談する →</a>
     </div>
@@ -831,6 +874,10 @@
             <span>LinkedIn</span>
           </a>
         </div>
+        <a class="foot-pship" href="#certs" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
       </div>
       <div class="foot-col">
         <h3>Menu</h3>
