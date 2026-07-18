@@ -162,7 +162,7 @@
   .burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
 
   /* ---------- Hero ---------- */
-  .hero{position:relative;padding:170px 0 110px;overflow:hidden}
+  .hero{position:relative;padding:60px 0 110px;overflow:hidden}
   .hero-bg{position:absolute;inset:0;z-index:-2;background:
      radial-gradient(60% 55% at 82% 8%,rgba(246,169,74,.16),transparent 60%),
      radial-gradient(55% 55% at 8% 22%,rgba(30,155,255,.18),transparent 60%),
@@ -272,8 +272,18 @@
   .svc-price b{color:var(--blue);font-size:1.05rem}
   .svc-price small{display:block;font-size:.76rem;font-weight:500;color:var(--muted);margin-top:3px}
 
-  /* 150件限定 */
-  .limited{padding-top:0}
+  /* 150案件限定（トップ最上部） */
+  .limited{padding:130px 0 30px}
+  .limit-h{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:900;line-height:1.35;margin-bottom:16px;letter-spacing:-.01em}
+  .lg-h{font-size:1.06rem;font-weight:800;margin-bottom:10px;color:#fff}
+  .slot-row{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin:26px 0 30px;
+    padding:22px 18px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+  .slot{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:150px}
+  .slot-label{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.7)}
+  .slot-num{font-family:"Manrope",sans-serif;font-weight:800;font-size:2.1rem;line-height:1;color:#fff}
+  .slot-num small{font-size:.9rem;font-weight:700;margin-left:3px;color:rgba(255,255,255,.75)}
+  .slot-total .slot-num{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .slot-plus,.slot-eq{font-family:"Manrope",sans-serif;font-weight:800;font-size:1.3rem;color:rgba(255,255,255,.5)}
   .limit-card{position:relative;overflow:hidden;border-radius:30px;padding:56px 52px;text-align:center;
     background:linear-gradient(160deg,#0b1220 0%,#12233d 55%,#0b1220 100%);color:#fff;box-shadow:var(--shadow)}
   .limit-card::before{content:"";position:absolute;inset:0;opacity:.5;
@@ -282,18 +292,19 @@
   .limit-badge{display:inline-block;font-family:"Manrope",sans-serif;font-size:.74rem;font-weight:800;letter-spacing:.18em;
     text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
     padding:7px 16px;border-radius:999px;margin-bottom:20px}
-  .limit-card h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:900;line-height:1.35;margin-bottom:16px}
   .limit-num{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-size:1.18em}
   .limit-lead{color:rgba(255,255,255,.82);font-size:1.04rem;margin-bottom:36px}
   .limit-lead b{color:#fff}
   .limit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left;margin-bottom:34px}
   .lg-item{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:26px 24px}
-  .lg-item h3{font-size:1.06rem;margin-bottom:10px;color:#fff}
   .lg-item p{color:rgba(255,255,255,.76);font-size:.94rem}
   .lg-item b{color:#fff}
   .limit-cta{display:flex;flex-direction:column;align-items:center;gap:10px}
   .limit-note{font-size:.84rem;color:rgba(255,255,255,.6)}
-  @media(max-width:760px){.limit-card{padding:40px 24px}.limit-grid{grid-template-columns:1fr}}
+  @media(max-width:760px){.limit-card{padding:40px 22px}.limit-grid{grid-template-columns:1fr}
+    .limited{padding:104px 0 20px}
+    .slot-row{gap:10px;padding:18px 12px}.slot{min-width:120px}.slot-num{font-size:1.7rem}
+    .slot-plus,.slot-eq{font-size:1.05rem}}
 
   /* works */
   .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -406,7 +417,7 @@
     .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;font-size:1.8rem;cursor:pointer}
     .prob-grid,.svc-grid,.work-grid,.flow-grid,.foot-top{grid-template-columns:1fr}
     section.block{padding:66px 0}
-    .hero{padding:130px 0 80px}
+    .hero{padding:44px 0 80px}
     .cta-inner{padding:44px 26px}
     .news-item{flex-wrap:wrap;gap:10px}
     .news-item time{width:auto}
@@ -452,6 +463,50 @@
   <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
 </div>
 
+<!-- 150案件限定（最上部） -->
+<section class="limited" id="limited">
+  <div class="wrap">
+    <div class="limit-card">
+      <span class="limit-badge">Limited to 150 — 特殊な方針のご案内</span>
+      <p class="limit-h">NextRayは取引案件を<br class="sp" /><span class="limit-num">最大150</span>に制限します。</p>
+      <p class="limit-lead">拡大を追わず、<b>一社ごとに向き合い続けること</b>を選びました。<br class="sp" />だからこそ、お受けできる数にはあらかじめ上限があります。</p>
+
+      <div class="slot-row">
+        <div class="slot">
+          <span class="slot-label">ホームページ制作・保守</span>
+          <span class="slot-num">50<small>枠</small></span>
+        </div>
+        <span class="slot-plus">＋</span>
+        <div class="slot">
+          <span class="slot-label">AI運用コンサルティング</span>
+          <span class="slot-num">100<small>枠</small></span>
+        </div>
+        <span class="slot-eq">＝</span>
+        <div class="slot slot-total">
+          <span class="slot-label">合計</span>
+          <span class="slot-num">150<small>案件</small></span>
+        </div>
+      </div>
+
+      <div class="limit-grid">
+        <div class="lg-item">
+          <p class="lg-h">なぜ150なのか</p>
+          <p>人がしっかり関係を保てる相手の数には限りがあり、その上限はおよそ150人といわれています。これを超えて抱えれば、一社あたりに割ける時間と注意は必ず薄まります。<b>「成果が出るまで付き合う」という約束を守れる範囲</b>が、私たちにとっての150です。</p>
+        </div>
+        <div class="lg-item">
+          <p class="lg-h">枠には限りがあります</p>
+          <p>上限に達した時点で、新規のご依頼は締め切ります。「安く早く、たくさん」ではなく、<b>ご縁のあった会社の成果を最大化すること</b>に時間を使いたいと考えています。ご検討中の方は、お早めにご相談ください。</p>
+        </div>
+      </div>
+
+      <div class="limit-cta">
+        <a href="#contact" class="btn btn-primary">空き枠を問い合わせる →</a>
+        <span class="limit-note">ご相談・お見積りは無料です</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Hero -->
 <section class="hero" id="top">
   <div class="hero-bg"></div>
@@ -492,7 +547,7 @@
   <div class="wrap">
     <b>対応領域：</b>
     <span>ホームページ制作</span>・<span>MEO対策</span>・<span>Googleマップ集客</span>・<span>AI自動化</span>・<span>AI総務（総務代行）</span>・<span>人材不足の解決</span>
-    <a class="strip-limit" href="#limited">ご契約は150社限定 →</a>
+    <span class="strip-limit">取引案件は最大150に制限</span>
   </div>
 </div>
 
@@ -571,31 +626,6 @@
       <div class="feat reveal"><span class="n">02</span><div><h3>先端技術 × 高品質</h3><p>最新の技術をふんだんに活用しながら、品質は一切妥協しません。速く、美しく、成果の出るサイトへ。</p></div></div>
       <div class="feat reveal"><span class="n">03</span><div><h3>お客様と“共に”</h3><p>作って終わりではなく、成果の一部に確実に貢献するパートナーとして、公開後も伴走し続けます。</p></div></div>
       <div class="feat reveal"><span class="n">04</span><div><h3>地域密着・24時間受付</h3><p>新潟エリアを中心にフットワーク軽く対応。お問い合わせは24時間受付、スピーディにお応えします。</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 150件限定 -->
-<section class="block limited" id="limited">
-  <div class="wrap">
-    <div class="limit-card reveal">
-      <span class="limit-badge">Limited to 150</span>
-      <h2>ご契約は、<span class="limit-num">150社</span>まで。</h2>
-      <p class="limit-lead">NextRayは、これ以上お客様を増やしません。<br class="sp" />拡大よりも、<b>一社ごとに向き合い続けること</b>を選んだからです。</p>
-      <div class="limit-grid">
-        <div class="lg-item">
-          <h3>なぜ150社なのか</h3>
-          <p>人がしっかり関係を保てる相手の数には限りがあり、その上限はおよそ150人といわれています。これを超えて抱えれば、一社あたりに割ける時間と注意は必ず薄まります。<b>「成果が出るまで付き合う」という約束を守れる範囲</b>が、私たちにとっての150社です。</p>
-        </div>
-        <div class="lg-item">
-          <h3>だから、お受けできる数に限りがあります</h3>
-          <p>枠が埋まった時点で、新規のご依頼は締め切ります。「安く早く、たくさん」ではなく、<b>ご縁のあった会社の成果を最大化すること</b>に時間を使いたいと考えています。ご検討中の方は、お早めにご相談ください。</p>
-        </div>
-      </div>
-      <div class="limit-cta">
-        <a href="#contact" class="btn btn-primary">空き状況を問い合わせる →</a>
-        <span class="limit-note">ご相談・お見積りは無料です</span>
-      </div>
     </div>
   </div>
 </section>
