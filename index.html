@@ -120,6 +120,8 @@
   a{color:inherit;text-decoration:none}
   img{max-width:100%;display:block}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  /* スマホでのみ改行する <br class="sp"> 用 */
+  .sp{display:none}
   .grad-text{
     background:var(--grad);
     -webkit-background-clip:text;background-clip:text;
@@ -162,7 +164,7 @@
   .burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
 
   /* ---------- Hero ---------- */
-  .hero{position:relative;padding:60px 0 110px;overflow:hidden}
+  .hero{position:relative;padding:170px 0 110px;overflow:hidden}
   .hero-bg{position:absolute;inset:0;z-index:-2;background:
      radial-gradient(60% 55% at 82% 8%,rgba(246,169,74,.16),transparent 60%),
      radial-gradient(55% 55% at 8% 22%,rgba(30,155,255,.18),transparent 60%),
@@ -220,8 +222,10 @@
   .sec-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:900;line-height:1.3;margin:16px 0 14px}
   .sec-head p{color:var(--muted);font-size:1.04rem}
 
+  /* 背景トーンの交互リズム（白 ⇄ ソフトグレー）用ユーティリティ */
+  .soft{background:var(--bg-soft)}
+
   /* problems */
-  .problems{background:var(--bg-soft)}
   .prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .prob-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:transform .25s,box-shadow .25s}
   .prob-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
@@ -272,8 +276,8 @@
   .svc-price b{color:var(--blue);font-size:1.05rem}
   .svc-price small{display:block;font-size:.76rem;font-weight:500;color:var(--muted);margin-top:3px}
 
-  /* 150案件限定（トップ最上部） */
-  .limited{padding:130px 0 30px}
+  /* 150案件限定（サービス紹介のあと、方針として提示） */
+  .limited{padding:96px 0;background:var(--bg-soft)}
   .limit-h{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:900;line-height:1.35;margin-bottom:16px;letter-spacing:-.01em}
   .lg-h{font-size:1.06rem;font-weight:800;margin-bottom:10px;color:#fff}
   .slot-row{display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;margin:26px 0 30px;
@@ -305,7 +309,7 @@
   .limit-cta{display:flex;flex-direction:column;align-items:center;gap:10px}
   .limit-note{font-size:.84rem;color:rgba(255,255,255,.6)}
   @media(max-width:760px){.limit-card{padding:40px 22px}.limit-grid{grid-template-columns:1fr}
-    .limited{padding:104px 0 20px}
+    .limited{padding:66px 0}
     .slot-row{gap:16px;padding:20px 14px}.slot-num{font-size:2.1rem}
     .slot-targets{padding-left:0;padding-top:16px;border-left:none;border-top:1px solid rgba(255,255,255,.16);width:100%}}
 
@@ -393,8 +397,7 @@
 
   /* news */
   .news-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:4px}
-  .news-item{display:flex;gap:24px;align-items:center;padding:22px 8px;border-bottom:1px solid var(--line);transition:background .2s}
-  .news-item:hover{background:var(--bg-soft)}
+  .news-item{display:flex;gap:24px;align-items:center;padding:22px 8px;border-bottom:1px solid var(--line)}
   .news-item time{font-family:"Manrope",sans-serif;font-weight:700;color:var(--muted);font-size:.9rem;flex:0 0 auto;width:96px}
   .news-item .cat{flex:0 0 auto;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--grad-soft);color:var(--blue)}
   .news-item p{font-size:.98rem}
@@ -432,25 +435,29 @@
     .comp-wrap{grid-template-columns:1fr;gap:32px}
     .foot-top{grid-template-columns:1fr 1fr}
   }
-  @media(max-width:640px){
+  /* ナビが詰まり始める幅でバーガーメニューへ切り替え */
+  @media(max-width:1000px){
     .nav-links{display:none}
-    .nav-phone span{display:none}
     .burger{display:flex}
-    header .nav-cta .btn{display:none}
     .mobile-menu{position:fixed;inset:0;z-index:60;background:#fff;padding:90px 30px 40px;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;gap:6px}
     .mobile-menu.open{transform:none}
     .mobile-menu a{padding:16px 4px;font-size:1.1rem;font-weight:700;border-bottom:1px solid var(--line)}
     .mobile-menu .btn{margin-top:20px}
     .mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;font-size:1.8rem;cursor:pointer}
+  }
+  @media(max-width:640px){
+    .nav-phone span{display:none}
+    header .nav-cta .btn{display:none}
+    .sp{display:inline}
     .prob-grid,.svc-grid,.work-grid,.flow-grid,.foot-top{grid-template-columns:1fr}
     section.block{padding:66px 0}
-    .hero{padding:44px 0 80px}
+    .hero{padding:130px 0 80px}
     .cta-inner{padding:44px 26px}
     .news-item{flex-wrap:wrap;gap:10px}
     .news-item time{width:auto}
     .hero-trust{gap:22px}
   }
-  @media(min-width:641px){.mobile-menu{display:none}}
+  @media(min-width:1001px){.mobile-menu{display:none}}
 </style>
 </head>
 <body>
@@ -489,47 +496,6 @@
   <a href="#contact" class="btn btn-primary">無料相談する</a>
   <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
 </div>
-
-<!-- 150案件限定（最上部） -->
-<section class="limited" id="limited">
-  <div class="wrap">
-    <div class="limit-card">
-      <span class="limit-badge">Limited to 150 — 特殊な方針のご案内</span>
-      <p class="limit-h">NextRayは取引案件を<br class="sp" /><span class="limit-num">最大150</span>に制限します。</p>
-      <p class="limit-lead">拡大を追わず、<b>一社ごとに向き合い続けること</b>を選びました。<br class="sp" />だからこそ、お受けできる数にはあらかじめ上限があります。</p>
-
-      <div class="slot-row">
-        <div class="slot slot-total">
-          <span class="slot-label">お受けできる案件数（上限）</span>
-          <span class="slot-num">150<small>案件</small></span>
-        </div>
-        <div class="slot-targets">
-          <span class="slot-label">対象サービス</span>
-          <div class="st-tags">
-            <span>ホームページ制作・保守</span>
-            <span>AI運用コンサルティング</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="limit-grid">
-        <div class="lg-item">
-          <p class="lg-h">なぜ150なのか</p>
-          <p>人がしっかり関係を保てる相手の数には限りがあり、その上限はおよそ150人といわれています。これを超えて抱えれば、一社あたりに割ける時間と注意は必ず薄まります。<b>「成果が出るまで付き合う」という約束を守れる範囲</b>が、私たちにとっての150です。</p>
-        </div>
-        <div class="lg-item">
-          <p class="lg-h">枠には限りがあります</p>
-          <p>上限に達した時点で、新規のご依頼は締め切ります。「安く早く、たくさん」ではなく、<b>ご縁のあった会社の成果を最大化すること</b>に時間を使いたいと考えています。ご検討中の方は、お早めにご相談ください。</p>
-        </div>
-      </div>
-
-      <div class="limit-cta">
-        <a href="#contact" class="btn btn-primary">空き枠を問い合わせる →</a>
-        <span class="limit-note">ご相談・お見積りは無料です</span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Hero -->
 <section class="hero" id="top">
@@ -571,12 +537,12 @@
   <div class="wrap">
     <b>対応領域：</b>
     <span>ホームページ制作</span>・<span>MEO対策</span>・<span>Googleマップ集客</span>・<span>AI自動化</span>・<span>AI総務（総務代行）</span>・<span>人材不足の解決</span>
-    <span class="strip-limit">取引案件は最大150に制限</span>
+    <a href="#limited" class="strip-limit">取引案件は最大150に制限</a>
   </div>
 </div>
 
 <!-- Problems -->
-<section class="block problems" id="problems">
+<section class="block" id="problems">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Problems</span>
@@ -592,7 +558,7 @@
 </section>
 
 <!-- Services -->
-<section class="block" id="services">
+<section class="block soft" id="services">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Services</span>
@@ -671,8 +637,49 @@
   </div>
 </section>
 
+<!-- 150案件限定 -->
+<section class="limited" id="limited">
+  <div class="wrap">
+    <div class="limit-card reveal">
+      <span class="limit-badge">Limited to 150 — 特殊な方針のご案内</span>
+      <p class="limit-h">NextRayは取引案件を<br class="sp" /><span class="limit-num">最大150</span>に制限します。</p>
+      <p class="limit-lead">拡大を追わず、<b>一社ごとに向き合い続けること</b>を選びました。<br class="sp" />だからこそ、お受けできる数にはあらかじめ上限があります。</p>
+
+      <div class="slot-row">
+        <div class="slot slot-total">
+          <span class="slot-label">お受けできる案件数（上限）</span>
+          <span class="slot-num">150<small>案件</small></span>
+        </div>
+        <div class="slot-targets">
+          <span class="slot-label">対象サービス</span>
+          <div class="st-tags">
+            <span>ホームページ制作・保守</span>
+            <span>AI運用コンサルティング</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="limit-grid">
+        <div class="lg-item">
+          <p class="lg-h">なぜ150なのか</p>
+          <p>人がしっかり関係を保てる相手の数には限りがあり、その上限はおよそ150人といわれています。これを超えて抱えれば、一社あたりに割ける時間と注意は必ず薄まります。<b>「成果が出るまで付き合う」という約束を守れる範囲</b>が、私たちにとっての150です。</p>
+        </div>
+        <div class="lg-item">
+          <p class="lg-h">枠には限りがあります</p>
+          <p>上限に達した時点で、新規のご依頼は締め切ります。「安く早く、たくさん」ではなく、<b>ご縁のあった会社の成果を最大化すること</b>に時間を使いたいと考えています。ご検討中の方は、お早めにご相談ください。</p>
+        </div>
+      </div>
+
+      <div class="limit-cta">
+        <a href="#contact" class="btn btn-primary">空き枠を問い合わせる →</a>
+        <span class="limit-note">ご相談・お見積りは無料です</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Works -->
-<section class="block problems" id="works">
+<section class="block" id="works">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Works</span>
@@ -680,12 +687,12 @@
       <p>業種ごとに“らしさ”を引き出したホームページのデザイン例です。カードをクリックすると、実際のサンプルサイトをご覧いただけます。</p>
     </div>
     <div class="work-grid">
-      <a class="work reveal" href="sample-koumuten.html" target="_blank" rel="noopener"><div class="thumb w1"><span class="wtxt os">大和建築工房</span></div><div class="meta"><span class="tag">工務店・建築</span><h3>力強さと信頼を伝える</h3><p>施工実績と技術力を前面に。問い合わせにつなげる建築会社サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
-      <a class="work reveal" href="sample-restaurant.html" target="_blank" rel="noopener"><div class="thumb w2"><span class="wtxt mn">日本料理 花暦</span></div><div class="meta"><span class="tag">飲食・料理店</span><h3>和モダンで上質に</h3><p>お店の世界観を伝え、予約したくなる飲食店サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
+      <a class="work reveal" href="sample-koumuten.html" target="_blank" rel="noopener"><div class="thumb w1"><span class="wtxt">大和建築工房</span></div><div class="meta"><span class="tag">工務店・建築</span><h3>力強さと信頼を伝える</h3><p>施工実績と技術力を前面に。問い合わせにつなげる建築会社サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
+      <a class="work reveal" href="sample-restaurant.html" target="_blank" rel="noopener"><div class="thumb w2"><span class="wtxt">日本料理 花暦</span></div><div class="meta"><span class="tag">飲食・料理店</span><h3>和モダンで上質に</h3><p>お店の世界観を伝え、予約したくなる飲食店サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
       <a class="work reveal" href="sample-salon.html" target="_blank" rel="noopener"><div class="thumb w3"><span class="wtxt">hair salon LueN</span></div><div class="meta"><span class="tag">美容・サロン</span><h3>洗練された特別感を</h3><p>ブランドイメージを高め、来店につなげるサロンサイト。</p><span class="wlink">サンプルを見る →</span></div></a>
       <a class="work reveal" href="sample-dental.html" target="_blank" rel="noopener"><div class="thumb w4"><span class="wtxt">あおば歯科クリニック</span></div><div class="meta"><span class="tag">医療・クリニック</span><h3>清潔感と安心感を</h3><p>やさしい印象で、初診の予約につなげる医院サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
       <a class="work reveal" href="sample-cafe.html" target="_blank" rel="noopener"><div class="thumb w5"><span class="wtxt">cafe KANATA</span></div><div class="meta"><span class="tag">カフェ・小売</span><h3>あたたかな居心地を</h3><p>お店の空気感を写真とともに伝える、カフェ・ショップサイト。</p><span class="wlink">サンプルを見る →</span></div></a>
-      <a class="work reveal" href="sample-zeirishi.html" target="_blank" rel="noopener"><div class="thumb w6"><span class="wtxt cg">さくら税理士事務所</span></div><div class="meta"><span class="tag">士業・専門職</span><h3>誠実さと専門性を</h3><p>信頼を醸成し、無料相談につなげる士業・専門家サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
+      <a class="work reveal" href="sample-zeirishi.html" target="_blank" rel="noopener"><div class="thumb w6"><span class="wtxt">さくら税理士事務所</span></div><div class="meta"><span class="tag">士業・専門職</span><h3>誠実さと専門性を</h3><p>信頼を醸成し、無料相談につなげる士業・専門家サイト。</p><span class="wlink">サンプルを見る →</span></div></a>
     </div>
     <p class="work-note reveal">※ 掲載しているサンプルはすべてNextRayが制作したデザイン例です。実在の企業・店舗とは関係ありません。</p>
   </div>
@@ -817,15 +824,15 @@
       <h2>お知らせ</h2>
     </div>
     <div class="news-list">
-      <a class="news-item reveal"><time>2026.06.09</time><span class="cat">お知らせ</span><p>営業時間変更のお知らせ</p></a>
-      <a class="news-item reveal"><time>2026.06.09</time><span class="cat">実績</span><p>施工事例を追加しました</p></a>
-      <a class="news-item reveal"><time>2026.06.09</time><span class="cat">制作</span><p>お客様のホームページ作成が完了しました</p></a>
+      <div class="news-item reveal"><time>2026.06.09</time><span class="cat">お知らせ</span><p>営業時間変更のお知らせ</p></div>
+      <div class="news-item reveal"><time>2026.06.09</time><span class="cat">実績</span><p>施工事例を追加しました</p></div>
+      <div class="news-item reveal"><time>2026.06.09</time><span class="cat">制作</span><p>お客様のホームページ作成が完了しました</p></div>
     </div>
   </div>
 </section>
 
 <!-- Contact / Footer CTA -->
-<section class="block problems" id="contact">
+<section class="block soft" id="contact">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Contact</span>
