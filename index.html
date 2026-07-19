@@ -350,6 +350,32 @@
   .cert-list a::after{content:"↗";font-size:.72rem;color:var(--blue);opacity:.75}
   .cert-note{text-align:center;margin-top:30px;color:var(--muted);font-size:.86rem}
   .cert-cta{text-align:center;margin-top:22px}
+  .cert-subhead{text-align:center;font-size:1.24rem;font-weight:900;margin:52px 0 12px}
+  .cert-sublead{text-align:center;max-width:760px;margin:0 auto 34px;color:var(--muted);font-size:.98rem}
+
+  /* Google Partner 認定カード */
+  .gpartner{position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 38px;box-shadow:var(--shadow)}
+  .gpartner::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg,#4285f4 0 25%,#ea4335 25% 50%,#fbbc05 50% 75%,#34a853 75% 100%)}
+  .gpartner-badge{flex:0 0 auto;display:grid;place-items:center}
+  .gpartner-badge img{width:190px;height:auto}
+  .gp-badge{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;color:#1a73e8;
+    background:rgba(66,133,244,.09);border:1px solid rgba(66,133,244,.22);padding:5px 12px;border-radius:999px;margin-bottom:10px}
+  .gpartner h3{font-size:1.25rem;font-weight:900;margin-bottom:10px;line-height:1.4}
+  .gpartner>div>p{color:var(--ink-2);font-size:.95rem;margin-bottom:14px}
+  .gp-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+  .gp-list li{display:flex;gap:9px;align-items:flex-start;color:var(--ink-2);font-size:.9rem}
+  .gp-list li::before{content:"";width:18px;height:18px;flex:0 0 18px;margin-top:3px;border-radius:50%;
+    background:rgba(66,133,244,.1);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a73e8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+    background-size:11px;background-repeat:no-repeat;background-position:center}
+  .gp-note{font-size:.82rem;color:var(--muted)}
+  /* バッジ画像が未配置でも崩れないためのフォールバック */
+  .gpartner.no-badge{grid-template-columns:1fr}
+  .gpartner.no-badge .gpartner-badge{display:none}
+  @media(max-width:760px){.gpartner{grid-template-columns:1fr;gap:22px;padding:28px 22px;text-align:center}
+    .gpartner-badge img{width:160px}.gp-list{text-align:left}}
   /* パートナーシップ構築宣言 */
   .pship{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;margin-top:34px;
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 34px;box-shadow:var(--shadow)}
@@ -404,7 +430,7 @@
 
   /* footer */
   footer{background:var(--ink);color:#fff;padding:70px 0 30px}
-  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
   .foot-brand img{height:30px;width:auto;margin-bottom:18px;filter:brightness(0) invert(1)}
   .foot-brand p{opacity:.6;font-size:.92rem;max-width:320px}
   .foot-sns-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
@@ -467,13 +493,13 @@
   <div class="wrap nav">
     <a href="#top" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
     <nav class="nav-links">
-      <a href="#problems">お悩み</a>
       <a href="#services">提供サービス</a>
-      <a href="#why">選ばれる理由</a>
+      <a href="pricing.html">料金</a>
       <a href="#works">実績</a>
       <a href="#certs">認定</a>
-      <a href="#company">会社案内</a>
-      <a href="#news">お知らせ</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="area.html">対応エリア</a>
+      <a href="company.html">会社概要</a>
     </nav>
     <div class="nav-cta">
       <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
@@ -486,13 +512,13 @@
 <!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
-  <a href="#problems">お悩み</a>
   <a href="#services">提供サービス</a>
-  <a href="#why">選ばれる理由</a>
+  <a href="pricing.html">料金一覧</a>
   <a href="#works">実績</a>
   <a href="#certs">認定</a>
-  <a href="#company">会社案内</a>
-  <a href="#news">お知らせ</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="area.html">対応エリア</a>
+  <a href="company.html">会社概要</a>
   <a href="#contact" class="btn btn-primary">無料相談する</a>
   <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
 </div>
@@ -579,6 +605,7 @@
         <h3>MEO対策（検索上位・Googleマップ）</h3>
         <p>「地域名＋業種」で検索したお客様に、確実に見つけてもらう。Googleマップ・検索での上位表示を狙う地域集客のプロ施策です。</p>
         <ul><li>Googleビジネスプロフィール最適化</li><li>地域キーワードでの上位表示対策</li><li>口コミ・情報の継続改善</li></ul>
+        <div class="svc-price">月額 <b>3万円</b><small>プロフィール最適化・投稿運用・口コミ対応込み（税別）</small></div>
         <a href="service-meo.html" class="svc-link">詳しく見る →</a>
       </div>
       <div class="svc-card reveal">
@@ -703,9 +730,31 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Certifications</span>
-      <h2>AI活用力の、<br class="sp" />確かな裏付け。</h2>
-      <p>NextRay代表・谷川恵介は、Claudeを開発する <b>Anthropic</b> の「Anthropic Academy」を <b class="grad-text">20コース修了</b>。さらに ChatGPT を開発する <b>OpenAI</b> の公式教育プログラム「OpenAI Academy」も <b class="grad-text">修了</b>。主要AIを横断的に使いこなす力で、集客・自動化・人材不足の課題に向き合います。</p>
+      <h2>第三者からの、<br class="sp" />確かな裏付け。</h2>
+      <p>Googleの公式パートナー認定と、主要AI企業の教育プログラム修了。お取引先を選ぶ判断材料として、客観的に検証できる形でお示しします。</p>
     </div>
+
+    <!-- Google Partner 認定 -->
+    <div class="gpartner reveal">
+      <div class="gpartner-badge">
+        <img src="assets/google-partner.png" alt="Google Partner 認定バッジ" width="380" height="380" loading="lazy" onerror="this.closest('.gpartner').classList.add('no-badge')" />
+      </div>
+      <div>
+        <span class="gp-badge">Google 公式パートナープログラム</span>
+        <h3>Google Partner（Google広告 正規パートナー）に認定されています</h3>
+        <p>Google Partners は、Google が広告運用の実績や認定資格の保有状況などをもとに認定する、代理店向けの公式プログラムです。NextRayはこの認定を取得しています。</p>
+        <ul class="gp-list">
+          <li>Google広告の認定資格を保有する担当者が対応</li>
+          <li>Googleの最新仕様・アップデートに追随した運用</li>
+          <li>MEO・SEOと広告を組み合わせた集客設計が可能</li>
+        </ul>
+        <p class="gp-note">※ Google および Google Partner は Google LLC の商標です。</p>
+      </div>
+    </div>
+
+    <h3 class="cert-subhead reveal">AI活用力の裏付け</h3>
+    <p class="cert-sublead reveal">代表・谷川恵介は、Claudeを開発する <b>Anthropic</b> の「Anthropic Academy」を <b class="grad-text">20コース修了</b>。さらに ChatGPT を開発する <b>OpenAI</b> の公式教育プログラム「OpenAI Academy」も <b class="grad-text">修了</b>。主要AIを横断的に使いこなす力で、集客・自動化・人材不足の課題に向き合います。</p>
+
     <div class="cert-cats">
       <div class="cert-cat reveal">
         <h3><span class="dot"></span>AI活用力（AI Fluency）</h3>
@@ -887,13 +936,20 @@
         </a>
       </div>
       <div class="foot-col">
-        <h3>Menu</h3>
-        <a href="#services">提供サービス</a>
-        <a href="#why">選ばれる理由</a>
-        <a href="#works">実績</a>
-        <a href="#certs">認定</a>
-        <a href="#company">会社案内</a>
-        <a href="#news">お知らせ</a>
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-meo.html">MEO対策</a>
+        <a href="service-ai.html">AI自動化</a>
+        <a href="ai-soumu.html">AI総務</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="#certs">認定・宣言</a>
+        <a href="privacy.html">プライバシーポリシー</a>
       </div>
       <div class="foot-col">
         <h3>Contact</h3>
