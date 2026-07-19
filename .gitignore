@@ -1,3 +1,6 @@
 .claude/
 .DS_Store
 Thumbs.db
+
+# 圧縮前の元画像（公開しない。profile-tanikawa.jpg を使用）
+assets/NextRay*.png

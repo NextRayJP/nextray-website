@@ -228,6 +228,30 @@ footer{background:var(--ink);color:#fff;padding:66px 0 30px}
 .legal a:hover{text-decoration:underline}
 .legal .updated{font-size:.86rem;color:var(--muted);margin-bottom:34px}
 
+/* 子ページへの導線カード */
+.subgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.subgrid.two{grid-template-columns:repeat(2,1fr);max-width:860px;margin:0 auto}
+.subcard{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);padding:28px 26px;color:inherit;transition:transform .25s,box-shadow .25s,border-color .25s}
+.subcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.subcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0;
+  background:var(--grad);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.subcard:hover::before{transform:scaleX(1)}
+.subcard .stag{font-family:"Manrope",sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.1em;color:var(--blue);margin-bottom:10px}
+.subcard h3{font-size:1.12rem;font-weight:900;margin-bottom:9px;line-height:1.45}
+.subcard p{color:var(--muted);font-size:.92rem;margin-bottom:16px;flex:1}
+.subcard .slink{font-size:.88rem;font-weight:700;color:var(--blue)}
+.subcard:hover .slink{color:var(--amber)}
+@media(max-width:900px){.subgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.subgrid,.subgrid.two{grid-template-columns:1fr}}
+
+/* 注意書き・補足ボックス */
+.notebox{margin-top:30px;padding:22px 24px;border-radius:16px;background:var(--bg-soft);border:1px solid var(--line)}
+.notebox p{color:var(--ink-2);font-size:.9rem;margin-bottom:8px}
+.notebox p:last-child{margin-bottom:0}
+.notebox a{color:var(--blue);font-weight:700}
+.notebox a:hover{text-decoration:underline}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
