@@ -59,13 +59,57 @@
   <div class="wrap nav">
     <a href="index.html" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
     <nav class="nav-links">
-      <a href="service-homepage.html">ホームページ制作</a>
-      <a href="service-meo.html">MEO対策</a>
-      <a href="service-ai.html">AI自動化</a>
-      <a href="ai-soumu.html">AI総務</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-meo.html">MEO対策</a>
+              <a href="meo-gbp.html">ビジネスプロフィール最適化</a>
+              <a href="meo-review.html">口コミの獲得・返信代行</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai.html">AI自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="ai-soumu.html">AI総務</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="index.html#works">制作サンプルを見る →</a>
+            <a href="pricing.html">4サービスの料金を比較する →</a>
+          </div>
+        </div>
+      </div>
       <a href="pricing.html">料金</a>
       <a href="faq.html">よくある質問</a>
-      <a href="company.html">会社概要</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">150案件に制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="nav-cta">
       <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
@@ -77,13 +121,18 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
   <a href="service-homepage.html">ホームページ制作</a>
   <a href="service-meo.html">MEO対策</a>
   <a href="service-ai.html">AI自動化</a>
   <a href="ai-soumu.html">AI総務</a>
   <a href="pricing.html">料金一覧</a>
-  <a href="faq.html">よくある質問</a>
+  <p class="mm-head">Company</p>
   <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
   <a href="index.html#contact" class="btn btn-primary">無料相談する</a>
   <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
 </div>
@@ -346,6 +395,32 @@
   mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
 </script>
 </body>
 </html>

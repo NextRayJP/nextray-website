@@ -163,6 +163,36 @@
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
   .burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
 
+  /* ドロップダウンナビ */
+  .navitem{position:relative;display:flex;align-items:center}
+  .navtrigger{display:inline-flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;
+    font-family:inherit;font-size:inherit;font-weight:500;color:var(--ink-2);padding:0;transition:color .2s}
+  .navtrigger:hover,.navitem.open>.navtrigger{color:var(--ink)}
+  .navtrigger .chev{width:10px;height:10px;stroke:currentColor;stroke-width:2.6;fill:none;transition:transform .25s}
+  .navitem.open>.navtrigger .chev{transform:rotate(180deg)}
+  .dropdown{position:absolute;top:calc(100% + 16px);left:0;
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    box-shadow:0 30px 60px -20px rgba(15,40,80,.32);padding:24px;
+    opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:opacity .22s ease,transform .22s ease,visibility .22s;z-index:70}
+  .dropdown::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
+  .dropdown.right{left:auto;right:0}
+  .navitem.open>.dropdown,.navitem:focus-within>.dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+  .dd-cols{display:grid;grid-template-columns:repeat(4,minmax(158px,1fr));gap:20px}
+  .dd-cols.one{grid-template-columns:minmax(190px,1fr)}
+  .dd-col{display:flex;flex-direction:column;gap:1px}
+  .dd-head{font-size:.9rem;font-weight:800;color:var(--ink);padding:7px 9px;border-radius:9px;white-space:nowrap;transition:background .2s,color .2s}
+  .dd-head:hover{background:var(--grad-soft);color:var(--blue)}
+  .dd-col a:not(.dd-head){font-size:.85rem;color:var(--muted);padding:6px 9px;border-radius:9px;white-space:nowrap;transition:background .2s,color .2s}
+  .dd-col a:not(.dd-head):hover{background:var(--bg-soft);color:var(--blue)}
+  .dd-foot{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap}
+  .dd-foot a{font-size:.85rem;font-weight:700;color:var(--blue)}
+  .dd-foot a:hover{color:var(--amber)}
+
+  /* モバイルメニューの見出し */
+  .mm-head{font-family:"Manrope",sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);margin-top:20px;padding:0 4px 6px}
+
   /* ---------- Hero ---------- */
   .hero{position:relative;padding:170px 0 110px;overflow:hidden}
   .hero-bg{position:absolute;inset:0;z-index:-2;background:
@@ -465,7 +495,7 @@
   @media(max-width:1000px){
     .nav-links{display:none}
     .burger{display:flex}
-    .mobile-menu{position:fixed;inset:0;z-index:60;background:#fff;padding:90px 30px 40px;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;gap:6px}
+    .mobile-menu{position:fixed;inset:0;z-index:60;background:#fff;padding:90px 30px 40px;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;gap:6px;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
     .mobile-menu.open{transform:none}
     .mobile-menu a{padding:16px 4px;font-size:1.1rem;font-weight:700;border-bottom:1px solid var(--line)}
     .mobile-menu .btn{margin-top:20px}
@@ -493,13 +523,57 @@
   <div class="wrap nav">
     <a href="#top" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
     <nav class="nav-links">
-      <a href="#services">提供サービス</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-meo.html">MEO対策</a>
+              <a href="meo-gbp.html">ビジネスプロフィール最適化</a>
+              <a href="meo-review.html">口コミの獲得・返信代行</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai.html">AI自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="ai-soumu.html">AI総務</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="#works">制作サンプルを見る →</a>
+            <a href="pricing.html">4サービスの料金を比較する →</a>
+          </div>
+        </div>
+      </div>
       <a href="pricing.html">料金</a>
-      <a href="#works">実績</a>
-      <a href="#certs">認定</a>
       <a href="faq.html">よくある質問</a>
-      <a href="area.html">対応エリア</a>
-      <a href="company.html">会社概要</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">150案件に制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="nav-cta">
       <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
@@ -509,16 +583,20 @@
   </div>
 </header>
 
-<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
-  <a href="#services">提供サービス</a>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-meo.html">MEO対策</a>
+  <a href="service-ai.html">AI自動化</a>
+  <a href="ai-soumu.html">AI総務</a>
   <a href="pricing.html">料金一覧</a>
-  <a href="#works">実績</a>
-  <a href="#certs">認定</a>
-  <a href="faq.html">よくある質問</a>
-  <a href="area.html">対応エリア</a>
+  <p class="mm-head">Company</p>
   <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
   <a href="#contact" class="btn btn-primary">無料相談する</a>
   <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
 </div>
@@ -984,6 +1062,32 @@
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
 </script>
 </body>
 </html>
