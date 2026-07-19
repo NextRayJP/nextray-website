@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>小さな会社のAI活用｜何から始めるか｜NextRay</title>
+<meta name="description" content="AIを使えと言われても何から手をつければいいか分からない。小さな会社が失敗しないための進め方を、業務の棚卸しから向き不向きの見分け方、情報の扱いの注意点まで順を追って解説します。" />
+<meta name="keywords" content="中小企業 AI活用,AI 何から始める,業務 自動化,小さな会社 AI,新潟 AI導入" />
+<link rel="canonical" href="https://nextray.jp/blog-ai-smallbiz.html" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="小さな会社のAI活用｜何から始めるか" />
+<meta property="og:description" content="大きな仕組みから入らないこと。業務の棚卸しから始める、現実的な進め方を整理しました。" />
+<meta property="og:url" content="https://nextray.jp/blog-ai-smallbiz.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-07-19" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="小さな会社のAI活用｜何から始めるか" />
+<meta name="twitter:description" content="大きな仕組みから入らないこと。業務の棚卸しから始める、現実的な進め方を整理しました。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "小さな会社のAI活用｜何から始めるか",
+  "description": "小さな会社がAI活用を始めるときの順序を、業務の棚卸し、向き不向きの見極め、情報の取り扱いまで含めて解説します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-07-19",
+  "dateModified": "2026-07-19",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-ai-smallbiz.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@id": "https://nextray.jp/#organization" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "小さな会社のAI活用｜何から始めるか", "item": "https://nextray.jp/blog-ai-smallbiz.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-meo.html">MEO対策</a>
+              <a href="meo-gbp.html">ビジネスプロフィール最適化</a>
+              <a href="meo-review.html">口コミの獲得・返信代行</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai.html">AI自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="ai-soumu.html">AI総務</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="index.html#works">制作サンプルを見る →</a>
+            <a href="pricing.html">4サービスの料金を比較する →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">150案件に制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="index.html#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-meo.html">MEO対策</a>
+  <a href="service-ai.html">AI自動化</a>
+  <a href="ai-soumu.html">AI総務</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="index.html#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <div class="crumbs"><a href="index.html">ホーム</a> ／ <a href="blog.html">コラム</a> ／ 小さな会社のAI活用</div>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-07-19">2026.07.19</time><span class="post-cat">AI活用</span></div>
+      <h1>小さな会社のAI活用｜何から始めるか</h1>
+      <p class="summary">「AIを使わないと遅れる」という話は毎日のように耳に入ってくるのに、では自分の会社で何をすればいいのかは誰も教えてくれない——そんな状態の方に向けて書いています。結論から言えば、<b>始め方には順序があり、そこを外すとほぼ失敗します</b>。そして、AIを入れないほうが合理的な会社もあります。その判断も含めて整理します。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#nobig">いきなり大きな仕組みを入れない</a></li>
+        <li><a href="#tanaoroshi">まず自社の業務を棚卸しする</a></li>
+        <li><a href="#fitness">AI化に向く業務・向かない業務</a></li>
+        <li><a href="#small">小さく試して広げる進め方</a></li>
+        <li><a href="#people">社内の抵抗にどう向き合うか</a></li>
+        <li><a href="#security">情報の取り扱いで注意すること</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="nobig">いきなり大きな仕組みを入れない</h2>
+      <p>ご相談をいただくとき、最初に出てくるのが「全社で使える仕組みを入れたい」「基幹システムと連携させたい」という話です。気持ちは分かるのですが、<b>小さな会社ほど、ここから入ると失敗します</b>。</p>
+      <p>理由は3つあります。</p>
+      <ul>
+        <li><b>効果が出るかどうか、事前には分からない</b>——実際に業務へ当ててみるまで、うまくいくか判断できません。大きく入れると、外したときの損失も大きくなります。</li>
+        <li><b>社内に使える人が育たない</b>——完成した仕組みを渡されても、中で何が起きているか分からないので、少し状況が変わると誰も直せません。</li>
+        <li><b>業務のほうを変える必要が出る</b>——大きな仕組みは、業務の流れを仕組み側に合わせることを求めます。人数の少ない会社では、その負担が現場を直撃します。</li>
+      </ul>
+      <p>正しい入り方は逆です。<b>いま毎日発生している、小さくて面倒な作業をひとつ選び、そこだけを軽くする。</b>それがうまくいったら隣の作業に広げる。地味ですが、これがいちばん確実です。</p>
+      <div class="callout">
+        <p><strong>「AIを導入する」を目的にしない</strong></p>
+        <p>目的は業務が楽になること、あるいはお客様への対応が速くなることであって、AIを使うこと自体ではありません。判断に迷ったときは「これをやると、誰のどの作業が何分減るのか」と問い直してみてください。答えられないなら、まだ着手すべき段階ではありません。</p>
+      </div>
+
+      <h2 id="tanaoroshi">まず自社の業務を棚卸しする</h2>
+      <p>何から始めるかを決めるには、いま何をやっているかが分かっていなければなりません。当たり前の話ですが、小さな会社ほど<b>業務が人の頭の中にしかない</b>ため、ここが抜けます。</p>
+
+      <h3>やり方は、思い出しではなく記録</h3>
+      <p>会議室で「うちの業務を挙げてみよう」とやっても、出てくるのは大きな仕事だけです。実際に時間を食っているのは、思い出しにくい細かな作業のほうです。</p>
+      <p>おすすめは、<b>1〜2週間、実際にやった作業をその都度メモしてもらう</b>やり方です。形式は簡単で構いません。</p>
+      <ul>
+        <li>何をしたか（例：見積書の作成、電話の取次ぎ、日報の転記）</li>
+        <li>どれくらいかかったか（分単位のおおよそで十分）</li>
+        <li>週に何回発生するか</li>
+        <li>誰でもできる作業か、その人でないとできない作業か</li>
+      </ul>
+      <p>紙でも表計算ソフトでも構いません。大事なのは<b>後から並べ替えられる形</b>で残すことです。</p>
+
+      <h3>並べ替えて、候補を絞る</h3>
+      <p>集まったら、次の順で見ていきます。</p>
+      <ol>
+        <li><b>発生回数が多い順に並べる</b>——1回あたり短くても、毎日何度も起きる作業は合計で大きくなります。</li>
+        <li>そのうち<b>やり方が毎回ほぼ同じ</b>ものに印をつける。</li>
+        <li>さらに<b>間違えても致命的にならない</b>ものを残す。</li>
+      </ol>
+      <p>ここまで絞ると、たいてい2〜3個に落ち着きます。それが最初の候補です。<b>いちばん大変な業務を選ばないでください。</b>大変な業務は、たいてい判断や例外が多く、最初の一手には向きません。</p>
+
+      <h2 id="fitness">AI化に向く業務・向かない業務</h2>
+      <p>棚卸しで出た候補が、そもそもAIに向いているかを見極めます。判断基準はそれほど複雑ではありません。</p>
+
+      <h3>向いている業務の特徴</h3>
+      <ul>
+        <li><b>繰り返しが多い</b>——同じ種類の作業が何度も発生する。1回だけの仕事は、任せる準備のほうが手間になります。</li>
+        <li><b>判断が少ない</b>——「これはこう処理する」が決まっており、迷う場面がほとんどない。</li>
+        <li><b>形式が決まっている</b>——入ってくる情報の形と、出す成果物の形が定まっている。</li>
+        <li><b>間違いに気づける</b>——おかしな結果が出たとき、人が見てすぐ分かる。</li>
+      </ul>
+      <p>具体的には、文章の下書き、定型的な返信文の作成、議事録やメモの要約、いつも同じ形式の書類作成、問い合わせのよくある質問への一次対応、書式のばらついた情報を一定の形に整える作業——このあたりが該当します。</p>
+
+      <h3>向いていない業務の特徴</h3>
+      <ul>
+        <li><b>判断や責任を伴う</b>——価格の最終決定、採用の合否、契約するかどうか。誰が責任を持つのかが曖昧になる領域には、そのまま任せられません。</li>
+        <li><b>例外が多い</b>——「基本はこうだが、あの取引先だけは別」が積み重なっている業務。例外の説明に、作業そのものより時間がかかります。</li>
+        <li><b>関係性が重要</b>——長い付き合いのお客様への謝罪、込み入った相談、条件交渉。ここは人が出るべき場面です。</li>
+        <li><b>間違いが表に出る</b>——誤りがそのままお客様に届く経路にある作業は、人の確認を必ず挟む前提で考えます。</li>
+      </ul>
+      <p>ただし、向いていない業務でも<b>一部分だけを切り出せる</b>ことは多くあります。たとえば謝罪の連絡そのものは人がやるとしても、経緯の整理や過去のやり取りの要約は任せられます。<b>業務まるごとで判断せず、工程に分けて見る</b>のが実務的です。</p>
+      <div class="callout">
+        <p><strong>AI活用が不要なケースもあります</strong></p>
+        <p>正直に申し上げます。棚卸しの結果、対象になりそうな作業が週に数件しかないのであれば、<b>手作業のままのほうが合理的</b>です。仕組みを整え、使い方を覚え、結果を確認する手間のほうが上回ります。また、人手が足りているのに「流行っているから」という理由だけで導入するのも、おすすめしません。導入しないという判断も、立派な判断です。</p>
+      </div>
+
+      <h2 id="small">小さく試して広げる進め方</h2>
+      <p>候補が決まったら、いよいよ試します。ここでの原則は<b>「1つだけ、短期間、元に戻せる形で」</b>です。</p>
+
+      <h3>試す前に決めておくこと</h3>
+      <ul>
+        <li><b>対象の作業を1つに絞る</b>——同時に複数試すと、何が効いたのか分からなくなります。</li>
+        <li><b>期間を決める</b>——2〜4週間程度。だらだら続けると評価のタイミングを失います。</li>
+        <li><b>良し悪しの判断基準を先に決める</b>——「今より短い時間で終わる」「やり直しが増えない」など、ごく簡単な基準で構いません。ただし<b>始める前に</b>決めてください。後から決めると、うまくいったことにしがちです。</li>
+        <li><b>担当を1人決める</b>——全員でやると誰も本気になりません。関心のある人が1人いれば十分です。</li>
+      </ul>
+
+      <h3>試している間にやること</h3>
+      <p>結果を鵜呑みにせず、<b>必ず人が確認する工程を残してください。</b>特に、お客様に届く内容や、金額に関わる部分は例外なくです。慣れてきてからも、確認をやめるのではなく、確認する箇所を絞る方向で考えます。</p>
+      <p>そして、うまくいった指示の出し方は<b>書き留めて共有します</b>。ここが資産になります。同じ作業を別の人がやるとき、ゼロから試行錯誤しなくて済むためです。</p>
+
+      <h3>広げるときの順序</h3>
+      <p>ひとつ成功したら、次は<b>似た性質の作業</b>に広げます。まったく別の領域に飛ばないでください。慣れとノウハウが活きるのは、隣接した作業です。</p>
+      <p>広げる過程で「これは合わない」と分かることもあります。それは失敗ではなく、小さく試した目的が果たされたということです。<b>やめる判断を早くできることが、小さく始める最大の利点</b>です。</p>
+
+      <h2 id="people">社内の抵抗にどう向き合うか</h2>
+      <p>技術より難しいのが、こちらです。「仕事を奪われるのでは」「今のやり方で困っていない」——こうした反応は自然なもので、押し切ろうとすると必ずこじれます。</p>
+
+      <h3>抵抗の中身を分けて考える</h3>
+      <ul>
+        <li><b>自分の仕事がなくなる不安</b>——最も根の深いものです。ここに対しては、経営者が<b>言葉にして方針を示す</b>しかありません。人を減らすためなのか、今の人数でできることを増やすためなのか。曖昧にしたままだと、疑いが残り続けます。</li>
+        <li><b>覚える手間への抵抗</b>——現実的な話です。だからこそ、最初の一歩は<b>その人自身が面倒だと思っている作業</b>から選びます。楽になった実感が先にあれば、次からの話は早くなります。</li>
+        <li><b>品質が落ちる心配</b>——これは正当な懸念です。否定せず、確認の工程を残すことで応えてください。実際に確認していれば、心配は薄れていきます。</li>
+      </ul>
+
+      <h3>やってはいけない進め方</h3>
+      <ul>
+        <li>全社に一斉に導入し、「来月から全員これで」と通達する。</li>
+        <li>使わない人を批判する。抵抗は表に出なくなるだけで、消えません。</li>
+        <li>経営者が自分では触らず、任せきりにする。<b>関心のなさは必ず伝わります。</b></li>
+      </ul>
+      <p>逆に、いちばん効くのは<b>小さな成功を社内で見せること</b>です。「あの作業、前より早く終わるようになった」という具体的な事実が1つあれば、説得の言葉を百並べるより効きます。</p>
+
+      <h2 id="security">情報の取り扱いで注意すること</h2>
+      <p>最後に、ここだけは軽く扱わないでいただきたい話です。</p>
+
+      <h3>安易に外部サービスへ入力しない</h3>
+      <p>無料で使えるサービスは数多くありますが、<b>入力した内容がどう扱われるかは、サービスによって異なります</b>。入力内容が保存される場合も、サービスの改善に使われる場合もあります。少なくとも、次の情報は事前確認なしに入力しないでください。</p>
+      <ul>
+        <li>お客様の氏名、住所、電話番号、メールアドレスなどの個人情報</li>
+        <li>取引先との契約内容、単価、見積の詳細</li>
+        <li>従業員の個人情報や人事に関する内容</li>
+        <li>まだ公表していない事業計画や技術に関する情報</li>
+      </ul>
+      <p>どうしても業務上必要な場合は、<b>名前や社名を伏せ字にして入力する</b>という運用でしのげることが多くあります。個人名を「A様」に置き換えるだけで、大半の作業は成立します。</p>
+
+      <h3>社内のルールを、短くていいので決める</h3>
+      <p>立派な規程は要りません。紙1枚で十分です。決めておきたいのは次の点です。</p>
+      <ol>
+        <li>どのサービスを業務で使ってよいか（使ってよいものを列挙する形が分かりやすい）。</li>
+        <li>入力してはいけない情報の種類。</li>
+        <li>結果をそのまま社外に出してよいか、誰の確認を経るか。</li>
+        <li>迷ったときに誰に聞くか。</li>
+      </ol>
+      <p>ルールがないと、各自が自分の判断で使い始めます。<b>禁止するのではなく、使ってよい範囲を決める</b>という発想でまとめてください。禁止だけを掲げると、見えないところで使われるようになり、かえって危険です。</p>
+      <div class="callout">
+        <p><strong>業種によっては別の制約があります</strong></p>
+        <p>医療、士業、金融など、法令や職業上の守秘義務が関わる分野では、扱いがより厳しくなります。また取引先との契約に、情報の取り扱いに関する条項が入っていることもあります。該当しそうな場合は、自己判断で進めず、顧問の専門家や取引先に確認してください。この点については私たちも断定的なことは申し上げられません。</p>
+      </div>
+
+      <h3>まとめると、順序はこうなります</h3>
+      <ol>
+        <li>1〜2週間、業務を記録して棚卸しする。</li>
+        <li>繰り返しが多く、判断が少なく、形式が決まっている作業を2〜3個選ぶ。</li>
+        <li>そのうち1つだけを、期間と判断基準を決めて試す。</li>
+        <li>人の確認を残しつつ、うまくいったやり方を書き留める。</li>
+        <li>似た作業へ広げる。合わなければやめる。</li>
+        <li>並行して、情報の扱いに関する社内ルールを紙1枚で決めておく。</li>
+      </ol>
+      <p>大がかりなことは何もありません。むしろ、大がかりにしないことが要点です。そして繰り返しになりますが、<b>棚卸しの結果、今は必要ないという結論になっても、それは正しい判断です</b>。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>棚卸しのところからご相談いただけます</h3>
+      <p>どの作業が対象になりそうか、そもそも今やるべきかを一緒に整理します。不要と判断すればそう申し上げます。NextRayのAI自動化は月額20万円・初期費用0円、AI総務は月額5万円〜（いずれも税別）です。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="index.html#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="service-ai.html" class="btn btn-ghost">AI自動化について見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="service-ai.html">
+        <span class="stag">SERVICE</span>
+        <h3>AI自動化</h3>
+        <p>問い合わせ対応や社内業務の自動化について、どこまでを任せられるかを具体的に説明しています。</p>
+        <span class="slink">詳しく見る →</span>
+      </a>
+      <a class="subcard reveal" href="ai-jimu.html">
+        <span class="stag">SERVICE</span>
+        <h3>事務作業のAI化</h3>
+        <p>書類作成や転記など、繰り返しの多い事務作業をどう軽くするかをまとめています。</p>
+        <span class="slink">詳しく見る →</span>
+      </a>
+      <a class="subcard reveal" href="ai-soumu.html">
+        <span class="stag">SERVICE</span>
+        <h3>AI総務</h3>
+        <p>総務まわりの業務を月額でお任せいただく形です。人を増やす前の選択肢としてご覧ください。</p>
+        <span class="slink">詳しく見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+          <span>@nextray_gk</span>
+        </a>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-meo.html">MEO対策</a>
+        <a href="service-ai.html">AI自動化</a>
+        <a href="ai-soumu.html">AI総務</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="index.html#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>
