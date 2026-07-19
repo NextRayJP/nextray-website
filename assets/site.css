@@ -245,6 +245,36 @@ footer{background:var(--ink);color:#fff;padding:66px 0 30px}
 @media(max-width:900px){.subgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.subgrid,.subgrid.two{grid-template-columns:1fr}}
 
+/* 代表プロフィール */
+.profile{display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:center}
+.profile-photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:var(--bg-soft)}
+.profile-photo img{width:100%;height:auto;display:block}
+.profile-role{font-family:"Manrope",sans-serif;font-size:.76rem;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.profile-name{font-size:1.9rem;font-weight:900;line-height:1.3;margin-bottom:6px}
+.profile-name .en{display:block;font-family:"Manrope",sans-serif;font-size:.86rem;font-weight:700;
+  letter-spacing:.1em;color:var(--muted);margin-top:8px}
+.profile-body{color:var(--ink-2);font-size:.98rem;margin:18px 0}
+.profile-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.profile-badges span{font-size:.8rem;font-weight:700;color:var(--ink-2);background:var(--grad-soft);
+  border:1px solid rgba(30,155,255,.16);border-radius:999px;padding:7px 14px}
+@media(max-width:860px){.profile{grid-template-columns:1fr;gap:28px}
+  .profile-photo{max-width:420px;margin:0 auto}.profile-name{font-size:1.6rem}}
+
+/* 課題→解決の対応表 */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.pair-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px}
+.pair-card .pnum{font-family:"Manrope",sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.12em;color:var(--blue);margin-bottom:12px}
+.pair-card h3{font-size:1.24rem;font-weight:900;margin-bottom:12px;line-height:1.45}
+.pair-card p{color:var(--ink-2);font-size:.95rem;margin-bottom:16px}
+.pair-arrow{display:flex;align-items:center;gap:10px;margin:18px 0 12px;color:var(--muted);font-size:.82rem;font-weight:700}
+.pair-arrow::before,.pair-arrow::after{content:"";height:1px;background:var(--line);flex:1}
+.pair-sol{display:flex;flex-wrap:wrap;gap:8px}
+.pair-sol a{font-size:.86rem;font-weight:700;color:#fff;background:var(--grad);border-radius:999px;
+  padding:9px 16px;transition:transform .2s,box-shadow .2s}
+.pair-sol a:hover{transform:translateY(-2px);box-shadow:0 12px 24px -10px rgba(30,155,255,.6)}
+@media(max-width:760px){.pair{grid-template-columns:1fr}}
+
 /* 注意書き・補足ボックス */
 .notebox{margin-top:30px;padding:22px 24px;border-radius:16px;background:var(--bg-soft);border:1px solid var(--line)}
 .notebox p{color:var(--ink-2);font-size:.9rem;margin-bottom:8px}
