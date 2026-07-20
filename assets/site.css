@@ -364,8 +364,13 @@ footer{background:var(--ink);color:#fff;padding:66px 0 30px}
 .notebox a:hover{text-decoration:underline}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
+/* JSが有効なときだけ隠す。JS停止・遅延・エラー時も本文が必ず見えるようにするため、
+   既定は表示のままにし、<html class="js"> が付いた場合にのみアニメーションを適用する */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+/* 最終保険: JSが途中で落ちても2秒後に必ず本文を表示する */
+.js.reveal-all .reveal{opacity:1;transform:none}
 
 /* Responsive */
 @media(max-width:960px){

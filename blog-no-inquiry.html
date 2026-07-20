@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
 <title>ホームページに問い合わせが来ない理由｜NextRay</title>
 <meta name="description" content="ホームページはあるのに問い合わせが来ない。その原因を「見られていない」「伝わっていない」「行動されていない」の順に切り分け、どこから直せばよいかを新潟の制作会社が実務目線で解説します。" />
 <meta name="keywords" content="ホームページ 問い合わせ 来ない,ホームページ 効果ない,問い合わせ 増やす,サイト 改善,新潟 ホームページ制作" />
@@ -229,14 +230,15 @@
       <h3>強みが書かれていない</h3>
       <p>「丁寧な対応」「地域密着」「高品質」——これらは同業他社もほぼ全員が書いています。書いていないのと同じです。強みを言語化するときは、次の問いに答える形で考えると出てきやすくなります。</p>
       <ul>
-        <li>実際に依頼してくれたお客様は、<b>何を決め手にしていたか</b>。これは想像せず、思い出せる範囲で書き出してください。</li>
+        <li>実際に依頼してくれたお客様は、<b>何を決め手にしていたか</b>。想像せず、思い出せる範囲で書き出してください。</li>
         <li>他社が<b>やりたがらない・断ること</b>で、自社が引き受けていることは何か。</li>
         <li>お客様から<b>繰り返し聞かれる質問</b>は何か。それに答えているページはあるか。</li>
       </ul>
       <p>3つ目は特に有効です。よく聞かれる質問は、そのまま検索されている言葉であることが多いためです。</p>
 
+
       <h3>価格の手がかりがまったくない</h3>
-      <p>金額に触れたくない気持ちはよく分かります。案件ごとに違うから書けない、という事情も現実にあります。ただ、<b>手がかりがゼロだと問い合わせは減ります</b>。相手は「聞いたら売り込まれるのでは」と身構えるからです。正確な金額でなくても構いません。「多くの場合◯万円前後から」「見積もりは無料で、その場での契約はお願いしていません」——このくらいの記述があるだけで、問い合わせのハードルは下がります。</p>
+      <p>案件ごとに違うから書けない、という事情は現実にあります。ただ、<b>手がかりがゼロだと問い合わせは減ります</b>。相手が「聞いたら売り込まれるのでは」と身構えるからです。「多くの場合◯万円前後から」「見積もりは無料です」——この程度の記述があるだけで、ハードルは下がります。</p>
 
       <h2 id="action">段階3｜伝わっているが行動されていない</h2>
       <p>内容には納得している。それでも問い合わせに至らない。ここは<b>直せば効果が出やすく、費用もかかりにくい</b>領域です。まずここから確認することをおすすめします。</p>
@@ -275,8 +277,7 @@
         <li>事業の内容や対象のお客様が、制作当時から大きく変わっている。</li>
         <li>ページ構成上、サービスごとのページを追加できない作りになっている。</li>
       </ul>
-      <p>逆に、<b>アクセスが極端に少ないだけ</b>なのであれば、作り直しても状況は変わりません。その場合に必要なのは、見つけてもらうための対策です。ビジネスプロフィールの整備や、検索されている言葉に沿ったページの追加が先になります。</p>
-      <p>もうひとつ。改修は<b>一度に全部やらない</b>ほうが賢明です。すべて同時に変えると、何が効いたのか分からなくなります。1か所直しては数字を見る。これを繰り返すほうが、結果として早く着実に進みます。</p>
+      <p>逆に、<b>アクセスが極端に少ないだけ</b>なのであれば、作り直しても状況は変わりません。その場合に必要なのは、見つけてもらうための対策です。また、改修は<b>一度に全部やらない</b>ほうが賢明です。すべて同時に変えると、何が効いたのか分からなくなります。1か所直しては数字を見る。これを繰り返すほうが、結果として早く着実に進みます。</p>
       <div class="callout">
         <p><strong>改善の効果はすぐには出ません</strong></p>
         <p>フォームや導線の改善は比較的早く反応が出ますが、検索から見つけてもらう部分は時間がかかります。数週間で判断せず、少なくとも数か月は数字を見続けてください。また、どんな施策であっても検索順位や問い合わせ件数を約束できるものではありません。約束する会社があれば、その説明のほうを疑ってください。</p>
@@ -382,6 +383,20 @@
   mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  revealFallback();
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
 
   // ドロップダウンナビ
   var navItems=document.querySelectorAll('.navitem.has-menu');

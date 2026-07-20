@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
 <title>取引案件を150に制限する理由｜新潟のNextRay</title>
 <meta name="description" content="NextRayは取引案件を最大150に制限しています。拡大を追わず、一社ごとに向き合い続けるための上限です。なぜ150なのか、上限に達したらどうなるのか、対象サービスは何かを説明します。" />
 <meta name="keywords" content="NextRay 150案件,新潟 ホームページ制作 少数精鋭,伴走型 web制作,ダンバー数 経営" />
@@ -374,6 +375,20 @@
   mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  revealFallback();
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
   // ドロップダウンナビ
   var navItems=document.querySelectorAll('.navitem.has-menu');
   var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};

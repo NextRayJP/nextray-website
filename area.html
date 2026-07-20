@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
 <title>対応エリア｜新潟市・燕市・三条市・長岡市｜NextRay</title>
 <meta name="description" content="NextRayの対応エリア。新潟市（西蒲区・中央区ほか全区）・燕市・三条市・長岡市を中心に新潟県全域でホームページ制作・MEO対策に対応。オンラインでの打ち合わせにより全国からのご依頼も承ります。" />
 <meta name="keywords" content="新潟市 ホームページ制作,燕市 ホームページ制作,三条市 ホームページ制作,長岡市 ホームページ制作,新潟 MEO対策 エリア,新潟市西蒲区 web制作" />
@@ -345,6 +346,20 @@
   mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  revealFallback();
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
   // ドロップダウンナビ
   var navItems=document.querySelectorAll('.navitem.has-menu');
   var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};

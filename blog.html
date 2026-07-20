@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
 <title>コラム｜ホームページ制作・MEO・AI活用の実務記事｜NextRay</title>
 <meta name="description" content="新潟の中小企業・店舗向けに、ホームページ制作やMEO対策、AI活用の実務的なノウハウを解説するコラムです。売り込みではなく、まず自社で判断・実行できることを中心にまとめています。" />
 <meta name="keywords" content="ホームページ制作 コラム,MEO対策 やり方,中小企業 AI活用,新潟 web集客 ノウハウ" />
@@ -291,6 +292,20 @@
   mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  revealFallback();
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
 
   // ドロップダウンナビ
   var navItems=document.querySelectorAll('.navitem.has-menu');

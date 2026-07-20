@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
 <title>NextRay｜新潟のホームページ制作・Web集客パートナー</title>
 <meta name="description" content="新潟のホームページ制作・MEO対策・AI自動化ならNextRay。新潟市を拠点に、集客できるサイト制作、検索上位を狙うMEO対策、AI自動化による企業・地域の人材不足解決までワンストップでご提供。ご相談・お見積り無料。" />
 <meta name="keywords" content="新潟 ホームページ制作,新潟 MEO対策,新潟 Googleマップ 集客,新潟 検索上位,AI自動化 新潟,人材不足 解決 AI,新潟市 ホームページ作成,業務効率化 AI" />
@@ -508,8 +509,13 @@
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:12px;opacity:.55;font-size:.84rem}
 
   /* reveal animation */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
+  /* JSが有効なときだけ隠す。JS停止・遅延・エラー時も本文が必ず見えるようにするため、
+     既定は表示のままにし、<html class="js"> が付いた場合にのみアニメーションを適用する */
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+  /* 最終保険: JSが途中で落ちても2秒後に必ず本文を表示する */
+  .js.reveal-all .reveal{opacity:1;transform:none}
 
   /* ---------- Responsive ---------- */
   @media(max-width:960px){
@@ -1095,6 +1101,20 @@
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  revealFallback();
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
   // ドロップダウンナビ
   var navItems=document.querySelectorAll('.navitem.has-menu');
   var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};

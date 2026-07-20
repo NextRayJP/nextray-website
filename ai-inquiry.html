@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
 <title>問い合わせ・予約対応の自動化｜AI自動化｜新潟のNextRay</title>
 <meta name="description" content="電話やメールの一次対応をAIが担い、24時間受付。よくある質問への自動回答、予約の受付と確認、そして判断が要る案件は人へ渡す引き継ぎ設計まで。新潟のNextRay、月額20万円・初期費用0円（税別）。" />
 <meta name="keywords" content="問い合わせ 自動化,AI 電話 一次対応,予約 自動受付,チャットボット 導入 新潟,AI 24時間 受付,人手不足 対応" />
@@ -349,6 +350,20 @@
   mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  revealFallback();
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
   // ドロップダウンナビ
   var navItems=document.querySelectorAll('.navitem.has-menu');
   var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
