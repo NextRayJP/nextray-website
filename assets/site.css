@@ -292,6 +292,34 @@ footer{background:var(--ink);color:#fff;padding:66px 0 30px}
 @media(max-width:860px){.profile{grid-template-columns:1fr;gap:28px}
   .profile-photo{max-width:420px;margin:0 auto}.profile-name{font-size:1.6rem}}
 
+/* 所属団体 */
+.affil{margin-top:56px;padding-top:44px;border-top:1px solid var(--line)}
+.affil-head{text-align:center;max-width:680px;margin:0 auto 34px}
+.affil-head h2{font-size:1.5rem;margin-bottom:10px}
+.affil-head p{color:var(--ink-2);font-size:.95rem;line-height:1.9}
+.affil-group{margin-bottom:30px}
+.affil-group:last-child{margin-bottom:0}
+.affil-cat{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.affil-cat span{font-size:.78rem;font-weight:800;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+.affil-cat::after{content:"";flex:1;height:1px;background:var(--line)}
+.affil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.org{display:flex;gap:14px;align-items:flex-start;padding:18px 18px;border-radius:16px;
+  background:#fff;border:1px solid var(--line);transition:transform .22s,box-shadow .22s,border-color .22s}
+a.org:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:transparent}
+.org-mark{flex:0 0 46px;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;
+  font-family:"Manrope",sans-serif;font-weight:800;font-size:.9rem;letter-spacing:-.02em;
+  color:#fff;line-height:1;text-align:center}
+.org-mark.m-ai{background:linear-gradient(135deg,#1e9bff,#12d4d0)}
+.org-mark.m-com{background:linear-gradient(135deg,#6b5cf6,#1e9bff)}
+.org-mark.m-local{background:linear-gradient(135deg,#f6a94a,#f2704b)}
+.org-mark svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.org-body{display:block;min-width:0}
+.org-name{display:block;font-size:.95rem;font-weight:800;line-height:1.45;margin-bottom:4px;color:var(--ink)}
+.org-desc{display:block;font-size:.8rem;color:var(--muted);line-height:1.7}
+a.org .org-name::after{content:"↗";font-size:.72rem;margin-left:5px;color:var(--blue);vertical-align:1px}
+@media(max-width:960px){.affil-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.affil-grid{grid-template-columns:1fr}.affil{margin-top:40px;padding-top:34px}}
+
 /* 課題→解決の対応表 */
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .pair-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 30px}
