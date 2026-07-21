@@ -53,7 +53,7 @@ header.scrolled{background:rgba(255,255,255,.82);backdrop-filter:blur(14px);box-
 .dropdown::before{content:"";position:absolute;top:-16px;left:0;right:0;height:16px}
 .dropdown.right{left:auto;right:0}
 .navitem.open>.dropdown,.navitem:focus-within>.dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-.dd-cols{display:grid;grid-template-columns:repeat(4,minmax(158px,1fr));gap:20px}
+.dd-cols{display:grid;grid-template-columns:repeat(3,minmax(168px,1fr));gap:22px}
 .dd-cols.one{grid-template-columns:minmax(190px,1fr)}
 .dd-col{display:flex;flex-direction:column;gap:1px}
 .dd-head{font-size:.9rem;font-weight:800;color:var(--ink);padding:7px 9px;border-radius:9px;white-space:nowrap;transition:background .2s,color .2s}
@@ -181,7 +181,7 @@ footer{background:var(--ink);color:#fff;padding:66px 0 30px}
   .gpartner-badge img{width:160px}.gp-list{text-align:left}}
 
 /* 料金テーブル（.price-grid/.plan は service-homepage・ai-soumu が独自定義済みのため別名） */
-.ptier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;align-items:start}
+.ptier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
 .ptier{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
   border-radius:var(--radius);padding:32px 26px;transition:transform .25s,box-shadow .25s}
 .ptier:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
