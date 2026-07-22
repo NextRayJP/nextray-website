@@ -292,6 +292,27 @@ footer{background:var(--ink);color:#fff;padding:66px 0 30px}
 @media(max-width:860px){.profile{grid-template-columns:1fr;gap:28px}
   .profile-photo{max-width:420px;margin:0 auto}.profile-name{font-size:1.6rem}}
 
+/* 初期費用0円の考え方 */
+.stock{margin-top:34px;padding:44px 42px;border-radius:var(--radius);background:#fff;
+  border:1px solid var(--line);box-shadow:var(--shadow)}
+.stock-lead{max-width:760px;margin:0 auto 34px;text-align:center}
+.stock-eyebrow{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.1em;
+  color:var(--blue);background:var(--grad-soft);border:1px solid rgba(30,155,255,.18);
+  border-radius:999px;padding:6px 15px;margin-bottom:16px}
+.stock-lead h3{font-size:1.42rem;line-height:1.6;margin-bottom:16px}
+.stock-lead h3 em{font-style:normal;background:linear-gradient(transparent 62%,rgba(30,155,255,.22) 62%)}
+.stock-lead p{color:var(--ink-2);font-size:.98rem;line-height:2}
+.stock-lead p+p{margin-top:14px}
+.stock-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  padding-top:32px;border-top:1px solid var(--line)}
+.stock-item h4{font-size:1rem;margin-bottom:8px;display:flex;gap:9px;align-items:flex-start;line-height:1.5}
+.stock-item h4::before{content:"";flex:0 0 20px;width:20px;height:20px;margin-top:2px;border-radius:6px;
+  background:var(--grad);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-size:12px;background-repeat:no-repeat;background-position:center}
+.stock-item p{font-size:.9rem;color:var(--ink-2);line-height:1.95;padding-left:29px}
+@media(max-width:900px){.stock-list{grid-template-columns:1fr;gap:18px}}
+@media(max-width:640px){.stock{padding:32px 22px}.stock-lead h3{font-size:1.16rem}}
+
 /* 所属団体 */
 .affil{margin-top:56px;padding-top:44px;border-top:1px solid var(--line)}
 .affil-head{text-align:center;max-width:680px;margin:0 auto 34px}
