@@ -292,6 +292,49 @@ footer{background:var(--ink);color:#fff;padding:66px 0 30px}
 @media(max-width:860px){.profile{grid-template-columns:1fr;gap:28px}
   .profile-photo{max-width:420px;margin:0 auto}.profile-name{font-size:1.6rem}}
 
+/* 無料デモサイト制作 */
+.demo-band{position:relative;overflow:hidden;background:
+  radial-gradient(60% 120% at 12% 10%,rgba(30,155,255,.16),transparent 60%),
+  radial-gradient(60% 120% at 92% 90%,rgba(18,212,208,.14),transparent 60%),var(--ink);
+  color:#fff}
+.demo-wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.demo-badge{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;
+  letter-spacing:.06em;color:#8fd3ff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;padding:7px 15px;margin-bottom:18px}
+.demo-badge .free{color:#0b1220;background:linear-gradient(135deg,#1e9bff,#12d4d0);
+  border-radius:999px;padding:2px 9px;font-weight:900}
+.demo-band h2{font-size:2rem;line-height:1.4;margin-bottom:16px;color:#fff}
+.demo-band h2 .grad-text{background:linear-gradient(120deg,#8fd3ff,#12d4d0);-webkit-background-clip:text;
+  background-clip:text;-webkit-text-fill-color:transparent}
+.demo-lead{font-size:1rem;line-height:2;color:rgba(255,255,255,.82);margin-bottom:22px}
+.demo-lead b{color:#fff}
+.demo-steps{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
+.demo-step{display:flex;gap:14px;align-items:flex-start;padding:14px 18px;border-radius:14px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.demo-step .sn{flex:0 0 30px;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  font-family:"Manrope",sans-serif;font-weight:800;font-size:.9rem;color:#0b1220;
+  background:linear-gradient(135deg,#1e9bff,#12d4d0)}
+.demo-step p{font-size:.93rem;line-height:1.65;color:rgba(255,255,255,.88)}
+.demo-step p b{color:#fff}
+.demo-actions{display:flex;flex-wrap:wrap;gap:14px}
+.demo-note{margin-top:16px;font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.8}
+.demo-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);
+  padding:30px 28px}
+.demo-card h3{font-size:1.05rem;color:#fff;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.demo-card h3::before{content:"";width:22px;height:22px;flex:0 0 22px;border-radius:7px;
+  background:linear-gradient(135deg,#1e9bff,#12d4d0);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b1220' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:12px}
+.demo-card ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.demo-card li{display:flex;gap:11px;align-items:flex-start;font-size:.92rem;line-height:1.7;color:rgba(255,255,255,.86)}
+.demo-card li::before{content:"";width:18px;height:18px;flex:0 0 18px;margin-top:2px;border-radius:50%;
+  background:rgba(143,211,255,.16);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238fd3ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:10px}
+.demo-band .btn-ghost{color:#fff;border-color:rgba(255,255,255,.3)}
+.demo-band .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
+@media(max-width:860px){.demo-wrap{grid-template-columns:1fr;gap:30px}.demo-band h2{font-size:1.55rem}}
+
 /* 経費の内訳 */
 .cost{margin-top:34px}
 .cost-head{max-width:760px;margin:0 auto 30px;text-align:center}
