@@ -333,7 +333,7 @@
   .svc-link:hover{color:var(--cyan)}
 
   /* why / features split */
-  .why{background:
+  .why{background-color:var(--ink);background:
     radial-gradient(50% 60% at 90% 10%,rgba(246,169,74,.1),transparent 60%),
     radial-gradient(50% 60% at 5% 90%,rgba(30,155,255,.1),transparent 60%),var(--ink);color:#fff}
   .why .sec-head h2,.why .sec-head p{color:#fff}
@@ -375,7 +375,7 @@
   .st-tags span{font-size:.85rem;font-weight:700;color:#fff;background:rgba(255,255,255,.1);
     border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px;white-space:nowrap}
   .limit-card{position:relative;overflow:hidden;border-radius:30px;padding:56px 52px;text-align:center;
-    background:linear-gradient(160deg,#0b1220 0%,#12233d 55%,#0b1220 100%);color:#fff;box-shadow:var(--shadow)}
+    background-color:#0b1220;background:linear-gradient(160deg,#0b1220 0%,#12233d 55%,#0b1220 100%);color:#fff;box-shadow:var(--shadow)}
   .limit-card::before{content:"";position:absolute;inset:0;opacity:.5;
     background:radial-gradient(60% 70% at 85% 0,rgba(246,169,74,.22),transparent 60%),radial-gradient(55% 65% at 10% 100%,rgba(30,155,255,.28),transparent 60%)}
   .limit-card>*{position:relative}
@@ -506,7 +506,7 @@
 
   /* pricing note / CTA band */
   .cta-band{padding:20px 0}
-  .cta-inner{position:relative;overflow:hidden;border-radius:30px;background:var(--grad);color:#fff;padding:64px 56px;text-align:center;box-shadow:var(--shadow)}
+  .cta-inner{position:relative;overflow:hidden;border-radius:30px;background-color:#1e9bff;background:var(--grad);color:#fff;padding:64px 56px;text-align:center;box-shadow:var(--shadow)}
   .cta-inner::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 120% at 90% 0,rgba(255,255,255,.28),transparent 55%)}
   .cta-inner *{position:relative}
   .cta-inner h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:900;margin-bottom:14px}
@@ -656,9 +656,9 @@
   }
 
   /* 無料デモサイト制作 */
-  .demo-band{position:relative;overflow:hidden;background:
+  .demo-band{position:relative;overflow:hidden;background-color:#0b1220;background:
     radial-gradient(60% 120% at 12% 10%,rgba(30,155,255,.16),transparent 60%),
-    radial-gradient(60% 120% at 92% 90%,rgba(18,212,208,.14),transparent 60%),var(--ink);color:#fff}
+    radial-gradient(60% 120% at 92% 90%,rgba(18,212,208,.14),transparent 60%),#0b1220;color:#fff}
   .demo-wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
   .demo-badge{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;letter-spacing:.06em;color:#8fd3ff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 15px;margin-bottom:18px}
   .demo-badge .free{color:#0b1220;background:linear-gradient(135deg,#1e9bff,#12d4d0);border-radius:999px;padding:2px 9px;font-weight:900}
@@ -677,7 +677,8 @@
   .demo-card h3{font-size:1.05rem;color:#fff;margin-bottom:16px;display:flex;align-items:center;gap:10px}
   .demo-card h3::before{content:"";width:22px;height:22px;flex:0 0 22px;border-radius:7px;background:linear-gradient(135deg,#1e9bff,#12d4d0);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b1220' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:12px}
   .demo-card ul{list-style:none;display:flex;flex-direction:column;gap:11px}
-  .demo-card li{display:flex;gap:11px;align-items:flex-start;font-size:.92rem;line-height:1.7;color:rgba(255,255,255,.86)}
+  .demo-card li{display:flex;gap:11px;align-items:flex-start;font-size:.92rem;line-height:1.7;color:rgba(255,255,255,.92)}
+  .demo-card li b{color:#fff}
   .demo-card li::before{content:"";width:18px;height:18px;flex:0 0 18px;margin-top:2px;border-radius:50%;background:rgba(143,211,255,.16);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238fd3ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:10px}
   .demo-band .btn-ghost{color:#fff;background:transparent;border-color:rgba(255,255,255,.4)}
   .demo-band .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
