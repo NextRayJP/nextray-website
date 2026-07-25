@@ -333,9 +333,9 @@
   .svc-link:hover{color:var(--cyan)}
 
   /* why / features split */
-  .why{background-color:var(--ink);background:
+  .why{background-color:var(--ink);background-image:
     radial-gradient(50% 60% at 90% 10%,rgba(246,169,74,.1),transparent 60%),
-    radial-gradient(50% 60% at 5% 90%,rgba(30,155,255,.1),transparent 60%),var(--ink);color:#fff}
+    radial-gradient(50% 60% at 5% 90%,rgba(30,155,255,.1),transparent 60%);color:#fff}
   .why .sec-head h2,.why .sec-head p{color:#fff}
   .why .sec-head p{opacity:.7}
   .why .eyebrow{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#8fd3ff}
@@ -375,7 +375,7 @@
   .st-tags span{font-size:.85rem;font-weight:700;color:#fff;background:rgba(255,255,255,.1);
     border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px;white-space:nowrap}
   .limit-card{position:relative;overflow:hidden;border-radius:30px;padding:56px 52px;text-align:center;
-    background-color:#0b1220;background:linear-gradient(160deg,#0b1220 0%,#12233d 55%,#0b1220 100%);color:#fff;box-shadow:var(--shadow)}
+    background-color:#0b1220;background-image:linear-gradient(160deg,#0b1220 0%,#12233d 55%,#0b1220 100%);color:#fff;box-shadow:var(--shadow)}
   .limit-card::before{content:"";position:absolute;inset:0;opacity:.5;
     background:radial-gradient(60% 70% at 85% 0,rgba(246,169,74,.22),transparent 60%),radial-gradient(55% 65% at 10% 100%,rgba(30,155,255,.28),transparent 60%)}
   .limit-card>*{position:relative}
@@ -395,6 +395,17 @@
     .limited{padding:66px 0}
     .slot-row{gap:16px;padding:20px 14px}.slot-num{font-size:2.1rem}
     .slot-targets{padding-left:0;padding-top:16px;border-left:none;border-top:1px solid rgba(255,255,255,.16);width:100%}}
+
+  /* サービス別の受付上限 */
+  .quota-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .quota{padding:26px 22px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);text-align:center}
+  .quota-cat{display:block;font-size:.86rem;font-weight:800;color:#8fd3ff;margin-bottom:12px;line-height:1.5}
+  .quota-num{font-family:"Manrope",sans-serif;font-weight:800;font-size:3rem;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .quota-num small{font-size:1rem;font-weight:700;margin-left:4px;color:rgba(255,255,255,.8);-webkit-text-fill-color:rgba(255,255,255,.8)}
+  .quota-note{margin-top:12px;font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.68)}
+  .quota-total{margin-top:18px;padding:16px 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px dashed rgba(255,255,255,.22);font-size:.92rem;color:rgba(255,255,255,.86);text-align:center}
+  .quota-total b{color:#fff;font-weight:800}
+  @media(max-width:760px){.quota-row{grid-template-columns:1fr;gap:14px}.quota-num{font-size:2.5rem}}
 
   /* works: 制作実績（実案件） */
   .realwork{display:grid;grid-template-columns:.82fr 1.18fr;border-radius:var(--radius);overflow:hidden;
@@ -506,7 +517,7 @@
 
   /* pricing note / CTA band */
   .cta-band{padding:20px 0}
-  .cta-inner{position:relative;overflow:hidden;border-radius:30px;background-color:#1e9bff;background:var(--grad);color:#fff;padding:64px 56px;text-align:center;box-shadow:var(--shadow)}
+  .cta-inner{position:relative;overflow:hidden;border-radius:30px;background-color:#1e9bff;background-image:var(--grad);color:#fff;padding:64px 56px;text-align:center;box-shadow:var(--shadow)}
   .cta-inner::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 120% at 90% 0,rgba(255,255,255,.28),transparent 55%)}
   .cta-inner *{position:relative}
   .cta-inner h2{font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:900;margin-bottom:14px}
@@ -656,9 +667,9 @@
   }
 
   /* 無料デモサイト制作 */
-  .demo-band{position:relative;overflow:hidden;background-color:#0b1220;background:
+  .demo-band{position:relative;overflow:hidden;background-color:#0b1220;background-image:
     radial-gradient(60% 120% at 12% 10%,rgba(30,155,255,.16),transparent 60%),
-    radial-gradient(60% 120% at 92% 90%,rgba(18,212,208,.14),transparent 60%),#0b1220;color:#fff}
+    radial-gradient(60% 120% at 92% 90%,rgba(18,212,208,.14),transparent 60%);color:#fff}
   .demo-wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
   .demo-badge{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;letter-spacing:.06em;color:#8fd3ff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 15px;margin-bottom:18px}
   .demo-badge .free{color:#0b1220;background:linear-gradient(135deg,#1e9bff,#12d4d0);border-radius:999px;padding:2px 9px;font-weight:900}
@@ -731,7 +742,7 @@
               <a href="daihyo.html">代表メッセージ</a>
               <a href="certifications.html">認定・資格</a>
               <a href="area.html">対応エリア</a>
-              <a href="limited.html">150案件に制限する理由</a>
+              <a href="limited.html">受付件数を制限する理由</a>
             </div>
           </div>
         </div>
@@ -870,36 +881,36 @@
   </div>
 </section>
 
-<!-- ===== 5. 150案件限定 — その姿勢の裏づけ ===== -->
+<!-- ===== 5. 受付件数の上限 — その姿勢の裏づけ ===== -->
 <section class="limited" id="promise">
   <div class="wrap">
     <div class="limit-card reveal">
-      <span class="limit-badge">Limited to 150 — 特殊な方針のご案内</span>
-      <p class="limit-h">だから、取引案件を<br class="sp" /><span class="limit-num">最大150</span>に制限します。</p>
-      <p class="limit-lead">拡大を追わず、<b>一社ごとに向き合い続けること</b>を選びました。<br class="sp" />「成果が出るまで付き合う」という約束を守れる範囲が、私たちにとっての150です。</p>
+      <span class="limit-badge">Limited — 特殊な方針のご案内</span>
+      <p class="limit-h">だから、お受けする数に<br class="sp" /><span class="limit-num">上限</span>を設けています。</p>
+      <p class="limit-lead">拡大を追わず、<b>一社ごとに向き合い続けること</b>を選びました。<br class="sp" />サービスごとに、手が回る範囲だけをお受けします。</p>
 
-      <div class="slot-row">
-        <div class="slot slot-total">
-          <span class="slot-label">お受けできる案件数（上限）</span>
-          <span class="slot-num">150<small>案件</small></span>
+      <div class="quota-row">
+        <div class="quota">
+          <span class="quota-cat">ホームページ制作・保守</span>
+          <span class="quota-num">50<small>社まで</small></span>
+          <p class="quota-note">公開後の運用・改善まで毎月伴走するため、手をかけられる範囲に絞っています。</p>
         </div>
-        <div class="slot-targets">
-          <span class="slot-label">対象サービス</span>
-          <div class="st-tags">
-            <span>ホームページ制作・保守</span>
-            <span>AI運用コンサルティング</span>
-          </div>
+        <div class="quota">
+          <span class="quota-cat">AIによる事務・総務の自動化</span>
+          <span class="quota-num">100<small>社まで</small></span>
+          <p class="quota-note">仕組みを整えたあとは運用が安定するため、制作より多くお受けできます。</p>
         </div>
       </div>
+      <p class="quota-total">あわせて<b>最大150社</b>。これが「成果が出るまで付き合う」と言い切れる範囲です。</p>
 
       <div class="limit-grid">
         <div class="lg-item">
-          <p class="lg-h">なぜ150なのか</p>
+          <p class="lg-h">なぜ数を絞るのか</p>
           <p>人がしっかり関係を保てる相手の数には限りがあり、その上限はおよそ150人といわれています。これを超えて抱えれば、一社あたりに割ける時間と注意は必ず薄まります。数を追わないのは、約束を守るためです。</p>
         </div>
         <div class="lg-item">
           <p class="lg-h">枠には限りがあります</p>
-          <p>上限に達した時点で、新規のご依頼は締め切ります。「安く早く、たくさん」ではなく、<b>ご縁のあった会社の成果を最大化すること</b>に時間を使いたい。ご検討中の方は、お早めにご相談ください。</p>
+          <p>上限に達した時点で、そのサービスの新規のご依頼は締め切ります。「安く早く、たくさん」ではなく、<b>ご縁のあった会社の成果を最大化すること</b>に時間を使いたい。ご検討中の方は、お早めにご相談ください。</p>
         </div>
       </div>
 

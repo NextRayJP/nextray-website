@@ -12,16 +12,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
-<title>取引案件を150に制限する理由｜新潟のNextRay</title>
-<meta name="description" content="NextRayは取引案件を最大150に制限しています。拡大を追わず、一社ごとに向き合い続けるための上限です。なぜ150なのか、上限に達したらどうなるのか、対象サービスは何かを説明します。" />
-<meta name="keywords" content="NextRay 150案件,新潟 ホームページ制作 少数精鋭,伴走型 web制作,ダンバー数 経営" />
+<title>受付件数を制限する理由｜新潟のNextRay</title>
+<meta name="description" content="NextRayはホームページ制作を50社、AIによる事務・総務の自動化を100社までに制限しています。拡大を追わず一社ごとに向き合うための上限です。なぜこの数字なのか、上限に達したらどうなるのかを説明します。" />
+<meta name="keywords" content="NextRay 受付件数,新潟 ホームページ制作 少数精鋭,伴走型 web制作,ダンバー数 経営,制作会社 案件数 上限" />
 <link rel="canonical" href="https://nextray.jp/limited.html" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#1e9bff" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="NextRay" />
-<meta property="og:title" content="取引案件を150に制限する理由｜新潟のNextRay" />
-<meta property="og:description" content="拡大を追わず、一社ごとに向き合い続けるために。なぜ150なのかを説明します。" />
+<meta property="og:title" content="受付件数を制限する理由｜新潟のNextRay" />
+<meta property="og:description" content="ホームページ制作50社・AI自動化100社まで。拡大を追わず、一社ごとに向き合い続けるための上限です。" />
 <meta property="og:url" content="https://nextray.jp/limited.html" />
 <meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
 <meta property="og:image:width" content="1200" />
@@ -29,17 +29,17 @@
 <meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
 <meta property="og:locale" content="ja_JP" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="取引案件を150に制限する理由｜新潟のNextRay" />
-<meta name="twitter:description" content="拡大を追わず、一社ごとに向き合い続けるために。なぜ150なのかを説明します。" />
+<meta name="twitter:title" content="受付件数を制限する理由｜新潟のNextRay" />
+<meta name="twitter:description" content="ホームページ制作50社・AI自動化100社まで。一社ごとに向き合い続けるための上限です。" />
 <meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
 <link rel="icon" type="image/png" href="/assets/favicon.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "取引案件を150に制限する理由",
+  "name": "受付件数を制限する理由",
   "url": "https://nextray.jp/limited.html",
-  "description": "NextRayが取引案件を最大150に制限している理由と、その運用について。",
+  "description": "NextRayがホームページ制作50社・AIによる事務・総務の自動化100社に受付を制限している理由と、その運用について。",
   "mainEntity": {
     "@type": "ProfessionalService",
     "name": "NextRay",
@@ -56,7 +56,7 @@
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
     { "@type": "ListItem", "position": 2, "name": "会社概要", "item": "https://nextray.jp/company.html" },
-    { "@type": "ListItem", "position": 3, "name": "取引案件を150に制限する理由", "item": "https://nextray.jp/limited.html" }
+    { "@type": "ListItem", "position": 3, "name": "受付件数を制限する理由", "item": "https://nextray.jp/limited.html" }
   ]
 }
 </script>
@@ -67,7 +67,7 @@
 <link rel="stylesheet" href="assets/site.css" />
 <style>
   .limit-card{position:relative;overflow:hidden;border-radius:30px;padding:52px 48px;text-align:center;
-    background-color:#0b1220;background:linear-gradient(160deg,#0b1220 0%,#12233d 55%,#0b1220 100%);color:#fff;box-shadow:var(--shadow)}
+    background-color:#0b1220;background-image:linear-gradient(160deg,#0b1220 0%,#12233d 55%,#0b1220 100%);color:#fff;box-shadow:var(--shadow)}
   .limit-card::before{content:"";position:absolute;inset:0;opacity:.5;
     background:radial-gradient(60% 70% at 85% 0,rgba(246,169,74,.22),transparent 60%),radial-gradient(55% 65% at 10% 100%,rgba(30,155,255,.28),transparent 60%)}
   .limit-card>*{position:relative}
@@ -91,6 +91,20 @@
   @media(max-width:760px){.limit-card{padding:38px 22px}
     .slot-row{gap:16px;padding:20px 14px}.slot-num{font-size:2.1rem}
     .slot-targets{padding-left:0;padding-top:16px;border-left:none;border-top:1px solid rgba(255,255,255,.16);width:100%}}
+
+  /* サービス別の受付上限 */
+  .quota-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+  .quota{padding:26px 22px;border-radius:18px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);text-align:center}
+  .quota-cat{display:block;font-size:.86rem;font-weight:800;color:#8fd3ff;margin-bottom:12px;line-height:1.5}
+  .quota-num{font-family:"Manrope",sans-serif;font-weight:800;font-size:3rem;line-height:1;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .quota-num small{font-size:1rem;font-weight:700;margin-left:4px;color:rgba(255,255,255,.8);-webkit-text-fill-color:rgba(255,255,255,.8)}
+  .quota-note{margin-top:12px;font-size:.82rem;line-height:1.7;color:rgba(255,255,255,.68)}
+  .quota-total{margin-top:18px;padding:16px 20px;border-radius:14px;background:rgba(255,255,255,.05);
+    border:1px dashed rgba(255,255,255,.22);font-size:.92rem;color:rgba(255,255,255,.86);text-align:center}
+  .quota-total b{color:#fff;font-weight:800}
+  @media(max-width:760px){.quota-row{grid-template-columns:1fr;gap:14px}.quota-num{font-size:2.5rem}}
 </style>
 </head>
 <body>
@@ -138,7 +152,7 @@
               <a href="daihyo.html">代表メッセージ</a>
               <a href="certifications.html">認定・資格</a>
               <a href="area.html">対応エリア</a>
-              <a href="limited.html">150案件に制限する理由</a>
+              <a href="limited.html">受付件数を制限する理由</a>
             </div>
           </div>
         </div>
@@ -173,10 +187,10 @@
   <div class="page-hero-bg"></div>
   <div class="page-hero-grid"></div>
   <div class="wrap reveal">
-    <div class="crumbs"><a href="index.html">ホーム</a> ／ <a href="company.html">会社概要</a> ／ 取引案件を150に制限する理由</div>
+    <div class="crumbs"><a href="index.html">ホーム</a> ／ <a href="company.html">会社概要</a> ／ 受付件数を制限する理由</div>
     <span class="eyebrow">◆ Our Policy</span>
     <h1>増やさないことを、<br /><span class="grad-text">選びました。</span></h1>
-    <p class="lead">NextRayは取引案件を最大150に制限しています。多くの会社が「お客様を増やすこと」を目標にするなかで、あえて上限を設ける。その理由と、実際にどう運用しているかを正直に書きます。</p>
+    <p class="lead">NextRayは、<b>ホームページ制作を50社、AIによる事務・総務の自動化を100社</b>までに制限しています。多くの会社が「お客様を増やすこと」を目標にするなかで、あえて上限を設ける。その理由と、実際にどう運用しているかを正直に書きます。</p>
     <div class="hero-actions">
       <a href="index.html#contact" class="btn btn-primary">空き枠を問い合わせる →</a>
       <a href="company.html" class="btn btn-ghost">会社概要を見る</a>
@@ -188,21 +202,21 @@
   <div class="wrap">
     <div class="limit-card reveal">
       <span class="limit-badge">Limited to 150</span>
-      <p class="limit-h">NextRayは取引案件を<br class="sp" /><span class="limit-num">最大150</span>に制限します。</p>
-      <p class="limit-lead">拡大を追わず、<b>一社ごとに向き合い続けること</b>を選びました。<br class="sp" />だからこそ、お受けできる数にはあらかじめ上限があります。</p>
-      <div class="slot-row">
-        <div class="slot">
-          <span class="slot-label">お受けできる案件数（上限）</span>
-          <span class="slot-num">150<small>案件</small></span>
+      <p class="limit-h">NextRayがお受けする案件数には、<br class="sp" /><span class="limit-num">サービスごとの上限</span>があります。</p>
+      <p class="limit-lead">拡大を追わず、<b>一社ごとに向き合い続けること</b>を選びました。<br class="sp" />そのため、2つのサービスそれぞれに、お受けできる数の上限を設けています。</p>
+      <div class="quota-row">
+        <div class="quota">
+          <span class="quota-cat">ホームページ制作・保守</span>
+          <span class="quota-num">50<small>社まで</small></span>
+          <p class="quota-note">公開後の運用・改善まで毎月伴走するため、手をかけられる範囲に絞っています。</p>
         </div>
-        <div class="slot-targets">
-          <span class="slot-label">対象サービス</span>
-          <div class="st-tags">
-            <span>ホームページ制作・保守</span>
-            <span>AI運用コンサルティング</span>
-          </div>
+        <div class="quota">
+          <span class="quota-cat">AIによる事務・総務の自動化</span>
+          <span class="quota-num">100<small>社まで</small></span>
+          <p class="quota-note">仕組みを整えたあとは運用が安定するため、制作より多くお受けできます。</p>
         </div>
       </div>
+      <p class="quota-total">あわせて<b>最大150社</b>。これが、私たちが「成果が出るまで付き合う」と言い切れる範囲です。</p>
     </div>
   </div>
 </section>
@@ -210,17 +224,27 @@
 <section class="block soft">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Why 150</span>
-      <h2>なぜ、150なのか</h2>
+      <span class="eyebrow">Why 50 / 100</span>
+      <h2>なぜ、この数字なのか</h2>
     </div>
     <div class="split reveal">
       <div class="visual v-mix">人が関係を<br />保てる上限</div>
       <div>
-        <h3>数字の由来</h3>
+        <h3>合計150という数字の由来</h3>
         <p>人がしっかりと関係を保てる相手の数には限りがあり、その上限はおよそ150人といわれています。人類学者ロビン・ダンバーが提唱した説で、「ダンバー数」と呼ばれるものです。</p>
         <p>私たちはこれを、経営の指針として借りました。150を超えて抱えれば、一社あたりに割ける時間と注意は必ず薄まります。<b>「成果が出るまで付き合う」という約束を守れる範囲</b>が、私たちにとっての150です。</p>
         <p>厳密な科学的根拠として掲げているわけではありません。ただ、「どこかで線を引かなければ、際限なく受けてしまう」という自戒として、意味のある数字だと考えています。</p>
       </div>
+    </div>
+    <div class="split reveal">
+      <div>
+        <h3>なぜ制作50社、AI自動化100社に分けたのか</h3>
+        <p>同じ1社でも、かかる時間はサービスによって違います。数字を分けているのは、そのためです。</p>
+        <p><b>ホームページ制作を50社に絞っているのは、公開後こそ手がかかるから</b>です。毎月の更新、検索順位の確認、原稿の作成、改善の提案——「作って終わり」にしない以上、1社あたりに継続的な時間が必要になります。この密度を保てるのが50社でした。</p>
+        <p><b>AIによる事務・総務の自動化を100社としているのは、性質が違うから</b>です。最初に業務を棚卸しして仕組みを設計する段階では相応の時間を要しますが、動き始めたあとは安定して回ります。そのぶん、より多くの会社をお引き受けできます。</p>
+        <p>「合計150社」という総枠は同じでも、中身を一律にしないほうが正直だと考えました。<b>受けられる数を多く見せるための数字ではなく、実際に手が回る範囲を積み上げた結果</b>です。</p>
+      </div>
+      <div class="visual v-cyan">サービスごとに<br />かかる時間が違う</div>
     </div>
     <div class="split reveal">
       <div>
@@ -259,8 +283,8 @@
       </div>
       <div class="fcard reveal">
         <div class="fic"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h3>対象はストック型のサービス</h3>
-        <p>上限の対象は、継続的にお付き合いする<b>ホームページ制作・保守</b>と<b>AI運用コンサルティング</b>です。単発のご相談まで制限するものではありません。</p>
+        <h3>枠はサービスごとに独立</h3>
+        <p>上限は<b>ホームページ制作・保守が50社</b>、<b>AIによる事務・総務の自動化が100社</b>で、それぞれ別枠です。片方が満枠でも、もう片方が空いていればお受けできます。単発のご相談は対象外です。</p>
       </div>
     </div>
     <div class="notebox reveal">
@@ -285,7 +309,7 @@
         </div>
       </details>
       <details class="faq-item reveal">
-        <summary>150に達したあと、既存のお客様への対応は変わりますか？</summary>
+        <summary>上限に達したあと、既存のお客様への対応は変わりますか？</summary>
         <div class="faq-body">
           <p>変わりません。むしろ、既にお付き合いのある会社への対応品質を保つことが、上限を設けている目的です。</p>
           <p>新規を締め切るのは、既存のお客様に使う時間を削らないためです。</p>
