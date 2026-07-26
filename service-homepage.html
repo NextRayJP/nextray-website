@@ -110,8 +110,8 @@
   .plan .pprice .tail{font-size:1rem;color:var(--ink-2);font-weight:700}
   .plan .ptax{color:var(--muted);font-size:.78rem;margin-bottom:20px}
   .plan .plist{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0 0 26px;flex:1}
-  .plan .plist li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-2);font-size:.92rem}
-  .plan .plist li::before{content:"";width:20px;height:20px;flex:0 0 20px;margin-top:2px;border-radius:50%;background:var(--grad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e9bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
+  .plan .plist li{position:relative;padding-left:30px;color:var(--ink-2);font-size:.92rem;line-height:1.75}
+  .plan .plist li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--grad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e9bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
   .plan .btn{width:100%}
   .price-allnote{text-align:center;color:var(--muted);font-size:.9rem;margin-top:26px}
   /* single plan (制作＋月額) */
@@ -139,7 +139,7 @@
   .maint .mprice{font-family:"Manrope",sans-serif;font-weight:800;color:var(--blue);white-space:nowrap}
   .maint .mprice b{font-size:1.5rem}
   .maint ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-  .maint li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-2);font-size:.93rem}
+  .maint li{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;color:var(--ink-2);font-size:.93rem}
   .maint li::before{content:"";width:20px;height:20px;flex:0 0 20px;margin-top:2px;border-radius:50%;background:var(--grad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e9bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:12px;background-repeat:no-repeat;background-position:center}
 
   /* options */

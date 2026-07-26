@@ -113,7 +113,7 @@ section.block{padding:88px 0}
 .split h3{font-size:1.5rem;font-weight:900;line-height:1.4;margin-bottom:14px}
 .split p{color:var(--ink-2);margin-bottom:16px}
 .checklist{list-style:none;display:flex;flex-direction:column;gap:11px}
-.checklist li{display:flex;gap:11px;align-items:flex-start;color:var(--ink-2);font-size:.98rem}
+.checklist li{display:flex;flex-wrap:wrap;gap:11px;align-items:flex-start;color:var(--ink-2);font-size:.98rem}
 .checklist li::before{content:"";width:22px;height:22px;flex:0 0 22px;margin-top:2px;border-radius:50%;background:var(--grad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e9bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:13px;background-repeat:no-repeat;background-position:center}
 
 /* Flow steps */
@@ -168,7 +168,7 @@ footer{background:var(--ink);color:#fff;padding:66px 0 30px}
 .gpartner h3{font-size:1.25rem;font-weight:900;margin-bottom:10px;line-height:1.4}
 .gpartner>div>p{color:var(--ink-2);font-size:.95rem;margin-bottom:14px}
 .gp-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
-.gp-list li{display:flex;gap:9px;align-items:flex-start;color:var(--ink-2);font-size:.9rem}
+.gp-list li{display:flex;flex-wrap:wrap;gap:9px;align-items:flex-start;color:var(--ink-2);font-size:.9rem}
 .gp-list li::before{content:"";width:18px;height:18px;flex:0 0 18px;margin-top:3px;border-radius:50%;
   background:rgba(66,133,244,.1);
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a73e8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
