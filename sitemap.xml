@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://nextray.jp/service-homepage.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -20,13 +20,13 @@
   </url>
   <url>
     <loc>https://nextray.jp/pricing.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://nextray.jp/faq.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -117,7 +117,7 @@
   </url>
   <url>
     <loc>https://nextray.jp/limited.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -130,9 +130,15 @@
 
   <url>
     <loc>https://nextray.jp/blog.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nextray.jp/blog-minus-promotion.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://nextray.jp/blog-pro-or-amateur.html</loc>
