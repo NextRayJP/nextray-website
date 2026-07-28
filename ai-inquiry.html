@@ -66,6 +66,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'" />
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" /></noscript>
 <link rel="stylesheet" href="assets/site.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "AIが間違った案内をしてしまわないか心配です。",
+      "acceptedAnswer": { "@type": "Answer", "text": "もっともなご心配です。だからこそ、答えられる範囲をあらかじめ限定し、範囲外の質問には無理に答えさせず「担当者からご連絡します」と伝えて人へ引き継ぐ設計にします。 また、導入直後は実際の応答内容をこちらで確認し、不自然な回答があれば調整します。いきなり全部を任せるのではなく、確認しながら範囲を広げていく形です。" } },
+    { "@type": "Question", "name": "お客様に「AIが対応している」と分かってしまいませんか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "隠すべきものではないと考えています。自動応答であることを明示したうえで、必要なときは人につながると分かる形にするほうが、結果的に安心感につながります。 人のふりをさせて、途中で対応しきれなくなるほうが印象を損ねます。案内の文言はご相談のうえ決めましょう。" } },
+    { "@type": "Question", "name": "今使っている電話やメールは、そのまま使えますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "現在の連絡手段や、社内で使っているツールを確認したうえで、どこにどう組み込むのが自然かをご提案します。すべてを入れ替える前提ではありません。 使い慣れた道具を大きく変えると、現場が使わなくなってしまいます。今の運用に近い形で始められるかどうかを、設計時の判断基準のひとつにしています。" } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -147,7 +161,7 @@
   <div class="page-hero-bg"></div>
   <div class="page-hero-grid"></div>
   <div class="wrap reveal">
-    <div class="crumbs"><a href="index.html">ホーム</a> ／ <a href="service-ai-office.html">AIによる事務・総務の自動化</a> ／ 問い合わせ・予約対応の自動化</div>
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="index.html">ホーム</a> ／ <a href="service-ai-office.html">AIによる事務・総務の自動化</a> ／ 問い合わせ・予約対応の自動化</nav>
     <span class="eyebrow">◆ Inquiry &amp; Booking</span>
     <h1>一次対応をAIに。<br /><span class="grad-text">判断が要る話</span>は人に。</h1>
     <p class="lead">問い合わせのすべてをAIに任せる必要はありません。営業時間、場所、料金の目安、空き状況——毎回同じことを聞かれる部分だけをAIが受け、判断が必要な話は人へつなぐ。この線引きを設計するのがNextRayの仕事です。</p>
