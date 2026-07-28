@@ -113,12 +113,12 @@
     { "@type": "Organization", "name": "つばめ商工会", "url": "https://r.goope.jp/swallow/" }
   ],
   "makesOffer": [
-    { "@type": "Offer", "priceCurrency": "JPY", "price": "29800",
-      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "29800", "priceCurrency": "JPY", "unitCode": "MON" },
+    { "@type": "Offer", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "price": "29800",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "29800", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "unitCode": "MON" },
       "description": "初期費用0円＋月額29,800円（税別）。SEO／MEO運用・更新代行・月次レポート込み。",
       "itemOffered": { "@type": "Service", "name": "ホームページ制作", "serviceType": "ホームページ制作・SEO/MEO運用" } },
-    { "@type": "Offer", "priceCurrency": "JPY", "price": "198000",
-      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "198000", "priceCurrency": "JPY", "unitCode": "MON" },
+    { "@type": "Offer", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "price": "198000",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "198000", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "unitCode": "MON" },
       "description": "月額198,000円（税別）・初期費用0円。問い合わせ対応・書類作成・データ入力など事務と総務を自動化。",
       "itemOffered": { "@type": "Service", "name": "AIによる事務・総務の自動化", "serviceType": "バックオフィス自動化" } }
   ]
@@ -143,12 +143,12 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" /></noscript>
 <style>
   :root{
-    --blue:#1e9bff;
+    --blue:#1e9bff; --blue-ink:#1272c4;
     --cyan:#12d4d0;
     --amber:#f6a94a;
     --ink:#0b1220;
     --ink-2:#334155;
-    --muted:#6b7688;
+    --muted:#5f6a7d;
     --line:#e7ecf3;
     --bg:#ffffff;
     --bg-soft:#f5f8fc;
@@ -179,10 +179,11 @@
     -webkit-background-clip:text;background-clip:text;
     -webkit-text-fill-color:transparent;color:transparent;
   }
+    h1,h2,h3,h4,.hero h1,.article h2,.article h3{word-break:auto-phrase;overflow-wrap:break-word}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
     font-size:.78rem;font-weight:700;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--blue);
+    text-transform:uppercase;color:var(--blue-ink);
     padding:7px 14px;border-radius:999px;
     background:var(--grad-soft);border:1px solid rgba(30,155,255,.18);
   }
@@ -195,7 +196,7 @@
   .btn-primary{color:#fff;background:var(--grad);box-shadow:0 14px 30px -10px rgba(30,155,255,.55)}
   .btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 38px -10px rgba(30,155,255,.6)}
   .btn-ghost{color:var(--ink);background:#fff;border:1.5px solid var(--line)}
-  .btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-3px)}
+  .btn-ghost:hover{border-color:var(--blue-ink);color:var(--blue-ink);transform:translateY(-3px)}
 
   /* ---------- Header ---------- */
   header{
@@ -234,11 +235,11 @@
   .dd-cols.one{grid-template-columns:minmax(190px,1fr)}
   .dd-col{display:flex;flex-direction:column;gap:1px}
   .dd-head{font-size:.9rem;font-weight:800;color:var(--ink);padding:7px 9px;border-radius:9px;white-space:nowrap;transition:background .2s,color .2s}
-  .dd-head:hover{background:var(--grad-soft);color:var(--blue)}
+  .dd-head:hover{background:var(--grad-soft);color:var(--blue-ink)}
   .dd-col a:not(.dd-head){font-size:.85rem;color:var(--muted);padding:6px 9px;border-radius:9px;white-space:nowrap;transition:background .2s,color .2s}
-  .dd-col a:not(.dd-head):hover{background:var(--bg-soft);color:var(--blue)}
+  .dd-col a:not(.dd-head):hover{background:var(--bg-soft);color:var(--blue-ink)}
   .dd-foot{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:18px;flex-wrap:wrap}
-  .dd-foot a{font-size:.85rem;font-weight:700;color:var(--blue)}
+  .dd-foot a{font-size:.85rem;font-weight:700;color:var(--blue-ink)}
   .dd-foot a:hover{color:var(--amber)}
 
   /* モバイルメニューの見出し */
@@ -286,7 +287,7 @@
     position:absolute;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);
     display:flex;align-items:center;gap:12px;font-weight:700;font-size:.9rem;
   }
-  .float-badge .ic{width:38px;height:38px;border-radius:11px;background:var(--grad-soft);display:grid;place-items:center;color:var(--blue)}
+  .float-badge .ic{width:38px;height:38px;border-radius:11px;background:var(--grad-soft);display:grid;place-items:center;color:var(--blue-ink)}
   .fb-1{top:-24px;right:-14px;animation:float 5s ease-in-out infinite}
   .fb-2{bottom:-26px;left:-20px;animation:float 5s ease-in-out infinite .8s}
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
@@ -323,13 +324,13 @@
   .svc-card:hover::before{transform:scaleX(1)}
   .svc-ic{width:58px;height:58px;border-radius:16px;background:var(--grad-soft);display:grid;place-items:center;margin-bottom:22px}
   .svc-ic svg{width:28px;height:28px;stroke:var(--blue)}
-  .svc-solve{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--blue);background:var(--grad-soft);border:1px solid rgba(30,155,255,.18);border-radius:999px;padding:5px 12px;margin-bottom:14px}
+  .svc-solve{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.02em;color:var(--blue-ink);background:var(--grad-soft);border:1px solid rgba(30,155,255,.18);border-radius:999px;padding:5px 12px;margin-bottom:14px}
   .svc-card h3{font-size:1.28rem;margin-bottom:12px}
   .svc-card p{color:var(--ink-2);font-size:.96rem;margin-bottom:18px}
   .svc-card ul{list-style:none;display:flex;flex-direction:column;gap:9px}
   .svc-card li{display:flex;flex-wrap:wrap;gap:9px;align-items:flex-start;font-size:.9rem;color:var(--muted)}
   .svc-card li::before{content:"";width:18px;height:18px;flex:0 0 18px;margin-top:3px;border-radius:50%;background:var(--grad-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e9bff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:11px;background-repeat:no-repeat;background-position:center}
-  .svc-link{display:inline-block;margin-top:20px;font-weight:700;font-size:.92rem;color:var(--blue);transition:gap .2s}
+  .svc-link{display:inline-block;margin-top:20px;font-weight:700;font-size:.92rem;color:var(--blue-ink);transition:gap .2s}
   .svc-link:hover{color:var(--cyan)}
 
   /* why / features split */
@@ -350,13 +351,13 @@
   .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
   .flow-card{position:relative;padding:30px 24px;border-radius:var(--radius);border:1px solid var(--line);background:#fff;transition:transform .25s,box-shadow .25s}
   .flow-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-  .flow-card .step{font-family:"Manrope",sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.1em;color:var(--blue)}
+  .flow-card .step{font-family:"Manrope",sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.1em;color:var(--blue-ink)}
   .flow-card h3{font-size:1.1rem;margin:12px 0 8px}
   .flow-card p{color:var(--muted);font-size:.9rem}
   .flow-card .num{position:absolute;top:22px;right:24px;font-family:"Manrope",sans-serif;font-weight:800;font-size:2.4rem;color:var(--line)}
 
   .svc-price{margin:16px 0 4px;padding:12px 14px;border-radius:12px;background:var(--grad-soft);border:1px solid rgba(30,155,255,.16);font-size:.92rem;font-weight:700;color:var(--ink-2)}
-  .svc-price b{color:var(--blue);font-size:1.05rem}
+  .svc-price b{color:var(--blue-ink);font-size:1.05rem}
   .svc-price small{display:block;font-size:.76rem;font-weight:500;color:var(--muted);margin-top:3px}
 
   /* 150案件限定（サービス紹介のあと、方針として提示） */
@@ -419,7 +420,7 @@
   .realwork-body{padding:36px 38px;display:flex;flex-direction:column;justify-content:center}
   .realwork-badge{display:inline-block;align-self:flex-start;font-size:.72rem;font-weight:800;letter-spacing:.08em;
     color:#fff;background:var(--grad);padding:5px 13px;border-radius:999px;margin-bottom:14px}
-  .realwork-cat{font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--blue);margin-bottom:6px}
+  .realwork-cat{font-size:.8rem;font-weight:700;letter-spacing:.06em;color:var(--blue-ink);margin-bottom:6px}
   .realwork-body h3{font-size:1.32rem;font-weight:900;line-height:1.45;margin-bottom:12px}
   .realwork-body p{color:var(--ink-2);font-size:.95rem;margin-bottom:16px}
   .realwork-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
@@ -445,10 +446,10 @@
   .w5{background:linear-gradient(135deg,#4a3527,#b98a55)}
   .w6{background:linear-gradient(135deg,#12294d,#b48a45)}
   .work .meta{padding:22px 24px}
-  .work .tag{font-size:.74rem;font-weight:700;letter-spacing:.08em;color:var(--blue)}
+  .work .tag{font-size:.74rem;font-weight:700;letter-spacing:.08em;color:var(--blue-ink)}
   .work h3{font-size:1.14rem;margin:8px 0 6px}
   .work p{color:var(--muted);font-size:.9rem}
-  .work .wlink{display:inline-block;margin-top:14px;font-size:.86rem;font-weight:700;color:var(--blue)}
+  .work .wlink{display:inline-block;margin-top:14px;font-size:.86rem;font-weight:700;color:var(--blue-ink)}
   .work:hover .wlink{color:var(--amber)}
   .work-note{text-align:center;margin-top:30px;color:var(--muted);font-size:.84rem}
   @media(max-width:900px){.work-grid{grid-template-columns:repeat(2,1fr)}}
@@ -463,9 +464,9 @@
   .cert-cat h3 .dot{width:11px;height:11px;border-radius:50%;background:var(--grad);flex:0 0 auto}
   .cert-list{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
   .cert-list li{font-size:.82rem;font-weight:600;border-radius:999px;background:var(--grad-soft);border:1px solid rgba(30,155,255,.14);transition:border-color .2s,transform .2s,box-shadow .2s}
-  .cert-list li:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 8px 18px -10px rgba(30,155,255,.5)}
+  .cert-list li:hover{border-color:var(--blue-ink);transform:translateY(-2px);box-shadow:0 8px 18px -10px rgba(30,155,255,.5)}
   .cert-list a{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);padding:7px 12px}
-  .cert-list a::after{content:"↗";font-size:.72rem;color:var(--blue);opacity:.75}
+  .cert-list a::after{content:"↗";font-size:.72rem;color:var(--blue-ink);opacity:.75}
   .cert-note{text-align:center;margin-top:30px;color:var(--muted);font-size:.86rem}
   .cert-cta{text-align:center;margin-top:22px}
   .cert-subhead{text-align:center;font-size:1.24rem;font-weight:900;margin:52px 0 12px}
@@ -543,7 +544,7 @@
   .news-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:4px}
   .news-item{display:flex;gap:24px;align-items:center;padding:22px 8px;border-bottom:1px solid var(--line)}
   .news-item time{font-family:"Manrope",sans-serif;font-weight:700;color:var(--muted);font-size:.9rem;flex:0 0 auto;width:96px}
-  .news-item .cat{flex:0 0 auto;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--grad-soft);color:var(--blue)}
+  .news-item .cat{flex:0 0 auto;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:999px;background:var(--grad-soft);color:var(--blue-ink)}
   .news-item p{font-size:.98rem}
 
   /* footer */
@@ -860,7 +861,7 @@
         <a href="service-ai-office.html" class="svc-link">詳しく見る →</a>
       </div>
     </div>
-    <p class="work-note reveal" style="text-align:center;margin-top:26px">料金の詳細は<a href="pricing.html" style="color:var(--blue);font-weight:700">料金一覧</a>に、すべて掲載しています。「問い合わせないと分からない」はありません。</p>
+    <p class="work-note reveal" style="text-align:center;margin-top:26px">料金の詳細は<a href="pricing.html" style="color:var(--blue-ink);font-weight:700">料金一覧</a>に、すべて掲載しています。「問い合わせないと分からない」はありません。</p>
   </div>
 </section>
 
@@ -1015,7 +1016,7 @@
     <div class="feat3" style="margin-top:32px">
       <div class="fcard reveal">
         <p class="lg-h" style="font-size:1.05rem;margin-bottom:8px">AI活用力の裏づけ</p>
-        <p>代表・谷川恵介は、Claudeを開発する <b>Anthropic</b> の「Anthropic Academy」を <b class="grad-text">20コース修了</b>、ChatGPTを開発する <b>OpenAI</b> の教育プログラムも修了。すべて公式の修了証明つきで<a href="certifications.html" style="color:var(--blue);font-weight:700">認定・資格ページ</a>から検証いただけます。</p>
+        <p>代表・谷川恵介は、Claudeを開発する <b>Anthropic</b> の「Anthropic Academy」を <b class="grad-text">20コース修了</b>、ChatGPTを開発する <b>OpenAI</b> の教育プログラムも修了。すべて公式の修了証明つきで<a href="certifications.html" style="color:var(--blue-ink);font-weight:700">認定・資格ページ</a>から検証いただけます。</p>
       </div>
       <div class="fcard reveal">
         <p class="lg-h" style="font-size:1.05rem;margin-bottom:8px">パートナーシップ構築宣言</p>
@@ -1023,7 +1024,7 @@
       </div>
       <div class="fcard reveal">
         <p class="lg-h" style="font-size:1.05rem;margin-bottom:8px">地域とのつながり</p>
-        <p>新潟県中小企業家同友会・新潟ニュービジネス協議会・長岡青年会議所、地元の商工会・商工会議所に所属。<a href="daihyo.html#affiliations" style="color:var(--blue);font-weight:700">所属団体の一覧</a>をご覧いただけます。</p>
+        <p>新潟県中小企業家同友会・新潟ニュービジネス協議会・長岡青年会議所、地元の商工会・商工会議所に所属。<a href="daihyo.html#affiliations" style="color:var(--blue-ink);font-weight:700">所属団体の一覧</a>をご覧いただけます。</p>
       </div>
     </div>
   </div>
@@ -1073,7 +1074,7 @@
         <a href="#contact" class="btn btn-primary">今の請求額で見直せるか聞いてみる →</a>
         <a href="pricing.html" class="btn btn-ghost">料金一覧を見る</a>
       </div>
-      <p>電話でも承ります：<a href="tel:080-7517-4514" style="font-weight:700;color:var(--blue)">080-7517-4514</a>（24時間受付）／無理な勧誘は一切いたしません。</p>
+      <p>電話でも承ります：<a href="tel:080-7517-4514" style="font-weight:700;color:var(--blue-ink)">080-7517-4514</a>（24時間受付）／無理な勧誘は一切いたしません。</p>
     </div>
   </div>
 </section>
@@ -1134,12 +1135,12 @@
       <input type="hidden" name="_next" value="https://nextray.jp/thanks.html" />
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">お名前 *</span><input name="お名前" required placeholder="山田 太郎" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
-        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">会社名</span><input name="会社名" placeholder="株式会社◯◯" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
+        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">お名前 *</span><input name="お名前" required autocomplete="name" placeholder="山田 太郎" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
+        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">会社名</span><input name="会社名" autocomplete="organization" placeholder="株式会社◯◯" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">メールアドレス *</span><input name="メールアドレス" required type="email" placeholder="mail@example.com" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
-        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">電話番号</span><input name="電話番号" placeholder="000-0000-0000" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
+        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">メールアドレス *</span><input name="メールアドレス" required type="email" autocomplete="email" inputmode="email" placeholder="mail@example.com" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
+        <label style="display:block"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">電話番号</span><input name="電話番号" type="tel" autocomplete="tel" inputmode="tel" placeholder="000-0000-0000" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit" /></label>
       </div>
       <label style="display:block;margin-bottom:20px"><span style="font-size:.85rem;font-weight:700;display:block;margin-bottom:6px">ご相談内容 *</span><textarea name="ご相談内容" required rows="4" placeholder="例）まず無料デモを作ってほしい（デモ希望）／会社のホームページを新しく作りたい／今の制作会社から乗り換えたい／事務作業をAIで減らしたい など" style="width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:12px;font-size:.95rem;font-family:inherit;resize:vertical"></textarea></label>
       <button type="submit" class="btn btn-primary" style="width:100%">この内容で送信する</button>
@@ -1164,11 +1165,11 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             <span>LinkedIn</span>
           </a>
-          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay合同会社 note">
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
             <span>note</span>
           </a>
-          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay合同会社 アメブロ">
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             <span>アメブロ</span>
           </a>
