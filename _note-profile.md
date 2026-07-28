@@ -65,6 +65,6 @@ NextRayは、この2つを解決するための会社です。単なる制作会
 **NextRay合同会社（ネクストレイ）**
 新潟県新潟市西蒲区中之口1885-11
 Web: https://nextray.jp
-Instagram: @nextray_gk ／ X: @NextRayGK ／ LinkedIn: keisuke-tanikawa-nextray
+Instagram: @nextray_gk ／ LinkedIn: keisuke-tanikawa-nextray ／ アメブロ: https://ameblo.jp/nextray/
 
 お気軽にフォロー・コメントください。よろしくお願いします。

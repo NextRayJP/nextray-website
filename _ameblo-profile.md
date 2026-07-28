@@ -47,4 +47,4 @@ https://nextray.jp
 - **お住まいの地域**：新潟県 新潟市西蒲区
 - **職業**：ホームページ制作／AI活用支援（NextRay合同会社 代表）
 - **ホームページ**：https://nextray.jp
-- **その他SNS**：Instagram @nextray_gk ／ X @NextRayGK ／ LinkedIn keisuke-tanikawa-nextray
+- **その他SNS**：Instagram @nextray_gk ／ LinkedIn keisuke-tanikawa-nextray ／ note https://note.com/nextray_jp
