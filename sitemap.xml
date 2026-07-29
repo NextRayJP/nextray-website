@@ -135,6 +135,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://nextray.jp/blog-shiriai-risk.html</loc>
+    <lastmod>2026-07-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://nextray.jp/blog-minus-promotion.html</loc>
     <lastmod>2026-07-29</lastmod>
     <changefreq>monthly</changefreq>
