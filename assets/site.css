@@ -516,6 +516,14 @@ a.org .org-name::after{content:"↗";font-size:.72rem;margin-left:5px;color:var(
 @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
 /* 最終保険: JSが途中で落ちても2秒後に必ず本文を表示する */
 .js.reveal-all .reveal{opacity:1;transform:none}
+/* 初期表示領域だけはJSを待たずCSSだけで出す。
+   ページ末尾のスクリプトが動くまで描画が始まらず FCP/LCP が大幅に遅れていたため。
+   見え方（0.7秒かけて下から浮き上がる）は .reveal と同一 */
+@keyframes nr-rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.js .page-hero .reveal{animation:nr-rise .7s ease both}
+/* animation は通常の宣言より優先されるため、2秒後の最終保険が効くよう明示的に打ち消す */
+.js.reveal-all .page-hero .reveal{animation:none;opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .page-hero .reveal{animation:none;opacity:1;transform:none}}
 
 /* Responsive */
 @media(max-width:960px){

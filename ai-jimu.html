@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-F1Z6NP6M68');
-</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
@@ -63,8 +55,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'" />
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;700;800&display=swap" /></noscript>
 <link rel="stylesheet" href="assets/site.css" />
 <script type="application/ld+json">
 {
@@ -79,6 +71,14 @@
       "acceptedAnswer": { "@type": "Answer", "text": "現場で使えなければ意味がないので、操作が複雑にならない形を優先して設計します。新しい画面をいくつも覚えていただくような作りにはしません。 導入時には操作の説明を行い、運用開始後もご質問には継続して対応します。使われないまま止まってしまうのが最も避けたい結果なので、そこは伴走します。" } }
   ]
 }
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
 </script>
 </head>
 <body>
@@ -383,7 +383,7 @@
       if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
     });
   };
-  revealFallback();
+  requestAnimationFrame(revealFallback);
   window.addEventListener('scroll',revealFallback,{passive:true});
   window.addEventListener('resize',revealFallback,{passive:true});
   window.addEventListener('load',revealFallback);

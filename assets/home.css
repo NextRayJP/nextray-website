@@ -32,6 +32,11 @@ body{
 .hero-trust b{display:block;font-size:1.9rem;font-weight:800;line-height:1}
 .hero-trust small{color:var(--muted);font-size:.82rem;font-weight:600}
 .hero-visual{position:relative}
+/* ファーストビューはJSを待たずCSSだけで出す（FCP/LCP対策・見え方は .reveal と同一） */
+.js .hero-copy.reveal,.js .hero-visual.reveal{animation:nr-rise .7s ease both}
+/* animation は通常の宣言より優先されるため、2秒後の最終保険が効くよう明示的に打ち消す */
+.js.reveal-all .hero-copy.reveal,.js.reveal-all .hero-visual.reveal{animation:none;opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .hero-copy.reveal,.js .hero-visual.reveal{animation:none;opacity:1;transform:none}}
 .glass{
     background:linear-gradient(160deg,rgba(255,255,255,.9),rgba(255,255,255,.7));
     border:1px solid #fff;border-radius:26px;padding:26px;
