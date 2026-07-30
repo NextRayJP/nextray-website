@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>WordPressを使わないホームページ制作｜NextRay</title>
+<meta name="description" content="NextRayはWordPressを使いません。HTML・CSSを直接書いてホームページを作ります。軽さ、技術的な自由度、デザインの再現性。手で書く理由と、正直な弱点まで説明します。" />
+<meta name="keywords" content="WordPress 使わない,コーディング ホームページ制作,静的サイト 制作,表示速度 ホームページ,ホームページ 軽い,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-no-wordpress.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="「何で作ってるんですか？」と聞かれて「手です」と答えたら、沈黙が生まれた" />
+<meta property="og:description" content="NextRayはWordPressを使いません。1行ずつ書いています。変わり者だからではなく、使う理由が見つからなかったからです。" />
+<meta property="og:url" content="https://nextray.jp/blog-no-wordpress.html" />
+<meta property="og:image" content="https://nextray.jp/assets/coding-only-ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="「何で作ってるんですか？」と聞かれて「手です」と答えたら、沈黙が生まれた｜NextRay" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-07-30" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="「何で作ってるんですか？」と聞かれて「手です」と答えたら、沈黙が生まれた" />
+<meta name="twitter:description" content="NextRayはWordPressを使いません。1行ずつ書いています。使う理由が見つからなかったからです。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/coding-only-ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "「何で作ってるんですか？」と聞かれて「手です」と答えたら、沈黙が生まれた",
+  "description": "WordPressを使わず、HTML・CSSを直接書いてホームページを作る理由を、軽さ・技術的な自由度・デザインの再現性の3点から説明し、弱点も正直に挙げます。",
+  "image": "https://nextray.jp/assets/coding-only-ogp.png",
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-no-wordpress.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "WordPressを使わないと、自分でページを更新できないのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "管理画面がないため、お客様ご自身でページを追加・編集することはできません。そのぶんNextRayが更新代行として引き受けており、月額に含まれています。ご依頼から2営業日以内に反映します。" } },
+    { "@type": "Question", "name": "WordPressで作るより検索に強いのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "WordPressでも適切に実装すれば検索対策は可能です。違うのは、テーマやプラグインの仕様に左右されず、タイトル・見出しの階層・構造化データ・画像の読み込み方といった技術的な土台をすべて自分で決められる点です。順位を保証するものではありません。" } },
+    { "@type": "Question", "name": "手で書くと制作期間が長くなりませんか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "長くなりません。NextRayでは1件あたり約2時間で制作しています。公開までに1〜2ヶ月かかる場合がありますが、その大半は原稿と写真をご用意いただく期間です。" } },
+    { "@type": "Question", "name": "対応できないサイトはありますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "大規模な通販サイトや、会員機能が中心のサイトには向きません。そうしたご相談をいただいた場合は、正直に別の方法をおすすめしています。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "「何で作ってるんですか？」と聞かれて「手です」と答えたら、沈黙が生まれた", "item": "https://nextray.jp/blog-no-wordpress.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="index.html#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="index.html#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="index.html#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="index.html">ホーム</a> ／ <a href="blog.html">コラム</a> ／ 「手です」と答えたら沈黙が生まれた</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-07-30">2026.07.30</time><span class="post-cat">制作の裏側</span></div>
+      <h1>「何で作ってるんですか？」と聞かれて「手です」と答えたら、沈黙が生まれた</h1>
+      <p class="summary">NextRayはWordPressを使いません。HTMLとCSSを1行ずつ書いてホームページを作っています。この業界では、かなり珍しいほうです。こだわりがあるからではなく、<b>使う理由が見つからなかった</b>というだけの話なのですが、そう言うと余計に不思議な顔をされるので、理由を書いておくことにしました。弱点もあわせて書きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#chinmoku">3秒の沈黙</a></li>
+        <li><a href="#kawarimono">変わり者だから、ではありません</a></li>
+        <li><a href="#karui">軽い、という地味な話</a></li>
+        <li><a href="#seo">検索対策は「強い」ではなく「全部握れる」</a></li>
+        <li><a href="#design">デザインに言い訳が要らない</a></li>
+        <li><a href="#jakuten">正直に言うと、弱点もあります</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="chinmoku">3秒の沈黙</h2>
+      <p>先日、同業の方に聞かれました。</p>
+      <p>「何で作ってるんですか？」</p>
+      <p>「手です」</p>
+      <p>3秒ほど、沈黙が生まれました。</p>
+      <p>質問の意図は「WordPressですか、それともWixやSTUDIOですか」ということです。だいたいそのどれかなので、当然の質問です。うちはそのどれでもありません。エディタを開いて、HTMLとCSSを直接書いています。</p>
+
+      <h2 id="kawarimono">変わり者だから、ではありません</h2>
+      <p>「こだわりですか」とよく言われますが、違います。<b>使う理由が見つからなかった</b>、というだけです。</p>
+      <p>出来合いのシステムには、最初から大量の機能が入っています。予約フォーム、会員登録、多言語切り替え、ショッピングカート、アクセス解析。「いつか使うかもしれないもの」が全部入りで届きます。</p>
+      <p>便利です。実際、必要な会社にとっては最良の選択です。ただ、<b>使わなかった機能の重さは、そのまま残ります。</b></p>
+      <p>服に例えるなら、既製品と、採寸して縫うものの違いです。既製品でぴったり合う人はそれでいい。合わない人は、袖や丈のどこかを我慢して着ることになります。ホームページの場合、その我慢はたいてい「表示の重さ」と「デザインの妥協」という形で出てきます。</p>
+      <div class="callout">
+        <p><strong>先にお伝えしておくと</strong></p>
+        <p>この記事は「WordPressは駄目だ」という話ではありません。世界のサイトの4割以上がWordPressで動いているのは、それだけの合理性があるからです。うちが選ばなかった理由を書いているだけで、選んでいる会社を否定するものではありません。</p>
+      </div>
+
+      <h2 id="karui">軽い、という地味な話</h2>
+      <p>手で書くと、書いたものしか入りません。だからサイトが軽くなります。</p>
+      <p>これは地味な価値です。納品後に「速いですね」と言ってくださるお客様は、正直あまりいません。速いことは、気づかれないからです。</p>
+      <p>ただ、<b>遅いことは確実に気づかれます。</b>スマートフォンでリンクを踏んで、白い画面のまま数秒待たされた経験は誰にでもあると思います。あのとき、多くの人は戻ります。そして戻った人は、二度と来ません。</p>
+      <p>ホームページに何人来たかは記録に残りますが、<b>「開くのを待てずに帰った人」は記録に残りにくい</b>という点が厄介です。損失が見えないので、対策の優先順位も上がりません。</p>
+      <p>ちなみに、このサイトに入っているプラグインは0個です。この自慢は、今のところ誰にも伝わっていません。</p>
+
+      <h2 id="seo">検索対策は「強い」ではなく「全部握れる」</h2>
+      <p>ここは正確に書きます。<b>「WordPressを使わないから検索に強い」というのは、言い過ぎです。</b>WordPressでも、きちんと実装すれば検索対策はできます。そう書いている制作会社を見かけますが、詳しい人が読めば一発で分かってしまいます。</p>
+      <p>実際に違うのは、<b>技術的な土台を全部自分で決められる</b>という点です。具体的には次のようなものです。</p>
+      <ul>
+        <li><b>タイトルと説明文</b>——ページごとに、内容に合わせて書けます。テーマの出力形式に合わせる必要がありません。</li>
+        <li><b>見出しの階層</b>——文字の大きさとは切り離して、意味の順序だけで組めます。「見た目を整えるために見出しタグを使う」という事故が起きません。</li>
+        <li><b>構造化データ</b>——会社情報、記事、よくある質問、パンくず。必要なものだけを、必要なページに置けます。</li>
+        <li><b>画像の読み込み方</b>——どの画像を先に読み、どれを後回しにするか。1枚ずつ決められます。</li>
+        <li><b>読み込むファイルの数</b>——テーマとプラグインが勝手に追加するファイルがないので、削る作業そのものが発生しません。</li>
+      </ul>
+      <p>プラグインで足すのではなく、最初から入れておく。この差です。順位を保証するものではありませんが、<b>土台の不備で損をすることはなくなります。</b></p>
+      <p>検索対策そのものの進め方は<a href="blog-seo-local.html">新潟の中小企業のためのSEO入門</a>に、Googleマップ側の話は<a href="blog-meo-basics.html">MEO対策とは？店舗が最初にやるべき5つのこと</a>にまとめています。</p>
+
+      <h2 id="design">デザインに言い訳が要らない</h2>
+      <p>もうひとつ。<b>「エディタの制約で、そこは動かせません」と言わなくて済みます。</b></p>
+      <p>出来合いのテーマを使うと、どうしてもテーマが想定した形に引っ張られます。ここの余白を詰めたい、この画像を斜めに置きたい、スクロールに合わせて数字を動かしたい——できる場合もありますが、できない場合もあります。</p>
+      <p>そして、できないと分かったとき何が起きるか。「本当はこうしたい」が、<b>「まあ、これでいいか」に着地します。</b>この小さな妥協が、10箇所たまると、どこかで見たようなサイトになります。</p>
+      <p>手で書けば、考えたものがそのまま出ます。その代わり、<b>考えていないものは何も出てきません。</b>土台が用意されていないので、逃げ場もありません。そこは緊張感のある話です。</p>
+
+      <h2 id="jakuten">正直に言うと、弱点もあります</h2>
+      <p>いいことばかり書くと嘘になるので、弱点も挙げます。</p>
+      <ul>
+        <li><b>お客様ご自身では更新できません</b>——管理画面がないためです。そのぶんNextRayが更新代行として引き受けており、月額に含めています。ご依頼から2営業日以内に反映します。ただし「思いついたときに自分で直したい」という方には、この形は向きません。</li>
+        <li><b>大規模な通販サイト・会員機能には向きません</b>——商品数が多い通販や、ログインして使う仕組みが中心のサイトは、専用のシステムを使うほうが合理的です。そうしたご相談をいただいたときは、正直に別の方法をおすすめしています。</li>
+        <li><b>作れる人が限られます</b>——出来合いのシステムより、扱える人が少ないやり方です。だからこそ、引き継げる形で書くこと、ドメインとデータをお客様の名義でお持ちいただくことを徹底しています。<a href="blog-hp-choose.html">この点は制作会社を選ぶときの最重要項目</a>だと考えています。</li>
+      </ul>
+      <p>制作期間については、よく心配されますが問題ありません。<b>1件あたり約2時間で作ります。</b>公開までに1〜2ヶ月いただくことがありますが、その大半は原稿と写真をご用意いただく期間です。</p>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。手で書く理由は3つです。</p>
+      <ul>
+        <li><b>軽い</b>——使わない機能が最初から入らないので、削る作業が要りません</li>
+        <li><b>土台を全部握れる</b>——検索対策の実装を、テーマやプラグインの都合に合わせずに置けます</li>
+        <li><b>言い訳が要らない</b>——「エディタの制約で」と言わずに済みます</li>
+      </ul>
+      <p>主流でないやり方を選ぶと、説明する手間が増えます。それでも、説明できる理由があるならそちらを選ぶ。そういう話です。</p>
+      <p>最後に。「手で書いてます」と言うと、たまに「大変ですね」と言われます。これが、いちばん困ります。</p>
+      <p>楽しいので、やっているだけなので。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>ご相談は、どなたでも無料です</h3>
+      <p>「今のサイトが重いのか軽いのか分からない」という段階のご相談で構いません。実際に測ってお伝えします。<b>当社にご依頼いただかなくても、費用は一切かかりません。</b>ご相談の結果「今のまま使い続けるのがいい」と判断した場合は、そうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="index.html#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-pro-or-amateur.html">
+        <span class="stag">COLUMN</span>
+        <h3>プロのホームページ制作会社のように見えても、中身は素人かもしれません</h3>
+        <p>見た目が整っていても、中身の実装は別の話です。発注前に見分けるための着眼点。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-hp-choose.html">
+        <span class="stag">COLUMN</span>
+        <h3>ホームページ制作会社の選び方｜見積書で確認すべき6項目</h3>
+        <p>ドメインの名義、解約時の扱い、追加費用の範囲。判を押す前に確認しておきたいポイント。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円（税別）。ドメインは自社名義でお持ちいただけます。契約前に無料デモを制作します。</p>
+        <span class="slink">詳しく見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="index.html#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  revealFallback();
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>
