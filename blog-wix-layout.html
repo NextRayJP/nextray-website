@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>Wixのレイアウトが崩れる理由｜自由配置の落とし穴｜NextRay</title>
+<meta name="description" content="Wixで作ったサイトのレイアウトが崩れる、スマホで文字が重なる——原因はエディタの「自由配置」とPC・モバイル別レイアウトという仕組みにあります。崩れる条件、5分でできる自己点検、直す順番を新潟の制作会社が解説します。" />
+<meta name="keywords" content="Wix レイアウト 崩れる,Wix スマホ 崩れる,Wix 文字 重なる,Wix 危険,ホームページ 崩れる,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-wix-layout.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="Wixのレイアウトが崩れる理由｜自由配置の落とし穴" />
+<meta property="og:description" content="文字を1行足しただけで重なる。PCでは直ったのにスマホでは崩れたまま。原因は仕組みの側にあります。" />
+<meta property="og:url" content="https://nextray.jp/blog-wix-layout.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-07-30" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Wixのレイアウトが崩れる理由｜自由配置の落とし穴" />
+<meta name="twitter:description" content="文字を1行足しただけで重なる。PCでは直ったのにスマホでは崩れたまま。原因は仕組みの側にあります。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Wixのレイアウトが崩れる理由｜自由配置の落とし穴",
+  "description": "Wixで作ったサイトのレイアウトが崩れる原因を、エディタの自由配置とPC・モバイル別レイアウトという仕組みの側から解説し、自己点検の方法と直す順番を整理します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-wix-layout.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Wixで作ったサイトは、作り直したほうがいいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "一律には言えません。今きちんと表示されていて、更新の頻度も低いのであれば、そのまま使い続けるのが合理的です。判断が変わるのは、更新するたびに崩れる、スマホで読めない箇所がある、直したいのに触るのが怖い——このいずれかに当てはまる場合です。作り直しを前提にご案内することはありません。" } },
+    { "@type": "Question", "name": "崩れている箇所は、自分で直せますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "多くの場合は直せます。要素の位置を少し下げる、テキストボックスの高さに余裕を持たせる、モバイルエディタ側でも同じ修正を行う——この3つで解決することが少なくありません。ただし根本原因が自由配置そのものである場合、直したそばから別の場所が崩れます。その繰り返しが負担になっているかどうかが分かれ目です。" } },
+    { "@type": "Question", "name": "Wix Studio なら崩れないのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "崩れにくくなっています。Wix Studio では要素を画面幅に応じて伸縮させる配置方式が採用されており、この記事で挙げた「自由配置ゆえの崩れ」は起きにくい設計です。ただし旧エディタで作ったサイトが自動でその方式に変わるわけではありません。ご自身のサイトがどちらで作られているかは確認する価値があります。" } },
+    { "@type": "Question", "name": "今のサイトが崩れていないか、見てもらえますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。URLをお送りいただければ、実機とブラウザ幅を変えた状態で確認し、崩れている箇所と直し方をお伝えします。無料で、ご依頼いただかなくても費用はかかりません。「今のまま使い続けるのがいい」と判断した場合は、正直にそうお伝えします。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "Wixのレイアウトが崩れる理由｜自由配置の落とし穴", "item": "https://nextray.jp/blog-wix-layout.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;500;700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="index.html#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="index.html#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="index.html#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="index.html">ホーム</a> ／ <a href="blog.html">コラム</a> ／ Wixのレイアウトが崩れる理由</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-07-30">2026.07.30</time><span class="post-cat">制作の裏側</span></div>
+      <h1>Wixのエディタは、想像以上にレイアウトが崩れます</h1>
+      <p class="summary">「文字を1行足しただけなのに、下の文章と重なってしまった」「PCでは直したのに、スマホで見たらまだ崩れている」。Wixで自社サイトを運用している方から、この種のご相談をいただきます。原因は操作ミスではありません。<b>エディタの仕組みそのものが、そうなりやすい作りになっている</b>という話です。何が起きているのか、5分でできる自己点検、直す順番までまとめます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#jiyuuhaichi">崩れの正体は「自由配置」です</a></li>
+        <li><a href="#nigyou">文字が1行増えると、なぜ重なるのか</a></li>
+        <li><a href="#futatsu">PC版とスマホ版が、別のレイアウトである</a></li>
+        <li><a href="#chuukan">いちばん崩れるのは「中間の幅」</a></li>
+        <li><a href="#kizukanai">最悪なのは、崩れに気づけないこと</a></li>
+        <li><a href="#tenken">5分でできる自己点検</a></li>
+        <li><a href="#naosu">直す順番</a></li>
+        <li><a href="#kouhei">Wixが悪い、という話ではありません</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <div class="callout">
+        <p><strong>この記事の立場</strong></p>
+        <p>Wixは世界中で使われている優れたサービスで、問題なく運用されているサイトも数多くあります。この記事はサービス全体を否定するものではなく、<b>旧来のエディタが採用している配置方式に起因して起きやすい崩れ</b>について、仕組みから説明するものです。新しい Wix Studio では設計が変わっている点も後半で触れます。</p>
+      </div>
+
+      <h2 id="jiyuuhaichi">崩れの正体は「自由配置」です</h2>
+      <p>Wixの従来のエディタは、<b>要素をドラッグして好きな場所に置ける</b>ことが最大の売りです。見出しをここ、写真をここ、ボタンをここ。紙にレイアウトを組むのと同じ感覚で作れます。専門知識がなくても思った通りの見た目にできる。これは本当に大きな長所です。</p>
+      <p>ただ、この「好きな場所に置ける」が、そのまま弱点になります。</p>
+      <p>ホームページというのは本来、<b>要素どうしが上下の順番で結ばれている</b>ものです。見出しの下に本文、その下に画像。上の要素の背が高くなれば、下の要素は自動的に押し下げられます。だから中身が増えても崩れません。</p>
+      <p>自由配置では、この関係がありません。<b>それぞれの要素が「画面のこの座標に置く」という指示だけを持っている</b>状態です。隣に誰がいるかを知らないので、譲り合いも押し合いも起きません。重なるときは、そのまま重なります。</p>
+
+      <h2 id="nigyou">文字が1行増えると、なぜ重なるのか</h2>
+      <p>実務でいちばん多い崩れ方がこれです。</p>
+      <p>たとえば「営業時間のお知らせ」というテキストボックスがあり、そのすぐ下に「アクセス」の見出しが置かれているとします。作った時点では、ぴったり収まっています。</p>
+      <p>そこに一文だけ足します。「年末年始は12月30日から1月3日まで休業いたします」。</p>
+      <p>テキストボックスの中身が1行分増えます。しかし<b>下の「アクセス」は元の座標にいたまま</b>です。押し下げられません。結果、増えた1行が「アクセス」の文字の上に乗ります。</p>
+      <p>これは操作を間違えたわけではありません。<b>更新という当たり前の行為が、そのまま崩れの引き金になる</b>という構造です。だから「触るのが怖い」という状態になり、やがて更新が止まります。更新が止まったサイトがどう見えるかについては、<a href="blog-minus-promotion.html">放置されたホームページが信用を削る話</a>で書きました。</p>
+
+      <h2 id="futatsu">PC版とスマホ版が、別のレイアウトである</h2>
+      <p>もうひとつの原因が、こちらです。Wixでは<b>パソコン用の画面とスマートフォン用の画面を、別々に編集します。</b></p>
+      <p>これも一長一短で、スマホ専用の見せ方を作り込めるという利点があります。問題は、<b>片方を直しても、もう片方には反映されないことがある</b>という点です。</p>
+      <p>起きがちなのは、次のような流れです。</p>
+      <ul>
+        <li>PC画面で文章を修正し、位置を整える</li>
+        <li>PCで確認する。きれいに直っている</li>
+        <li>公開する</li>
+        <li>スマホ側は、修正前の配置のまま崩れている</li>
+      </ul>
+      <p>そして、ここが厄介なところです。<b>サイトを見に来る人の多くはスマートフォンで見ています。</b>業種によって差はありますが、店舗や個人向けのサービスであれば、スマホからの閲覧が過半を占めることは珍しくありません。つまり<b>直したはずの側は誰も見ておらず、崩れている側を大半の人が見ている</b>という事態になります。</p>
+
+      <h2 id="chuukan">いちばん崩れるのは「中間の幅」</h2>
+      <p>自由配置は「この幅のときにこう見える」という前提で座標を決めます。そのため、<b>前提から外れた幅で見たときに崩れます。</b></p>
+      <p>具体的に危ないのは、次のような環境です。</p>
+      <ul>
+        <li><b>タブレット</b>——スマホ用にもPC用にも当てはまらない幅</li>
+        <li><b>小さめのノートパソコン</b>——想定より横幅が狭い</li>
+        <li><b>ブラウザを最大化していない人</b>——画面の半分の幅で見ている</li>
+        <li><b>文字サイズを大きく設定している人</b>——1行の文字数が減り、行数が増える</li>
+      </ul>
+      <p>最後の項目は見落とされがちです。読みやすさのために端末側で文字を大きくしている方は相当な数いますが、<b>文字が大きくなれば行数が増え、行数が増えれば重なります。</b>自由配置には、この変動を吸収する仕組みがありません。</p>
+
+      <h2 id="kizukanai">最悪なのは、崩れに気づけないこと</h2>
+      <p>ここまでの話より深刻なのが、これです。</p>
+      <p>崩れは、<b>自分の環境では見えません。</b>作った本人は、作ったときと同じパソコン、同じブラウザ、同じ幅で確認します。その条件では正常に表示されます。だから「問題なし」と判断します。</p>
+      <p>一方で、崩れた画面を見た訪問者は、わざわざ連絡してくれません。読みにくいページを閉じて、次の会社を探すだけです。<b>崩れは、クレームという形で届かない</b>のです。</p>
+      <p>この静かさが、いちばん怖いところだと思っています。</p>
+
+      <h2 id="tenken">5分でできる自己点検</h2>
+      <p>難しい道具は要りません。今すぐ確認できます。</p>
+      <ul class="checklist">
+        <li><b>自分のスマホで、全ページを開く</b>——PCの画面ではなく実機で。文字が重なっていないか、はみ出していないか</li>
+        <li><b>パソコンのブラウザの幅を、ゆっくり狭める</b>——窓の右端をつかんで縮めていくと、崩れる幅が見つかります</li>
+        <li><b>いちばん文章の長いページを見る</b>——お知らせ、料金表、よくある質問。文字量が多い場所から先に壊れます</li>
+        <li><b>スマホを横向きにする</b>——縦だけ確認して終わりにしないこと</li>
+        <li><b>端末の文字サイズを一段大きくして開く</b>——設定から変更できます。ここで崩れるサイトは非常に多いです</li>
+      </ul>
+      <p>ひとつでも当てはまったら、その箇所は<b>今この瞬間も、誰かにそう見えています。</b></p>
+
+      <h2 id="naosu">直す順番</h2>
+      <p>全部を一度に直そうとすると挫折します。効果の大きい順に手をつけてください。</p>
+      <ul>
+        <li><b>1. スマホ表示から</b>——見ている人が多い側が先です。PC側は後でいい</li>
+        <li><b>2. 問い合わせ先・電話番号のまわり</b>——ここが読めないと、他がどれだけ整っていても意味がありません</li>
+        <li><b>3. トップページの最初の画面</b>——ここで判断されます</li>
+        <li><b>4. 文字量が変わりやすい場所</b>——お知らせ、営業時間、料金。今後も崩れる場所なので、余白を多めに取り直す</li>
+        <li><b>5. その他のページ</b></li>
+      </ul>
+      <p>直すときのコツは、<b>ぴったり収めないこと</b>です。テキストボックスの下に、1〜2行ぶんの余白を意識して残しておく。そうしておけば、後で一文足したときに耐えられます。窮屈に詰めたレイアウトは、必ず後で壊れます。</p>
+
+      <h2 id="kouhei">Wixが悪い、という話ではありません</h2>
+      <p>ここまで崩れる話を並べましたが、<b>Wixというサービスが劣っているという主張ではありません。</b>公平に書いておきます。</p>
+      <p>まず、自由配置は<b>専門知識のない方が思った通りの見た目を作れる</b>という点で、他に代えがたい長所を持っています。制作会社に頼まずに自分でサイトを持てる人を大量に生んだのは、この方式の功績です。</p>
+      <p>そして、<b>新しい Wix Studio では配置の仕組みが変わっています。</b>要素を画面幅に応じて伸縮させる方式が採用されており、この記事で挙げた「座標に固定されているから重なる」という崩れは起きにくい設計になっています。これから新しく作るのであれば、事情は変わります。</p>
+      <p>ただし注意点があります。<b>旧エディタで作ったサイトが、自動で新しい方式に変わるわけではありません。</b>数年前に作ったサイトをそのまま使っている場合、中身は旧来の自由配置のままです。ご自身のサイトがどちらなのかは、確認する価値があります。</p>
+      <p>もうひとつ正直に書いておくと、<b>崩れの原因はツールだけではありません。</b>作ったあと誰も実機で確認していない、という運用の側にも原因があります。どんな作り方をしても、見ていなければ崩れは残ります。</p>
+      <p>NextRayがHTMLとCSSを直接書いている理由も、この延長線上にあります。詳しくは<a href="blog-no-wordpress.html">WordPressも使わずに手で書いている理由</a>に書きました。ただこれは「うちの方式が唯一の正解」という話ではなく、<a href="blog-hp-choose.html">依頼先を選ぶときに確認すべきこと</a>のひとつとして読んでいただければと思います。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Wixで作ったサイトは、作り直したほうがいいですか？</summary>
+          <div class="faq-body">
+            <p>一律には言えません。今きちんと表示されていて、更新の頻度も低いのであれば、そのまま使い続けるのが合理的です。判断が変わるのは、更新するたびに崩れる、スマホで読めない箇所がある、直したいのに触るのが怖い——このいずれかに当てはまる場合です。作り直しを前提にご案内することはありません。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>崩れている箇所は、自分で直せますか？</summary>
+          <div class="faq-body">
+            <p>多くの場合は直せます。要素の位置を少し下げる、テキストボックスの高さに余裕を持たせる、モバイルエディタ側でも同じ修正を行う——この3つで解決することが少なくありません。ただし根本原因が自由配置そのものである場合、直したそばから別の場所が崩れます。その繰り返しが負担になっているかどうかが分かれ目です。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Wix Studio なら崩れないのですか？</summary>
+          <div class="faq-body">
+            <p>崩れにくくなっています。Wix Studio では要素を画面幅に応じて伸縮させる配置方式が採用されており、この記事で挙げた「自由配置ゆえの崩れ」は起きにくい設計です。ただし旧エディタで作ったサイトが自動でその方式に変わるわけではありません。ご自身のサイトがどちらで作られているかは確認する価値があります。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>今のサイトが崩れていないか、見てもらえますか？</summary>
+          <div class="faq-body">
+            <p>はい。URLをお送りいただければ、実機とブラウザ幅を変えた状態で確認し、崩れている箇所と直し方をお伝えします。無料で、ご依頼いただかなくても費用はかかりません。「今のまま使い続けるのがいい」と判断した場合は、正直にそうお伝えします。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>崩れは操作ミスではない</b>——自由配置という仕組みの結果として起きます</li>
+        <li><b>更新が引き金になる</b>——文字が1行増えるだけで、下の要素と重なります</li>
+        <li><b>PCとスマホは別レイアウト</b>——片方だけ直して公開すると、大半の人が崩れた側を見ます</li>
+        <li><b>崩れは自分の環境では見えない</b>——だからクレームも来ないまま放置されます</li>
+        <li><b>Wix Studio では改善されている</b>——ただし旧エディタのサイトが自動で変わるわけではありません</li>
+      </ul>
+      <p>いちばんお伝えしたいのは、最後から2番目の点です。<b>崩れているかどうかは、確認しないと永久に分かりません。</b></p>
+      <p>スマホを取り出して、自社のページを上から下まで一度眺めてみてください。5分で終わります。それで何も問題がなければ、この記事はここで役目を終えます。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>崩れているか、見るだけでも構いません</h3>
+      <p>URLをお送りいただければ、実機とブラウザ幅を変えた状態で確認し、<b>崩れている箇所と直し方をお伝えします。</b>当社にご依頼いただかなくても、費用は一切かかりません。ご相談の結果「今のまま使い続けるのがいい」と判断した場合は、そうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="index.html#contact" class="btn btn-primary">無料で見てもらう →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-minus-promotion.html">
+        <span class="stag">COLUMN</span>
+        <h3>そのホームページは「マイナスプロモーション」では？</h3>
+        <p>崩れたまま・放置されたままのサイトは、信用を積むどころか削っていきます。8つのサインと自己点検。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-no-wordpress.html">
+        <span class="stag">COLUMN</span>
+        <h3>WordPressを使わないホームページ制作</h3>
+        <p>HTMLとCSSを直接書く理由。崩れにくさをどう作るかという話でもあります。弱点も正直に書きました。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。更新代行を月額に含むので、「触るのが怖い」状態になりません。</p>
+        <span class="slink">詳しく見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="index.html#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  revealFallback();
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>
