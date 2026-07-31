@@ -1,4 +1,66 @@
+# NextRay - https://nextray.jp/
+# LLM向けの案内: https://nextray.jp/llms.txt
+
 User-agent: *
+Allow: /
+
+# --- 生成AI・AI検索のクローラー ---
+# NextRayは、AIによる引用・要約・検索結果への掲載を歓迎しています。
+# 名前付きのブロックを書くと該当クローラーは上の * を読まなくなるため、
+# 各ブロックに Allow: / を明記しています。
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Google（Gemini・AI Overviews などでの利用可否。Googlebot とは別枠）
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft / Copilot
+User-agent: bingbot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence / Siri
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# Common Crawl（多くのモデルの学習データ元）
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://nextray.jp/sitemap.xml
