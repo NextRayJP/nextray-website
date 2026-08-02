@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>PageSpeed Insightsの見方｜4つのスコアの意味｜NextRay</title>
+<meta name="description" content="PageSpeed Insightsのスコアは何を測っているのか。パフォーマンス・ユーザー補助・おすすめの方法・SEOの4項目と、FCP／LCP／CLSの意味を解説。自社サイトの実測結果（デスクトップ）も測定条件つきで公開しています。" />
+<meta name="keywords" content="PageSpeed Insights 見方,Core Web Vitals とは,LCP とは,CLS とは,ホームページ 表示速度 目安,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-pagespeed.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="PageSpeed Insightsの見方｜4つのスコアの意味" />
+<meta property="og:description" content="スコアは何を測っているのか。自社サイトの実測結果を、測定条件と「分かっていないこと」まで含めて公開します。" />
+<meta property="og:url" content="https://nextray.jp/blog-pagespeed.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-02" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PageSpeed Insightsの見方｜4つのスコアの意味" />
+<meta name="twitter:description" content="スコアは何を測っているのか。自社サイトの実測結果を、測定条件と「分かっていないこと」まで含めて公開します。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PageSpeed Insightsの見方｜4つのスコアの意味",
+  "description": "PageSpeed Insightsが測っている4つの項目と、FCP／LCP／CLSという3つの指標の意味を解説し、自社サイトの実測結果を測定条件つきで公開します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-02",
+  "dateModified": "2026-08-02",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-pagespeed.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "スコアは何点あれば十分ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "Googleは90点以上を「良好」としています。ただし点数そのものを目的にする必要はありません。実際に見に来た人が「待たされた」と感じないかどうかが本質で、そのための目安がLCP2.5秒以内です。90点を88点に落としてでも載せるべき情報があるなら、そちらを優先すべきだと考えています。" } },
+    { "@type": "Question", "name": "モバイルのスコアがデスクトップより低いのはなぜですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "測定条件が違うためです。モバイルでは低速4G相当の通信と、性能を4分の1程度に落とした端末を想定して測定されます。同じサイトでもモバイルの方が数値は下がるのが普通で、スコアを比べるときはどちらの条件で測ったものかを必ず確認してください。" } },
+    { "@type": "Question", "name": "「実際のユーザーの環境で評価する」にデータがないと表示されます。問題ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "問題ではありません。この欄は、Chromeを使う実際の訪問者から集めた過去28日間のデータを表示する部分です。アクセス数が一定に満たないサイトでは集計されず「データがありません」と表示されます。新しいサイトやアクセスの少ないサイトでは珍しくありません。" } },
+    { "@type": "Question", "name": "スコアが高ければ検索順位は上がりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "上がるとは限りません。表示速度はGoogleの評価要素のひとつですが、順位を決めるのは内容の適合性が中心です。速さは「内容が同じくらいなら有利に働く」程度のもので、遅いことによる離脱を防ぐ効果の方が実利は大きいと考えています。順位を保証することはできません。" } },
+    { "@type": "Question", "name": "自分のサイトのスコアを見てもらえますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。URLをお送りいただければ測定し、数値の意味と、直すとしたらどこから手をつけるべきかをお伝えします。無料で、ご依頼いただかなくても費用はかかりません。「今のままで問題ない」と判断した場合は、正直にそうお伝えします。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "PageSpeed Insightsの見方｜4つのスコアの意味", "item": "https://nextray.jp/blog-pagespeed.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Manrope:wght@400;700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  /* --- スコア表示 --- */
+  .psgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:26px 0 10px}
+  .pscard{text-align:center;padding:22px 12px;border-radius:16px;border:1px solid var(--line);background:#fff}
+  .psnum{width:74px;height:74px;margin:0 auto 12px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-family:"Manrope",sans-serif;font-weight:800;font-size:1.5rem;
+    border:4px solid #0cce6b;color:#0a8f4d;background:rgba(12,206,107,.08)}
+  .pscard .psl{font-size:.82rem;font-weight:700;color:var(--ink-2);line-height:1.55}
+  .psmeta{text-align:center;color:var(--muted);font-size:.85rem;margin-top:4px}
+  .psmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 8px}
+  .psm{padding:20px 18px;border-radius:14px;border:1px solid var(--line);background:var(--bg-soft)}
+  .psm .k{font-family:"Manrope",sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.06em;color:var(--blue-ink)}
+  .psm .v{font-family:"Manrope",sans-serif;font-weight:800;font-size:1.8rem;line-height:1.2;margin:6px 0 4px;color:var(--ink)}
+  .psm .d{font-size:.84rem;color:var(--muted);line-height:1.8}
+  @media(max-width:820px){.psgrid{grid-template-columns:repeat(3,1fr)}.psmetrics{grid-template-columns:1fr}}
+  @media(max-width:520px){.psgrid{grid-template-columns:repeat(2,1fr)}.psnum{width:62px;height:62px;font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="index.html#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="index.html#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="index.html#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="index.html">ホーム</a> ／ <a href="blog.html">コラム</a> ／ PageSpeed Insightsの見方</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-02">2026.08.02</time><span class="post-cat">制作の裏側</span></div>
+      <h1>PageSpeed Insightsの見方｜4つのスコアが本当に測っているもの</h1>
+      <p class="summary">「ホームページの表示速度、測ったことはありますか」とお尋ねすると、ほとんどの方が「ない」と答えられます。Googleが無料で公開している <b>PageSpeed Insights</b> を使えば、URLを入れるだけで誰でも1分で分かります。この記事では、あの4つのスコアが何を測っているのかを噛み砕いたうえで、<b>自社サイトの実測結果を、測定条件と「まだ分かっていないこと」まで含めて</b>公開します。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#jissoku">まず、自社サイトの実測結果</a></li>
+        <li><a href="#toha">PageSpeed Insightsとは何か</a></li>
+        <li><a href="#category">4つのスコアが測っているもの</a></li>
+        <li><a href="#agent">5つ目の「エージェントによるブラウジング」</a></li>
+        <li><a href="#shihyo">FCP・LCP・CLSという3つの指標</a></li>
+        <li><a href="#shoujiki">正直に書いておきたいこと</a></li>
+        <li><a href="#naze">なぜ、速さが商売に効くのか</a></li>
+        <li><a href="#hakaru">自分のサイトを測る方法</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="jissoku">まず、自社サイトの実測結果</h2>
+      <p>説明の前に、結果を出しておきます。2026年8月2日、このサイト（nextray.jp）のトップページをGoogleのPageSpeed Insightsで測定したものです。</p>
+
+      <div class="psgrid">
+        <div class="pscard"><div class="psnum">90</div><p class="psl">パフォーマンス</p></div>
+        <div class="pscard"><div class="psnum">100</div><p class="psl">ユーザー補助</p></div>
+        <div class="pscard"><div class="psnum">100</div><p class="psl">おすすめの方法</p></div>
+        <div class="pscard"><div class="psnum">100</div><p class="psl">SEO</p></div>
+        <div class="pscard"><div class="psnum">3/3</div><p class="psl">エージェントによる<br />ブラウジング</p></div>
+      </div>
+      <p class="psmeta">測定日 2026年8月2日／<b>デスクトップ</b>での測定結果／測定対象 https://nextray.jp/</p>
+
+      <div class="psmetrics">
+        <div class="psm"><p class="k">FCP</p><p class="v">1.3秒</p><p class="d">最初の文字や画像が表示されるまで</p></div>
+        <div class="psm"><p class="k">LCP</p><p class="v">1.6秒</p><p class="d">主役のコンテンツが表示されるまで</p></div>
+        <div class="psm"><p class="k">CLS</p><p class="v">良好</p><p class="d">読んでいる最中のレイアウトのズレ</p></div>
+      </div>
+
+      <p>4項目のうち3つが満点、パフォーマンスが90点です。Googleの基準では<b>90点以上が「良好」</b>とされる区分なので、いずれも良好の範囲に入っています。</p>
+      <div class="callout">
+        <p><strong>先に断っておきます</strong></p>
+        <p>これは<b>デスクトップでの測定結果</b>です。モバイルはこれより厳しい条件で測られるため、同じサイトでも数値は下がります。当社のモバイルスコアは現在も改善中で、この記事を書いている時点では上記の数字より低い状態です。<b>都合のいい方だけを載せて「極めて優秀」と言うことはしません。</b>なぜ分けて書く必要があるのかは、<a href="#shoujiki">後半</a>で説明します。</p>
+      </div>
+
+      <h2 id="toha">PageSpeed Insightsとは何か</h2>
+      <p>Googleが無料で公開している、<b>ウェブページの品質を測る診断ツール</b>です。URLを入力するだけで、そのページを実際に読み込んで採点してくれます。登録も費用も要りません。</p>
+      <p>重要なのは、これが<b>作った側の自己申告ではなく、Google自身が出している数値</b>だという点です。制作会社が「速いサイトを作ります」と言うのは簡単ですが、この画面は誰でも同じURLで再現できます。だから、業者選びの材料として使えます。</p>
+
+      <h2 id="category">4つのスコアが測っているもの</h2>
+      <p>それぞれ100点満点で、意味はまったく別のものです。</p>
+
+      <h3>① パフォーマンス — 速さ</h3>
+      <p>ページが表示されるまでの速さです。<b>4つの中で唯一、点数が変動しやすい項目</b>で、測定するたびに数点前後します。画像の重さ、外部から読み込むスクリプトの量、フォントの読み込み方などが影響します。</p>
+      <p>そして、来訪者の体感にいちばん直結する項目でもあります。表示が遅いと、内容を読まれる前に閉じられます。</p>
+
+      <h3>② ユーザー補助 — 誰でも読めるか</h3>
+      <p>アクセシビリティとも呼ばれます。<b>目の見えにくい方、音の聞こえにくい方、マウスが使えずキーボードだけで操作する方</b>にも、内容が伝わる作りになっているかを見ます。</p>
+      <p>具体的には、画像に説明文（代替テキスト）が付いているか、文字と背景の色の差が十分か、見出しの順序が正しいか、といった点です。地味ですが、<b>ここが低いサイトは高齢の方にとって読みにくい</b>ことが多く、業種によっては直接の機会損失になります。</p>
+
+      <h3>③ おすすめの方法 — 作りの安全性と作法</h3>
+      <p>「ベストプラクティス」の日本語表記です。<b>通信が暗号化（HTTPS）されているか、古い技術を使っていないか、エラーが出ていないか</b>など、技術的な作法が守られているかを見ます。</p>
+      <p>訪問者から直接は見えませんが、ここが低いサイトは<b>セキュリティ面の不安や、将来の不具合の予兆</b>を抱えていることがあります。</p>
+
+      <h3>④ SEO — 検索エンジンに正しく伝わるか</h3>
+      <p>検索エンジンがページの内容を正しく理解できる作りになっているかを見ます。<b>タイトルや説明文が設定されているか、検索避けの設定が誤って入っていないか、リンクが正しく書かれているか</b>など、基礎の部分です。</p>
+      <p>ここで注意していただきたいのは、<b>この項目が100点でも「検索で上位に出る」という意味ではない</b>ことです。あくまで「土俵に上がる資格がある」という確認にすぎません。順位を決めるのは内容そのものです。</p>
+
+      <h2 id="agent">5つ目の「エージェントによるブラウジング」</h2>
+      <p>比較的新しく追加された項目です。<b>AIがこのページを正しく読み取れるか</b>を見ています。</p>
+      <p>ChatGPTやGeminiのようなAIに「新潟のホームページ制作会社を教えて」と尋ねる人が増えています。そのとき、AIがページの構造を読み取れなければ、内容がどれだけ良くても引用されません。<b>検索エンジン対策の隣に、AI対策という領域ができつつある</b>ということです。</p>
+      <p>当社はこの項目のために、AI向けの案内ファイル（llms.txt）の設置、AIクローラーの明示的な許可、構造化データの整備を行っています。まだ効果を数字で語れる段階ではありませんが、<b>やっておいて損のない準備だと考えて先に手を打っています。</b></p>
+
+      <h2 id="shihyo">FCP・LCP・CLSという3つの指標</h2>
+      <p>パフォーマンススコアの内訳です。アルファベットが並ぶと身構えますが、言っていることは単純です。</p>
+
+      <h3>FCP（最初の描画）— 「真っ白な時間」の長さ</h3>
+      <p>クリックしてから、<b>最初の文字や画像が出るまで</b>の時間です。この間、訪問者は真っ白な画面を見ています。ここが長いと「壊れているのかな」と思われ、内容を見る前に離脱されます。</p>
+
+      <h3>LCP（最大コンテンツの描画）— 「読み始められる」までの時間</h3>
+      <p>そのページで<b>いちばん大きな要素</b>——多くの場合は主役の写真や大見出し——が表示されるまでの時間です。訪問者が「読める状態になった」と感じる瞬間に近く、<b>3つの中で最も重視される指標</b>です。</p>
+      <p>Googleの基準では<b>2.5秒以内が良好</b>、4秒を超えると要改善とされています。</p>
+
+      <h3>CLS（レイアウトのズレ）— 「押し間違えさせない」ための指標</h3>
+      <p>読んでいる最中に、<b>あとから読み込まれた画像や広告に押されて、文章が下にずれる</b>現象があります。ボタンを押そうとした瞬間に位置が動いて別のものを押してしまった経験は、多くの方にあるはずです。</p>
+      <p>この「ズレの量」を数値化したものがCLSです。速さではなく<b>読みやすさ・押しやすさ</b>の指標で、数値は小さいほど良いとされます。</p>
+
+      <h2 id="shoujiki">正直に書いておきたいこと</h2>
+      <p>ここが、この記事でいちばん書きたかった部分です。</p>
+
+      <h3>1. これはデスクトップの数値です</h3>
+      <p>PageSpeed Insightsには「携帯電話」と「デスクトップ」の2つのタブがあります。<b>モバイルでは、低速4G相当の通信と、性能を大幅に落とした端末を想定して測定されます。</b>同じサイトでも、モバイルの方が数値は必ず低く出ます。</p>
+      <p>スコアを掲げている制作会社を見かけたら、<b>どちらのタブの数字なのかを確認してください。</b>書いていなければ、多くの場合デスクトップです。</p>
+
+      <h3>2. これは「実験室の数値」です</h3>
+      <p>PageSpeed Insightsの上部には「実際のユーザーの環境で評価する」という欄があります。ここには、<b>Chromeを使う実際の訪問者から集めた過去28日間のデータ</b>が表示されます。</p>
+      <p>当社のサイトは現在この欄が<b>「データがありません」</b>と表示されます。アクセス数が集計の基準に届いていないためです。つまり<b>今回の数値は、Googleのサーバー上で1回読み込んだ結果</b>であり、実際の訪問者の回線や端末での体感を保証するものではありません。この点を伏せてスコアだけ載せるのは、正確ではないと考えました。</p>
+
+      <h3>3. 90点は、100点ではありません</h3>
+      <p>パフォーマンスは90点で、10点分の改善余地があります。主な要因は日本語のウェブフォントで、日本語は文字数が多いため、フォントの読み込みがどうしても重くなります。読みやすさとのトレードオフなので、<b>体裁を犠牲にしてまで100点を取りにいくつもりはありません。</b></p>
+      <p>スコアは目的ではなく、確認のための道具です。<b>90点を88点に落としてでも載せるべき情報があるなら、そちらを優先すべき</b>だと考えています。</p>
+
+      <h2 id="naze">なぜ、速さが商売に効くのか</h2>
+      <p>点数の話をしてきましたが、実利は別のところにあります。</p>
+      <p>訪問者は、遅いページを待ってくれません。特にスマートフォンで、移動中に、他の候補も開いた状態で見ています。<b>表示が遅いというだけで、内容を1文字も読まれずに閉じられます。</b>どれだけ良い商品を扱っていても、その情報にたどり着かれなければ存在しないのと同じです。</p>
+      <p>この記事で挙げた指標は、要するに<b>「待たされないか」「読みやすいか」「押し間違えないか」</b>という、当たり前のことを数値にしたものです。Googleの評価要素だからやる、というより、<b>訪問者に嫌な思いをさせないための最低限</b>と捉えた方が実態に近いと思います。</p>
+      <p>なお当社は<a href="blog-no-wordpress.html">WordPressを使わずHTMLとCSSを直接書いて</a>います。速さは、こうした作り方の段階でおおむね決まってしまいます。逆に、<a href="blog-wix-layout.html">作りの都合でレイアウトが崩れる</a>ようなケースもあり、公開後に直そうとすると手間がかかります。</p>
+
+      <h2 id="hakaru">自分のサイトを測る方法</h2>
+      <p>1分で終わります。費用はかかりません。</p>
+      <ul class="checklist">
+        <li>検索で「PageSpeed Insights」と調べ、Googleの公式ページを開く</li>
+        <li>自社サイトのURLを入力して「分析」を押す</li>
+        <li>30秒ほど待つ</li>
+        <li><b>必ず「携帯電話」タブも確認する</b>——訪問者の多くはスマートフォンです</li>
+        <li>LCPが2.5秒を超えていないかを最初に見る</li>
+      </ul>
+      <p>数値が低くても、慌てて作り直す必要はありません。<b>原因の多くは、重すぎる画像と、読み込みすぎている外部サービス</b>です。この2つを整理するだけで改善する場合が少なくありません。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>スコアは何点あれば十分ですか？</summary>
+          <div class="faq-body">
+            <p>Googleは90点以上を「良好」としています。ただし点数そのものを目的にする必要はありません。実際に見に来た人が「待たされた」と感じないかどうかが本質で、そのための目安がLCP2.5秒以内です。90点を88点に落としてでも載せるべき情報があるなら、そちらを優先すべきだと考えています。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>モバイルのスコアがデスクトップより低いのはなぜですか？</summary>
+          <div class="faq-body">
+            <p>測定条件が違うためです。モバイルでは低速4G相当の通信と、性能を4分の1程度に落とした端末を想定して測定されます。同じサイトでもモバイルの方が数値は下がるのが普通で、スコアを比べるときはどちらの条件で測ったものかを必ず確認してください。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>「実際のユーザーの環境で評価する」にデータがないと表示されます。問題ですか？</summary>
+          <div class="faq-body">
+            <p>問題ではありません。この欄は、Chromeを使う実際の訪問者から集めた過去28日間のデータを表示する部分です。アクセス数が一定に満たないサイトでは集計されず「データがありません」と表示されます。新しいサイトやアクセスの少ないサイトでは珍しくありません。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>スコアが高ければ検索順位は上がりますか？</summary>
+          <div class="faq-body">
+            <p>上がるとは限りません。表示速度はGoogleの評価要素のひとつですが、順位を決めるのは内容の適合性が中心です。速さは「内容が同じくらいなら有利に働く」程度のもので、遅いことによる離脱を防ぐ効果の方が実利は大きいと考えています。順位を保証することはできません。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>自分のサイトのスコアを見てもらえますか？</summary>
+          <div class="faq-body">
+            <p>はい。URLをお送りいただければ測定し、数値の意味と、直すとしたらどこから手をつけるべきかをお伝えします。無料で、ご依頼いただかなくても費用はかかりません。「今のままで問題ない」と判断した場合は、正直にそうお伝えします。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>パフォーマンス</b>——速さ。唯一、測るたびに変動する項目</li>
+        <li><b>ユーザー補助</b>——誰にでも読めるか。高齢の方への配慮に直結する</li>
+        <li><b>おすすめの方法</b>——技術的な作法と安全性</li>
+        <li><b>SEO</b>——検索エンジンに正しく伝わるか。上位表示の保証ではない</li>
+        <li><b>LCPが2.5秒以内</b>——迷ったら、まずここだけ見れば十分</li>
+      </ul>
+      <p>当社の測定結果は冒頭のとおりです。ただし<b>デスクトップの数値であること、実際の訪問者のデータではないこと、パフォーマンスは90点で改善余地があること</b>を、あわせて書きました。</p>
+      <p>スコアを載せる会社は少なくありません。ですが<b>どの条件で測ったのかまで書く会社は、あまり見かけません。</b>そこを書くかどうかが、他の記載を信じてよいかどうかの手がかりになると思っています。</p>
+      <p>まずはご自身のサイトを測ってみてください。それだけなら1分で、無料です。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>測ってみたけれど、意味が分からない——というご相談も歓迎です</h3>
+      <p>URLをお送りいただければ、こちらで測定し、<b>数値の意味と、直すなら何から手をつけるべきか</b>をお伝えします。当社にご依頼いただかなくても、費用は一切かかりません。ご相談の結果「今のままで問題ない」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="index.html#contact" class="btn btn-primary">無料で診断してもらう →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-no-wordpress.html">
+        <span class="stag">COLUMN</span>
+        <h3>WordPressを使わないホームページ制作</h3>
+        <p>速さは作り方の段階でほぼ決まります。HTMLとCSSを直接書く理由と、正直な弱点まで。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-wix-layout.html">
+        <span class="stag">COLUMN</span>
+        <h3>Wixのエディタは、想像以上にレイアウトが崩れます</h3>
+        <p>CLS（レイアウトのズレ）が起きる典型例。自由配置の仕組みと、5分でできる自己点検。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。表示速度と検索対策は、作る段階から込みで設計します。</p>
+        <span class="slink">詳しく見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="index.html#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>
