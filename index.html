@@ -48,8 +48,12 @@
   "@id": "https://nextray.jp/#organization",
   "name": "NextRay",
   "alternateName": "ネクストレイ",
-  "description": "新潟の会社の「集客」と「人手不足」を、ホームページ制作とAIによる事務・総務の自動化で解決するWebパートナー。初期費用0円・月額制。",
+  "description": "新潟の会社の「集客」と「人手不足」を、ホームページ制作とAIによる事務・総務の自動化で解決するWebパートナー。代表1名で運営し、従業員も制作の外注先も持たない。初期費用0円・月額制で、ホームページの月額にはSEO／MEO運用が追加費用なしで含まれる。",
   "slogan": "新潟の「集客」と「人手不足」を、ホームページとAIで解決する。",
+  "award": [
+    "Google Partner（Google広告 正規パートナー）",
+    "パートナーシップ構築宣言 公表事業者"
+  ],
   "url": "https://nextray.jp/",
   "logo": {
     "@type": "ImageObject",
@@ -57,7 +61,22 @@
     "width": 253,
     "height": 60
   },
-  "founder": { "@type": "Person", "name": "谷川恵介", "jobTitle": "代表", "url": "https://nextray.jp/daihyo.html" },
+  "founder": {
+    "@type": "Person",
+    "@id": "https://nextray.jp/#founder",
+    "name": "谷川恵介",
+    "alternateName": "たにかわ けいすけ",
+    "jobTitle": "代表",
+    "url": "https://nextray.jp/daihyo.html",
+    "worksFor": { "@id": "https://nextray.jp/#organization" },
+    "sameAs": ["https://www.linkedin.com/in/keisuke-tanikawa-nextray"],
+    "hasCredential": [
+      { "@type": "EducationalOccupationalCredential", "name": "Anthropic Academy 20コース修了", "credentialCategory": "certificate",
+        "recognizedBy": { "@type": "Organization", "name": "Anthropic" }, "url": "https://nextray.jp/certifications.html" },
+      { "@type": "EducationalOccupationalCredential", "name": "OpenAI Academy 修了", "credentialCategory": "certificate",
+        "recognizedBy": { "@type": "Organization", "name": "OpenAI" }, "url": "https://nextray.jp/certifications.html" }
+    ]
+  },
   "numberOfEmployees": { "@type": "QuantitativeValue", "value": 1 },
   "knowsAbout": [
     "ホームページ制作",
@@ -121,6 +140,10 @@
       "priceSpecification": { "@type": "UnitPriceSpecification", "price": "29800", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "unitCode": "MON" },
       "description": "初期費用0円＋月額29,800円（税別）。SEO／MEO運用・更新代行・月次レポート込み。",
       "itemOffered": { "@type": "Service", "name": "ホームページ制作", "serviceType": "ホームページ制作・SEO/MEO運用" } },
+    { "@type": "Offer", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "price": "29800",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "29800", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "unitCode": "MON" },
+      "description": "MEO対策（Googleビジネスプロフィール運用）のみの単体依頼は月額29,800円（税別）。ホームページ制作をご依頼の場合は、同じ月額29,800円に含まれ追加費用はかからない。",
+      "itemOffered": { "@type": "Service", "name": "MEO対策", "serviceType": "Googleビジネスプロフィール運用・ローカル検索対策" } },
     { "@type": "Offer", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "price": "198000",
       "priceSpecification": { "@type": "UnitPriceSpecification", "price": "198000", "priceCurrency": "JPY", "valueAddedTaxIncluded": false, "unitCode": "MON" },
       "description": "月額198,000円（税別）・初期費用0円。問い合わせ対応・書類作成・データ入力など事務と総務を自動化。",

@@ -1,5 +1,6 @@
 # NextRay - https://nextray.jp/
-# LLM向けの案内: https://nextray.jp/llms.txt
+# LLM向けの案内（索引）: https://nextray.jp/llms.txt
+# LLM向けの案内（全文）: https://nextray.jp/llms-full.txt
 
 User-agent: *
 Allow: /
