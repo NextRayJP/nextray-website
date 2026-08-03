@@ -429,6 +429,8 @@ a.org:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:tra
 .org-mark.m-ai{background:linear-gradient(135deg,#1e9bff,#12d4d0)}
 .org-mark.m-com{background:linear-gradient(135deg,#6b5cf6,#1e9bff)}
 .org-mark.m-local{background:linear-gradient(135deg,#f6a94a,#f2704b)}
+/* 4文字の略称（NICO など）が 46px の枠からはみ出さないようにする */
+.org-mark.m4{font-size:.72rem;letter-spacing:-.04em}
 .org-mark svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .org-body{display:block;min-width:0}
 .org-name{display:block;font-size:.95rem;font-weight:800;line-height:1.45;margin-bottom:4px;color:var(--ink)}
