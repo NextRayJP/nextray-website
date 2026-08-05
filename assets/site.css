@@ -585,6 +585,77 @@ a.org .org-name::after{content:"↗";font-size:.72rem;margin-left:5px;color:var(
   .meo-plus{width:auto;height:auto;border-radius:999px;padding:11px 22px;justify-self:center}
 }
 
+/* ===========================================================
+   全ページ共通の追加ブロック（2026-08-05）
+   .jump（ページ内ジャンプ）／.inc-*（月額に含まれるもの）
+   もとは home.css にあったが、下層ページでも使うため移した
+   =========================================================== */
+
+/* ヒーローの eyebrow は業種＋地域を書くため長くなる。
+   狭い画面では2行になるので、真円のピル形だと不格好になる。角丸を落として札の形にする */
+@media(max-width:640px){
+  .page-hero .eyebrow,.hero .eyebrow{border-radius:14px;line-height:1.75;text-align:left}
+}
+
+/* 下層ページのヒーロー直下に置く補足行 */
+.hero-note{margin-top:18px;font-size:.88rem;color:var(--muted);line-height:1.8}
+.hero-note b{color:var(--ink-2)}
+.hero-note a{font-weight:800;color:var(--blue-ink)}
+
+/* ページ内ジャンプ */
+.jump{background:#fff;border-bottom:1px solid var(--line)}
+.jump .wrap{display:flex;gap:9px;align-items:center;padding-top:16px;padding-bottom:16px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.jump .wrap::-webkit-scrollbar{display:none}
+.jump a{flex:0 0 auto;font-size:.85rem;font-weight:700;color:var(--ink-2);white-space:nowrap;
+  padding:8px 15px;border-radius:999px;border:1px solid var(--line);background:#fff;
+  transition:border-color .2s,color .2s,background .2s}
+.jump a:hover{color:var(--blue-ink);border-color:var(--blue-ink);background:var(--bg-soft)}
+.jump a.on{color:#fff;background:var(--grad);border-color:transparent;
+  box-shadow:0 8px 18px -8px rgba(30,155,255,.6)}
+.jump a.on:hover{color:#fff;background:var(--grad)}
+/* 固定ヘッダーの下に見出しが隠れないようにする */
+section[id],div[id]{scroll-margin-top:88px}
+@media(max-width:640px){.jump .wrap{padding-left:16px;padding-right:16px}}
+
+/* 月額に含まれるもの（index / hp-*.html / service-homepage で共用） */
+.inc-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:38px 38px 34px;box-shadow:var(--shadow)}
+.inc-head{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  padding-bottom:26px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+.inc-price{display:flex;align-items:baseline;gap:10px}
+.inc-amt{font-family:"Manrope",sans-serif;font-weight:800;font-size:2.8rem;line-height:1.1;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.inc-amt small{font-size:1rem;font-weight:800;margin-left:3px}
+.inc-tax{font-size:.8rem;font-weight:700;color:var(--muted);background:var(--bg-soft);
+  border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.inc-terms{display:flex;flex-wrap:wrap;gap:10px}
+.inc-terms span{font-size:.86rem;color:var(--ink-2);background:var(--bg-soft);
+  border:1px solid var(--line);border-radius:12px;padding:9px 15px;line-height:1.5}
+.inc-terms b{display:block;font-size:.74rem;font-weight:700;color:var(--muted);letter-spacing:.02em}
+.inc-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:22px 34px}
+.inc-list li{position:relative;padding-left:31px}
+.inc-list li.wide{grid-column:1 / -1;padding-top:22px;border-top:1px dashed var(--line)}
+.inc-list li::before{content:"";position:absolute;left:0;top:4px;width:21px;height:21px;border-radius:50%;
+  background-color:#eaf4ff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e9bff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-size:12px;background-repeat:no-repeat;background-position:center}
+.inc-list li.wide::before{top:26px}
+.inc-n{display:flex;flex-wrap:wrap;align-items:center;gap:9px;font-size:1rem;font-weight:800;
+  color:var(--ink);line-height:1.6;margin-bottom:5px}
+.inc-s{display:block;font-size:.9rem;color:var(--muted);line-height:1.85}
+.inc-s b{color:var(--ink-2)}
+.inc-tag{flex:0 0 auto;font-size:.7rem;font-weight:800;letter-spacing:.02em;color:#fff;
+  background:var(--grad);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.inc-tag.out{color:#8a5a12;background:linear-gradient(120deg,#ffe6bf,#ffd08a)}
+.inc-out{margin-top:30px;padding:24px 26px;border-radius:16px;background:var(--bg-soft);border:1px solid var(--line)}
+.inc-out-h{font-size:.95rem;font-weight:800;color:var(--ink);margin-bottom:10px}
+.inc-out p{font-size:.89rem;color:var(--muted);line-height:1.95}
+.inc-out b{color:var(--ink-2)}
+.inc-foot{margin-top:18px;font-size:.86rem;color:var(--muted);line-height:1.95}
+.inc-foot b{color:var(--ink-2)}
+@media(max-width:900px){.inc-list{grid-template-columns:1fr;gap:20px}
+  .inc-card{padding:30px 24px 28px}.inc-amt{font-size:2.3rem}}
+
 /* Responsive */
 @media(max-width:960px){
   .feat3{grid-template-columns:1fr 1fr}
