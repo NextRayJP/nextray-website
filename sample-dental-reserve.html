@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】WEB予約｜あおば歯科クリニック</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（歯科医院向けデザイン）。初診WEB予約フォームのデザイン例です。" />
+<meta name="theme-color" content="#14b0a8" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="WEB予約｜歯科医院のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。医療広告ガイドラインに配慮した、歯科医院の予約フォームのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-dental-reserve.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" /></noscript>
+<style>
+  h1,h2,h3,h4{word-break:auto-phrase;overflow-wrap:break-word;text-wrap:pretty}
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --teal:#14b0a8; --teal-d:#0b8a84; --teal-l:#5fd4ce;
+    --ink:#153a3d; --ink-2:#3d6265; --sky:#eefaf9; --sky-2:#f7fdfc;
+    --sub:#6b878a; --line:#daecec; --warm:#ffb457;
+  }
+  html{scroll-behavior:smooth}
+  body{font-feature-settings:"palt" 1;font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,sans-serif;
+    color:var(--ink-2);line-height:1.95;background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .pp{font-family:"Poppins",sans-serif}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  .demobar{background:var(--ink);color:#fff;text-align:center;font-size:.78rem;padding:10px 16px}
+  .demobar strong{color:var(--teal-l)}
+  .demobar a{color:#fff;border-bottom:1px solid rgba(255,255,255,.5)}
+
+  header{background:rgba(255,255,255,.95);position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:76px}
+  .brand{font-size:1.24rem;font-weight:900;color:var(--ink);display:flex;align-items:center;gap:10px}
+  .brand .mk{width:34px;height:34px;flex:0 0 34px}
+  .brand small{display:block;font-size:.58rem;font-weight:600;letter-spacing:.18em;color:var(--sub);margin-top:2px}
+  .nav ul{display:flex;gap:28px;list-style:none;font-size:.87rem;font-weight:700;align-items:center}
+  .nav ul a{color:var(--ink-2);padding-bottom:4px;border-bottom:2px solid transparent;transition:.25s}
+  .nav ul a:hover,.nav ul a[aria-current="page"]{color:var(--teal-d);border-color:var(--teal)}
+  .nav .tel{background:var(--teal);color:#fff;padding:11px 22px;border-radius:999px;font-family:"Poppins",sans-serif;font-weight:600;font-size:1.06rem;transition:.2s;white-space:nowrap}
+  .nav .tel:hover{background:var(--teal-d)}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:10px;flex-direction:column;gap:5px}
+  .burger span{width:24px;height:2px;background:var(--ink);display:block;border-radius:2px}
+  .mnav{display:none}
+  @media(max-width:940px){
+    .nav ul,.nav .tel{display:none}.burger{display:flex}
+    .mnav{display:block;position:fixed;inset:0;background:#fff;z-index:60;padding:86px 30px 40px;transform:translateX(100%);transition:transform .35s;overflow-y:auto}
+    .mnav.open{transform:none}
+    .mnav a{display:block;color:var(--ink);font-size:1.1rem;font-weight:700;padding:17px 2px;border-bottom:1px solid var(--line)}
+    .mnav .mtel{margin-top:24px;background:var(--teal);color:#fff;text-align:center;border-radius:999px;font-family:"Poppins",sans-serif;font-size:1.25rem;border:none}
+    .mclose{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--ink);font-size:2rem;cursor:pointer;line-height:1}
+  }
+
+  .phero{background:var(--sky);padding:66px 0 70px;position:relative;overflow:hidden}
+  .phero::after{content:"";position:absolute;right:-80px;bottom:-90px;width:320px;height:320px;background:rgba(20,176,168,.09);border-radius:50%}
+  .phero .wrap{position:relative;z-index:1}
+  .phero .en{font-family:"Poppins",sans-serif;font-size:.78rem;letter-spacing:.24em;color:var(--teal-d);font-weight:600}
+  .phero h1{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:900;color:var(--ink);margin-top:12px;line-height:1.5}
+  .phero p{margin-top:16px;color:var(--ink-2);font-size:.99rem;max-width:38em}
+  .crumb{font-size:.79rem;color:var(--sub);padding:15px 0;border-bottom:1px solid var(--line)}
+  .crumb a:hover{color:var(--teal-d)}
+  .crumb span{color:var(--ink-2)}
+
+  section{padding:84px 0}
+  .soft{background:var(--sky-2)}
+  .head{text-align:center;max-width:44em;margin:0 auto 46px}
+  .head .en{font-family:"Poppins",sans-serif;font-size:.78rem;letter-spacing:.24em;color:var(--teal-d);font-weight:600;display:block;margin-bottom:12px}
+  .head h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:900;color:var(--ink);line-height:1.6}
+  .head p{margin-top:14px;color:var(--sub);font-size:.95rem}
+
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto 58px}
+  .way{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 30px;text-align:center;transition:.28s}
+  .way:hover{box-shadow:0 22px 44px -24px rgba(21,58,61,.4);transform:translateY(-5px)}
+  .way h3{font-size:1.04rem;font-weight:900;color:var(--ink)}
+  .way p{font-size:.88rem;color:var(--sub);margin-top:10px}
+  .way .big{font-family:"Poppins",sans-serif;font-weight:600;font-size:1.85rem;color:var(--teal);display:block;margin-top:12px}
+
+  .form{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:44px 42px}
+  .fgroup{margin-bottom:24px}
+  .fgroup label{display:block;font-weight:700;font-size:.91rem;color:var(--ink);margin-bottom:9px}
+  .req{background:var(--teal);color:#fff;font-size:.67rem;font-weight:700;padding:3px 9px;border-radius:999px;margin-left:9px;vertical-align:2px}
+  .opt{background:var(--line);color:var(--sub);font-size:.67rem;font-weight:700;padding:3px 9px;border-radius:999px;margin-left:9px;vertical-align:2px}
+  .fgroup input,.fgroup select,.fgroup textarea{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:10px;font-size:.96rem;font-family:inherit;color:var(--ink-2);background:#fff;transition:border-color .2s}
+  .fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{outline:none;border-color:var(--teal)}
+  .fgroup textarea{resize:vertical;min-height:130px}
+  .fgroup .hint{font-size:.81rem;color:var(--sub);margin-top:7px;line-height:1.8}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .frow.three{grid-template-columns:1fr 1fr 1fr}
+  .radios{display:flex;flex-wrap:wrap;gap:10px}
+  .radios label{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:999px;padding:11px 18px;cursor:pointer;font-weight:500;margin:0;transition:.2s;font-size:.92rem}
+  .radios label:hover{border-color:var(--teal)}
+  .radios input{width:auto;accent-color:var(--teal)}
+  .fnote{background:var(--sky);border:1px solid var(--line);border-radius:12px;padding:18px 20px;font-size:.86rem;color:var(--ink-2);margin-bottom:26px;line-height:1.9}
+  .fdone{display:none;background:rgba(20,176,168,.1);border:1.5px solid var(--teal);border-radius:12px;padding:20px 22px;margin-bottom:24px;color:var(--ink);font-weight:700}
+  .fdone.on{display:block}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-weight:700;font-size:.95rem;padding:16px 36px;border-radius:999px;border:none;cursor:pointer;transition:.25s}
+  .btn-p{background:var(--teal);color:#fff;box-shadow:0 14px 28px -12px rgba(20,176,168,.75)}
+  .btn-p:hover{background:var(--teal-d);transform:translateY(-2px)}
+  .btn-o{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+  .btn-o:hover{border-color:var(--teal);color:var(--teal-d)}
+
+  .notice{max-width:760px;margin:0 auto}
+  .notice .it{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:14px}
+  .notice h3{font-size:1rem;font-weight:900;color:var(--ink);margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+  .notice h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);flex:0 0 8px;margin-top:.55em}
+  .notice p{font-size:.92rem;padding-left:18px}
+
+  footer{background:var(--ink);color:rgba(255,255,255,.72);padding:54px 0 24px;text-align:center}
+  footer .b{font-size:1.2rem;font-weight:900;color:#fff;margin-bottom:12px}
+  footer p{font-size:.86rem;line-height:1.9}
+  .fnav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:22px 0;font-size:.86rem}
+  .fnav a:hover{color:var(--teal-l)}
+  .fbot{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;margin-top:22px;font-size:.78rem;opacity:.6}
+  .fbot a{border-bottom:1px solid rgba(255,255,255,.4)}
+
+  @media(max-width:760px){
+    section{padding:58px 0}
+    .ways,.frow,.frow.three{grid-template-columns:1fr}
+    .form{padding:30px 22px}
+  }
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する医院ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-dental.html" class="brand" aria-label="あおば歯科クリニック ホームへ">
+      <svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34c-4-2-7-8-7-14 0-5 3-8 7-8s7 3 7 8c0 6-3 12-7 14z" fill="none" stroke="#14b0a8" stroke-width="2.4" stroke-linejoin="round"/><path d="M14 12c-3-4 1-8 6-6 5-2 9 2 6 6" fill="none" stroke="#5fd4ce" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span>あおば歯科クリニック<small>AOBA DENTAL CLINIC</small></span>
+    </a>
+    <ul>
+      <li><a href="sample-dental.html">ホーム</a></li>
+      <li><a href="sample-dental.html#feature">当院について</a></li>
+      <li><a href="sample-dental.html#menu">診療案内</a></li>
+      <li><a href="sample-dental.html#access">アクセス</a></li>
+      <li><a href="sample-dental-reserve.html" aria-current="page">WEB予約</a></li>
+    </ul>
+    <a href="tel:0250000000" class="tel pp">025-000-0000</a>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc2" aria-label="閉じる">&times;</button>
+  <a href="sample-dental.html">ホーム</a>
+  <a href="sample-dental.html#feature">当院について</a>
+  <a href="sample-dental.html#menu">診療案内</a>
+  <a href="sample-dental.html#access">アクセス</a>
+  <a href="sample-dental-reserve.html">WEB予約</a>
+  <a href="tel:0250000000" class="mtel pp">025-000-0000</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en">RESERVATION</div>
+    <h1>WEB予約</h1>
+    <p>24時間受け付けています。ご希望のお日にちとお時間をお知らせいただければ、診療時間内に折り返しご連絡し、予約を確定いたします。痛みが強いときは、お電話ください。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-dental.html">ホーム</a> ／ <span>WEB予約</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="ways">
+      <div class="way rv">
+        <h3>お急ぎの方はお電話で</h3>
+        <p>強い痛み・腫れ・詰め物が取れたなど、<br />お急ぎの場合はこちらへ。</p>
+        <a href="tel:0250000000" class="big">025-000-0000</a>
+        <p style="margin-top:6px;font-size:.81rem">平日 9:00–18:30／土 9:00–17:00</p>
+      </div>
+      <div class="way rv">
+        <h3>WEBでのご予約</h3>
+        <p>24時間受け付けています。<br />診療時間内に折り返しご連絡します。</p>
+        <a href="#form" class="btn btn-o" style="margin-top:18px">フォームへ進む</a>
+      </div>
+    </div>
+
+    <div class="head rv" id="form" style="scroll-margin-top:100px">
+      <span class="en">FORM</span>
+      <h2>ご予約フォーム</h2>
+      <p>この時点では予約は確定しません。折り返しのご連絡をもって確定となります。</p>
+    </div>
+
+    <form class="form rv" id="cform" novalidate>
+      <div class="fdone" id="done" role="status">
+        送信しました（サンプルのため実際には送信されません）。<br />
+        実際のサイトでは、この直後に医院へメールが届き、患者様には控えの自動返信が送られます。
+      </div>
+      <div class="fnote"><b>※ これはNextRayの制作サンプルです。</b>入力しても送信は行われず、データはどこにも保存されません。実際のサイトでは、入力内容がそのまま医院のメールへ届くよう設定します。</div>
+
+      <div class="fgroup">
+        <label>ご来院は初めてですか<span class="req">必須</span></label>
+        <div class="radios">
+          <label><input type="radio" name="first" value="初診" checked /><span>初めて（初診）</span></label>
+          <label><input type="radio" name="first" value="再診" /><span>受診したことがある</span></label>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="fgroup">
+          <label for="nm">お名前<span class="req">必須</span></label>
+          <input id="nm" name="name" type="text" placeholder="青葉 花子" autocomplete="name" required />
+        </div>
+        <div class="fgroup">
+          <label for="kn">ふりがな<span class="opt">任意</span></label>
+          <input id="kn" name="kana" type="text" placeholder="あおば はなこ" />
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="fgroup">
+          <label for="tl">お電話番号<span class="req">必須</span></label>
+          <input id="tl" name="tel" type="tel" placeholder="090-0000-0000" autocomplete="tel" inputmode="tel" required />
+          <p class="hint">日中つながる番号をお願いします。</p>
+        </div>
+        <div class="fgroup">
+          <label for="ml">メールアドレス<span class="opt">任意</span></label>
+          <input id="ml" name="email" type="email" placeholder="mail@example.com" autocomplete="email" inputmode="email" />
+        </div>
+      </div>
+
+      <div class="frow three">
+        <div class="fgroup">
+          <label for="d1">第1希望日<span class="req">必須</span></label>
+          <input id="d1" name="date1" type="date" required />
+        </div>
+        <div class="fgroup">
+          <label for="t1">時間帯<span class="req">必須</span></label>
+          <select id="t1" name="time1" required>
+            <option value="">選択してください</option>
+            <option>午前（9:00–12:30）</option><option>午後（14:00–18:30）</option><option>いつでも可</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label for="d2">第2希望日<span class="opt">任意</span></label>
+          <input id="d2" name="date2" type="date" />
+        </div>
+      </div>
+
+      <div class="fgroup">
+        <label>ご相談の内容<span class="opt">任意</span></label>
+        <div class="radios">
+          <label><input type="radio" name="kind" value="痛み・腫れ" /><span>痛み・腫れ</span></label>
+          <label><input type="radio" name="kind" value="むし歯の治療" /><span>むし歯の治療</span></label>
+          <label><input type="radio" name="kind" value="定期検診・クリーニング" /><span>定期検診・クリーニング</span></label>
+          <label><input type="radio" name="kind" value="入れ歯・かぶせ物" /><span>入れ歯・かぶせ物</span></label>
+          <label><input type="radio" name="kind" value="その他・相談したい" /><span>その他・まず相談したい</span></label>
+        </div>
+      </div>
+
+      <div class="fgroup">
+        <label for="ms">お気になっていること<span class="opt">任意</span></label>
+        <textarea id="ms" name="message" placeholder="例）歯医者が苦手で、まず話だけ聞きたいです／子どもの歯並びが気になります／通院の間隔をあけたいです　など"></textarea>
+        <p class="hint">治療のご希望や不安な点があれば、遠慮なくお書きください。無理に治療を進めることはありません。</p>
+      </div>
+
+      <div style="text-align:center;margin-top:32px">
+        <button type="submit" class="btn btn-p" style="min-width:280px">この内容で予約を申し込む</button>
+        <p style="font-size:.82rem;color:var(--sub);margin-top:14px">いただいた内容は、診療のご案内以外には使用しません。</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en">NOTICE</span>
+      <h2>ご予約にあたって</h2>
+    </div>
+    <div class="notice rv">
+      <div class="it"><h3>予約の確定について</h3><p>フォーム送信の時点では確定しません。診療時間内に医院から折り返しご連絡し、その時点で確定となります。土日祝にいただいたご予約は、翌診療日のご連絡になります。</p></div>
+      <div class="it"><h3>お急ぎの場合</h3><p>強い痛み、腫れ、大きな欠けなどは、お電話でご相談ください。当日の診療枠をご案内できる場合があります。</p></div>
+      <div class="it"><h3>初診の方へ</h3><p>健康保険証をお持ちください。お薬を服用中の方は、お薬手帳もあわせてお願いします。初回は状態の確認とご説明が中心で、40分ほどお時間をいただきます。</p></div>
+      <div class="it"><h3>キャンセル・変更</h3><p>前日までにご連絡いただけると助かります。当日でも構いませんので、来られなくなった際はお電話ください。</p></div>
+      <div class="it"><h3>お子様連れの方</h3><p>キッズスペースがございます。診療中はスタッフがお子様をお預かりすることもできますので、ご予約時にお知らせください。</p></div>
+    </div>
+    <p style="text-align:center;font-size:.85rem;color:var(--sub);margin-top:26px;max-width:44em;margin-left:auto;margin-right:auto">
+      ※ 治療の効果には個人差があります。診断・治療方針は診察のうえでご説明します。当サイトに掲載している内容は、医療広告ガイドラインに沿って作成しています。
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b">あおば歯科クリニック</div>
+    <p>〒950-0000 新潟県新潟市西区○○1-2-3<br />TEL 025-000-0000／平日 9:00–18:30・土 9:00–17:00（日祝休診）</p>
+    <nav class="fnav">
+      <a href="sample-dental.html">ホーム</a>
+      <a href="sample-dental.html#feature">当院について</a>
+      <a href="sample-dental.html#menu">診療案内</a>
+      <a href="sample-dental.html#flow">初診の流れ</a>
+      <a href="sample-dental.html#access">アクセス</a>
+      <a href="sample-dental-reserve.html">WEB予約</a>
+    </nav>
+    <div class="fbot">&copy; 2026 あおば歯科クリニック（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+    els.forEach(function(el,i){el.style.transitionDelay=(i%3*.09)+'s';io.observe(el);});
+    setTimeout(function(){[].forEach.call(document.querySelectorAll('.rv:not(.in)'),function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add('in');});},700);
+  }else{els.forEach(function(e){e.classList.add('in');});}
+  var b=document.getElementById('bg'),m=document.getElementById('mn'),c=document.getElementById('mc2');
+  if(b&&m){b.onclick=function(){m.classList.add('open');};
+    if(c)c.onclick=function(){m.classList.remove('open');};
+    [].forEach.call(m.querySelectorAll('a'),function(a){a.onclick=function(){m.classList.remove('open');};});}
+  var f=document.getElementById('cform'),done=document.getElementById('done');
+  if(f){f.addEventListener('submit',function(e){
+    e.preventDefault();var ok=true;
+    [].forEach.call(f.querySelectorAll('[required]'),function(el){
+      var bad=!el.value.trim();
+      el.style.borderColor=bad?'#d64545':'';
+      if(bad&&ok){el.focus();ok=false;}
+    });
+    if(!ok)return;
+    done.classList.add('on');done.scrollIntoView({behavior:'smooth',block:'center'});
+  });}
+})();
+</script>
+</body>
+</html>

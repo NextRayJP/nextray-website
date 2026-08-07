@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】お問い合わせ・資料請求｜大和建築工房</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（工務店・建築会社向けデザイン）。お問い合わせフォームのデザイン例です。" />
+<meta name="theme-color" content="#0a1826" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="お問い合わせ｜工務店のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。資料請求・見学会予約まで受けられるお問い合わせフォームのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-koumuten-contact.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-koumuten.css" />
+<style>
+  .ways{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:60px}
+  .way{background:#fff;border:1px solid var(--line);border-radius:5px;padding:32px 26px;text-align:center;transition:.28s}
+  .way:hover{border-color:var(--accent);box-shadow:var(--shadow);transform:translateY(-5px)}
+  .way .ic{width:52px;height:52px;margin:0 auto 16px;border-radius:50%;background:rgba(226,102,42,.1);display:grid;place-items:center}
+  .way .ic svg{width:24px;height:24px;fill:none;stroke:var(--accent);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+  .way h3{font-size:1.06rem;font-weight:900;color:var(--ink);margin-bottom:9px}
+  .way p{font-size:.89rem;color:var(--mute)}
+  .way .big{font-family:"Oswald",sans-serif;font-weight:600;font-size:1.7rem;color:var(--accent);display:block;margin-top:10px}
+  .faq-mini{max-width:760px;margin:0 auto}
+  .faq-mini details{background:#fff;border:1px solid var(--line);border-radius:4px;margin-bottom:12px;overflow:hidden}
+  .faq-mini summary{cursor:pointer;padding:20px 24px;font-weight:700;color:var(--ink);font-size:.98rem;list-style:none;display:flex;gap:12px;align-items:flex-start}
+  .faq-mini summary::-webkit-details-marker{display:none}
+  .faq-mini summary::before{content:"Q";flex:0 0 24px;width:24px;height:24px;background:rgba(226,102,42,.12);color:var(--accent);
+    font-family:"Oswald",sans-serif;font-weight:600;display:grid;place-items:center;border-radius:3px;font-size:.85rem}
+  .faq-mini summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:rotate(45deg);transition:.25s;flex:0 0 auto;margin-top:5px}
+  .faq-mini details[open] summary::after{transform:rotate(-135deg)}
+  .faq-mini .a{padding:0 24px 22px 60px;font-size:.94rem;color:var(--tx)}
+  @media(max-width:900px){.ways{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する企業ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-koumuten.html" class="brand" aria-label="大和建築工房 ホームへ">
+      <svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 20 20 6l16 14" fill="none" stroke="#e2662a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22v12h22V22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><rect x="17" y="26" width="6" height="8" fill="#e2662a"/></svg>
+      <span>大和<b>建築工房</b><small>YAMATO KENCHIKU</small></span>
+    </a>
+    <ul>
+      <li><a href="sample-koumuten.html">ホーム</a></li>
+      <li><a href="sample-koumuten-works.html">施工事例</a></li>
+      <li><a href="sample-koumuten.html#flow">家づくりの流れ</a></li>
+      <li><a href="sample-koumuten-company.html">会社案内</a></li>
+      <li><a href="sample-koumuten-contact.html" aria-current="page">お問い合わせ</a></li>
+    </ul>
+    <a href="tel:0120000000" class="tel os">0120-00-0000</a>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-koumuten.html">ホーム</a>
+  <a href="sample-koumuten-works.html">施工事例</a>
+  <a href="sample-koumuten.html#flow">家づくりの流れ</a>
+  <a href="sample-koumuten-company.html">会社案内</a>
+  <a href="sample-koumuten-contact.html">お問い合わせ</a>
+  <a href="tel:0120000000" class="mtel">0120-00-0000</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en">CONTACT</div>
+    <h1>お問い合わせ・資料請求</h1>
+    <p>「まだ何も決まっていない」という段階で構いません。土地探しから、ご予算の考え方まで。無理な営業はいたしませんので、お気軽にどうぞ。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-koumuten.html">ホーム</a> ／ <span>お問い合わせ</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="ways">
+      <div class="way rv">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <h3>お電話</h3>
+        <p>その場でお答えできることが多いので、お急ぎならこちらが確実です。</p>
+        <a href="tel:0120000000" class="big">0120-00-0000</a>
+        <p style="margin-top:6px;font-size:.82rem">8:00–19:00／水曜定休</p>
+      </div>
+      <div class="way rv">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div>
+        <h3>フォーム</h3>
+        <p>24時間受け付けています。2営業日以内に担当からご連絡します。</p>
+        <a href="#form" class="btn btn-o" style="margin-top:14px">フォームへ進む</a>
+      </div>
+      <div class="way rv">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9 12 3l9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-8h6v8"/></svg></div>
+        <h3>ショールーム</h3>
+        <p>実物の材料を見ながらご相談いただけます。予約制です。</p>
+        <a href="sample-koumuten-company.html#access" class="btn btn-o" style="margin-top:14px">地図・営業時間</a>
+      </div>
+    </div>
+
+    <div class="head mid rv" id="form" style="scroll-margin-top:100px">
+      <div class="en">FORM</div>
+      <h2>お問い合わせフォーム</h2>
+      <p>いただいた内容は、担当者以外が閲覧することはありません。</p>
+    </div>
+
+    <form class="form rv" id="cform" novalidate>
+      <div class="fdone" id="done" role="status">
+        送信しました（サンプルのため実際には送信されません）。<br />
+        実際のサイトでは、この直後にご担当者へメールが届き、お客様には自動返信が送られます。
+      </div>
+
+      <div class="fnote">
+        <b>※ これはNextRayの制作サンプルです。</b>入力しても送信は行われず、データはどこにも保存されません。実際のサイトでは、入力内容がそのままメールで届くよう設定します。
+      </div>
+
+      <div class="fgroup">
+        <label>お問い合わせの種類<span class="req">必須</span></label>
+        <div class="radios">
+          <label><input type="radio" name="kind" value="資料請求" checked /><span>資料請求</span></label>
+          <label><input type="radio" name="kind" value="来店・見学会の予約" /><span>来店・見学会の予約</span></label>
+          <label><input type="radio" name="kind" value="新築の相談" /><span>新築の相談</span></label>
+          <label><input type="radio" name="kind" value="リフォームの相談" /><span>リフォームの相談</span></label>
+          <label><input type="radio" name="kind" value="その他" /><span>その他</span></label>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="fgroup">
+          <label for="nm">お名前<span class="req">必須</span></label>
+          <input id="nm" name="name" type="text" placeholder="山田 花子" autocomplete="name" required />
+        </div>
+        <div class="fgroup">
+          <label for="kn">ふりがな<span class="opt">任意</span></label>
+          <input id="kn" name="kana" type="text" placeholder="やまだ はなこ" />
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="fgroup">
+          <label for="ml">メールアドレス<span class="req">必須</span></label>
+          <input id="ml" name="email" type="email" placeholder="mail@example.com" autocomplete="email" inputmode="email" required />
+        </div>
+        <div class="fgroup">
+          <label for="tl">お電話番号<span class="opt">任意</span></label>
+          <input id="tl" name="tel" type="tel" placeholder="090-0000-0000" autocomplete="tel" inputmode="tel" />
+          <p class="hint">日中つながりやすい番号をご記入ください。</p>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="fgroup">
+          <label for="ar">建築予定のエリア<span class="opt">任意</span></label>
+          <select id="ar" name="area">
+            <option value="">選択してください</option>
+            <option>新潟市</option><option>燕市</option><option>三条市</option><option>長岡市</option>
+            <option>その他・未定</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label for="bg2">ご予算の目安<span class="opt">任意</span></label>
+          <select id="bg2" name="budget">
+            <option value="">選択してください</option>
+            <option>1,500万円未満</option><option>1,500〜2,000万円</option>
+            <option>2,000〜2,500万円</option><option>2,500〜3,000万円</option>
+            <option>3,000万円以上</option><option>まだ分からない</option>
+          </select>
+          <p class="hint">分からなくて当然です。目安がなくても大丈夫です。</p>
+        </div>
+      </div>
+
+      <div class="fgroup">
+        <label for="ms">ご相談内容<span class="opt">任意</span></label>
+        <textarea id="ms" name="message" placeholder="例）土地から探しています／両親と同居する二世帯を検討しています／築35年の実家をどうするか迷っています　など"></textarea>
+      </div>
+
+      <div style="text-align:center;margin-top:32px">
+        <button type="submit" class="btn btn-p" style="min-width:280px">この内容で送信する
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+        </button>
+        <p style="font-size:.83rem;color:var(--mute);margin-top:14px">送信いただいた内容は、ご相談への回答以外には使用しません。</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="sand">
+  <div class="wrap">
+    <div class="head mid rv">
+      <div class="en">FAQ</div>
+      <h2>お問い合わせの前に</h2>
+    </div>
+    <div class="faq-mini rv">
+      <details>
+        <summary>まだ土地が決まっていませんが、相談できますか？</summary>
+        <div class="a">はい。土地探しからご一緒するお客様が半数以上です。ご希望のエリアと通勤・通学の条件をうかがい、建物とあわせた総額でご提案します。土地だけを先に決めてしまうと、建物に回せる予算が足りなくなることがあるためです。</div>
+      </details>
+      <details>
+        <summary>相談したら、契約を勧められませんか？</summary>
+        <div class="a">いたしません。ご予算やご事情をうかがったうえで、当社では難しいと判断した場合はその旨を正直にお伝えします。リフォームで十分なときに建て替えをお勧めすることもありません。</div>
+      </details>
+      <details>
+        <summary>見積りは無料ですか？</summary>
+        <div class="a">現地調査・プラン作成・お見積りまで無料です。お見積りは「何にいくらかかるか」を1行ずつ明示した形でお出しします。</div>
+      </details>
+      <details>
+        <summary>返事はどのくらいで届きますか？</summary>
+        <div class="a">2営業日以内にご連絡します。水曜が定休のため、火曜の夜にいただいたお問い合わせは木曜のご連絡になる場合があります。お急ぎの場合はお電話ください。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="brand">
+          <svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 20 20 6l16 14" fill="none" stroke="#e2662a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22v12h22V22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><rect x="17" y="26" width="6" height="8" fill="#e2662a"/></svg>
+          <span>大和<b>建築工房</b></span>
+        </div>
+        <p>〒950-0000 新潟県新潟市西蒲区○○1-2-3<br />TEL 0120-00-0000／受付 8:00–19:00<br />定休日：水曜日</p>
+      </div>
+      <div class="fcol">
+        <h4>MENU</h4>
+        <a href="sample-koumuten.html">ホーム</a>
+        <a href="sample-koumuten-works.html">施工事例</a>
+        <a href="sample-koumuten.html#flow">家づくりの流れ</a>
+        <a href="sample-koumuten.html#reasons">選ばれる理由</a>
+      </div>
+      <div class="fcol">
+        <h4>COMPANY</h4>
+        <a href="sample-koumuten-company.html">会社案内</a>
+        <a href="sample-koumuten-company.html#staff">スタッフ紹介</a>
+        <a href="sample-koumuten-company.html#access">アクセス</a>
+        <a href="sample-koumuten.html#news">お知らせ</a>
+      </div>
+      <div class="fcol">
+        <h4>CONTACT</h4>
+        <a href="sample-koumuten-contact.html">お問い合わせ</a>
+        <a href="sample-koumuten-contact.html">資料請求</a>
+        <a href="sample-koumuten-contact.html">見学会のご予約</a>
+        <a href="tel:0120000000">0120-00-0000</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 大和建築工房（サンプルサイト）</span>
+      <span>Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+    els.forEach(function(el,i){el.style.transitionDelay=(i%3*.09)+'s';io.observe(el);});
+    setTimeout(function(){[].forEach.call(document.querySelectorAll('.rv:not(.in)'),function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add('in');});},700);
+  }else{els.forEach(function(e){e.classList.add('in');});}
+  var b=document.getElementById('bg'),m=document.getElementById('mn'),c=document.getElementById('mc');
+  if(b&&m){b.onclick=function(){m.classList.add('open');};
+    if(c)c.onclick=function(){m.classList.remove('open');};
+    [].forEach.call(m.querySelectorAll('a'),function(a){a.onclick=function(){m.classList.remove('open');};});}
+  // サンプルのため実送信はしない。入力チェックの見え方だけ再現する
+  var f=document.getElementById('cform'),done=document.getElementById('done');
+  if(f){f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    [].forEach.call(f.querySelectorAll('[required]'),function(el){
+      var bad=!el.value.trim()||(el.type==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value));
+      el.style.borderColor=bad?'#d64545':'';
+      if(bad&&ok){el.focus();ok=false;}
+    });
+    if(!ok)return;
+    done.classList.add('on');
+    done.scrollIntoView({behavior:'smooth',block:'center'});
+  });}
+})();
+</script>
+</body>
+</html>

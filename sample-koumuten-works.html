@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】施工事例｜大和建築工房</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（工務店・建築会社向けデザイン）。施工事例の一覧ページのデザイン例です。" />
+<meta name="theme-color" content="#0a1826" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="施工事例｜工務店のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。施工事例を条件で絞り込める一覧ページのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-koumuten-works.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-koumuten.css" />
+<style>
+  .count{font-size:.88rem;color:var(--mute);margin-bottom:20px}
+  .count b{color:var(--accent);font-family:"Oswald",sans-serif;font-size:1.1rem;margin:0 3px}
+  .pager{display:flex;justify-content:center;gap:8px;margin-top:54px}
+  .pager a,.pager span{min-width:44px;height:44px;display:grid;place-items:center;border:1.5px solid var(--line);border-radius:3px;
+    font-family:"Oswald",sans-serif;font-weight:500;font-size:.98rem;transition:.2s;background:#fff}
+  .pager a:hover{border-color:var(--accent);color:var(--accent)}
+  .pager .now{background:var(--ink);border-color:var(--ink);color:#fff}
+  .pager .off{color:var(--mute);background:#fbfaf8;opacity:.55}
+  .pager .nx{padding:0 18px}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する企業ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-koumuten.html" class="brand" aria-label="大和建築工房 ホームへ">
+      <svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 20 20 6l16 14" fill="none" stroke="#e2662a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22v12h22V22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><rect x="17" y="26" width="6" height="8" fill="#e2662a"/></svg>
+      <span>大和<b>建築工房</b><small>YAMATO KENCHIKU</small></span>
+    </a>
+    <ul>
+      <li><a href="sample-koumuten.html">ホーム</a></li>
+      <li><a href="sample-koumuten-works.html" aria-current="page">施工事例</a></li>
+      <li><a href="sample-koumuten.html#flow">家づくりの流れ</a></li>
+      <li><a href="sample-koumuten-company.html">会社案内</a></li>
+      <li><a href="sample-koumuten-contact.html">お問い合わせ</a></li>
+    </ul>
+    <a href="tel:0120000000" class="tel os">0120-00-0000</a>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-koumuten.html">ホーム</a>
+  <a href="sample-koumuten-works.html">施工事例</a>
+  <a href="sample-koumuten.html#flow">家づくりの流れ</a>
+  <a href="sample-koumuten-company.html">会社案内</a>
+  <a href="sample-koumuten-contact.html">お問い合わせ</a>
+  <a href="tel:0120000000" class="mtel">0120-00-0000</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en">WORKS</div>
+    <h1>施工事例</h1>
+    <p>これまでにお引き渡しした住まいの一部です。ご家族のご要望、敷地の制約、工夫した点まで一棟ずつ記録しています。似た条件の事例があれば、ぜひご覧ください。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-koumuten.html">ホーム</a> ／ <span>施工事例</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="filter rv" role="group" aria-label="施工事例の絞り込み">
+      <button type="button" data-f="all" aria-pressed="true">すべて</button>
+      <button type="button" data-f="new" aria-pressed="false">新築住宅</button>
+      <button type="button" data-f="reform" aria-pressed="false">リフォーム</button>
+      <button type="button" data-f="shop" aria-pressed="false">店舗・オフィス</button>
+      <button type="button" data-f="niseta" aria-pressed="false">二世帯</button>
+      <button type="button" data-f="heisei" aria-pressed="false">平屋</button>
+    </div>
+    <p class="count">全 <b id="cnt">9</b> 件を表示しています（サンプルのため一部を掲載）</p>
+
+    <div class="w-grid" id="grid">
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="new niseta">
+        <div class="w-ph"><span class="cat">新築住宅</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="二世帯住宅の外観イメージ">
+            <defs><linearGradient id="a1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1d3d5c"/><stop offset="1" stop-color="#0a1826"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a1)"/>
+            <path d="M60 250V150l90-62 90 62v100z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+            <path d="M44 158 150 82l106 76" fill="none" stroke="#e2662a" stroke-width="3" stroke-linecap="round"/>
+            <rect x="92" y="176" width="42" height="36" fill="rgba(226,102,42,.25)" stroke="rgba(255,255,255,.35)" stroke-width="1.4"/>
+            <rect x="166" y="176" width="42" height="36" fill="rgba(226,102,42,.25)" stroke="rgba(255,255,255,.35)" stroke-width="1.4"/>
+            <rect x="126" y="216" width="34" height="34" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.3)" stroke-width="1.4"/>
+            <path d="M270 250V186l52-36 52 36v64z" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.3)" stroke-width="1.8"/>
+            <line x1="20" y1="250" x2="380" y2="250" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>木の温もりを感じる二世帯住宅</h3><div class="loc">新潟市・木造2階建て・42坪</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="reform">
+        <div class="w-ph"><span class="cat">リフォーム</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="フルリノベーションのイメージ">
+            <defs><linearGradient id="a2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d4b5a"/><stop offset="1" stop-color="#141f2b"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a2)"/>
+            <rect x="70" y="96" width="260" height="154" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.38)" stroke-width="2"/>
+            <line x1="200" y1="96" x2="200" y2="250" stroke="#e2662a" stroke-width="3" stroke-dasharray="9 7"/>
+            <rect x="94" y="124" width="76" height="58" fill="none" stroke="rgba(255,255,255,.26)" stroke-width="1.5"/>
+            <rect x="94" y="196" width="76" height="34" fill="none" stroke="rgba(255,255,255,.26)" stroke-width="1.5"/>
+            <rect x="230" y="124" width="76" height="58" fill="rgba(226,102,42,.22)" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/>
+            <rect x="230" y="196" width="76" height="34" fill="rgba(226,102,42,.22)" stroke="rgba(255,255,255,.45)" stroke-width="1.5"/>
+            <text x="122" y="86" fill="rgba(255,255,255,.4)" font-family="Oswald,sans-serif" font-size="15" letter-spacing="2">BEFORE</text>
+            <text x="252" y="86" fill="#e2662a" font-family="Oswald,sans-serif" font-size="15" letter-spacing="2">AFTER</text>
+            <line x1="40" y1="250" x2="360" y2="250" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>築30年を、新築同様に再生</h3><div class="loc">燕市・フルリノベーション・38坪</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="shop">
+        <div class="w-ph"><span class="cat">店舗</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="カフェ店舗の外観イメージ">
+            <defs><linearGradient id="a3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b4632"/><stop offset="1" stop-color="#221c17"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a3)"/>
+            <rect x="66" y="112" width="268" height="138" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+            <path d="M56 112h288l-16-28H72z" fill="rgba(226,102,42,.32)" stroke="#e2662a" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="92" y="142" width="94" height="76" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.34)" stroke-width="1.5"/>
+            <rect x="214" y="142" width="94" height="76" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.34)" stroke-width="1.5"/>
+            <rect x="176" y="196" width="48" height="54" fill="rgba(226,102,42,.25)" stroke="rgba(255,255,255,.4)" stroke-width="1.6"/>
+            <circle cx="200" cy="128" r="7" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="1.6"/>
+            <line x1="36" y1="250" x2="364" y2="250" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>こだわりのカフェ店舗づくり</h3><div class="loc">三条市・鉄骨造・24坪</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="new heisei">
+        <div class="w-ph"><span class="cat">新築住宅</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="平屋の外観イメージ">
+            <defs><linearGradient id="a4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24506e"/><stop offset="1" stop-color="#0d1f2f"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a4)"/>
+            <path d="M40 210V166l160-58 160 58v44z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.42)" stroke-width="2"/>
+            <path d="M28 172 200 100l172 72" fill="none" stroke="#e2662a" stroke-width="3.2" stroke-linecap="round"/>
+            <rect x="40" y="210" width="320" height="46" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.3)" stroke-width="1.6"/>
+            <rect x="78" y="222" width="58" height="24" fill="rgba(226,102,42,.28)" stroke="rgba(255,255,255,.34)" stroke-width="1.3"/>
+            <rect x="170" y="222" width="58" height="24" fill="rgba(226,102,42,.28)" stroke="rgba(255,255,255,.34)" stroke-width="1.3"/>
+            <rect x="262" y="222" width="58" height="24" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.3)" stroke-width="1.3"/>
+            <line x1="16" y1="256" x2="384" y2="256" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>回遊できる、ワンフロアの平屋</h3><div class="loc">新潟市西蒲区・木造平屋・31坪</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="reform">
+        <div class="w-ph"><span class="cat">水まわり</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="キッチンリフォームのイメージ">
+            <defs><linearGradient id="a5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4a44"/><stop offset="1" stop-color="#141d1a"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a5)"/>
+            <rect x="58" y="150" width="284" height="26" fill="rgba(226,102,42,.3)" stroke="rgba(255,255,255,.45)" stroke-width="1.6"/>
+            <rect x="58" y="176" width="284" height="76" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.34)" stroke-width="1.6"/>
+            <line x1="152" y1="176" x2="152" y2="252" stroke="rgba(255,255,255,.26)" stroke-width="1.3"/>
+            <line x1="246" y1="176" x2="246" y2="252" stroke="rgba(255,255,255,.26)" stroke-width="1.3"/>
+            <path d="M196 150v-38h34" fill="none" stroke="#e2662a" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="112" cy="163" r="9" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.6"/>
+            <rect x="86" y="66" width="228" height="54" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+            <line x1="30" y1="252" x2="370" y2="252" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>使いやすさで選ぶ、キッチン改修</h3><div class="loc">新潟市江南区・水まわり改修</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="new">
+        <div class="w-ph"><span class="cat">新築住宅</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="片流れ屋根の住宅イメージ">
+            <defs><linearGradient id="a6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b3a52"/><stop offset="1" stop-color="#0a1723"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a6)"/>
+            <path d="M78 252V128l244-52v176z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.42)" stroke-width="2"/>
+            <path d="M66 132 322 74" fill="none" stroke="#e2662a" stroke-width="3.4" stroke-linecap="round"/>
+            <rect x="108" y="158" width="66" height="52" fill="rgba(226,102,42,.26)" stroke="rgba(255,255,255,.36)" stroke-width="1.4"/>
+            <rect x="204" y="146" width="86" height="64" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.36)" stroke-width="1.4"/>
+            <rect x="132" y="216" width="40" height="36" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.3)" stroke-width="1.4"/>
+            <line x1="40" y1="252" x2="360" y2="252" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>光を取り込む、片流れ屋根の家</h3><div class="loc">燕市・木造2階建て・36坪</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="shop">
+        <div class="w-ph"><span class="cat">オフィス</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="事務所併用建物のイメージ">
+            <defs><linearGradient id="a7" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c3a4b"/><stop offset="1" stop-color="#11181f"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a7)"/>
+            <rect x="76" y="82" width="248" height="170" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+            <line x1="76" y1="138" x2="324" y2="138" stroke="#e2662a" stroke-width="2.6"/>
+            <line x1="76" y1="196" x2="324" y2="196" stroke="rgba(255,255,255,.3)" stroke-width="1.4"/>
+            <rect x="98" y="100" width="46" height="26" fill="rgba(226,102,42,.24)"/>
+            <rect x="160" y="100" width="46" height="26" fill="rgba(226,102,42,.24)"/>
+            <rect x="222" y="100" width="46" height="26" fill="rgba(226,102,42,.24)"/>
+            <rect x="98" y="154" width="46" height="26" fill="rgba(255,255,255,.12)"/>
+            <rect x="160" y="154" width="46" height="26" fill="rgba(255,255,255,.12)"/>
+            <rect x="222" y="154" width="46" height="26" fill="rgba(255,255,255,.12)"/>
+            <rect x="176" y="212" width="48" height="40" fill="rgba(226,102,42,.28)" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+            <line x1="44" y1="252" x2="356" y2="252" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>事務所と住まいを1棟に</h3><div class="loc">三条市・鉄骨造2階建て</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="new niseta">
+        <div class="w-ph"><span class="cat">新築住宅</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="中庭のある住宅イメージ">
+            <defs><linearGradient id="a8" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#21455f"/><stop offset="1" stop-color="#0b1a26"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a8)"/>
+            <rect x="58" y="104" width="284" height="148" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+            <rect x="150" y="150" width="100" height="102" fill="rgba(226,102,42,.16)" stroke="#e2662a" stroke-width="2.4"/>
+            <path d="M46 108 200 60l154 48" fill="none" stroke="#e2662a" stroke-width="3" stroke-linecap="round"/>
+            <rect x="82" y="132" width="48" height="40" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.32)" stroke-width="1.3"/>
+            <rect x="270" y="132" width="48" height="40" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.32)" stroke-width="1.3"/>
+            <circle cx="200" cy="196" r="16" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.6"/>
+            <line x1="26" y1="252" x2="374" y2="252" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>中庭を囲む、二世帯の距離感</h3><div class="loc">新潟市秋葉区・木造2階建て・48坪</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+      <a class="w-card rv" href="sample-koumuten-work.html" data-c="reform heisei">
+        <div class="w-ph"><span class="cat">リフォーム</span>
+          <svg viewBox="0 0 400 300" role="img" aria-label="平屋の耐震改修イメージ">
+            <defs><linearGradient id="a9" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a4034"/><stop offset="1" stop-color="#1b1712"/></linearGradient></defs>
+            <rect width="400" height="300" fill="url(#a9)"/>
+            <path d="M52 212V170l148-56 148 56v42z" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.4)" stroke-width="2"/>
+            <rect x="52" y="212" width="296" height="42" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+            <path d="M96 254V212l52 42m52-42v42m52-42-52 42" fill="none" stroke="#e2662a" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M40 176 200 116l160 60" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="24" y1="254" x2="376" y2="254" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="w-meta"><h3>住みながらの耐震補強</h3><div class="loc">新潟市西蒲区・耐震改修</div><span class="more">この事例を詳しく見る →</span></div>
+      </a>
+
+    </div>
+
+    <nav class="pager" aria-label="ページ送り">
+      <span class="now" aria-current="page">1</span>
+      <span class="off">2</span>
+      <span class="off">3</span>
+      <span class="off">4</span>
+      <span class="off nx">次へ →</span>
+    </nav>
+    <p style="text-align:center;font-size:.84rem;color:var(--mute);margin-top:16px">※ サンプルのため2ページ目以降は用意していません。実際のサイトでは、事例が増えても自動でページが分かれます。</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>気になる事例があれば、<br />同じ形でご相談いただけます</h2>
+    <p class="sub">「この事例に近い家を、うちの敷地で建てたら」というご相談が一番多いです。現地調査・お見積りは無料です。</p>
+    <a href="tel:0120000000" class="tel os">0120-00-0000</a>
+    <p class="hrs">受付 8:00–19:00（水曜定休）</p>
+    <div style="margin-top:26px"><a href="sample-koumuten-contact.html" class="btn btn-p">この事例について相談する
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
+    </a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <div class="brand">
+          <svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 20 20 6l16 14" fill="none" stroke="#e2662a" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22v12h22V22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><rect x="17" y="26" width="6" height="8" fill="#e2662a"/></svg>
+          <span>大和<b>建築工房</b></span>
+        </div>
+        <p>〒950-0000 新潟県新潟市西蒲区○○1-2-3<br />TEL 0120-00-0000／受付 8:00–19:00<br />定休日：水曜日</p>
+      </div>
+      <div class="fcol">
+        <h4>MENU</h4>
+        <a href="sample-koumuten.html">ホーム</a>
+        <a href="sample-koumuten-works.html">施工事例</a>
+        <a href="sample-koumuten.html#flow">家づくりの流れ</a>
+        <a href="sample-koumuten.html#reasons">選ばれる理由</a>
+      </div>
+      <div class="fcol">
+        <h4>COMPANY</h4>
+        <a href="sample-koumuten-company.html">会社案内</a>
+        <a href="sample-koumuten-company.html#staff">スタッフ紹介</a>
+        <a href="sample-koumuten-company.html#access">アクセス</a>
+        <a href="sample-koumuten.html#news">お知らせ</a>
+      </div>
+      <div class="fcol">
+        <h4>CONTACT</h4>
+        <a href="sample-koumuten-contact.html">お問い合わせ</a>
+        <a href="sample-koumuten-contact.html">資料請求</a>
+        <a href="sample-koumuten-contact.html">見学会のご予約</a>
+        <a href="tel:0120000000">0120-00-0000</a>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 大和建築工房（サンプルサイト）</span>
+      <span>Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  function show(e){e.classList.add('in');}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}})},{threshold:.12});
+    els.forEach(function(el,i){el.style.transitionDelay=(i%3*.09)+'s';io.observe(el);});
+    setTimeout(function(){[].forEach.call(document.querySelectorAll('.rv:not(.in)'),function(e){if(e.getBoundingClientRect().top<innerHeight)show(e);});},700);
+  }else{els.forEach(show);}
+  var b=document.getElementById('bg'),m=document.getElementById('mn'),c=document.getElementById('mc');
+  if(b&&m){b.onclick=function(){m.classList.add('open');};
+    if(c)c.onclick=function(){m.classList.remove('open');};
+    [].forEach.call(m.querySelectorAll('a'),function(a){a.onclick=function(){m.classList.remove('open');};});}
+  // 施工事例の絞り込み
+  var btns=[].slice.call(document.querySelectorAll('.filter button')),
+      cards=[].slice.call(document.querySelectorAll('#grid .w-card')),
+      cnt=document.getElementById('cnt');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var f=btn.getAttribute('data-f'),n=0;
+      btns.forEach(function(o){o.setAttribute('aria-pressed',String(o===btn));});
+      cards.forEach(function(card){
+        var hit=(f==='all')||(' '+card.getAttribute('data-c')+' ').indexOf(' '+f+' ')>-1;
+        card.style.display=hit?'':'none';
+        card.classList.add('in');
+        if(hit)n++;
+      });
+      cnt.textContent=n;
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】ご予約｜日本料理 花暦</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（飲食店向けデザイン）。席の予約フォームのデザイン例です。" />
+<meta name="theme-color" content="#17130f" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="ご予約｜飲食店のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。和モダンな飲食店の予約フォームのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-restaurant-reserve.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<style>
+  h1,h2,h3,h4{word-break:auto-phrase;overflow-wrap:break-word;text-wrap:pretty}
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --sumi:#17130f; --sumi-2:#2a231c; --washi:#f6f2e9; --gold:#b08d43; --gold-l:#d4b671;
+    --tx:#3a322a; --mute:#8a7f72; --line:#ddd4c2;
+  }
+  html{scroll-behavior:smooth}
+  body{font-feature-settings:"palt" 1;font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,sans-serif;
+    color:var(--tx);line-height:2;background:var(--washi);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .mc{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",YuMincho,"Noto Serif CJK JP",serif}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  .demobar{background:var(--sumi);color:var(--washi);text-align:center;font-size:.78rem;padding:10px 16px}
+  .demobar strong{color:var(--gold-l)}
+  .demobar a{color:var(--washi);border-bottom:1px solid rgba(246,242,233,.5)}
+
+  header{background:rgba(23,19,15,.95);position:sticky;top:0;z-index:40;backdrop-filter:blur(10px)}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:76px;color:var(--washi)}
+  .brand{font-size:1.3rem;letter-spacing:.22em;font-weight:500}
+  .brand small{display:block;font-size:.56rem;letter-spacing:.34em;color:var(--gold-l);margin-top:4px}
+  .nav ul{display:flex;gap:30px;list-style:none;font-size:.86rem;letter-spacing:.1em}
+  .nav ul a{padding-bottom:4px;border-bottom:1px solid transparent;transition:.25s}
+  .nav ul a:hover,.nav ul a[aria-current="page"]{color:var(--gold-l);border-color:var(--gold)}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:10px;flex-direction:column;gap:5px}
+  .burger span{width:24px;height:1px;background:var(--washi);display:block}
+  .mnav{display:none}
+  @media(max-width:900px){
+    .nav ul{display:none}.burger{display:flex}
+    .mnav{display:block;position:fixed;inset:0;background:var(--sumi);z-index:60;padding:86px 30px 40px;transform:translateX(100%);transition:transform .35s;overflow-y:auto}
+    .mnav.open{transform:none}
+    .mnav a{display:block;color:var(--washi);font-size:1.1rem;padding:17px 2px;border-bottom:1px solid rgba(246,242,233,.14);letter-spacing:.1em}
+    .mclose{position:absolute;top:24px;right:24px;background:none;border:none;color:var(--washi);font-size:2rem;cursor:pointer;line-height:1}
+  }
+
+  .phero{background:var(--sumi);color:var(--washi);padding:70px 0 74px;position:relative;overflow:hidden}
+  .phero::after{content:"";position:absolute;right:-90px;top:-70px;width:340px;height:340px;border:1px solid rgba(176,141,67,.3);border-radius:50%}
+  .phero .en{font-size:.72rem;letter-spacing:.4em;color:var(--gold-l)}
+  .phero h1{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:500;letter-spacing:.14em;margin-top:14px;line-height:1.6}
+  .phero p{margin-top:16px;color:rgba(246,242,233,.76);font-size:.98rem;max-width:38em}
+  .crumb{font-size:.78rem;color:var(--mute);padding:15px 0;border-bottom:1px solid var(--line);background:#fff}
+  .crumb a:hover{color:var(--gold)}
+  .crumb span{color:var(--tx)}
+
+  section{padding:88px 0}
+  .head{text-align:center;max-width:44em;margin:0 auto 48px}
+  .head .en{font-size:.72rem;letter-spacing:.4em;color:var(--gold);display:block;margin-bottom:14px}
+  .head h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:500;letter-spacing:.1em;color:var(--sumi);line-height:1.7}
+  .head p{margin-top:14px;color:var(--mute);font-size:.95rem}
+
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto 62px}
+  .way{background:#fff;border:1px solid var(--line);padding:34px 30px;text-align:center}
+  .way h3{font-size:1.02rem;font-weight:700;color:var(--sumi);letter-spacing:.06em}
+  .way p{font-size:.87rem;color:var(--mute);margin-top:10px}
+  .way .big{font-size:1.9rem;color:var(--gold);letter-spacing:.06em;display:block;margin-top:12px}
+
+  .form{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);padding:46px 44px}
+  .fgroup{margin-bottom:26px}
+  .fgroup label{display:block;font-weight:700;font-size:.9rem;color:var(--sumi);margin-bottom:9px;letter-spacing:.04em}
+  .req{background:var(--gold);color:#fff;font-size:.66rem;padding:3px 8px;margin-left:9px;vertical-align:2px;letter-spacing:.06em}
+  .opt{background:var(--line);color:var(--mute);font-size:.66rem;padding:3px 8px;margin-left:9px;vertical-align:2px}
+  .fgroup input,.fgroup select,.fgroup textarea{width:100%;padding:14px 16px;border:1px solid var(--line);font-size:.96rem;font-family:inherit;color:var(--tx);background:#fff;transition:border-color .2s}
+  .fgroup input:focus,.fgroup select:focus,.fgroup textarea:focus{outline:none;border-color:var(--gold)}
+  .fgroup textarea{resize:vertical;min-height:130px}
+  .fgroup .hint{font-size:.8rem;color:var(--mute);margin-top:7px;line-height:1.8}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .frow.three{grid-template-columns:1fr 1fr 1fr}
+  .fnote{background:var(--washi);border:1px solid var(--line);padding:18px 20px;font-size:.85rem;color:var(--mute);margin-bottom:28px;line-height:1.9}
+  .fdone{display:none;background:rgba(176,141,67,.1);border:1px solid var(--gold);padding:20px 22px;margin-bottom:24px;color:var(--sumi);font-weight:700}
+  .fdone.on{display:block}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-size:.92rem;letter-spacing:.12em;
+    padding:17px 40px;border:none;cursor:pointer;transition:.25s}
+  .btn-p{background:var(--gold);color:#fff}
+  .btn-p:hover{background:var(--sumi)}
+  .btn-o{background:#fff;border:1px solid var(--line);color:var(--sumi)}
+  .btn-o:hover{border-color:var(--gold);color:var(--gold)}
+
+  .rules{max-width:760px;margin:0 auto}
+  .rules .it{display:grid;grid-template-columns:180px 1fr;gap:22px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .rules .k{font-weight:700;color:var(--sumi);font-size:.92rem;letter-spacing:.04em}
+  .rules .v{font-size:.93rem}
+
+  footer{background:var(--sumi);color:rgba(246,242,233,.7);padding:56px 0 26px;text-align:center}
+  footer .b{font-size:1.2rem;letter-spacing:.22em;color:var(--washi);margin-bottom:14px}
+  footer p{font-size:.85rem;line-height:1.9}
+  .fnav{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:22px 0;font-size:.86rem}
+  .fnav a:hover{color:var(--gold-l)}
+  .fbot{border-top:1px solid rgba(246,242,233,.14);padding-top:20px;margin-top:24px;font-size:.78rem;opacity:.6}
+  .fbot a{border-bottom:1px solid rgba(246,242,233,.4)}
+
+  @media(max-width:760px){
+    section{padding:60px 0}
+    .ways,.frow,.frow.three{grid-template-columns:1fr}
+    .form{padding:30px 22px}
+    .rules .it{grid-template-columns:1fr;gap:4px}
+  }
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する店舗ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-restaurant.html" class="brand mc">花暦<small>HANAGOYOMI</small></a>
+    <ul>
+      <li><a href="sample-restaurant.html">ホーム</a></li>
+      <li><a href="sample-restaurant.html#kodawari">こだわり</a></li>
+      <li><a href="sample-restaurant.html#course">お品書き</a></li>
+      <li><a href="sample-restaurant.html#interior">店内</a></li>
+      <li><a href="sample-restaurant-reserve.html" aria-current="page">ご予約</a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc2" aria-label="閉じる">&times;</button>
+  <a href="sample-restaurant.html">ホーム</a>
+  <a href="sample-restaurant.html#kodawari">こだわり</a>
+  <a href="sample-restaurant.html#course">お品書き</a>
+  <a href="sample-restaurant.html#interior">店内</a>
+  <a href="sample-restaurant-reserve.html">ご予約</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en">RESERVATION</div>
+    <h1 class="mc">ご予約</h1>
+    <p>お日にちとお人数をお知らせください。お席の空き状況を確認のうえ、当日中にご連絡いたします。お苦手な食材やお祝いのご事情も、遠慮なくお書き添えください。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-restaurant.html">ホーム</a> ／ <span>ご予約</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="ways">
+      <div class="way rv">
+        <h3>お電話でのご予約</h3>
+        <p>当日のご予約、6名様以上の個室は<br />お電話がご確実です。</p>
+        <a href="tel:0250000000" class="big mc">025-000-0000</a>
+        <p style="margin-top:6px;font-size:.8rem">11:00–21:00／火曜定休</p>
+      </div>
+      <div class="way rv">
+        <h3>フォームでのご予約</h3>
+        <p>24時間承ります。<br />当日中にご返信いたします。</p>
+        <a href="#form" class="btn btn-o" style="margin-top:18px">フォームへ進む</a>
+      </div>
+    </div>
+
+    <div class="head rv" id="form" style="scroll-margin-top:100px">
+      <span class="en">FORM</span>
+      <h2 class="mc">ご予約フォーム</h2>
+      <p>この時点ではお席は確保されません。折り返しのご連絡をもって確定とさせていただきます。</p>
+    </div>
+
+    <form class="form rv" id="cform" novalidate>
+      <div class="fdone" id="done" role="status">
+        送信しました（サンプルのため実際には送信されません）。<br />
+        実際のサイトでは、この直後にお店へメールが届き、お客様には控えの自動返信が送られます。
+      </div>
+      <div class="fnote"><b>※ これはNextRayの制作サンプルです。</b>入力しても送信は行われず、データはどこにも保存されません。実際のサイトでは、入力内容がそのままお店のメールへ届くよう設定します。</div>
+
+      <div class="frow">
+        <div class="fgroup">
+          <label for="nm">お名前<span class="req">必須</span></label>
+          <input id="nm" name="name" type="text" placeholder="花山 太郎" autocomplete="name" required />
+        </div>
+        <div class="fgroup">
+          <label for="tl">お電話番号<span class="req">必須</span></label>
+          <input id="tl" name="tel" type="tel" placeholder="090-0000-0000" autocomplete="tel" inputmode="tel" required />
+          <p class="hint">当日ご連絡がつく番号をお願いいたします。</p>
+        </div>
+      </div>
+
+      <div class="fgroup">
+        <label for="ml">メールアドレス<span class="opt">任意</span></label>
+        <input id="ml" name="email" type="email" placeholder="mail@example.com" autocomplete="email" inputmode="email" />
+      </div>
+
+      <div class="frow three">
+        <div class="fgroup">
+          <label for="dt">ご希望日<span class="req">必須</span></label>
+          <input id="dt" name="date" type="date" required />
+        </div>
+        <div class="fgroup">
+          <label for="tm">お時間<span class="req">必須</span></label>
+          <select id="tm" name="time" required>
+            <option value="">選択してください</option>
+            <option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option>
+            <option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label for="pp">ご人数<span class="req">必須</span></label>
+          <select id="pp" name="people" required>
+            <option value="">選択してください</option>
+            <option>1名</option><option>2名</option><option>3名</option><option>4名</option>
+            <option>5名</option><option>6名</option><option>7名以上</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="fgroup">
+          <label for="st">お席のご希望<span class="opt">任意</span></label>
+          <select id="st" name="seat">
+            <option value="">おまかせ</option>
+            <option>カウンター</option><option>テーブル</option><option>個室（要相談）</option>
+          </select>
+        </div>
+        <div class="fgroup">
+          <label for="cs">お品書き<span class="opt">任意</span></label>
+          <select id="cs" name="course">
+            <option value="">当日決めます</option>
+            <option>昼の会席</option><option>花暦コース</option><option>おまかせ会席</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fgroup">
+        <label for="ms">ご要望・アレルギー<span class="opt">任意</span></label>
+        <textarea id="ms" name="message" placeholder="例）お祝いの席です／甲殻類が苦手です／お子様椅子をお願いします　など"></textarea>
+        <p class="hint">アレルギーや苦手な食材は、可能な範囲で献立を差し替えます。事前にお知らせいただけると確実です。</p>
+      </div>
+
+      <div style="text-align:center;margin-top:34px">
+        <button type="submit" class="btn btn-p" style="min-width:280px">この内容で予約を申し込む</button>
+        <p style="font-size:.82rem;color:var(--mute);margin-top:14px">いただいた内容は、ご予約の対応以外には使用いたしません。</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en">INFORMATION</span>
+      <h2 class="mc">ご予約について</h2>
+    </div>
+    <div class="rules rv">
+      <div class="it"><div class="k">ご予約の確定</div><div class="v">フォーム送信の時点では確定いたしません。お店から折り返しご連絡を差し上げ、その時点で確定となります。</div></div>
+      <div class="it"><div class="k">当日のご予約</div><div class="v">お電話にてお願いいたします。仕入れの都合により、お受けできない日もございます。</div></div>
+      <div class="it"><div class="k">キャンセル</div><div class="v">前日までにご連絡をお願いいたします。当日のキャンセルは、コースのご予約に限りご料金の50%を申し受けます。</div></div>
+      <div class="it"><div class="k">お子様連れ</div><div class="v">お座敷のお席をご用意できます。ご予約の際にお知らせください。</div></div>
+      <div class="it"><div class="k">個室</div><div class="v">4名様〜10名様の個室が2室ございます。ご希望が重なることが多いため、お早めにご相談ください。</div></div>
+      <div class="it"><div class="k">駐車場</div><div class="v">店舗裏に8台分ございます。満車の場合は近隣のコインパーキングをご案内いたします。</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b mc">日本料理 花暦</div>
+    <p>〒950-0000 新潟県新潟市中央区○○1-2-3<br />TEL 025-000-0000／11:00–21:00（火曜定休）</p>
+    <nav class="fnav">
+      <a href="sample-restaurant.html">ホーム</a>
+      <a href="sample-restaurant.html#kodawari">こだわり</a>
+      <a href="sample-restaurant.html#course">お品書き</a>
+      <a href="sample-restaurant.html#interior">店内</a>
+      <a href="sample-restaurant-reserve.html">ご予約</a>
+    </nav>
+    <div class="fbot">&copy; 2026 日本料理 花暦（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+    els.forEach(function(el,i){el.style.transitionDelay=(i%3*.09)+'s';io.observe(el);});
+    setTimeout(function(){[].forEach.call(document.querySelectorAll('.rv:not(.in)'),function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add('in');});},700);
+  }else{els.forEach(function(e){e.classList.add('in');});}
+  var b=document.getElementById('bg'),m=document.getElementById('mn'),c=document.getElementById('mc2');
+  if(b&&m){b.onclick=function(){m.classList.add('open');};
+    if(c)c.onclick=function(){m.classList.remove('open');};
+    [].forEach.call(m.querySelectorAll('a'),function(a){a.onclick=function(){m.classList.remove('open');};});}
+  var f=document.getElementById('cform'),done=document.getElementById('done');
+  if(f){f.addEventListener('submit',function(e){
+    e.preventDefault();var ok=true;
+    [].forEach.call(f.querySelectorAll('[required]'),function(el){
+      var bad=!el.value.trim();
+      el.style.borderColor=bad?'#b3403a':'';
+      if(bad&&ok){el.focus();ok=false;}
+    });
+    if(!ok)return;
+    done.classList.add('on');done.scrollIntoView({behavior:'smooth',block:'center'});
+  });}
+})();
+</script>
+</body>
+</html>
