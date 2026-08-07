@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>スマホで測ったら57点でした｜自社サイトを81点まで直した話｜NextRay</title>
+<meta name="description" content="自社サイトのモバイル表示速度が57点、真っ白な時間が8.3秒でした。原因を測ったら、ページ全体975KBのうち935KB（96%）が日本語のWebフォントでした。撤去して81点・46KBになるまでの実測値を、残っている課題まで含めて公開します。" />
+<meta name="keywords" content="ホームページ 表示速度 改善,スマホ サイト 遅い,Webフォント 重い,Core Web Vitals 改善,LCP 改善,PageSpeed Insights モバイル,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-mobile-speed.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="スマホで測ったら57点でした｜自社サイトを81点まで直した話" />
+<meta property="og:description" content="ページの96%がフォントでした。撤去して975KB→46KB、57点→81点。まだ90点ではない理由まで書きます。" />
+<meta property="og:url" content="https://nextray.jp/blog-mobile-speed.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-07" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="スマホで測ったら57点でした｜自社サイトを81点まで直した話" />
+<meta name="twitter:description" content="ページの96%がフォントでした。撤去して975KB→46KB、57点→81点。まだ90点ではない理由まで書きます。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "スマホで測ったら57点でした｜自社サイトを81点まで直した話",
+  "description": "自社サイトのモバイル表示速度が57点だった原因を計測したところ、ページ全体の96%が日本語Webフォントでした。撤去して81点・46KBになるまでの実測値と、残っている課題を公開します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-07",
+  "dateModified": "2026-08-07",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-mobile-speed.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "日本語のWebフォントは使わない方がいいのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "一概には言えません。判断の材料は「そのフォントが何KBか」です。日本語は文字数が多いため1書体で数百KB〜1MB級になることがあり、当社の場合は935KBでした。欧文だけなら数十KBで収まることが多く、見出しの数字や英字に限って使うのは十分に現実的です。まず実測してから決めてください。" } },
+    { "@type": "Question", "name": "うちのサイトも同じ原因でしょうか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "フォントが原因とは限りません。実際には、圧縮していない写真が最大の原因になっているケースの方が多いです。PageSpeed Insightsの下部にある「ネットワークの依存関係ツリー」や「ツリーマップ」を開くと、何が何KBを占めているかが一覧で分かります。犯人を特定してから手をつけてください。" } },
+    { "@type": "Question", "name": "81点は良い数字なのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "Googleの区分では50〜89が中間帯で、良好とされる90には届いていません。改善前が57点だったので大きく上がったのは事実ですが、良好圏に入ったとは言えない状態です。当社としては、この数字をそのまま公開して、残っている課題も併記する方針をとっています。" } },
+    { "@type": "Question", "name": "見た目は悪くなりませんでしたか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "端末によっては変わりました。フォントを読み込む代わりに端末に入っている書体を使う方式にしたため、Windowsでは游ゴシックで表示され、以前より細く見える箇所があります。これは承知のうえでの選択です。8秒間なにも表示されない状態と、書体がわずかに変わることを比べて、後者を選びました。" } },
+    { "@type": "Question", "name": "自分のサイトも測ってもらえますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。URLをお送りいただければ測定し、何が重さの原因になっているかと、直すとしたら何から手をつけるべきかをお伝えします。無料で、ご依頼いただかなくても費用はかかりません。「今のままで問題ない」と判断した場合は、正直にそうお伝えします。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "スマホで測ったら57点でした｜自社サイトを81点まで直した話", "item": "https://nextray.jp/blog-mobile-speed.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  /* --- 改善前後の比較 --- */
+  .ba{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin:26px 0 10px}
+  .bacard{text-align:center;padding:26px 16px;border-radius:16px;border:1px solid var(--line);background:#fff}
+  .bacard .bal{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--muted);margin:0 0 14px}
+  .banum{width:92px;height:92px;margin:0 auto 12px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-family:"Manrope",sans-serif;font-weight:800;font-size:2rem}
+  .banum.bad{border:5px solid #ffa400;color:#b26f00;background:rgba(255,164,0,.10)}
+  .banum.good{border:5px solid #ffa400;color:#b26f00;background:rgba(255,164,0,.10)}
+  .bacard .bac{font-size:.84rem;color:var(--muted);line-height:1.8}
+  .baarrow{font-family:"Manrope",sans-serif;font-weight:800;font-size:1.6rem;color:var(--blue-ink)}
+  .psmeta{text-align:center;color:var(--muted);font-size:.85rem;margin-top:4px;line-height:1.9}
+  .psmetrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 8px}
+  .psm{padding:20px 18px;border-radius:14px;border:1px solid var(--line);background:var(--bg-soft)}
+  .psm .k{font-family:"Manrope",sans-serif;font-weight:800;font-size:.76rem;letter-spacing:.06em;color:var(--blue-ink)}
+  .psm .v{font-family:"Manrope",sans-serif;font-weight:800;font-size:1.6rem;line-height:1.25;margin:6px 0 4px;color:var(--ink)}
+  .psm .v s{color:var(--muted);font-weight:700;font-size:1.15rem;margin-right:.35em}
+  .psm .d{font-size:.84rem;color:var(--muted);line-height:1.8}
+  .psgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:26px 0 10px}
+  .pscard{text-align:center;padding:22px 12px;border-radius:16px;border:1px solid var(--line);background:#fff}
+  .psnum{width:74px;height:74px;margin:0 auto 12px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-family:"Manrope",sans-serif;font-weight:800;font-size:1.5rem;
+    border:4px solid #0cce6b;color:#0a8f4d;background:rgba(12,206,107,.08)}
+  .psnum.mid{border-color:#ffa400;color:#b26f00;background:rgba(255,164,0,.10)}
+  .pscard .psl{font-size:.82rem;font-weight:700;color:var(--ink-2);line-height:1.55}
+  @media(max-width:820px){
+    .ba{grid-template-columns:1fr;gap:10px}
+    .baarrow{transform:rotate(90deg)}
+    .psgrid{grid-template-columns:repeat(3,1fr)}
+    .psmetrics{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){.psgrid{grid-template-columns:repeat(2,1fr)}.psnum{width:62px;height:62px;font-size:1.3rem}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="index.html#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="index.html#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="index.html#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="index.html">ホーム</a> ／ <a href="blog.html">コラム</a> ／ スマホで測ったら57点でした</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-07">2026.08.07</time><span class="post-cat">制作の裏側</span></div>
+      <h1>スマホで測ったら57点でした｜自社サイトを81点まで直した話</h1>
+      <p class="summary">5日前、このコラムで「デスクトップで90点でした」と書きました。そのとき<b>「モバイルは改善中で、これより低い状態です」</b>とも書きました。では実際いくつだったのか。<b>57点、最初の文字が出るまで8.3秒</b>です。原因を測ったら、ページ全体975KBのうち<b>935KB（96%）が日本語のWebフォント</b>でした。この記事は、その撤去と結果の記録です。<b>まだ90点に届いていない</b>ことも含めて書きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#kekka">先に結果</a></li>
+        <li><a href="#happaku">8.3秒、画面は真っ白でした</a></li>
+        <li><a href="#hannin">犯人はフォントでした。ページの96%です</a></li>
+        <li><a href="#naze">なぜ日本語フォントはこれほど重いのか</a></li>
+        <li><a href="#tekkyo">前言を撤回して、撤去しました</a></li>
+        <li><a href="#nanioshita">実際にやった3つのこと</a></li>
+        <li><a href="#shoujiki">正直に書いておきたいこと</a></li>
+        <li><a href="#jibun">ご自身のサイトで確かめる手順</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="kekka">先に結果</h2>
+      <p>説明の前に数字を出します。同じURL、同じ<b>モバイル</b>の条件で測ったものです。</p>
+
+      <div class="ba">
+        <div class="bacard">
+          <p class="bal">改善前</p>
+          <div class="banum bad">57</div>
+          <p class="bac">パフォーマンス<br />転送量 975KB／リクエスト50本超</p>
+        </div>
+        <div class="baarrow">→</div>
+        <div class="bacard">
+          <p class="bal">改善後</p>
+          <div class="banum good">81</div>
+          <p class="bac">パフォーマンス<br />転送量 46KB／リクエスト8本</p>
+        </div>
+      </div>
+      <p class="psmeta">測定日 2026年8月7日／<b>モバイル</b>（低速4G・Moto G Power 相当のエミュレーション）／測定対象 https://nextray.jp/</p>
+
+      <div class="psmetrics">
+        <div class="psm"><p class="k">FCP</p><p class="v"><s>8.3秒</s>2.6秒</p><p class="d">最初の文字や画像が出るまでの「真っ白な時間」</p></div>
+        <div class="psm"><p class="k">LCP</p><p class="v"><s>9.0秒</s>4.1秒</p><p class="d">主役のコンテンツが表示されるまで</p></div>
+        <div class="psm"><p class="k">転送量</p><p class="v"><s>975KB</s>46KB</p><p class="d">最初の表示に必要なデータ量</p></div>
+      </div>
+
+      <p>改善後のパフォーマンス以外の項目は、ユーザー補助96・おすすめの方法100・SEO100・エージェントによるブラウジング3/3でした。</p>
+
+      <div class="psgrid">
+        <div class="pscard"><div class="psnum mid">81</div><p class="psl">パフォーマンス</p></div>
+        <div class="pscard"><div class="psnum">96</div><p class="psl">ユーザー補助</p></div>
+        <div class="pscard"><div class="psnum">100</div><p class="psl">おすすめの方法</p></div>
+        <div class="pscard"><div class="psnum">100</div><p class="psl">SEO</p></div>
+        <div class="pscard"><div class="psnum">3/3</div><p class="psl">エージェントによる<br />ブラウジング</p></div>
+      </div>
+      <p class="psmeta">2026年8月7日 22:01 測定／Lighthouse 13.4.1／低速4Gスロットリング／最初のページ読み込み</p>
+
+      <div class="callout">
+        <p><strong>先に断っておきます</strong></p>
+        <p>81点は、Googleが「良好」とする<b>90点には届いていません。</b>LCPの4.1秒も、良好の目安である2.5秒を超えたままです。<b>「改善しました」と「十分になりました」は別の話</b>なので、分けて書きます。残っている課題は<a href="#shoujiki">後半</a>にまとめました。</p>
+      </div>
+
+      <h2 id="happaku">8.3秒、画面は真っ白でした</h2>
+      <p>FCPは「最初の文字や画像が出るまで」の時間です。ここが8.3秒だったということは、<b>スマートフォンでこのサイトを開いた方は、8秒以上なにもない画面を見ていた</b>ということになります。</p>
+      <p>8秒がどれくらいかというと、信号待ちの半分くらいです。移動中に他の候補と並べて開いている人が、その間ずっと待ってくれるとは思えません。<b>内容を1文字も読まれずに閉じられていた可能性が高い</b>ということです。</p>
+      <p>ホームページ制作を仕事にしている会社のサイトがこの状態だった、というのが正直なところです。</p>
+
+      <h2 id="hannin">犯人はフォントでした。ページの96%です</h2>
+      <p>PageSpeed Insightsは点数を出すだけでなく、<b>何が何KBを占めているか</b>まで見せてくれます。開いてみると、内訳はこうでした。</p>
+
+      <ul class="checklist">
+        <li>最初の表示に必要なデータ量：<b>975KB</b></li>
+        <li>うち、Google Fontsの日本語フォント：<b>935KB（96%）</b></li>
+        <li>その内訳は、フォントファイル<b>45本・843KB</b>＋フォント用のCSS <b>92KB</b></li>
+        <li>残りの本文・レイアウト・画像すべて合わせて：<b>40KB</b></li>
+      </ul>
+
+      <p>読んでいただきたい内容そのものは40KBしかなく、<b>残りの96%は「文字の形」を届けるためのデータ</b>でした。低速4Gの環境では、935KBを引くだけで4.7秒ほどかかります。8.3秒の大半はここです。</p>
+
+      <h2 id="naze">なぜ日本語フォントはこれほど重いのか</h2>
+      <p>文字数です。英語のアルファベットは大文字小文字と記号を合わせても100文字程度ですが、<b>日本語は常用漢字だけで2,000字を超え、実用上は1万字近くが必要</b>になります。1書体を丸ごと届けようとすると、それだけで数百KB〜1MB級になります。</p>
+      <p>Google Fontsはこれを賢く分割していて、<b>1つの書体が120以上の小さなファイルに分かれ、ページに出てくる文字が含まれる分だけを読み込む</b>仕組みになっています。理屈のうえでは軽くなるはずでした。</p>
+      <p>ところが、実際にサイト全体で使われている文字を集めると、<b>結局45本のファイルを引くことになり、843KBに達していました。</b>加えて、どのファイルを読むかを指示するCSS自体が92KBあります。「分割されているから軽い」は、日本語では成り立ちませんでした。</p>
+      <p>ここは<b>実際に測るまで気づけなかった部分</b>です。仕組みの説明としては正しく、それを信じたまま運用していました。</p>
+
+      <h2 id="tekkyo">前言を撤回して、撤去しました</h2>
+      <p>5日前の記事で、パフォーマンスが90点止まりだった理由について、こう書きました。</p>
+      <blockquote>
+        <p>主な要因は日本語のウェブフォントで、日本語は文字数が多いため、フォントの読み込みがどうしても重くなります。読みやすさとのトレードオフなので、体裁を犠牲にしてまで100点を取りにいくつもりはありません。</p>
+      </blockquote>
+      <p><b>この判断を変えました。</b></p>
+      <p>「トレードオフ」と書いたのは、<b>失うものと得るものが釣り合っている</b>という前提があったからです。しかし実際に測ってみると、釣り合ってなどいませんでした。ページのほぼ全部がフォントで、そのために8秒待たせていた。これは天秤ではなく、<b>ただの一方的な損</b>です。</p>
+      <p>書体がわずかに変わることと、8秒間なにも表示されないこと。<b>並べてみれば選ぶ方は決まっていました。</b></p>
+
+      <h2 id="nanioshita">実際にやった3つのこと</h2>
+
+      <h3>1. 日本語のWebフォントを読むのをやめた</h3>
+      <p>代わりに、<b>訪問者の端末にすでに入っている書体</b>を使う指定に切り替えました。iPhoneやMacならヒラギノ、Windowsなら游ゴシック、Androidなら端末内蔵のNoto Sans JPが使われます。<b>ダウンロードが発生しないので、待ち時間はゼロ</b>です。</p>
+      <p>なお、見出しの数字と英字に使っている欧文フォント（Manrope）は<b>24KBしかない</b>ので、そのまま残しました。欧文は文字数が少ないぶん、この程度で済みます。</p>
+
+      <h3>2. アクセス解析タグを後回しにした</h3>
+      <p>Googleアナリティクスの計測タグは、圧縮後でも186KBあります。これを<b>ページの表示が終わったあとに読み込む</b>ように変えました。計測に必要な準備だけ先に済ませておけば、数値は落ちません。</p>
+      <p>解析タグは「訪問者に見せるもの」ではなく「こちらが知るためのもの」です。<b>訪問者を待たせてまで先に読む理由がありません。</b></p>
+
+      <h3>3. 結果として、読み込むファイルが50本超から8本になった</h3>
+      <p>フォント45本が丸ごと消えたので、通信の回数そのものが激減しました。<b>975KB → 46KB、リクエスト50本超 → 8本。</b>ファイルサイズだけでなく、通信の往復回数が減ることも速さに効いています。</p>
+
+      <h2 id="shoujiki">正直に書いておきたいこと</h2>
+      <p>ここが、この記事でいちばん書きたかった部分です。</p>
+
+      <h3>1. 81点は、90点ではありません</h3>
+      <p>Googleの区分では<b>0〜49が不良、50〜89が中間、90〜100が良好</b>です。57点から81点へは大きく動きましたが、<b>まだ中間帯です。</b>「良好になりました」とは書けません。</p>
+      <p><b>LCPも4.1秒</b>で、良好の目安である2.5秒を超えています。残っている主な指摘は、使っていないJavaScriptが76KB分あること、レイアウトの再計算が発生していること、長く動き続ける処理が3件あることです。ここはこれから手をつけます。</p>
+
+      <h3>2. 直せないと分かっている項目もあります</h3>
+      <p>「効率的なキャッシュ保存期間を使用する（25KiBの削減余地）」という指摘が残っていますが、<b>これは当社の力では直せません。</b>このサイトはGitHub Pagesという無料の配信サービスに置いており、キャッシュの保持時間が10分に固定されているためです。</p>
+      <p>直せないものを「これから改善します」と書くのは誠実ではないので、<b>直せないと書いておきます。</b></p>
+
+      <h3>3. Windowsでは、以前より文字が細く見えます</h3>
+      <p>端末内蔵の書体を使う方式にした結果、Windowsでは游ゴシックで表示されます。以前より<b>線が細く見える箇所があります。</b>これは承知のうえでの選択で、見栄えを取り戻すために935KBを戻すつもりはありません。</p>
+
+      <h3>4. これは「実験室の数値」です</h3>
+      <p>PageSpeed Insightsの上部にある「実際のユーザーの環境で評価する」欄は、当社のサイトでは今も<b>「データがありません」</b>と表示されます。アクセス数が集計の基準に届いていないためです。<b>今回の数字はGoogleのサーバー上で1回読み込んだ結果</b>であり、実際の訪問者の回線での体感を保証するものではありません。</p>
+
+      <h2 id="jibun">ご自身のサイトで確かめる手順</h2>
+      <p>費用はかかりません。5分あれば犯人の見当がつきます。</p>
+      <ul class="checklist">
+        <li>検索で「PageSpeed Insights」と調べ、Googleの公式ページを開く</li>
+        <li>自社サイトのURLを入力して「分析」を押す</li>
+        <li><b>必ず「携帯電話」タブを見る</b>——訪問者の多くはスマートフォンです</li>
+        <li>まず<b>FCP</b>を見る。3秒を超えていたら、それだけ真っ白な画面を見せています</li>
+        <li>下にある<b>「ツリーマップを見る」</b>を開く。何が何KBを占めているかが面積で分かります</li>
+        <li>そこで<b>いちばん大きい四角</b>が、あなたのサイトの犯人です</li>
+      </ul>
+      <p>当社の場合はフォントでしたが、<b>実際にいちばん多いのは、圧縮していない写真</b>です。スマートフォンで撮った写真をそのまま載せると1枚で3〜5MBあり、それが数枚並んでいるだけで致命的になります。写真が犯人なら、<b>作り直さなくても圧縮するだけで直ります。</b></p>
+      <p>なお、そもそも<a href="blog-no-wordpress.html">何で作るか</a>の段階で速さの上限はほぼ決まります。公開後に直すより、作る前に決めておく方が安く済みます。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>日本語のWebフォントは使わない方がいいのですか？</summary>
+          <div class="faq-body">
+            <p>一概には言えません。判断の材料は「そのフォントが何KBか」です。日本語は1書体で数百KB〜1MB級になることがあり、当社の場合は935KBでした。欧文だけなら数十KBで収まることが多く、見出しの数字や英字に限って使うのは十分に現実的です。まず実測してから決めてください。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>うちのサイトも同じ原因でしょうか？</summary>
+          <div class="faq-body">
+            <p>フォントが原因とは限りません。実際には、圧縮していない写真が最大の原因になっているケースの方が多いです。PageSpeed Insightsの「ツリーマップを見る」を開くと、何が何KBを占めているかが面積で分かります。犯人を特定してから手をつけてください。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>81点は良い数字なのですか？</summary>
+          <div class="faq-body">
+            <p>Googleの区分では50〜89が中間帯で、良好とされる90には届いていません。改善前が57点だったので大きく上がったのは事実ですが、良好圏に入ったとは言えない状態です。当社としては、この数字をそのまま公開して、残っている課題も併記する方針をとっています。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>見た目は悪くなりませんでしたか？</summary>
+          <div class="faq-body">
+            <p>端末によっては変わりました。端末に入っている書体を使う方式にしたため、Windowsでは游ゴシックで表示され、以前より細く見える箇所があります。これは承知のうえでの選択です。8秒間なにも表示されない状態と、書体がわずかに変わることを比べて、後者を選びました。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>自分のサイトも測ってもらえますか？</summary>
+          <div class="faq-body">
+            <p>はい。URLをお送りいただければ測定し、何が重さの原因になっているかと、直すとしたら何から手をつけるべきかをお伝えします。無料で、ご依頼いただかなくても費用はかかりません。「今のままで問題ない」と判断した場合は、正直にそうお伝えします。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <ul>
+        <li>自社サイトのモバイルは<b>57点、真っ白な時間が8.3秒</b>だった</li>
+        <li>原因は<b>日本語Webフォント。975KB中935KB（96%）</b>を占めていた</li>
+        <li>撤去して<b>81点、FCP 2.6秒、46KB</b>になった</li>
+        <li>ただし<b>90点には届いておらず、LCPも4.1秒</b>で良好圏ではない</li>
+        <li>ご自身で確かめるなら、<b>「携帯電話」タブ＋ツリーマップ</b>の2つだけ見れば犯人は分かる</li>
+      </ul>
+      <p>速さの話をしていますが、本題は<b>「思い込みで判断していた」</b>ことの方です。フォントが重いのは知っていました。それでも「読みやすさとのトレードオフだ」と考えて、そのままにしていました。<b>測って初めて、トレードオフですらなかったと分かりました。</b></p>
+      <p>5日前に書いた記事の内容を、5日後に自分で覆すことになりました。それでも、<b>間違っていた記録を消すより、なぜ変えたかを書いて残す方がいい</b>と考えています。ご依頼を検討される際は、こういう会社だと思って見ていただければと思います。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>「うちのサイト、スマホだと遅い気がする」——測るところまで無料でやります</h3>
+      <p>URLをお送りいただければ、こちらでモバイルの数値を測り、<b>何が重さの原因になっているか、直すなら何から手をつけるべきか</b>をお伝えします。当社にご依頼いただかなくても、費用は一切かかりません。「今のままで問題ない」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="index.html#contact" class="btn btn-primary">無料で診断してもらう →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-pagespeed.html">
+        <span class="stag">COLUMN</span>
+        <h3>PageSpeed Insightsの見方｜4つのスコアの意味</h3>
+        <p>この記事の前編にあたります。FCP・LCP・CLSが何を測っているのかを、噛み砕いて解説しました。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-no-wordpress.html">
+        <span class="stag">COLUMN</span>
+        <h3>WordPressを使わないホームページ制作</h3>
+        <p>速さは作り方の段階でほぼ決まります。HTMLとCSSを直接書く理由と、正直な弱点まで。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。表示速度と検索対策は、作る段階から込みで設計します。</p>
+        <span class="slink">ホームページ制作の詳細を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="index.html#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

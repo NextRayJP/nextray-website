@@ -95,6 +95,8 @@
 ## コラム
 
 - [コラム一覧](https://nextray.jp/blog.html)
+- [スマホで測ったら57点でした｜自社サイトを81点まで直した話](https://nextray.jp/blog-mobile-speed.html): モバイル表示速度の改善記録。原因は日本語Webフォント（975KB中935KB）。57点→81点、FCP 8.3秒→2.6秒の実測値と残課題
+- [PageSpeed Insightsの見方｜4つのスコアの意味](https://nextray.jp/blog-pagespeed.html): パフォーマンス・ユーザー補助・おすすめの方法・SEOの4項目と、FCP／LCP／CLSの意味
 - [Wixのエディタは、想像以上にレイアウトが崩れます](https://nextray.jp/blog-wix-layout.html): 自由配置とPC・モバイル別レイアウトが崩れを生む仕組み、自己点検の方法
 - [WordPressを使わないホームページ制作](https://nextray.jp/blog-no-wordpress.html): HTMLとCSSを手で書く理由と、その弱点
 - [ホームページ制作を「知り合いに頼む」危険](https://nextray.jp/blog-shiriai-risk.html): 品質を要求できない関係と、やめられない構造
