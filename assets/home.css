@@ -1,7 +1,7 @@
 /* home.css — トップページ固有のスタイル。
    共通部分は assets/site.css に集約し、site.css の後に読み込んで上書きします。 */
 body{
-    font-family:"Noto Sans JP","Manrope",system-ui,sans-serif;
+    font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,sans-serif;
     color:var(--ink);
     background:var(--bg);
     line-height:1.75;
@@ -135,7 +135,7 @@ section.block{padding:96px 0}
 .flow-card h3{font-size:1.1rem;margin:12px 0 8px}
 .svc-price{margin:16px 0 4px;padding:12px 14px;border-radius:12px;background:var(--grad-soft);border:1px solid rgba(30,155,255,.16);font-size:.92rem;font-weight:700;color:var(--ink-2)}
 .svc-price b{color:var(--blue-ink);font-size:1.05rem}
-.svc-price small{display:block;font-size:.76rem;font-weight:500;color:var(--muted);margin-top:3px}
+.svc-price small{display:block;font-size:.76rem;font-weight:400;color:var(--muted);margin-top:3px}
 .limited{padding:96px 0;background:var(--bg-soft)}
 .limit-h{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:900;line-height:1.35;margin-bottom:16px;letter-spacing:-.01em}
 .lg-h{font-size:1.06rem;font-weight:800;margin-bottom:10px;color:#fff}
