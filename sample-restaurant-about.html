@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】店主・こだわり｜日本料理 花暦</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（飲食店向けデザイン）。店主紹介・こだわりページのデザイン例です。" />
+<meta name="theme-color" content="#17130f" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="店主・こだわり｜飲食店のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。店主の考え方と食材へのこだわりを伝えるページのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-restaurant-about.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-restaurant.css" />
+<style>
+  .quote{font-family:var(--f-disp);font-size:clamp(1.24rem,2.6vw,1.7rem);font-weight:500;line-height:2;
+    color:var(--c-ink);letter-spacing:.1em;text-align:center;max-width:24em;margin:0 auto 44px}
+  .quote span{background:linear-gradient(transparent 66%,rgba(176,141,67,.28) 66%)}
+  .kodawari{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .kd{background:var(--c-bg);border:1px solid var(--c-line);padding:34px 32px}
+  .kd .no{font-family:var(--f-disp);font-size:.76rem;letter-spacing:.34em;color:var(--c-acc)}
+  .kd h3{font-family:var(--f-disp);font-size:1.2rem;font-weight:500;color:var(--c-ink);margin:10px 0 12px;letter-spacing:.08em}
+  .kd p{font-size:.93rem;color:var(--c-ink2)}
+  @media(max-width:860px){.kodawari{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する店舗ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-restaurant.html" class="brand">花暦<small>HANAGOYOMI</small></a>
+    <ul>
+      <li><a href="sample-restaurant.html">ホーム</a></li>
+      <li><a href="sample-restaurant-menu.html">お品書き</a></li>
+      <li><a href="sample-restaurant-about.html" aria-current="page">店主・こだわり</a></li>
+      <li><a href="sample-restaurant-access.html">店内・アクセス</a></li>
+      <li><a href="sample-restaurant-reserve.html">ご予約</a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-restaurant.html">ホーム</a>
+  <a href="sample-restaurant-menu.html">お品書き</a>
+  <a href="sample-restaurant-about.html">店主・こだわり</a>
+  <a href="sample-restaurant-access.html">店内・アクセス</a>
+  <a href="sample-restaurant-reserve.html">ご予約</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">ABOUT</div>
+    <h1>店主・こだわり</h1>
+    <p>派手なことはしていません。出汁をきちんと引き、旬のものを、いちばんおいしい火の入れ方で。それだけを続けています。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-restaurant.html">ホーム</a> ／ <span>店主・こだわり</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <p class="quote rv"><span>旬は、待ってはくれません。</span></p>
+    <div class="person rv">
+      <div class="ph">
+        <svg viewBox="0 0 400 480" role="img" aria-label="店主のイメージ">
+          <defs><linearGradient id="ow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a3f2c"/><stop offset="1" stop-color="#17130f"/></linearGradient></defs>
+          <rect width="400" height="480" fill="url(#ow)"/>
+          <circle cx="200" cy="182" r="62" fill="rgba(246,242,233,.13)" stroke="rgba(246,242,233,.32)" stroke-width="2"/>
+          <path d="M96 420v-36c0-52 46-84 104-84s104 32 104 84v36z" fill="rgba(246,242,233,.1)" stroke="rgba(246,242,233,.26)" stroke-width="2"/>
+          <path d="M148 300h104" stroke="#b08d43" stroke-width="3" stroke-linecap="round"/>
+          <path d="M170 122h60" stroke="rgba(246,242,233,.4)" stroke-width="10" stroke-linecap="round"/>
+          <line x1="60" y1="442" x2="340" y2="442" stroke="rgba(246,242,233,.2)" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div>
+        <div class="role">店主</div>
+        <h3>三十年、出汁を引いてきました。</h3>
+        <p>京都で十年、金沢で八年修業し、生まれ育った新潟に戻って店を出しました。</p>
+        <p>戻ってきて驚いたのは、地元の食材の良さです。修業先で高値で取り合っていた魚が、ここでは当たり前のように揚がる。野菜も、朝採れたものがその日のうちに届きます。この土地でやる意味は、そこにあると思っています。</p>
+        <p>ですから、献立は前もって決めません。市場で見てから、その日の献立を組みます。同じものを二度お出しできない代わりに、いちばん良い状態のものだけをお出しします。</p>
+        <div class="tags"><span>京都・金沢で18年修業</span><span>新潟市出身</span><span>2009年 開店</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">Commitment</span>
+      <h2>四つの、こだわり</h2>
+    </div>
+    <div class="kodawari">
+      <div class="kd rv">
+        <div class="no disp">ICHI</div>
+        <h3>出汁は、毎朝引き直す</h3>
+        <p>利尻の昆布を前夜から水に浸け、朝、鰹を落として一番出汁を取ります。前日のものは使いません。椀物を最初にお出しするのは、この店の基準を先に知っていただきたいからです。</p>
+      </div>
+      <div class="kd rv">
+        <div class="no disp">NI</div>
+        <h3>魚は、その日に市場で選ぶ</h3>
+        <p>寺泊と新潟市場へ、毎朝自分で足を運びます。良いものがなければ、その魚は使いません。「今日は○○が良かったので」と申し上げる日が、いちばん自信のある日です。</p>
+      </div>
+      <div class="kd rv">
+        <div class="no disp">SAN</div>
+        <h3>野菜は、顔の見える農家から</h3>
+        <p>県内5軒の農家から直接届けてもらっています。曲がっていても、大きさが揃っていなくても構いません。味が良ければそれで十分です。冬は雪の下から掘り出した大根が届きます。</p>
+      </div>
+      <div class="kd rv">
+        <div class="no disp">SHI</div>
+        <h3>米と水は、この土地のもの</h3>
+        <p>ごはんは新潟産こしひかりを土鍋で炊きます。炊き上がりの時間に合わせてお出ししますので、少しお待たせすることがあります。水も県内の湧き水を使っています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">Season</span>
+      <h2>季節のお献立</h2>
+      <p>月ごとに主役が変わります。同じ月でも、その年の天候で内容は変わります。</p>
+    </div>
+    <div class="grid g4">
+      <div class="card rv"><div class="no disp">春</div><h3>三月〜五月</h3><p>山菜、桜鯛、稚鮎。苦味と香りを楽しむ季節です。</p></div>
+      <div class="card rv"><div class="no disp">夏</div><h3>六月〜八月</h3><p>岩牡蠣、鱧、枝豆。冷たい出汁と、火を入れすぎない仕立てで。</p></div>
+      <div class="card rv"><div class="no disp">秋</div><h3>九月〜十一月</h3><p>秋刀魚、松茸、南蛮えび。新米が出るのもこの時期です。</p></div>
+      <div class="card rv"><div class="no disp">冬</div><h3>十二月〜二月</h3><p>寒鰤、あんこう、雪下野菜。もっとも力の入る季節です。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>その日いちばんのものを、<br />お出しします</h2>
+    <p class="sub">コースは前日までにご予約いただけると、仕入れから合わせられます。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">11:00–21:00（火曜定休）</p>
+    <div style="margin-top:24px"><a href="sample-restaurant-reserve.html" class="btn btn-p">ご予約フォームへ</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b disp">日本料理 花暦</div>
+    <p>〒950-0000 新潟県新潟市中央区○○1-2-3<br />TEL 025-000-0000／11:00–21:00（火曜定休）</p>
+    <nav class="fnav">
+      <a href="sample-restaurant.html">ホーム</a>
+      <a href="sample-restaurant-menu.html">お品書き</a>
+      <a href="sample-restaurant-about.html">店主・こだわり</a>
+      <a href="sample-restaurant-access.html">店内・アクセス</a>
+      <a href="sample-restaurant-reserve.html">ご予約</a>
+    </nav>
+    <div class="fbot">&copy; 2026 日本料理 花暦（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>

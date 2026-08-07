@@ -1,0 +1,23 @@
+/* デモ「さくら税理士事務所」テーマ。demo-base.css の後に読み込む */
+:root{
+  --c-bg:#ffffff; --c-surface:#f7f8fa; --c-ink:#12294d; --c-ink2:#1c2c40; --c-sub:#5c6b80;
+  --c-line:#e2e8f0; --c-acc:#b48a45; --c-acc-d:#97723a; --c-acc-l:#d4b077;
+  --c-head:#12294d; --c-head-tx:#ffffff;
+  --radius:0px;
+  --f-disp:"Cormorant Garamond",serif;
+  --f-jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,sans-serif;
+}
+header{background:rgba(255,255,255,.96)}
+.brand{font-weight:900;letter-spacing:.02em}
+.nav .tel{background:var(--c-head);font-size:1.16rem}
+.nav .tel:hover{background:var(--c-acc)}
+.phero{background:var(--c-head);color:var(--c-head-tx);border-bottom:none}
+.phero::after{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;border:1px solid rgba(180,138,69,.35);transform:rotate(45deg)}
+.phero h1{color:var(--c-head-tx);font-weight:900}
+.phero p{color:rgba(255,255,255,.8)}
+.phero .en{color:var(--c-acc-l);font-size:1.06rem;letter-spacing:.28em}
+.head .en{font-size:1.6rem;letter-spacing:.22em}
+.head h2,.card h3,.person h3,.step h3,.pcard .meta h3{font-weight:900}
+footer{background:#0a172c}
+footer .b{font-weight:900;letter-spacing:.06em}
+.cta{background:#0a172c}

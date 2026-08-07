@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】スタイリスト｜hair salon LueN</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（美容室・サロン向けデザイン）。スタイリスト紹介ページのデザイン例です。" />
+<meta name="theme-color" content="#2b2622" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="スタイリスト｜美容室のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。指名につなげるスタイリスト紹介ページのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-salon-staff.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-salon.css" />
+<style>
+  .person .ph{aspect-ratio:3/4;max-width:340px}
+  .qa{margin-top:22px;border-top:1px solid var(--c-line)}
+  .qa .it{padding:13px 0;border-bottom:1px solid var(--c-line)}
+  .qa .q{font-size:.83rem;color:var(--c-acc);letter-spacing:.06em}
+  .qa .a{font-size:.93rem;color:var(--c-ink2);margin-top:3px}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する店舗ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-salon.html" class="brand disp">LueN<small>HAIR SALON</small></a>
+    <ul>
+      <li><a href="sample-salon.html">ホーム</a></li>
+      <li><a href="sample-salon-style.html">スタイル</a></li>
+      <li><a href="sample-salon-menu.html">メニュー・料金</a></li>
+      <li><a href="sample-salon-staff.html" aria-current="page">スタイリスト</a></li>
+      <li><a href="sample-salon-reserve.html">ご予約</a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-salon.html">ホーム</a>
+  <a href="sample-salon-style.html">スタイル</a>
+  <a href="sample-salon-menu.html">メニュー・料金</a>
+  <a href="sample-salon-staff.html">スタイリスト</a>
+  <a href="sample-salon-reserve.html">ご予約</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">Stylist</div>
+    <h1>スタイリスト</h1>
+    <p>3人でやっている小さなサロンです。ご指名は無料ですので、話しやすいと感じた者をお選びください。指名なしでもご予約いただけます。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-salon.html">ホーム</a> ／ <span>スタイリスト</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="person rv">
+      <div class="ph">
+        <svg viewBox="0 0 300 400" role="img" aria-label="スタイリストのイメージ">
+          <defs><linearGradient id="t1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a7266"/><stop offset="1" stop-color="#2b2622"/></linearGradient></defs>
+          <rect width="300" height="400" fill="url(#t1)"/>
+          <circle cx="150" cy="150" r="54" fill="rgba(255,253,251,.16)" stroke="rgba(255,253,251,.34)" stroke-width="1.8"/>
+          <path d="M62 356v-30c0-46 40-74 88-74s88 28 88 74v30z" fill="rgba(255,253,251,.11)" stroke="rgba(255,253,251,.26)" stroke-width="1.8"/>
+          <path d="M104 132c0-38 20-54 46-54s46 16 46 54" fill="rgba(192,138,127,.5)"/>
+          <path d="M118 250l-10 46M182 250l10 46" stroke="rgba(224,189,180,.5)" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="role">店長 / STYLIST</div>
+        <h3>中村 千尋</h3>
+        <p>美容師歴16年。県内2店舗を経て、2020年にLueNを開きました。ショートとボブが得意ですが、いちばん得意なのは「切りすぎないこと」だと思っています。</p>
+        <p>初めての方には、まず今の困りごとをうかがいます。広がる、うねる、朝がまとまらない。だいたいの原因は、切り方か乾かし方のどちらかです。おうちで再現できないスタイルは、私はご提案しません。</p>
+        <div class="tags"><span>ショート・ボブ</span><span>くせ毛のご相談</span><span>16年目</span></div>
+        <div class="qa">
+          <div class="it"><div class="q">得意なこと</div><div class="a">骨格に合わせたショート、くせを活かす切り方</div></div>
+          <div class="it"><div class="q">休みの日は</div><div class="a">娘と海に行っています。日焼け対策の相談もどうぞ</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="person rev rv">
+      <div class="ph">
+        <svg viewBox="0 0 300 400" role="img" aria-label="スタイリストのイメージ">
+          <defs><linearGradient id="t2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a8073"/><stop offset="1" stop-color="#332c27"/></linearGradient></defs>
+          <rect width="300" height="400" fill="url(#t2)"/>
+          <circle cx="150" cy="150" r="54" fill="rgba(255,253,251,.16)" stroke="rgba(255,253,251,.34)" stroke-width="1.8"/>
+          <path d="M62 356v-30c0-46 40-74 88-74s88 28 88 74v30z" fill="rgba(255,253,251,.11)" stroke="rgba(255,253,251,.26)" stroke-width="1.8"/>
+          <path d="M104 132c0-38 20-54 46-54s46 16 46 54v96c-14 8-28 12-46 12s-32-4-46-12z" fill="rgba(224,189,180,.42)"/>
+          <circle cx="106" cy="196" r="12" fill="none" stroke="rgba(255,253,251,.4)" stroke-width="2.4"/>
+          <circle cx="194" cy="196" r="12" fill="none" stroke="rgba(255,253,251,.4)" stroke-width="2.4"/>
+        </svg>
+      </div>
+      <div>
+        <div class="role">STYLIST</div>
+        <h3>片山 遥</h3>
+        <p>美容師歴9年。カラーを専門に勉強してきました。とくに、白髪を染めながら明るく見せる配合を得意としています。</p>
+        <p>「白髪染めをすると重たく見える」というご相談が多いのですが、ハイライトを混ぜると印象が変わります。染める間隔も、月1回から2ヶ月に1回まで延ばせることが多いです。ブリーチが必要かどうかも、正直にお伝えします。</p>
+        <div class="tags"><span>カラー全般</span><span>白髪ぼかし</span><span>9年目</span></div>
+        <div class="qa">
+          <div class="it"><div class="q">得意なこと</div><div class="a">白髪を活かすハイライト、透明感のあるベージュ</div></div>
+          <div class="it"><div class="q">心がけていること</div><div class="a">できないことは、できないと先に言うこと</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="person rv">
+      <div class="ph">
+        <svg viewBox="0 0 300 400" role="img" aria-label="スタイリストのイメージ">
+          <defs><linearGradient id="t3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7d7268"/><stop offset="1" stop-color="#2d2825"/></linearGradient></defs>
+          <rect width="300" height="400" fill="url(#t3)"/>
+          <circle cx="150" cy="150" r="54" fill="rgba(255,253,251,.16)" stroke="rgba(255,253,251,.34)" stroke-width="1.8"/>
+          <path d="M62 356v-30c0-46 40-74 88-74s88 28 88 74v30z" fill="rgba(255,253,251,.11)" stroke="rgba(255,253,251,.26)" stroke-width="1.8"/>
+          <path d="M104 130c0-38 20-54 46-54s46 16 46 54" fill="rgba(233,224,213,.38)"/>
+          <path d="M150 208v54" stroke="rgba(224,189,180,.55)" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="role">STYLIST</div>
+        <h3>森 千夏</h3>
+        <p>美容師歴5年。ヘッドスパとトリートメントを担当することが多く、髪だけでなく頭皮の状態から見るようにしています。</p>
+        <p>お客様から「よく眠ってしまう」と言われるのが、いちばんうれしい評価です。施術中に無理に話しかけることはしませんので、静かに過ごしたい日はそうお伝えください。</p>
+        <div class="tags"><span>ヘッドスパ</span><span>トリートメント</span><span>5年目</span></div>
+        <div class="qa">
+          <div class="it"><div class="q">得意なこと</div><div class="a">頭皮ケア、傷んだ髪の立て直し</div></div>
+          <div class="it"><div class="q">お客様へ</div><div class="a">お話しするのも、しないのも、どちらでも大丈夫です</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">Shift</span>
+      <h2>出勤の目安</h2>
+      <p>変更になることがあります。ご指名でのご予約時に確認いたします。</p>
+    </div>
+    <div style="max-width:820px;margin:0 auto" class="rv">
+      <table class="hours">
+        <thead><tr><th>&nbsp;</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr></thead>
+        <tbody>
+          <tr><th>中村</th><td class="off">休</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+          <tr><th>片山</th><td class="off">休</td><td>●</td><td class="off">−</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+          <tr><th>森</th><td class="off">休</td><td>●</td><td>●</td><td class="off">−</td><td>●</td><td>●</td><td>●</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.85rem;color:var(--c-sub);margin-top:12px">定休日：月曜・第3火曜／営業時間 10:00–19:00</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>ご指名は無料です</h2>
+    <p class="sub">指名なしでも構いません。その日の担当がご対応します。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">10:00–19:00（月曜・第3火曜定休）</p>
+    <div style="margin-top:24px"><a href="sample-salon-reserve.html" class="btn btn-p">オンライン予約へ</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b disp">LueN</div>
+    <p>〒950-0000 新潟県新潟市中央区○○1-2-3<br />TEL 025-000-0000／10:00–19:00（月曜・第3火曜定休）</p>
+    <nav class="fnav">
+      <a href="sample-salon.html">ホーム</a>
+      <a href="sample-salon-style.html">スタイル</a>
+      <a href="sample-salon-menu.html">メニュー・料金</a>
+      <a href="sample-salon-staff.html">スタイリスト</a>
+      <a href="sample-salon-reserve.html">ご予約</a>
+    </nav>
+    <div class="fbot">&copy; 2026 hair salon LueN（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* デモ「hair salon LueN」テーマ。demo-base.css の後に読み込む */
+:root{
+  --c-bg:#f8f5f1; --c-surface:#fffdfb; --c-ink:#2b2622; --c-ink2:#544c44; --c-sub:#9b9086;
+  --c-line:#e6ddd2; --c-acc:#c08a7f; --c-acc-d:#a06e64; --c-acc-l:#e0bdb4;
+  --c-head:#2b2622; --c-head-tx:#fffdfb;
+  --radius:0px;
+  --f-disp:"Cormorant Garamond",serif;
+  --f-jp:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,sans-serif;
+}
+body{line-height:2;font-weight:400}
+header{background:rgba(248,245,241,.94)}
+.brand{font-family:var(--f-disp);font-weight:400;font-size:1.5rem;letter-spacing:.2em}
+.phero{background:var(--c-surface)}
+.phero::after{content:"";position:absolute;right:-110px;top:-60px;width:300px;height:300px;border:1px solid var(--c-line);border-radius:50%}
+.phero .en{font-size:1.05rem;letter-spacing:.34em}
+.phero h1,.head h2{font-weight:500;letter-spacing:.1em}
+.head .en{font-size:1.7rem;font-weight:400;letter-spacing:.22em}
+.card h3,.pcard .meta h3,.person h3,.step h3{font-weight:500}
+.nav ul{font-weight:400;letter-spacing:.08em}
+footer .b{font-family:var(--f-disp);font-size:1.6rem;font-weight:400;letter-spacing:.2em}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】お店について｜cafe &amp; roastery KANATA</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（カフェ・小売店向けデザイン）。店舗紹介・アクセスページのデザイン例です。" />
+<meta name="theme-color" content="#2e1f16" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="お店について｜カフェのホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。店主の紹介・店内・アクセス・営業時間のデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-cafe-about.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-cafe.css" />
+<style>
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .gal figure{overflow:hidden;background:var(--c-head)}
+  .gal figcaption{font-size:.8rem;color:var(--c-sub);padding:9px 12px;background:var(--c-surface)}
+  @media(max-width:760px){.gal{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する店舗ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-cafe.html" class="brand">KANATA<small>CAFE &amp; ROASTERY</small></a>
+    <ul>
+      <li><a href="sample-cafe.html">ホーム</a></li>
+      <li><a href="sample-cafe-menu.html">メニュー</a></li>
+      <li><a href="sample-cafe-beans.html">取り扱いの豆</a></li>
+      <li><a href="sample-cafe-about.html" aria-current="page">お店について</a></li>
+      <li><a href="sample-cafe-order.html">豆のご注文</a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-cafe.html">ホーム</a>
+  <a href="sample-cafe-menu.html">メニュー</a>
+  <a href="sample-cafe-beans.html">取り扱いの豆</a>
+  <a href="sample-cafe-about.html">お店について</a>
+  <a href="sample-cafe-order.html">豆のご注文</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">ABOUT</div>
+    <h1>お店について</h1>
+    <p>2018年、古い米蔵を改装して始めました。焙煎機を店内に置いているのは、焼きたてをその日のうちにお出ししたかったからです。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-cafe.html">ホーム</a> ／ <span>お店について</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="person rv">
+      <div class="ph">
+        <svg viewBox="0 0 400 480" role="img" aria-label="店主のイメージ">
+          <defs><linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7d6242"/><stop offset="1" stop-color="#2e1f16"/></linearGradient></defs>
+          <rect width="400" height="480" fill="url(#p1)"/>
+          <circle cx="200" cy="186" r="64" fill="rgba(245,238,226,.14)" stroke="rgba(245,238,226,.34)" stroke-width="2"/>
+          <path d="M94 420v-38c0-52 47-84 106-84s106 32 106 84v38z" fill="rgba(245,238,226,.1)" stroke="rgba(245,238,226,.28)" stroke-width="2"/>
+          <ellipse cx="200" cy="310" rx="34" ry="24" fill="rgba(168,86,58,.4)" stroke="rgba(245,238,226,.4)" stroke-width="2"/>
+          <path d="M200 286v-16" stroke="rgba(245,238,226,.5)" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="60" y1="440" x2="340" y2="440" stroke="rgba(245,238,226,.2)" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div>
+        <div class="role disp">OWNER / ROASTER</div>
+        <h3>一杯を待つ時間まで、<br />この店の味だと思っています。</h3>
+        <p>前職は設計事務所にいました。図面を引きながら通っていた喫茶店で、店主が豆を挽く音と香りに救われていたことに、辞めてから気づきました。</p>
+        <p>だから当店では、カウンターの目の前で淹れます。少しお待たせしますが、その数分も含めて楽しんでいただけたらうれしいです。豆のことを聞かれれば、いくらでもお話しします。逆に、静かに過ごしたい日は声をかけませんので、ご安心ください。</p>
+        <div class="tags"><span>焙煎歴 8年</span><span>Qグレーダー</span><span>元・設計士</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">Interior</span>
+      <h2>店内のご案内</h2>
+      <p>14席のちいさな店です。ひとりの時間にも、待ち合わせにも使っていただけます。</p>
+    </div>
+    <div class="gal rv">
+      <figure>
+        <svg viewBox="0 0 400 300" role="img" aria-label="カウンター席のイメージ">
+          <defs><linearGradient id="i1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6e5334"/><stop offset="1" stop-color="#2b2015"/></linearGradient></defs>
+          <rect width="400" height="300" fill="url(#i1)"/>
+          <rect x="40" y="168" width="320" height="20" fill="rgba(217,171,119,.4)"/>
+          <rect x="40" y="188" width="320" height="70" fill="rgba(245,238,226,.06)" stroke="rgba(245,238,226,.26)" stroke-width="1.5"/>
+          <circle cx="110" cy="150" r="14" fill="none" stroke="rgba(245,238,226,.42)" stroke-width="1.8"/>
+          <circle cx="200" cy="150" r="14" fill="none" stroke="rgba(245,238,226,.42)" stroke-width="1.8"/>
+          <circle cx="290" cy="150" r="14" fill="none" stroke="rgba(245,238,226,.42)" stroke-width="1.8"/>
+          <path d="M60 60h280v70H60z" fill="none" stroke="rgba(245,238,226,.22)" stroke-width="1.5"/>
+        </svg>
+        <figcaption>焙煎機の見えるカウンター 6席</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 400 300" role="img" aria-label="テーブル席のイメージ">
+          <defs><linearGradient id="i2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5d4e3a"/><stop offset="1" stop-color="#241d14"/></linearGradient></defs>
+          <rect width="400" height="300" fill="url(#i2)"/>
+          <ellipse cx="200" cy="180" rx="92" ry="34" fill="rgba(217,171,119,.32)" stroke="rgba(245,238,226,.4)" stroke-width="2"/>
+          <path d="M200 214v52" stroke="rgba(245,238,226,.4)" stroke-width="3"/>
+          <rect x="66" y="130" width="46" height="60" rx="6" fill="rgba(245,238,226,.1)" stroke="rgba(245,238,226,.28)" stroke-width="1.5"/>
+          <rect x="288" y="130" width="46" height="60" rx="6" fill="rgba(245,238,226,.1)" stroke="rgba(245,238,226,.28)" stroke-width="1.5"/>
+          <rect x="120" y="42" width="160" height="56" fill="none" stroke="rgba(245,238,226,.24)" stroke-width="1.5"/>
+        </svg>
+        <figcaption>窓辺のテーブル 4卓・8席</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 400 300" role="img" aria-label="物販棚のイメージ">
+          <defs><linearGradient id="i3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6a5b44"/><stop offset="1" stop-color="#2a231a"/></linearGradient></defs>
+          <rect width="400" height="300" fill="url(#i3)"/>
+          <rect x="70" y="60" width="260" height="200" fill="none" stroke="rgba(245,238,226,.36)" stroke-width="2"/>
+          <path d="M70 128h260M70 196h260" stroke="rgba(245,238,226,.3)" stroke-width="1.6"/>
+          <rect x="92" y="86" width="30" height="36" fill="rgba(168,86,58,.5)"/>
+          <rect x="134" y="86" width="30" height="36" fill="rgba(217,171,119,.42)"/>
+          <rect x="176" y="86" width="30" height="36" fill="rgba(168,86,58,.5)"/>
+          <rect x="92" y="154" width="30" height="36" fill="rgba(217,171,119,.42)"/>
+          <rect x="134" y="154" width="30" height="36" fill="rgba(168,86,58,.5)"/>
+        </svg>
+        <figcaption>豆と器具を並べた物販棚</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap">
+    <div class="head left rv">
+      <span class="en disp">Access</span>
+      <h2>アクセス・営業時間</h2>
+      <p>駐車場は店舗前に5台。すぐ埋まってしまうので、満車の際は向かいの市営駐車場をご利用ください。</p>
+    </div>
+    <div class="acc">
+      <div class="amap rv" role="img" aria-label="所在地の地図イメージ">
+        <svg viewBox="0 0 640 400">
+          <rect width="640" height="400" fill="#f0ece4"/>
+          <path d="M0 260h640" stroke="#ded5c6" stroke-width="26"/>
+          <path d="M250 0v400" stroke="#ded5c6" stroke-width="18"/>
+          <path d="M0 120h640M470 0v400" stroke="#e7e1d6" stroke-width="10"/>
+          <rect x="60" y="150" width="120" height="70" fill="#e5ded1"/>
+          <rect x="310" y="40" width="110" height="60" fill="#e5ded1"/>
+          <rect x="500" y="290" width="100" height="70" fill="#e5ded1"/>
+          <rect x="296" y="296" width="140" height="82" fill="#fff" stroke="#a8563a" stroke-width="2.5"/>
+          <text x="366" y="332" text-anchor="middle" font-size="15" font-weight="700" fill="#4a3527">KANATA</text>
+          <text x="366" y="354" text-anchor="middle" font-size="11" fill="#8b7864">焙煎機のある喫茶店</text>
+          <circle cx="366" cy="272" r="11" fill="#a8563a"/>
+          <path d="M366 260v-16" stroke="#a8563a" stroke-width="3" stroke-linecap="round"/>
+          <text x="120" y="252" font-size="12" fill="#8b7864">県道○号線</text>
+          <text x="262" y="30" font-size="12" fill="#8b7864">旧道</text>
+        </svg>
+      </div>
+      <div class="rv">
+        <div class="table">
+          <div class="row"><div class="k">所在地</div><div class="v">〒950-0000<br />新潟県新潟市西蒲区○○1-2-3</div></div>
+          <div class="row"><div class="k">電話</div><div class="v"><a href="tel:0250000000" class="disp" style="font-size:1.3rem;color:var(--c-acc)">025-000-0000</a></div></div>
+          <div class="row"><div class="k">駐車場</div><div class="v">店舗前5台（満車時は向かいの市営駐車場へ）</div></div>
+          <div class="row"><div class="k">アクセス</div><div class="v">JR○○駅から車で10分／バス停「○○」下車すぐ</div></div>
+          <div class="row"><div class="k">お子様連れ</div><div class="v">ベビーカーのまま入れます。おむつ替え台あり</div></div>
+        </div>
+        <h3 style="font-size:1.04rem;font-weight:600;color:var(--c-ink);margin:28px 0 14px">営業時間</h3>
+        <table class="hours">
+          <thead><tr><th>&nbsp;</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr></thead>
+          <tbody>
+            <tr><th>喫茶</th><td>9-18</td><td>9-18</td><td class="off">休</td><td>9-18</td><td>9-18</td><td>9-19</td><td>9-19</td></tr>
+            <tr><th>豆の販売</th><td>9-18</td><td>9-18</td><td class="off">休</td><td>9-18</td><td>9-18</td><td>9-19</td><td>9-19</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.85rem;color:var(--c-sub);margin-top:12px">※ ランチは11:30〜14:00です。祝日は営業し、翌日を休みにすることがあります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>ふらりと立ち寄って<br />いただけたら</h2>
+    <p class="sub">ご予約はいりません。豆だけのお求めでも、どうぞお気軽に。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">9:00–18:00（水曜定休）</p>
+    <div style="margin-top:24px"><a href="sample-cafe-order.html" class="btn btn-p">豆のご注文・お取り置き</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b disp">KANATA</div>
+    <p>〒950-0000 新潟県新潟市西蒲区○○1-2-3<br />TEL 025-000-0000／9:00–18:00（水曜定休）</p>
+    <nav class="fnav">
+      <a href="sample-cafe.html">ホーム</a>
+      <a href="sample-cafe-menu.html">メニュー</a>
+      <a href="sample-cafe-beans.html">取り扱いの豆</a>
+      <a href="sample-cafe-about.html">お店について</a>
+      <a href="sample-cafe-order.html">豆のご注文</a>
+    </nav>
+    <div class="fbot">&copy; 2026 cafe &amp; roastery KANATA（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>

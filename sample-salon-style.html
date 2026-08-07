@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】スタイル一覧｜hair salon LueN</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（美容室・サロン向けデザイン）。スタイルギャラリーのデザイン例です。" />
+<meta name="theme-color" content="#2b2622" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="スタイル一覧｜美容室のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。長さや悩みで絞り込めるスタイルギャラリーのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-salon-style.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-salon.css" />
+<style>
+  .pcard .ph{aspect-ratio:3/4}
+  .count{text-align:center;font-size:.85rem;color:var(--c-sub);margin-bottom:26px}
+  .count b{color:var(--c-acc);font-family:var(--f-disp);font-size:1.2rem;margin:0 4px}
+  .sty{font-size:.83rem;color:var(--c-sub);margin-top:8px;line-height:1.85}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する店舗ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-salon.html" class="brand disp">LueN<small>HAIR SALON</small></a>
+    <ul>
+      <li><a href="sample-salon.html">ホーム</a></li>
+      <li><a href="sample-salon-style.html" aria-current="page">スタイル</a></li>
+      <li><a href="sample-salon-menu.html">メニュー・料金</a></li>
+      <li><a href="sample-salon-staff.html">スタイリスト</a></li>
+      <li><a href="sample-salon-reserve.html">ご予約</a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-salon.html">ホーム</a>
+  <a href="sample-salon-style.html">スタイル</a>
+  <a href="sample-salon-menu.html">メニュー・料金</a>
+  <a href="sample-salon-staff.html">スタイリスト</a>
+  <a href="sample-salon-reserve.html">ご予約</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">Style</div>
+    <h1>スタイル一覧</h1>
+    <p>お手入れのしやすさを前提に組み立てています。気になるスタイルがあれば、ご予約の際に番号をお伝えください。似せるのではなく、お客様の髪質に合わせて調整します。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-salon.html">ホーム</a> ／ <span>スタイル一覧</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="filter rv" role="group" aria-label="スタイルの絞り込み">
+      <button type="button" data-f="all" aria-pressed="true">すべて</button>
+      <button type="button" data-f="short" aria-pressed="false">ショート</button>
+      <button type="button" data-f="medium" aria-pressed="false">ミディアム</button>
+      <button type="button" data-f="long" aria-pressed="false">ロング</button>
+      <button type="button" data-f="color" aria-pressed="false">カラー</button>
+      <button type="button" data-f="perm" aria-pressed="false">パーマ</button>
+    </div>
+    <p class="count">全 <b id="cnt">6</b> スタイルを表示しています</p>
+
+    <div class="grid g3" id="grid">
+
+      <a class="pcard rv" href="sample-salon-reserve.html" data-c="short">
+        <div class="ph"><span class="tag">ショート</span>
+          <svg viewBox="0 0 300 400" role="img" aria-label="ショートスタイルのイメージ">
+            <defs><linearGradient id="s1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6d5b52"/><stop offset="1" stop-color="#2b2622"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#s1)"/>
+            <ellipse cx="150" cy="190" rx="62" ry="76" fill="rgba(255,253,251,.14)" stroke="rgba(255,253,251,.3)" stroke-width="1.6"/>
+            <path d="M88 178c0-52 28-72 62-72s62 20 62 72c-16-16-30-24-62-24s-46 8-62 24z" fill="rgba(192,138,127,.5)"/>
+            <path d="M88 178c-4 26 2 44 10 54M212 178c4 26-2 44-10 54" fill="none" stroke="rgba(192,138,127,.6)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M126 320h48l14 62h-76z" fill="rgba(255,253,251,.1)"/>
+          </svg>
+        </div>
+        <div class="meta"><h3>#01 えりあしすっきりショート</h3><div class="sub">STYLE No.01</div><p class="sty">丸みを残しつつ、後ろは短く。乾かすだけで形が決まります。</p></div>
+      </a>
+
+      <a class="pcard rv" href="sample-salon-reserve.html" data-c="short perm">
+        <div class="ph"><span class="tag">ショート</span>
+          <svg viewBox="0 0 300 400" role="img" aria-label="パーマショートのイメージ">
+            <defs><linearGradient id="s2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a655a"/><stop offset="1" stop-color="#312a25"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#s2)"/>
+            <ellipse cx="150" cy="192" rx="60" ry="74" fill="rgba(255,253,251,.14)" stroke="rgba(255,253,251,.3)" stroke-width="1.6"/>
+            <path d="M92 176c0-50 26-70 58-70s58 20 58 70" fill="rgba(224,189,180,.5)"/>
+            <circle cx="102" cy="196" r="15" fill="none" stroke="rgba(224,189,180,.75)" stroke-width="3.4"/>
+            <circle cx="198" cy="196" r="15" fill="none" stroke="rgba(224,189,180,.75)" stroke-width="3.4"/>
+            <circle cx="112" cy="228" r="12" fill="none" stroke="rgba(224,189,180,.6)" stroke-width="3"/>
+            <circle cx="188" cy="228" r="12" fill="none" stroke="rgba(224,189,180,.6)" stroke-width="3"/>
+            <path d="M126 320h48l14 62h-76z" fill="rgba(255,253,251,.1)"/>
+          </svg>
+        </div>
+        <div class="meta"><h3>#02 ゆるめのニュアンスパーマ</h3><div class="sub">STYLE No.02</div><p class="sty">かけすぎない強さで。朝は水で濡らして揉むだけです。</p></div>
+      </a>
+
+      <a class="pcard rv" href="sample-salon-reserve.html" data-c="medium color">
+        <div class="ph"><span class="tag">ミディアム</span>
+          <svg viewBox="0 0 300 400" role="img" aria-label="ミディアムカラーのイメージ">
+            <defs><linearGradient id="s3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6a58"/><stop offset="1" stop-color="#392c25"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#s3)"/>
+            <ellipse cx="150" cy="186" rx="58" ry="72" fill="rgba(255,253,251,.14)" stroke="rgba(255,253,251,.3)" stroke-width="1.6"/>
+            <path d="M92 172c0-50 26-70 58-70s58 20 58 70v112c-18 10-34 14-58 14s-40-4-58-14z" fill="rgba(192,138,127,.42)"/>
+            <path d="M92 214v70M208 214v70" stroke="rgba(224,189,180,.6)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M126 330h48l14 52h-76z" fill="rgba(255,253,251,.1)"/>
+          </svg>
+        </div>
+        <div class="meta"><h3>#03 透明感のあるベージュ</h3><div class="sub">STYLE No.03</div><p class="sty">赤みを抑えたベージュ。伸びてきても境目が目立ちにくい配合です。</p></div>
+      </a>
+
+      <a class="pcard rv" href="sample-salon-reserve.html" data-c="medium">
+        <div class="ph"><span class="tag">ミディアム</span>
+          <svg viewBox="0 0 300 400" role="img" aria-label="ミディアムレイヤーのイメージ">
+            <defs><linearGradient id="s4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6f6157"/><stop offset="1" stop-color="#2f2925"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#s4)"/>
+            <ellipse cx="150" cy="184" rx="58" ry="72" fill="rgba(255,253,251,.14)" stroke="rgba(255,253,251,.3)" stroke-width="1.6"/>
+            <path d="M92 170c0-50 26-70 58-70s58 20 58 70v106c-18 8-34 12-58 12s-40-4-58-12z" fill="rgba(233,224,213,.34)"/>
+            <path d="M104 208l-8 62M196 208l8 62M124 216l-6 56M176 216l6 56" stroke="rgba(255,253,251,.34)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M126 326h48l14 56h-76z" fill="rgba(255,253,251,.1)"/>
+          </svg>
+        </div>
+        <div class="meta"><h3>#04 動きの出るレイヤー</h3><div class="sub">STYLE No.04</div><p class="sty">量が多い方向け。表面に段を入れて、重さを逃がしています。</p></div>
+      </a>
+
+      <a class="pcard rv" href="sample-salon-reserve.html" data-c="long">
+        <div class="ph"><span class="tag">ロング</span>
+          <svg viewBox="0 0 300 400" role="img" aria-label="ロングストレートのイメージ">
+            <defs><linearGradient id="s5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5f5850"/><stop offset="1" stop-color="#272220"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#s5)"/>
+            <ellipse cx="150" cy="176" rx="56" ry="70" fill="rgba(255,253,251,.14)" stroke="rgba(255,253,251,.3)" stroke-width="1.6"/>
+            <path d="M94 162c0-48 25-68 56-68s56 20 56 68v168c-18 6-34 8-56 8s-38-2-56-8z" fill="rgba(233,224,213,.3)"/>
+            <path d="M116 200v126M150 204v128M184 200v126" stroke="rgba(255,253,251,.26)" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <div class="meta"><h3>#05 つやのあるロング</h3><div class="sub">STYLE No.05</div><p class="sty">毛先だけ整えて長さを保ちます。傷んだ部分の見極めが要点です。</p></div>
+      </a>
+
+      <a class="pcard rv" href="sample-salon-reserve.html" data-c="long perm color">
+        <div class="ph"><span class="tag">ロング</span>
+          <svg viewBox="0 0 300 400" role="img" aria-label="ロングウェーブのイメージ">
+            <defs><linearGradient id="s6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a6f60"/><stop offset="1" stop-color="#332a24"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#s6)"/>
+            <ellipse cx="150" cy="176" rx="56" ry="70" fill="rgba(255,253,251,.14)" stroke="rgba(255,253,251,.3)" stroke-width="1.6"/>
+            <path d="M94 162c0-48 25-68 56-68s56 20 56 68" fill="rgba(192,138,127,.46)"/>
+            <path d="M98 210q18 18 0 36t0 36t0 36t0 36M202 210q-18 18 0 36t0 36t0 36t0 36" fill="none" stroke="rgba(224,189,180,.66)" stroke-width="3.4" stroke-linecap="round"/>
+            <path d="M150 230q16 20 0 40t0 40t0 40" fill="none" stroke="rgba(224,189,180,.4)" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="meta"><h3>#06 ゆるふわウェーブ</h3><div class="sub">STYLE No.06</div><p class="sty">巻かずに済むよう、パーマで再現しています。カラーとの同日施術も可能です。</p></div>
+      </a>
+
+    </div>
+
+    <p style="text-align:center;font-size:.88rem;color:var(--c-sub);margin-top:44px;max-width:44em;margin-left:auto;margin-right:auto">
+      髪質・骨格・普段のお手入れにかけられる時間によって、同じスタイルでも仕上がりは変わります。「これに近づけたい」というご希望をうかがったうえで、現実的な落としどころをご提案します。
+    </p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>気になるスタイルが<br />あれば、そのまま</h2>
+    <p class="sub">画像をお持ちいただいても構いません。似合わせて調整します。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">10:00–19:00（月曜・第3火曜定休）</p>
+    <div style="margin-top:24px"><a href="sample-salon-reserve.html" class="btn btn-p">オンライン予約へ</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b disp">LueN</div>
+    <p>〒950-0000 新潟県新潟市中央区○○1-2-3<br />TEL 025-000-0000／10:00–19:00（月曜・第3火曜定休）</p>
+    <nav class="fnav">
+      <a href="sample-salon.html">ホーム</a>
+      <a href="sample-salon-style.html">スタイル</a>
+      <a href="sample-salon-menu.html">メニュー・料金</a>
+      <a href="sample-salon-staff.html">スタイリスト</a>
+      <a href="sample-salon-reserve.html">ご予約</a>
+    </nav>
+    <div class="fbot">&copy; 2026 hair salon LueN（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>

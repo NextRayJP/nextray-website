@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】メニュー・料金｜hair salon LueN</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（美容室・サロン向けデザイン）。メニュー・料金ページのデザイン例です。" />
+<meta name="theme-color" content="#2b2622" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="メニュー・料金｜美容室のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。所要時間まで書いた美容室のメニュー・料金ページのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-salon-menu.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-salon.css" />
+<style>
+  .mgroup{max-width:780px;margin:0 auto 52px}
+  .mtitle{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+  .mtitle .en{font-family:var(--f-disp);font-size:1.5rem;letter-spacing:.2em;color:var(--c-acc)}
+  .mtitle h3{font-size:1.06rem;font-weight:500;color:var(--c-ink);letter-spacing:.08em}
+  .mnote{font-size:.85rem;color:var(--c-sub);margin-bottom:18px}
+  .list .t{font-size:.78rem;color:var(--c-sub);margin-left:10px}
+  .note{max-width:780px;margin:0 auto;font-size:.88rem;color:var(--c-sub);line-height:2}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する店舗ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-salon.html" class="brand disp">LueN<small>HAIR SALON</small></a>
+    <ul>
+      <li><a href="sample-salon.html">ホーム</a></li>
+      <li><a href="sample-salon-style.html">スタイル</a></li>
+      <li><a href="sample-salon-menu.html" aria-current="page">メニュー・料金</a></li>
+      <li><a href="sample-salon-staff.html">スタイリスト</a></li>
+      <li><a href="sample-salon-reserve.html">ご予約</a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-salon.html">ホーム</a>
+  <a href="sample-salon-style.html">スタイル</a>
+  <a href="sample-salon-menu.html">メニュー・料金</a>
+  <a href="sample-salon-staff.html">スタイリスト</a>
+  <a href="sample-salon-reserve.html">ご予約</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">Menu &amp; Price</div>
+    <h1>メニュー・料金</h1>
+    <p>所要時間も併せて書いています。ご予約の枠を決める目安になさってください。追加料金が発生する場合は、必ず施術前にお伝えします。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-salon.html">ホーム</a> ／ <span>メニュー・料金</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Cut</span><h3>カット</h3></div>
+      <p class="mnote">シャンプー・ブロー込み。前髪だけのご来店も歓迎します。</p>
+      <div class="list">
+        <div class="it"><div class="n">カット<span class="t">約60分</span><small>カウンセリングに時間をかけます</small></div><div class="p disp">¥5,500</div></div>
+        <div class="it"><div class="n">学生カット<span class="t">約50分</span><small>高校生以下</small></div><div class="p disp">¥3,850</div></div>
+        <div class="it"><div class="n">お子様カット<span class="t">約30分</span><small>小学生以下</small></div><div class="p disp">¥2,750</div></div>
+        <div class="it"><div class="n">前髪カット<span class="t">約15分</span><small>ご来店から1ヶ月以内は無料</small></div><div class="p disp">¥1,100</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Color</span><h3>カラー</h3></div>
+      <p class="mnote">カットとの同時施術で ¥1,100 引きになります。</p>
+      <div class="list">
+        <div class="it"><div class="n">リタッチカラー<span class="t">約90分</span><small>根元3cmまで</small></div><div class="p disp">¥6,600</div></div>
+        <div class="it"><div class="n">フルカラー<span class="t">約120分</span></div><div class="p disp">¥7,700</div></div>
+        <div class="it"><div class="n">ハイライト<span class="t">約150分</span><small>本数によって変わります</small></div><div class="p disp">¥11,000〜</div></div>
+        <div class="it"><div class="n">白髪ぼかしハイライト<span class="t">約150分</span><small>染める間隔をあけたい方に</small></div><div class="p disp">¥12,100〜</div></div>
+        <div class="it"><div class="n">ブリーチ<span class="t">約180分</span><small>髪の状態によりお受けできない場合があります</small></div><div class="p disp">¥13,200〜</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Perm</span><h3>パーマ・矯正</h3></div>
+      <div class="list">
+        <div class="it"><div class="n">パーマ<span class="t">約120分</span></div><div class="p disp">¥8,800</div></div>
+        <div class="it"><div class="n">デジタルパーマ<span class="t">約150分</span><small>乾かすだけで形が出ます</small></div><div class="p disp">¥13,200</div></div>
+        <div class="it"><div class="n">縮毛矯正（全体）<span class="t">約180分</span><small>カット別</small></div><div class="p disp">¥16,500〜</div></div>
+        <div class="it"><div class="n">縮毛矯正（前髪のみ）<span class="t">約60分</span></div><div class="p disp">¥6,600</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Care</span><h3>トリートメント・スパ</h3></div>
+      <div class="list">
+        <div class="it"><div class="n">トリートメント（3ステップ）<span class="t">約15分</span></div><div class="p disp">¥3,300</div></div>
+        <div class="it"><div class="n">トリートメント（5ステップ）<span class="t">約25分</span><small>ブリーチ毛の方はこちらを</small></div><div class="p disp">¥5,500</div></div>
+        <div class="it"><div class="n">ヘッドスパ<span class="t">約30分</span><small>炭酸で毛穴から</small></div><div class="p disp">¥4,400</div></div>
+        <div class="it"><div class="n">ヘッドスパ ロング<span class="t">約50分</span><small>肩・首まで</small></div><div class="p disp">¥6,600</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Set</span><h3>セットメニュー</h3></div>
+      <p class="mnote">よくお選びいただく組み合わせです。単品より割安になります。</p>
+      <div class="list">
+        <div class="it"><div class="n">カット＋カラー<span class="t">約150分</span></div><div class="p disp">¥12,100</div></div>
+        <div class="it"><div class="n">カット＋パーマ<span class="t">約160分</span></div><div class="p disp">¥13,200</div></div>
+        <div class="it"><div class="n">カット＋カラー＋トリートメント<span class="t">約170分</span></div><div class="p disp">¥14,300</div></div>
+      </div>
+    </div>
+
+    <p class="note rv">
+      表示はすべて税込です。<br />
+      髪の長さ・量によって、薬剤を追加でいただく場合があります（+¥550〜¥2,200）。<b>その場合は必ず施術前に金額をお伝えし、ご了承いただいてから進めます。</b>後から黙って加算することはありません。<br />
+      ご指名は無料です。担当者を固定したい方は、ご予約時にお申しつけください。
+    </p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>迷われたら、<br />ご相談ください</h2>
+    <p class="sub">「何を頼めばいいか分からない」という状態で構いません。髪を見てからご提案します。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">10:00–19:00（月曜・第3火曜定休）</p>
+    <div style="margin-top:24px"><a href="sample-salon-reserve.html" class="btn btn-p">オンライン予約へ</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b disp">LueN</div>
+    <p>〒950-0000 新潟県新潟市中央区○○1-2-3<br />TEL 025-000-0000／10:00–19:00（月曜・第3火曜定休）</p>
+    <nav class="fnav">
+      <a href="sample-salon.html">ホーム</a>
+      <a href="sample-salon-style.html">スタイル</a>
+      <a href="sample-salon-menu.html">メニュー・料金</a>
+      <a href="sample-salon-staff.html">スタイリスト</a>
+      <a href="sample-salon-reserve.html">ご予約</a>
+    </nav>
+    <div class="fbot">&copy; 2026 hair salon LueN（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>

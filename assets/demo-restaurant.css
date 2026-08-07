@@ -1,0 +1,29 @@
+/* デモ「日本料理 花暦」テーマ。demo-base.css の後に読み込む */
+:root{
+  --c-bg:#fbf9f4; --c-surface:#f6f2e9; --c-ink:#17130f; --c-ink2:#3a322a; --c-sub:#8a7f72;
+  --c-line:#ddd4c2; --c-acc:#b08d43; --c-acc-d:#8f7134; --c-acc-l:#d4b671;
+  --c-head:#17130f; --c-head-tx:#f6f2e9;
+  --radius:0px;
+  --f-disp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",YuMincho,serif;
+  --f-jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,sans-serif;
+}
+body{line-height:2}
+header{background:rgba(23,19,15,.95);border-bottom:none}
+.brand,.nav ul a,.burger span{color:var(--c-head-tx)}
+.brand{font-family:var(--f-disp);font-weight:500;letter-spacing:.22em}
+.brand small{color:rgba(246,242,233,.6)}
+.nav ul a{border-bottom-color:transparent}
+.nav ul a:hover,.nav ul a[aria-current="page"]{color:var(--c-acc-l);border-color:var(--c-acc)}
+.burger span{background:var(--c-head-tx)}
+.mnav{background:var(--c-head)}
+.mnav a{color:var(--c-head-tx);border-bottom-color:rgba(246,242,233,.14)}
+.mclose{color:var(--c-head-tx)}
+.phero{background:var(--c-head);color:var(--c-head-tx);border-bottom:none}
+.phero::after{content:"";position:absolute;right:-90px;top:-70px;width:340px;height:340px;border:1px solid rgba(176,141,67,.3);border-radius:50%}
+.phero h1{color:var(--c-head-tx);font-family:var(--f-disp);font-weight:500;letter-spacing:.14em}
+.phero p{color:rgba(246,242,233,.76)}
+.phero .en{color:var(--c-acc-l);font-size:.74rem;letter-spacing:.4em}
+.head .en{font-size:.74rem;letter-spacing:.4em}
+.head h2,.person h3{font-family:var(--f-disp);font-weight:500;letter-spacing:.1em}
+.card h3,.step h3,.pcard .meta h3{font-weight:600}
+footer .b{font-family:var(--f-disp);font-weight:500;letter-spacing:.22em}

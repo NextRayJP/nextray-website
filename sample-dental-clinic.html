@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】医院案内｜あおば歯科クリニック</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（歯科医院向けデザイン）。院長紹介・院内設備・アクセスページのデザイン例です。" />
+<meta name="theme-color" content="#153a3d" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="医院案内｜歯科医院のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。院長紹介・設備・アクセス・診療時間のデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-dental-clinic.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-dental.css" />
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する医院ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-dental.html" class="brand" aria-label="あおば歯科クリニック ホームへ">
+      <svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34c-4-2-7-8-7-14 0-5 3-8 7-8s7 3 7 8c0 6-3 12-7 14z" fill="none" stroke="#14b0a8" stroke-width="2.4" stroke-linejoin="round"/><path d="M14 12c-3-4 1-8 6-6 5-2 9 2 6 6" fill="none" stroke="#5fd4ce" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span>あおば歯科クリニック<small>AOBA DENTAL CLINIC</small></span>
+    </a>
+    <ul>
+      <li><a href="sample-dental.html">ホーム</a></li>
+      <li><a href="sample-dental-menu.html">診療案内</a></li>
+      <li><a href="sample-dental-first.html">初めての方へ</a></li>
+      <li><a href="sample-dental-clinic.html" aria-current="page">医院案内</a></li>
+      <li><a href="sample-dental-reserve.html">WEB予約</a></li>
+    </ul>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-dental.html">ホーム</a>
+  <a href="sample-dental-menu.html">診療案内</a>
+  <a href="sample-dental-first.html">初めての方へ</a>
+  <a href="sample-dental-clinic.html">医院案内</a>
+  <a href="sample-dental-reserve.html">WEB予約</a>
+  <a href="tel:0250000000" class="mtel disp">025-000-0000</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">CLINIC</div>
+    <h1>医院案内</h1>
+    <p>どんな人が、どんな場所で診ているのか。通う前に知っておきたいことを、まとめてご覧いただけます。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-dental.html">ホーム</a> ／ <span>医院案内</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="person rv">
+      <div class="ph">
+        <svg viewBox="0 0 400 480" role="img" aria-label="院長のイメージ">
+          <defs><linearGradient id="dr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b7d7a"/><stop offset="1" stop-color="#153a3d"/></linearGradient></defs>
+          <rect width="400" height="480" fill="url(#dr)"/>
+          <circle cx="200" cy="184" r="64" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.36)" stroke-width="2"/>
+          <path d="M92 420v-36c0-52 48-84 108-84s108 32 108 84v36z" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.3)" stroke-width="2"/>
+          <path d="M162 300v46a38 38 0 0 0 76 0v-46" fill="none" stroke="#5fd4ce" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="200" cy="356" r="12" fill="none" stroke="#5fd4ce" stroke-width="3"/>
+          <line x1="60" y1="442" x2="340" y2="442" stroke="rgba(255,255,255,.2)" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div>
+        <div class="role">院長・歯科医師</div>
+        <h3>「歯医者は苦手」から<br />始めていただいて構いません。</h3>
+        <p>私自身、子どものころに歯科が苦手でした。押さえつけられて治療された記憶が長く残り、大人になってからも足が向かなかった時期があります。</p>
+        <p>だからこの医院では、まず説明を尽くします。何をするのか、どのくらい時間がかかるのか、痛みはあるのか。分かっていれば、怖さは半分になります。今日は何もしないという選択も、遠慮なくおっしゃってください。</p>
+        <div class="tags"><span>歯科医師歴 18年</span><span>日本歯周病学会 会員</span><span>2児の父</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">EQUIPMENT</span>
+      <h2>院内・設備</h2>
+      <p>清潔さと、説明のしやすさを基準に選んでいます。</p>
+    </div>
+    <div class="grid g3">
+      <div class="card rv"><h3>個室の診療室</h3><p>診療室は3室すべて個室です。周りを気にせずご相談いただけます。車いすのまま入れる広さを確保しています。</p></div>
+      <div class="card rv"><h3>滅菌の徹底</h3><p>患者様ごとに器具を交換し、専用の滅菌器で処理しています。手袋・紙コップ・エプロンは使い捨てです。</p></div>
+      <div class="card rv"><h3>デジタルレントゲン</h3><p>従来のフィルムに比べて撮影時の負担が小さく、その場でモニターに表示してご説明できます。</p></div>
+      <div class="card rv"><h3>口腔内カメラ</h3><p>自分では見えない奥歯の状態を、画面でご覧いただけます。治療前後の比較も記録に残します。</p></div>
+      <div class="card rv"><h3>キッズスペース</h3><p>受付横に設けています。診療中はスタッフがお子様をお預かりすることもできます。</p></div>
+      <div class="card rv"><h3>バリアフリー</h3><p>入口から診療室まで段差がありません。駐車場も入口のすぐ前にご用意しています。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">OUTLINE</span>
+      <h2>医院概要</h2>
+    </div>
+    <div class="table rv" style="max-width:880px;margin:0 auto">
+      <div class="row"><div class="k">医院名</div><div class="v">あおば歯科クリニック（サンプル）</div></div>
+      <div class="row"><div class="k">院長</div><div class="v">青葉 誠一</div></div>
+      <div class="row"><div class="k">開院</div><div class="v">2014年4月</div></div>
+      <div class="row"><div class="k">所在地</div><div class="v">〒950-0000 新潟県新潟市西区○○1-2-3</div></div>
+      <div class="row"><div class="k">電話</div><div class="v">025-000-0000</div></div>
+      <div class="row"><div class="k">診療科目</div><div class="v">歯科／小児歯科／歯科口腔外科／矯正歯科</div></div>
+      <div class="row"><div class="k">スタッフ</div><div class="v">歯科医師2名／歯科衛生士4名／歯科助手2名／受付1名</div></div>
+      <div class="row"><div class="k">駐車場</div><div class="v">医院前に8台（うち車いす用1台）</div></div>
+      <div class="row"><div class="k">支払方法</div><div class="v">現金／各種クレジットカード／電子マネー／QRコード決済</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="access">
+  <div class="wrap">
+    <div class="head left rv">
+      <span class="en disp">ACCESS</span>
+      <h2>アクセス・診療時間</h2>
+      <p>バス停「○○」から徒歩2分。お車の方は医院前の駐車場をご利用ください。</p>
+    </div>
+    <div class="acc">
+      <div class="amap rv" role="img" aria-label="所在地の地図イメージ">
+        <svg viewBox="0 0 640 400">
+          <rect width="640" height="400" fill="#eaf5f4"/>
+          <path d="M0 258h640" stroke="#cfe4e2" stroke-width="26"/>
+          <path d="M254 0v400" stroke="#cfe4e2" stroke-width="18"/>
+          <path d="M0 118h640M474 0v400" stroke="#ddeeed" stroke-width="10"/>
+          <rect x="62" y="148" width="120" height="70" fill="#dcecea"/>
+          <rect x="312" y="38" width="110" height="60" fill="#dcecea"/>
+          <rect x="504" y="288" width="100" height="70" fill="#dcecea"/>
+          <rect x="300" y="294" width="140" height="82" rx="10" fill="#fff" stroke="#14b0a8" stroke-width="2.5"/>
+          <text x="370" y="330" text-anchor="middle" font-size="14" font-weight="700" fill="#153a3d">あおば歯科</text>
+          <text x="370" y="352" text-anchor="middle" font-size="11" fill="#6b878a">駐車場8台</text>
+          <circle cx="370" cy="270" r="11" fill="#14b0a8"/>
+          <path d="M370 258v-16" stroke="#14b0a8" stroke-width="3" stroke-linecap="round"/>
+          <text x="120" y="250" font-size="12" fill="#6b878a">県道○号線</text>
+          <text x="266" y="28" font-size="12" fill="#6b878a">○○通り</text>
+        </svg>
+      </div>
+      <div class="rv">
+        <table class="hours">
+          <thead><tr><th>&nbsp;</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日祝</th></tr></thead>
+          <tbody>
+            <tr><th>9:00–12:30</th><td>●</td><td>●</td><td>●</td><td class="off">−</td><td>●</td><td>●</td><td class="off">−</td></tr>
+            <tr><th>14:00–18:30</th><td>●</td><td>●</td><td>●</td><td class="off">−</td><td>●</td><td>▲</td><td class="off">−</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.85rem;color:var(--c-sub);margin-top:12px">▲ 土曜午後は 14:00–17:00 です。<br />休診日：木曜・日曜・祝日</p>
+        <div class="table" style="margin-top:24px">
+          <div class="row"><div class="k">電話</div><div class="v"><a href="tel:0250000000" class="disp" style="font-size:1.3rem;color:var(--c-acc);font-weight:600">025-000-0000</a></div></div>
+          <div class="row"><div class="k">アクセス</div><div class="v">バス停「○○」から徒歩2分／JR○○駅から車で8分</div></div>
+          <div class="row"><div class="k">駐車場</div><div class="v">医院前に8台（うち車いす用1台）</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>ご予約は、<br />WEBかお電話で</h2>
+    <p class="sub">初めての方も、久しぶりの方も。まずはお困りごとを聞かせてください。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">平日 9:00–18:30／土 9:00–17:00（木・日祝休診）</p>
+    <div style="margin-top:24px"><a href="sample-dental-reserve.html" class="btn btn-p">24時間WEB予約へ</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b">あおば歯科クリニック</div>
+    <p>〒950-0000 新潟県新潟市西区○○1-2-3<br />TEL 025-000-0000／平日 9:00–18:30・土 9:00–17:00（木・日祝休診）</p>
+    <nav class="fnav">
+      <a href="sample-dental.html">ホーム</a>
+      <a href="sample-dental-menu.html">診療案内</a>
+      <a href="sample-dental-first.html">初めての方へ</a>
+      <a href="sample-dental-clinic.html">医院案内</a>
+      <a href="sample-dental-reserve.html">WEB予約</a>
+    </nav>
+    <div class="fbot">&copy; 2026 あおば歯科クリニック（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】お品書き｜日本料理 花暦</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（飲食店向けデザイン）。お品書き（メニュー）ページのデザイン例です。" />
+<meta name="theme-color" content="#17130f" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="お品書き｜飲食店のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。和モダンな飲食店のお品書きページのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-restaurant-menu.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-restaurant.css" />
+<style>
+  .course{background:var(--c-bg);border:1px solid var(--c-line);padding:38px 36px;position:relative}
+  .course.best{border-color:var(--c-acc)}
+  .course .lb{font-family:var(--f-disp);font-size:.72rem;letter-spacing:.3em;color:var(--c-acc)}
+  .course h3{font-family:var(--f-disp);font-size:1.34rem;font-weight:500;color:var(--c-ink);margin:8px 0 6px;letter-spacing:.1em}
+  .course .p{font-family:var(--f-disp);font-size:1.9rem;color:var(--c-acc);margin:10px 0 16px}
+  .course .p small{font-size:.8rem;color:var(--c-sub);margin-left:6px;letter-spacing:0}
+  .course ul{list-style:none;border-top:1px solid var(--c-line);margin-top:16px}
+  .course li{font-size:.91rem;padding:11px 0;border-bottom:1px solid var(--c-line);color:var(--c-ink2)}
+  .course li b{color:var(--c-ink);font-weight:600}
+  .mtitle{display:flex;align-items:baseline;gap:16px;margin-bottom:20px}
+  .mtitle .en{font-family:var(--f-disp);font-size:.74rem;letter-spacing:.4em;color:var(--c-acc)}
+  .mtitle h3{font-family:var(--f-disp);font-size:1.16rem;font-weight:500;color:var(--c-ink);letter-spacing:.1em}
+  .mgroup{max-width:760px;margin:0 auto 54px}
+  .note{max-width:760px;margin:0 auto;font-size:.88rem;color:var(--c-sub);line-height:2}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する店舗ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-restaurant.html" class="brand">花暦<small>HANAGOYOMI</small></a>
+    <ul>
+      <li><a href="sample-restaurant.html">ホーム</a></li>
+      <li><a href="sample-restaurant-menu.html" aria-current="page">お品書き</a></li>
+      <li><a href="sample-restaurant-about.html">店主・こだわり</a></li>
+      <li><a href="sample-restaurant-access.html">店内・アクセス</a></li>
+      <li><a href="sample-restaurant-reserve.html">ご予約</a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-restaurant.html">ホーム</a>
+  <a href="sample-restaurant-menu.html">お品書き</a>
+  <a href="sample-restaurant-about.html">店主・こだわり</a>
+  <a href="sample-restaurant-access.html">店内・アクセス</a>
+  <a href="sample-restaurant-reserve.html">ご予約</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">MENU</div>
+    <h1>お品書き</h1>
+    <p>その日に届いた魚と、地の野菜で組み立てます。したがって内容は日によって変わります。以下は、いま出している一例とお考えください。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-restaurant.html">ホーム</a> ／ <span>お品書き</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">Course</span>
+      <h2>夜のお献立</h2>
+      <p>いずれも8品前後の会席です。お苦手なものがあれば、ご予約の際にお知らせください。</p>
+    </div>
+    <div class="grid g3">
+      <div class="course rv">
+        <div class="lb">STANDARD</div>
+        <h3>花暦コース</h3>
+        <div class="p disp">7,700<small>円（税込）</small></div>
+        <p style="font-size:.9rem;color:var(--c-sub)">初めての方に。当店の考え方がひととおり伝わる構成にしています。</p>
+        <ul>
+          <li><b>先付</b>　季節の和え物</li>
+          <li><b>椀物</b>　鰹と昆布の一番出汁</li>
+          <li><b>造り</b>　三種盛り</li>
+          <li><b>焼物</b>　旬魚の塩焼き</li>
+          <li><b>炊合</b>　地野菜の炊き合わせ</li>
+          <li><b>食事</b>　新潟産こしひかり・香の物・留椀</li>
+          <li><b>水菓子</b>　季節の果物</li>
+        </ul>
+      </div>
+      <div class="course best rv">
+        <div class="lb">RECOMMENDED</div>
+        <h3>おまかせ会席</h3>
+        <div class="p disp">11,000<small>円（税込）</small></div>
+        <p style="font-size:.9rem;color:var(--c-sub)">その日いちばん良かったものを、店主が組み立てます。品数と食材が変わります。</p>
+        <ul>
+          <li><b>先付</b>　二種</li>
+          <li><b>椀物</b>　白味噌または清汁</li>
+          <li><b>造り</b>　五種盛り</li>
+          <li><b>八寸</b>　旬の盛り合わせ</li>
+          <li><b>焼物</b>　その日の魚介または和牛</li>
+          <li><b>揚物</b>　天ぷら</li>
+          <li><b>食事</b>　土鍋ごはん・香の物・留椀</li>
+          <li><b>水菓子</b>　自家製の甘味</li>
+        </ul>
+      </div>
+      <div class="course rv">
+        <div class="lb">SPECIAL</div>
+        <h3>祝の膳</h3>
+        <div class="p disp">15,400<small>円（税込）</small></div>
+        <p style="font-size:.9rem;color:var(--c-sub)">お祝いの席に。鯛の姿焼きと赤飯をお付けします。3日前までのご予約制。</p>
+        <ul>
+          <li><b>先付</b>　二種</li>
+          <li><b>椀物</b>　鯛の潮汁</li>
+          <li><b>造り</b>　五種盛り</li>
+          <li><b>八寸</b>　祝い肴</li>
+          <li><b>焼物</b>　鯛の姿焼き</li>
+          <li><b>強肴</b>　和牛の陶板焼き</li>
+          <li><b>食事</b>　赤飯・香の物・留椀</li>
+          <li><b>水菓子</b>　三種盛り</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">Lunch</span>
+      <h2>昼のお膳</h2>
+      <p>11:30〜14:00（13:30 最終入店）。数に限りがございます。</p>
+    </div>
+    <div class="mgroup rv">
+      <div class="list">
+        <div class="it"><div class="n">花暦膳<small>小鉢三種・造り・焼物・ごはん・留椀</small></div><div class="p disp">2,200円</div></div>
+        <div class="it"><div class="n">季節の炊き込みごはん膳<small>その月の食材で。持ち帰りもできます</small></div><div class="p disp">1,800円</div></div>
+        <div class="it"><div class="n">天ぷら御膳<small>旬の魚介と野菜を八種</small></div><div class="p disp">2,600円</div></div>
+        <div class="it"><div class="n">お子様御膳<small>小学生以下。アレルギーはご相談ください</small></div><div class="p disp">1,100円</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">A LA CARTE</span><h3>一品料理</h3></div>
+      <div class="list">
+        <div class="it"><div class="n">本日の造り　三種</div><div class="p disp">1,980円</div></div>
+        <div class="it"><div class="n">地野菜の炊き合わせ</div><div class="p disp">1,100円</div></div>
+        <div class="it"><div class="n">出汁巻き玉子</div><div class="p disp">880円</div></div>
+        <div class="it"><div class="n">季節の天ぷら盛り合わせ</div><div class="p disp">1,650円</div></div>
+        <div class="it"><div class="n">のどぐろの塩焼き<small>時価。入荷のない日もございます</small></div><div class="p disp">時価</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">DRINK</span><h3>お飲み物</h3></div>
+      <div class="list">
+        <div class="it"><div class="n">日本酒<small>新潟の蔵元を中心に常時12種</small></div><div class="p disp">780円〜</div></div>
+        <div class="it"><div class="n">利き酒セット<small>三種の飲み比べ</small></div><div class="p disp">1,650円</div></div>
+        <div class="it"><div class="n">ビール／焼酎／ワイン</div><div class="p disp">600円〜</div></div>
+        <div class="it"><div class="n">ノンアルコール<small>自家製の梅ソーダ・季節の果実</small></div><div class="p disp">550円〜</div></div>
+      </div>
+    </div>
+
+    <p class="note rv">
+      表示はすべて税込です。夜のコースには別途サービス料（10%）を頂戴します。<br />
+      食材は日によって変わります。アレルギーや苦手な食材は、可能な範囲で献立を差し替えますので、ご予約の際にお知らせください。<br />
+      お子様連れでもお越しいただけます。お座敷のお席をご用意します。
+    </p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>お席のご予約を<br />承ります</h2>
+    <p class="sub">仕入れの都合がございますので、コースは前日までにご予約いただけると確実です。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">11:00–21:00（火曜定休）</p>
+    <div style="margin-top:24px"><a href="sample-restaurant-reserve.html" class="btn btn-p">ご予約フォームへ</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b disp">日本料理 花暦</div>
+    <p>〒950-0000 新潟県新潟市中央区○○1-2-3<br />TEL 025-000-0000／11:00–21:00（火曜定休）</p>
+    <nav class="fnav">
+      <a href="sample-restaurant.html">ホーム</a>
+      <a href="sample-restaurant-menu.html">お品書き</a>
+      <a href="sample-restaurant-about.html">店主・こだわり</a>
+      <a href="sample-restaurant-access.html">店内・アクセス</a>
+      <a href="sample-restaurant-reserve.html">ご予約</a>
+    </nav>
+    <div class="fbot">&copy; 2026 日本料理 花暦（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>

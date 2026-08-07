@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】料金｜さくら税理士事務所</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（士業・専門職向けデザイン）。料金表ページのデザイン例です。" />
+<meta name="theme-color" content="#12294d" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="料金｜士業のホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。金額を公開して相談の敷居を下げる、士業の料金ページのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-zeirishi-price.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-zeirishi.css" />
+<style>
+  .ptbl{width:100%;border-collapse:collapse;font-size:.93rem;max-width:860px;margin:0 auto}
+  .ptbl th,.ptbl td{border:1px solid var(--c-line);padding:15px 14px;text-align:center}
+  .ptbl thead th{background:var(--c-head);color:#fff;font-weight:700;font-size:.88rem}
+  .ptbl tbody th{background:var(--c-surface);text-align:left;font-weight:700;color:var(--c-ink)}
+  .ptbl td{font-family:var(--f-disp);font-size:1.06rem;color:var(--c-ink)}
+  .ptbl td small{display:block;font-family:var(--f-jp);font-size:.78rem;color:var(--c-sub);margin-top:3px}
+  .mgroup{max-width:860px;margin:0 auto 54px}
+  .mtitle{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+  .mtitle .en{font-family:var(--f-disp);font-size:1.4rem;letter-spacing:.2em;color:var(--c-acc)}
+  .mtitle h3{font-size:1.08rem;font-weight:900;color:var(--c-ink)}
+  .mnote{font-size:.86rem;color:var(--c-sub);margin-bottom:18px}
+  .policy{max-width:860px;margin:0 auto;background:var(--c-surface);border:1px solid var(--c-line);padding:32px 34px}
+  .policy h3{font-size:1.06rem;font-weight:900;color:var(--c-ink);margin-bottom:12px}
+  .policy p{font-size:.93rem;color:var(--c-ink2)}
+  .policy p+p{margin-top:12px}
+  @media(max-width:760px){.ptbl{font-size:.82rem}.ptbl th,.ptbl td{padding:10px 6px}}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する事務所ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-zeirishi.html" class="brand" aria-label="さくら税理士事務所 ホームへ">
+      <svg class="mk" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6c3 4 7 5 7 10a7 7 0 0 1-14 0c0-5 4-6 7-10z" fill="none" stroke="#b48a45" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 23v11M14 34h12" stroke="#12294d" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span>さくら税理士事務所<small>SAKURA TAX OFFICE</small></span>
+    </a>
+    <ul>
+      <li><a href="sample-zeirishi.html">ホーム</a></li>
+      <li><a href="sample-zeirishi-service.html">業務内容</a></li>
+      <li><a href="sample-zeirishi-price.html" aria-current="page">料金</a></li>
+      <li><a href="sample-zeirishi-office.html">事務所案内</a></li>
+      <li><a href="sample-zeirishi-contact.html">無料相談</a></li>
+    </ul>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-zeirishi.html">ホーム</a>
+  <a href="sample-zeirishi-service.html">業務内容</a>
+  <a href="sample-zeirishi-price.html">料金</a>
+  <a href="sample-zeirishi-office.html">事務所案内</a>
+  <a href="sample-zeirishi-contact.html">無料相談</a>
+  <a href="tel:0250000000" class="mtel disp">025-000-0000</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">Price</div>
+    <h1>料金</h1>
+    <p>「聞かないと分からない」を、なくしたいと思っています。目安をすべて公開しますので、他事務所と比べたうえでご検討ください。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-zeirishi.html">ホーム</a> ／ <span>料金</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Corporate</span><h3>法人の顧問料（月額）</h3></div>
+      <p class="mnote">年商と訪問回数で決まります。記帳をご自身で行う場合は、下記から2割引きになります。</p>
+      <table class="ptbl">
+        <thead><tr><th>年商</th><th>年1回訪問</th><th>年4回訪問</th><th>毎月訪問</th></tr></thead>
+        <tbody>
+          <tr><th>1,000万円未満</th><td>15,000円</td><td>20,000円</td><td>28,000円</td></tr>
+          <tr><th>1,000〜3,000万円</th><td>20,000円</td><td>25,000円</td><td>33,000円</td></tr>
+          <tr><th>3,000〜5,000万円</th><td>25,000円</td><td>30,000円</td><td>38,000円</td></tr>
+          <tr><th>5,000万〜1億円</th><td>30,000円</td><td>38,000円</td><td>45,000円</td></tr>
+          <tr><th>1億円以上</th><td colspan="3">ご相談のうえ決定します</td></tr>
+        </tbody>
+      </table>
+      <p class="mnote" style="margin-top:14px">※ 上記のほか、決算・申告料として顧問料の4〜6ヶ月分を申し受けます。</p>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Individual</span><h3>個人の確定申告</h3></div>
+      <table class="ptbl">
+        <thead><tr><th>内容</th><th>料金</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><th>白色申告</th><td>55,000円〜</td><td><small>売上規模により変動</small></td></tr>
+          <tr><th>青色申告（10万円控除）</th><td>77,000円〜</td><td><small>記帳代行を含む場合は+33,000円</small></td></tr>
+          <tr><th>青色申告（65万円控除）</th><td>110,000円〜</td><td><small>電子申告に対応</small></td></tr>
+          <tr><th>不動産所得のみ</th><td>66,000円〜</td><td><small>物件数により変動</small></td></tr>
+          <tr><th>譲渡所得（不動産売却など）</th><td>88,000円〜</td><td><small>1件あたり</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Inheritance</span><h3>相続税の申告</h3></div>
+      <p class="mnote">遺産総額に対する割合で計算します。土地が多い場合など、評価に手間がかかる場合は事前にお伝えします。</p>
+      <table class="ptbl">
+        <thead><tr><th>遺産総額</th><th>報酬</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><th>5,000万円未満</th><td>275,000円</td><td><small>基本料金</small></td></tr>
+          <tr><th>5,000万〜1億円</th><td>総額の0.7%</td><td><small>最低 385,000円</small></td></tr>
+          <tr><th>1億〜3億円</th><td>総額の0.6%</td><td><small>−</small></td></tr>
+          <tr><th>3億円以上</th><td>総額の0.5%</td><td><small>−</small></td></tr>
+        </tbody>
+      </table>
+      <p class="mnote" style="margin-top:14px">※ 相続人が複数の場合、2人目以降お1人につき10%を加算します。</p>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en">Spot</span><h3>スポットでのご依頼</h3></div>
+      <div class="list">
+        <div class="it"><div class="n">会社設立のサポート<small>司法書士報酬・登録免許税は別途</small></div><div class="p disp">55,000円</div></div>
+        <div class="it"><div class="n">年末調整<small>従業員5名まで。6名以上は1名 3,300円追加</small></div><div class="p disp">33,000円</div></div>
+        <div class="it"><div class="n">税務調査の立会い<small>1日あたり。顧問先は無料</small></div><div class="p disp">55,000円</div></div>
+        <div class="it"><div class="n">融資に使う資料の作成<small>事業計画・資金繰り表</small></div><div class="p disp">55,000円〜</div></div>
+        <div class="it"><div class="n">セカンドオピニオン<small>60分。今の申告内容を見てほしい方に</small></div><div class="p disp">22,000円</div></div>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:.88rem;color:var(--c-sub);margin-top:8px">表示はすべて税込です。</p>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="en disp">Policy</span>
+      <h2>料金についての考え方</h2>
+    </div>
+    <div class="policy rv">
+      <h3>後から増えることはありません</h3>
+      <p>ご契約前に、業務範囲と金額を書面でお出しします。範囲外の作業が必要になった場合は、着手前に金額をお伝えし、ご了承いただいてから進めます。黙って請求額が増えることはありません。</p>
+      <p>「思っていたより安い」と言われることも、「他より高い」と言われることもあります。どちらの場合も、なぜその金額なのかをご説明します。作業量に見合わないご依頼は、正直にそう申し上げます。</p>
+      <p>また、当事務所にお願いするほどではない、というケースもあります。事業規模が小さいうちは、ご自身で申告されたほうが合理的なこともあります。その場合はやり方をお伝えして、必要になったときにまたお越しいただければ十分です。</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>お見積りは無料です</h2>
+    <p class="sub">今の状況をうかがえば、その場でおおよその金額をお伝えできます。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">平日 9:00–18:00（土日祝休）</p>
+    <div style="margin-top:24px"><a href="sample-zeirishi-contact.html" class="btn btn-p">無料相談フォームへ</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b">さくら税理士事務所</div>
+    <p>〒950-0000 新潟県新潟市中央区○○1-2-3<br />TEL 025-000-0000／平日 9:00–18:00（土日祝休）</p>
+    <nav class="fnav">
+      <a href="sample-zeirishi.html">ホーム</a>
+      <a href="sample-zeirishi-service.html">業務内容</a>
+      <a href="sample-zeirishi-price.html">料金</a>
+      <a href="sample-zeirishi-office.html">事務所案内</a>
+      <a href="sample-zeirishi-contact.html">無料相談</a>
+    </nav>
+    <div class="fbot">&copy; 2026 さくら税理士事務所（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>

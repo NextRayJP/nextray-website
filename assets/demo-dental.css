@@ -1,0 +1,20 @@
+/* デモ「あおば歯科クリニック」テーマ。demo-base.css の後に読み込む */
+:root{
+  --c-bg:#ffffff; --c-surface:#eefaf9; --c-ink:#153a3d; --c-ink2:#3d6265; --c-sub:#6b878a;
+  --c-line:#daecec; --c-acc:#14b0a8; --c-acc-d:#0b8a84; --c-acc-l:#5fd4ce;
+  --c-head:#153a3d; --c-head-tx:#ffffff;
+  --radius:14px;
+  --f-disp:"Poppins",sans-serif;
+  --f-jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,sans-serif;
+}
+header{background:rgba(255,255,255,.95)}
+.brand{font-weight:900;letter-spacing:.02em}
+.nav .tel{border-radius:999px}
+.phero::after{content:"";position:absolute;right:-80px;bottom:-90px;width:320px;height:320px;background:rgba(20,176,168,.09);border-radius:50%}
+.phero .en{font-size:.8rem;letter-spacing:.24em;font-weight:600}
+.phero h1,.head h2,.card h3,.person h3,.step h3{font-weight:900}
+.head .en{font-size:.8rem;letter-spacing:.24em;font-weight:600}
+.filter button,.btn{border-radius:999px}
+.card,.pcard,.step,.faq details,.amap,.table{border-radius:14px}
+.table{overflow:hidden}
+footer .b{font-weight:900;letter-spacing:.04em}

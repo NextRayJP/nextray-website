@@ -1,0 +1,19 @@
+/* デモ「cafe & roastery KANATA」テーマ。demo-base.css の後に読み込む */
+:root{
+  --c-bg:#fbf7f0; --c-surface:#f5eee2; --c-ink:#4a3527; --c-ink2:#5c4636; --c-sub:#8b7864;
+  --c-line:#e3d6c3; --c-acc:#a8563a; --c-acc-d:#8a4530; --c-acc-l:#d9ab77;
+  --c-head:#2e1f16; --c-head-tx:#f5eee2;
+  --radius:0px;
+  --f-disp:"Josefin Sans",sans-serif;
+  --f-jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",YuMincho,"Noto Serif CJK JP",serif;
+}
+body{line-height:2}
+header{background:rgba(251,247,240,.95)}
+.brand{font-family:var(--f-disp);font-weight:400;letter-spacing:.24em}
+.phero{background:var(--c-surface)}
+.phero::after{content:"";position:absolute;right:-100px;bottom:-100px;width:300px;height:300px;border:1px solid var(--c-line);border-radius:50%}
+.phero .en{font-size:.8rem;letter-spacing:.42em}
+.head .en{font-size:1.85rem;font-weight:400}
+.head h2{font-weight:600}
+.card h3,.pcard .meta h3,.person h3,.step h3{font-weight:600}
+footer .b{font-family:var(--f-disp);letter-spacing:.24em;font-weight:400}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>【サンプル】メニュー｜cafe &amp; roastery KANATA</title>
+<meta name="robots" content="noindex" />
+<meta name="description" content="NextRayの制作サンプル（カフェ・小売店向けデザイン）。メニューページのデザイン例です。" />
+<meta name="theme-color" content="#2e1f16" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="メニュー｜カフェのホームページ制作サンプル｜NextRay" />
+<meta property="og:description" content="NextRayの制作サンプル。カフェのメニューページのデザイン例です。" />
+<meta property="og:url" content="https://nextray.jp/sample-cafe-menu.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:locale" content="ja_JP" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/demo-base.css" />
+<link rel="stylesheet" href="assets/demo-cafe.css" />
+<style>
+  .mgroup{max-width:760px;margin:0 auto 60px}
+  .mgroup:last-child{margin-bottom:0}
+  .mtitle{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+  .mtitle .en{font-family:var(--f-disp);font-size:1.5rem;letter-spacing:.2em;color:var(--c-acc)}
+  .mtitle h3{font-size:1.1rem;font-weight:600;color:var(--c-ink)}
+  .mnote{font-size:.86rem;color:var(--c-sub);margin-bottom:20px}
+  .season{background:var(--c-surface);border:1px solid var(--c-line);padding:34px 32px;max-width:760px;margin:0 auto}
+  .season .lb{font-family:var(--f-disp);font-size:.74rem;letter-spacing:.3em;color:var(--c-acc)}
+  .season h3{font-size:1.24rem;font-weight:600;color:var(--c-ink);margin:8px 0 12px}
+  .season p{font-size:.93rem}
+</style>
+</head>
+<body>
+
+<div class="demobar">これは <strong>NextRay</strong> の<strong>制作サンプル</strong>です。実在する店舗ではありません。 <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRayのサイトを見る</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="sample-cafe.html" class="brand">KANATA<small>CAFE &amp; ROASTERY</small></a>
+    <ul>
+      <li><a href="sample-cafe.html">ホーム</a></li>
+      <li><a href="sample-cafe-menu.html" aria-current="page">メニュー</a></li>
+      <li><a href="sample-cafe-beans.html">取り扱いの豆</a></li>
+      <li><a href="sample-cafe-about.html">お店について</a></li>
+      <li><a href="sample-cafe-order.html">豆のご注文</a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mnav" id="mn" aria-label="モバイルメニュー">
+  <button class="mclose" id="mc" aria-label="閉じる">&times;</button>
+  <a href="sample-cafe.html">ホーム</a>
+  <a href="sample-cafe-menu.html">メニュー</a>
+  <a href="sample-cafe-beans.html">取り扱いの豆</a>
+  <a href="sample-cafe-about.html">お店について</a>
+  <a href="sample-cafe-order.html">豆のご注文</a>
+</nav>
+
+<section class="phero">
+  <div class="wrap">
+    <div class="en disp">MENU</div>
+    <h1>メニュー</h1>
+    <p>コーヒーは注文をいただいてから一杯ずつ淹れています。豆は店内の焙煎機で焼いたものだけを使い、季節によって少しずつ入れ替わります。</p>
+  </div>
+</section>
+
+<nav class="crumb" aria-label="パンくずリスト">
+  <div class="wrap"><a href="sample-cafe.html">ホーム</a> ／ <span>メニュー</span></div>
+</nav>
+
+<section>
+  <div class="wrap">
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en disp">Coffee</span><h3>コーヒー</h3></div>
+      <p class="mnote">HOT / ICE 同価格です。豆はその日のおすすめから選べます。</p>
+      <div class="list">
+        <div class="it"><div class="n">本日のコーヒー<small>浅煎り・深煎りからお選びいただけます</small></div><div class="p disp">¥520</div></div>
+        <div class="it"><div class="n">シングルオリジン<small>その日の3種から。テイスティングノートつき</small></div><div class="p disp">¥620</div></div>
+        <div class="it"><div class="n">カフェラテ<small>深煎りのブレンドで、ミルクに負けない味に</small></div><div class="p disp">¥580</div></div>
+        <div class="it"><div class="n">カプチーノ</div><div class="p disp">¥580</div></div>
+        <div class="it"><div class="n">エスプレッソ<small>ダブルショット</small></div><div class="p disp">¥420</div></div>
+        <div class="it"><div class="n">水出しアイスコーヒー<small>18時間かけて抽出しています</small></div><div class="p disp">¥600</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en disp">Other Drinks</span><h3>その他のドリンク</h3></div>
+      <div class="list">
+        <div class="it"><div class="n">紅茶<small>ダージリン／アールグレイ／ハーブ</small></div><div class="p disp">¥520</div></div>
+        <div class="it"><div class="n">チャイ<small>スパイスから煮出しています</small></div><div class="p disp">¥600</div></div>
+        <div class="it"><div class="n">自家製レモネード<small>HOT / ICE</small></div><div class="p disp">¥580</div></div>
+        <div class="it"><div class="n">季節のフルーツソーダ</div><div class="p disp">¥620</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en disp">Food</span><h3>フード</h3></div>
+      <p class="mnote">ランチは11:30〜14:00。売り切れの際はご容赦ください。</p>
+      <div class="list">
+        <div class="it"><div class="n">本日のキッシュプレート<small>サラダ・スープつき</small></div><div class="p disp">¥1,180</div></div>
+        <div class="it"><div class="n">厚切りトーストセット<small>近所のパン屋さんの食パンを使っています</small></div><div class="p disp">¥780</div></div>
+        <div class="it"><div class="n">自家製グラノーラ<small>ヨーグルト・季節の果物添え</small></div><div class="p disp">¥720</div></div>
+        <div class="it"><div class="n">ベイクドチーズケーキ</div><div class="p disp">¥520</div></div>
+        <div class="it"><div class="n">ガトーショコラ<small>カカオ70%。深煎りのコーヒーと</small></div><div class="p disp">¥540</div></div>
+        <div class="it"><div class="n">本日の焼き菓子<small>スコーン／クッキー／パウンドなど</small></div><div class="p disp">¥320〜</div></div>
+      </div>
+    </div>
+
+    <div class="mgroup rv">
+      <div class="mtitle"><span class="en disp">Set</span><h3>セット</h3></div>
+      <div class="list">
+        <div class="it"><div class="n">ドリンク＋焼き菓子<small>お好きな組み合わせで</small></div><div class="p disp">−¥100</div></div>
+        <div class="it"><div class="n">ランチ＋ドリンク<small>キッシュプレートまたはトーストセットに</small></div><div class="p disp">−¥150</div></div>
+      </div>
+      <p class="mnote" style="margin-top:16px">表示はすべて税込です。店内でお召し上がりの場合も同じ価格です。</p>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="wrap">
+    <div class="season rv">
+      <div class="lb disp">THIS SEASON</div>
+      <h3>今月の一杯：エチオピア ナチュラル</h3>
+      <p>果実をつけたまま乾燥させた豆です。冷めるにつれて、いちごのような甘い香りが立ちあがってきます。飲み比べていただけるよう、8月いっぱいはシングルオリジンの1種としてご用意しています。</p>
+      <div style="margin-top:22px"><a href="sample-cafe-beans.html" class="btn btn-o">取り扱いの豆を見る</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>お気に入りの一杯を、<br />おうちでも。</h2>
+    <p class="sub">店頭でお出ししている豆は、そのままお持ち帰りいただけます。ご注文をいただいてから焙煎します。</p>
+    <a href="tel:0250000000" class="tel disp">025-000-0000</a>
+    <p class="hrs">9:00–18:00（水曜定休）</p>
+    <div style="margin-top:24px"><a href="sample-cafe-order.html" class="btn btn-p">豆のご注文はこちら</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="b disp">KANATA</div>
+    <p>〒950-0000 新潟県新潟市西蒲区○○1-2-3<br />TEL 025-000-0000／9:00–18:00（水曜定休）</p>
+    <nav class="fnav">
+      <a href="sample-cafe.html">ホーム</a>
+      <a href="sample-cafe-menu.html">メニュー</a>
+      <a href="sample-cafe-beans.html">取り扱いの豆</a>
+      <a href="sample-cafe-about.html">お店について</a>
+      <a href="sample-cafe-order.html">豆のご注文</a>
+    </nav>
+    <div class="fbot">&copy; 2026 cafe &amp; roastery KANATA（サンプルサイト）｜ Designed by <a href="https://nextray.jp/" target="_blank" rel="noopener">NextRay</a></div>
+  </div>
+</footer>
+
+<script src="assets/demo.js"></script>
+</body>
+</html>
