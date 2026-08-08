@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>404ページとファビコン｜信用に効く細部の話｜NextRay</title>
+<meta name="description" content="404ページとファビコンは、無くてもサイトは動きます。それでも当社が必ず設置する理由を解説します。リンク切れで素のエラー画面が出るサイトの印象、5分でできる自分のサイトの確認方法、簡単な作り方まで。" />
+<meta name="keywords" content="404ページ とは,ファビコン とは,favicon 設定,404 エラーページ 作り方,ホームページ 細部,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-404-favicon.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="404ページとファビコン｜誰も見ていないようで、信用に効く細部" />
+<meta property="og:description" content="無くてもサイトは動く。それでも当社が必ず設置する理由と、5分でできる自分のサイトの確認方法。" />
+<meta property="og:url" content="https://nextray.jp/blog-404-favicon.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="404ページとファビコン｜誰も見ていないようで、信用に効く細部" />
+<meta name="twitter:description" content="無くてもサイトは動く。それでも当社が必ず設置する理由と、5分でできる自分のサイトの確認方法。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "404ページとファビコン｜誰も見ていないようで、信用に効く細部",
+  "description": "404ページとファビコンは、無くてもサイトは動きます。それでも当社が必ず設置する理由と、リンク切れで素のエラー画面が出るサイトの印象、5分でできる自分のサイトの確認方法を解説します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-404-favicon.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "404ページを作ると検索順位は上がりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "直接順位を上げる効果はないとされています。404ページの価値は順位ではなく、行き止まりに来てしまった訪問者を逃がさないことにあります。エラー画面で閉じられるはずだった訪問者が、トップページやメニューに戻ってくれれば、それが実利です。" } },
+    { "@type": "Question", "name": "ファビコンはどうやって作ればよいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "ロゴやマークを正方形に切り出したPNG画像を1枚用意すれば十分です。小さく表示されるものなので、文字の多いロゴはマーク部分だけを切り出す方がきれいに見えます。画像ができたら、HTMLのhead内にlinkタグを1行書くだけで表示されます。" } },
+    { "@type": "Question", "name": "自分のサイトに404ページがあるか、どうやって確認できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "自分のサイトのURLの後ろに、存在しないページ名（例：/aaa）を付けて開いてみてください。サイトと同じデザインの案内ページが出れば設置済みです。真っ白な画面に英語のエラー文だけが出るなら、未設置の状態です。5分もかからず確認できます。" } },
+    { "@type": "Question", "name": "リンク切れはどうやって見つければよいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "ページ数が少なければ、全ページのリンクを実際にクリックして回るのが確実です。ページ数が多い場合は、無料のリンク切れチェックツールにURLを入れると機械的に洗い出せます。外部サイトへのリンクは相手の都合で切れるため、公開時だけでなく定期的な確認をおすすめします。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "404ページとファビコン｜誰も見ていないようで、信用に効く細部", "item": "https://nextray.jp/blog-404-favicon.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ 404ページとファビコン</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">制作の裏側</span></div>
+      <h1>404ページとファビコン｜<span class="grad-text">誰も見ていないようで、信用に効く細部</span></h1>
+      <p class="summary">404ページとファビコン。どちらも<b>無くてもホームページは動きます</b>。だからこそ後回しにされ、無いまま公開されているサイトが少なくありません。この記事では、この2つが何なのか、なぜ当社は必ず設置するのかを説明したうえで、<b>ご自分のサイトに有るかどうかを5分で確かめる方法</b>まで書きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#404toha">404ページとは何か</a></li>
+        <li><a href="#inshou">素のエラー画面が与える印象</a></li>
+        <li><a href="#favicon">ファビコンとは何か</a></li>
+        <li><a href="#naze">なぜ当社は必ず設置するのか</a></li>
+        <li><a href="#kakunin">5分でできる、自分のサイトの確認方法</a></li>
+        <li><a href="#tsukurikata">無かった場合の作り方</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="404toha">404ページとは何か</h2>
+      <p>存在しないページを開こうとしたときに表示される案内ページです。「404」は「見つかりませんでした」を意味する番号で、たとえば次のような場面で表示されます。</p>
+      <ul>
+        <li>ページを削除・移動したのに、古いリンクがどこかに残っていたとき</li>
+        <li>他のサイトやSNSに貼られたリンクのURLが、1文字間違っていたとき</li>
+        <li>訪問者がURLを手打ちして、打ち間違えたとき</li>
+      </ul>
+      <p>つまり404ページが表示されるのは、多くの場合<b>サイト側ではなくリンク側の事情</b>です。どれだけ丁寧にサイトを作っても、外部に貼られたリンクまでは管理できないので、<b>行き止まりに来てしまう訪問者をゼロにすることはできません</b>。問題は、そのときに何を見せるかです。</p>
+
+      <h2 id="inshou">素のエラー画面が与える印象</h2>
+      <p>404ページを用意していないサイトでは、サーバーが出す<b>素のエラー画面</b>——白い背景に「404 Not Found」と英語のエラー文だけが表示される画面——が出ます。</p>
+      <p>この画面を見た訪問者がどう感じるかを、想像してみてください。サイトの名前もロゴも無く、戻るための入り口もありません。多くの方は「壊れているのかな」「もうやっていないのかな」と感じて、<b>ブラウザを閉じるか、検索結果に戻って別の店を探します</b>。</p>
+      <p>実店舗にたとえるなら、間違えて裏口に来てしまったお客様に、案内板ひとつ出していない状態です。「正面入口はこちらです」と書いた紙が1枚あるだけで、お客様は店内に入れます。404ページは、その案内板にあたります。</p>
+      <p>逆に、サイトと同じデザインで「お探しのページは見つかりませんでした。トップページはこちらです」と案内が出れば、訪問者は迷子のままサイトの中に戻ってこられます。<b>失敗をお客様との接点に変える、数少ない仕掛け</b>です。</p>
+
+      <h2 id="favicon">ファビコンとは何か</h2>
+      <p>ブラウザのタブや、スマートフォンのブックマークに表示される<b>小さなアイコン</b>のことです。いまこのページを開いているタブにも、当社のマークが表示されているはずです。</p>
+      <p>設定していないサイトでは、タブに地球儀や白紙のマークが表示されます。それだけのことなのですが、効いてくる場面が2つあります。</p>
+      <ul>
+        <li><b>タブを何枚も開いて比較されているとき。</b>訪問者は候補の会社を複数タブで開いて見比べます。このときアイコンが無いサイトは、タブの並びの中で「どれだったか」を思い出してもらえません</li>
+        <li><b>ブックマークされたとき。</b>スマートフォンのホーム画面やブックマーク一覧で、アイコンの無いサイトは埋もれます</li>
+      </ul>
+      <p>ファビコンは、いわば<b>タブの中の看板</b>です。数十ピクセルの画像1枚ですが、有るか無いかは、並べられたときにはっきり差が出ます。</p>
+
+      <h2 id="naze">なぜ当社は必ず設置するのか</h2>
+      <p>当社のサイト（nextray.jp）にも、404ページとファビコンの両方を設置しています。理由は単純で、<b>この2つは「見る人がほとんどいない場所ほど、見られたときの効きが大きい」</b>と考えているからです。</p>
+      <p>トップページがきれいなのは、いまや当たり前です。差が出るのは、誰も見ていないと思われている場所——エラー画面や、タブの隅——まで手が回っているかどうかです。訪問者は意識してそれを評価するわけではありませんが、<b>「隅々まで管理が行き届いているか」の印象は、こうした細部の積み重ね</b>から生まれると考えています。</p>
+      <p>もうひとつ、実務的な理由もあります。404ページもファビコンも、<b>一度作ればその後の手間がゼロ</b>です。制作時に1時間かけるだけで、サイトが続く限り働き続けてくれます。費用対効果の面で、やらない理由が見当たりません。</p>
+
+      <h2 id="kakunin">5分でできる、自分のサイトの確認方法</h2>
+      <p>ご自分のサイトに、この2つが有るかどうか。次の手順で確かめられます。</p>
+      <ul class="checklist">
+        <li><b>404ページの確認</b>——自分のサイトのURLの後ろに、存在しないページ名を付けて開く（例：自社サイト.jp/aaa）。サイトと同じデザインの案内ページが出れば設置済み。白い画面に英語のエラー文だけなら未設置</li>
+        <li><b>ファビコンの確認</b>——パソコンのブラウザで自分のサイトを開き、タブの左端を見る。自社のマークが出ていれば設置済み。地球儀や白紙のマークなら未設置</li>
+        <li><b>ついでにリンク切れも確認</b>——主要なページのリンクをいくつかクリックして回り、404ページ（または素のエラー画面）に落ちるリンクがないかを見る</li>
+      </ul>
+      <p>本当に5分で終わります。もし外部のサイトに間違ったURLのリンクが貼られていないか気になる場合は、<a href="blog-search-console.html">Googleサーチコンソール</a>を使うと、訪問者がどのページでエラーに遭っているかを確かめられます。</p>
+
+      <h2 id="tsukurikata">無かった場合の作り方</h2>
+      <p>どちらも、大がかりな作業ではありません。</p>
+      <h3>404ページ</h3>
+      <p>最低限、次の3つが入った1ページを作れば十分です。</p>
+      <ul>
+        <li>「お探しのページは見つかりませんでした」という<b>日本語の</b>案内文</li>
+        <li>トップページへ戻るリンク</li>
+        <li>サイトと同じヘッダー・デザイン（訪問者に「サイトの中にいる」と分かってもらうため）</li>
+      </ul>
+      <p>ページを作ったら、存在しないURLが開かれたときにそのページを表示するよう、サーバー側の設定を1行加えます。設定方法はお使いのサーバーによって異なるので、「お使いのサーバー名＋404ページ」で検索するか、制作会社に依頼してください。</p>
+      <h3>ファビコン</h3>
+      <p>ロゴやマークを<b>正方形に切り出したPNG画像</b>を1枚用意し、HTMLに1行追記するだけです。小さく表示されるものなので、社名の文字まで入れると潰れます。<b>マーク部分だけ</b>を切り出すのがきれいに見せるコツです。</p>
+      <p>すでに制作会社と契約している方は、「404ページとファビコンをお願いします」と伝えれば通じます。<b>この記事を見せていただいても構いません。</b>どちらも小さな作業なので、大きな追加費用がかかる性質のものではないはずです（契約内容によりますので、費用は依頼先にご確認ください）。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>404ページを作ると検索順位は上がりますか？</summary>
+          <div class="faq-body">
+            <p>直接順位を上げる効果はないとされています。404ページの価値は順位ではなく、行き止まりに来てしまった訪問者を逃がさないことにあります。エラー画面で閉じられるはずだった訪問者が、トップページやメニューに戻ってくれれば、それが実利です。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>ファビコンはどうやって作ればよいですか？</summary>
+          <div class="faq-body">
+            <p>ロゴやマークを正方形に切り出したPNG画像を1枚用意すれば十分です。小さく表示されるものなので、文字の多いロゴはマーク部分だけを切り出す方がきれいに見えます。画像ができたら、HTMLのhead内にlinkタグを1行書くだけで表示されます。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>自分のサイトに404ページがあるか、どうやって確認できますか？</summary>
+          <div class="faq-body">
+            <p>自分のサイトのURLの後ろに、存在しないページ名（例：/aaa）を付けて開いてみてください。サイトと同じデザインの案内ページが出れば設置済みです。真っ白な画面に英語のエラー文だけが出るなら、未設置の状態です。5分もかからず確認できます。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>リンク切れはどうやって見つければよいですか？</summary>
+          <div class="faq-body">
+            <p>ページ数が少なければ、全ページのリンクを実際にクリックして回るのが確実です。ページ数が多い場合は、無料のリンク切れチェックツールにURLを入れると機械的に洗い出せます。外部サイトへのリンクは相手の都合で切れるため、公開時だけでなく定期的な確認をおすすめします。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>404ページ</b>——行き止まりに来た訪問者への案内板。無いと、素のエラー画面で閉じられる</li>
+        <li><b>ファビコン</b>——タブの中の看板。比較されるとき、ブックマークされるときに効く</li>
+        <li><b>どちらも無くても動く</b>——だから差がつく。細部まで手が回っているかの表れになる</li>
+        <li><b>確認は5分</b>——存在しないURLを開く、タブの左端を見る。この2つだけ</li>
+        <li><b>一度作れば手間はゼロ</b>——制作時の1時間が、サイトが続く限り働き続ける</li>
+      </ul>
+      <p>大きな効果を約束できる話ではありません。404ページを付けたから売上が伸びる、という性質のものではないからです。それでも、<b>訪問者に嫌な思いをさせる場面をひとつ減らせることは確か</b>です。まずはご自分のサイトで、5分の確認から試してみてください。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>確認してみたら無かった——という方のご相談も歓迎です</h3>
+      <p>ご自分のサイトを確認して「404ページが無かった」「ファビコンが出ていない」という場合、どう依頼すればよいか、自分で直すなら何をすればよいかをお伝えします。ご依頼いただかなくても費用はかかりません。いまの制作会社さんに頼めば済む内容であれば、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-precheck.html">
+        <span class="stag">COLUMN</span>
+        <h3>ホームページ公開前チェックリスト</h3>
+        <p>404ページとファビコンの確認も含む、当社が公開ボタンを押す前に確かめている項目の全リスト。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-search-console.html">
+        <span class="stag">COLUMN</span>
+        <h3>Googleサーチコンソールの登録と見方</h3>
+        <p>訪問者がどのページでエラーに遭っているかも分かる、Google公式の無料ツールの使い方。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。404ページもファビコンも、当社の制作では標準で設置します。</p>
+        <span class="slink">ホームページ制作の詳細を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

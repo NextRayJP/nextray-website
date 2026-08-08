@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>CMSが無いサイトは更新が大変？｜更新代行の仕組み｜NextRay</title>
+<meta name="description" content="WordPressのような管理画面（CMS）が無いホームページは、更新が大変ではないのか。当社が静的HTMLで作り、月額制の更新代行で運用している仕組みを、セキュリティ上の利点と「向かない業態」まで含めて正直に説明します。" />
+<meta name="keywords" content="静的HTML 更新,CMSなし ホームページ,ホームページ 更新代行,WordPress 使わない 更新,ホームページ サブスク,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-static-update.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="CMSが無いサイトは更新が大変？｜月額制で更新代行が成立する仕組み" />
+<meta property="og:description" content="管理画面が無いホームページの更新はどう回るのか。当社の月額制の仕組みを、利点と「向かない業態」まで正直に。" />
+<meta property="og:url" content="https://nextray.jp/blog-static-update.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CMSが無いサイトは更新が大変？｜月額制で更新代行が成立する仕組み" />
+<meta name="twitter:description" content="管理画面が無いホームページの更新はどう回るのか。当社の月額制の仕組みを、利点と「向かない業態」まで正直に。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CMSが無いサイトは更新が大変？｜月額制で更新代行が成立する仕組み",
+  "description": "WordPressのような管理画面（CMS）が無いホームページは、更新が大変ではないのか。当社が静的HTMLで作り、月額制の更新代行で運用している仕組みを、セキュリティ上の利点と「向かない業態」まで含めて説明します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-static-update.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "更新はどうやって頼めばよいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "変えたい内容を、メールやメッセージで文章のまま送っていただくだけです。「営業時間を◯時までに変えてください」「この写真を差し替えてください」という一文で伝わります。管理画面の操作を覚えていただく必要はありません。" } },
+    { "@type": "Question", "name": "管理画面が無いと、セキュリティ面で何が違うのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "管理画面はログインの入口なので、そこを狙った攻撃を受け続けます。WordPressのようなCMSでは、本体やプラグインの弱点が日々見つかるため、更新作業を怠ると乗っ取りや改ざんの危険が高まります。管理画面もデータベースも無い静的HTMLのサイトには、この攻撃の入口そのものがありません。" } },
+    { "@type": "Question", "name": "自分で毎日ブログを書きたいのですが、向いていますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "正直に申し上げると、向いていません。毎日ご自分の手で記事を足していく使い方なら、管理画面のあるCMSやブログサービスの方が適しています。当社のお客様でも、日々の発信はSNSやブログサービスで行い、ホームページは「事業の顔」として使い分ける形をおすすめすることがあります。" } },
+    { "@type": "Question", "name": "静的HTMLで作ると、あとで別の会社に引き継げますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "引き継げます。HTMLとCSSはウェブの最も基本的な形式で、特定の会社しか扱えない仕組みではありません。むしろ特殊なツールで作られたサイトより、他の制作者が中身を読める分、引き継ぎやすいと言えます。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "CMSが無いサイトは更新が大変？｜月額制で更新代行が成立する仕組み", "item": "https://nextray.jp/blog-static-update.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ CMSが無いサイトは更新が大変？</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">ホームページ制作</span></div>
+      <h1>CMSが無いサイトは更新が大変？｜<span class="grad-text">月額制で更新代行が成立する仕組み</span></h1>
+      <p class="summary">当社は、WordPressのような管理画面（CMS）を使わず、<b>HTMLとCSSを直接書いて</b>ホームページを作っています。そう説明すると、必ずいただく質問があります。<b>「管理画面が無いと、更新はどうするんですか？」</b>——もっともな疑問です。この記事では、当社の月額制の更新の仕組みと、管理画面が無いことのセキュリティ上の利点を説明します。あわせて、<b>この作り方が向かない業態</b>についても正直に書きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#cms">CMSとは何か——管理画面のこと</a></li>
+        <li><a href="#gimon">「管理画面が無いと更新できない」は本当か</a></li>
+        <li><a href="#shikumi">当社の更新の仕組み——連絡だけで完結する</a></li>
+        <li><a href="#security">管理画面が無いことの、セキュリティ上の利点</a></li>
+        <li><a href="#koushin-gimu">「更新し続ける義務」からの解放</a></li>
+        <li><a href="#mukanai">正直に書きます——向かない業態</a></li>
+        <li><a href="#kangae">どちらが正しいではなく、どちらが合うか</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="cms">CMSとは何か——管理画面のこと</h2>
+      <p>CMS（コンテンツ管理システム）とは、ざっくり言えば<b>ホームページに付いてくる管理画面</b>のことです。代表格がWordPressで、ブラウザからログインすると、専門知識がなくても文章や写真を差し替えられます。</p>
+      <p>一方、当社が作るのは<b>静的HTML</b>のサイトです。管理画面もデータベースも無く、HTMLというウェブの最も基本的なファイルだけでできています。表示が速く、壊れにくい作り方ですが、<b>更新するにはファイルを直接書き換える必要があります</b>。</p>
+      <p>「それでは不便では？」——ここからが本題です。</p>
+
+      <h2 id="gimon">「管理画面が無いと更新できない」は本当か</h2>
+      <p>管理画面の価値は「<b>お客様ご自身で</b>更新できること」にあります。裏を返すと、こういう前提が隠れています。</p>
+      <ul>
+        <li>お客様が、管理画面の操作を覚える</li>
+        <li>お客様が、本業の合間に更新作業の時間を取る</li>
+        <li>レイアウトが崩れたら、お客様が自分で直す</li>
+      </ul>
+      <p>実際には、この前提が成り立たないことが少なくありません。管理画面付きのサイトを持ちながら、<b>「操作が分からなくなって、何年も更新していない」</b>という中小企業・店舗の方に、当社は何度もお会いしてきました。管理画面は、使われて初めて価値が出ます。使われない管理画面は、後述するとおり、むしろ危険を抱え込むだけの存在になります。</p>
+      <p>つまり本当の問いは「管理画面が有るか無いか」ではなく、<b>「誰が更新作業をするのか」</b>です。</p>
+
+      <h2 id="shikumi">当社の更新の仕組み——連絡だけで完結する</h2>
+      <p>当社のホームページ制作は、初期費用0円・<b>月額29,800円</b>のサブスクリプション型です。この月額の中に、更新の対応が含まれています。</p>
+      <p>お客様がすることは、ひとつだけです。</p>
+      <div class="callout">
+        <p><strong>変えたい内容を、当社に連絡する。それだけです。</strong></p>
+        <p>「営業時間を19時までに変えてください」「年末年始の休みを載せてください」「この写真に差し替えてください」——メールやメッセージで一文送っていただければ、書き換えは当社が行います。<b>管理画面にログインすることも、操作を覚えることも、一切ありません。</b></p>
+      </div>
+      <p>「更新のたびに業者へ連絡するなんて面倒では」と思われるかもしれません。ですが考えてみてください。管理画面を開き、ログインし、該当ページを探し、書き換えて、崩れていないか確認する——この一連の作業と、<b>メールを一通送ること</b>。どちらが早いでしょうか。操作を覚える手間まで含めれば、多くの方にとって連絡する方が速い、というのが当社の考えです。</p>
+      <p>当社がホームページ制作の受付を<a href="limited.html">50案件まで</a>に制限しているのは、この更新対応の質を保つためでもあります。件数を絞っているからこそ、一件一件の連絡に確実に対応できます。</p>
+
+      <h2 id="security">管理画面が無いことの、セキュリティ上の利点</h2>
+      <p>更新の話と同じくらいお伝えしたいのが、この点です。</p>
+      <p>管理画面とは、<b>ログインの入口</b>です。入口がある限り、そこを狙う攻撃が来ます。WordPressは世界で最も使われているCMSであるがゆえに、最も攻撃されているCMSでもあります。本体や、機能を追加するプラグインの弱点（脆弱性）が日々発見されており、発見されるたびに修正版への更新が必要になります。</p>
+      <p>ここで先ほどの「使われない管理画面」の話がつながります。<b>更新されないまま放置されたWordPressは、鍵のかけ方が古いまま放置された勝手口</b>のようなものです。乗っ取られたサイトが迷惑メールの発信源にされたり、改ざんされて訪問者に有害なページを見せたりする被害は、珍しい話ではありません。</p>
+      <p>静的HTMLのサイトには、<b>この勝手口そのものがありません</b>。ログイン画面も、データベースも、プラグインも無いので、それらを狙った攻撃が原理的に成立しないのです。攻撃されない仕組みを頑張って守るのではなく、<b>攻撃される部品を最初から持たない</b>。これが当社の作り方です。</p>
+
+      <h2 id="koushin-gimu">「更新し続ける義務」からの解放</h2>
+      <p>見落とされがちですが、CMSで作ったサイトには<b>「本体とプラグインを更新し続ける義務」</b>が付いてきます。これはお店の情報の更新とは別の、純粋に保守のための作業です。</p>
+      <p>やらなければ危険が積み上がり、やればやったで「更新したらレイアウトが崩れた」「プラグイン同士がぶつかって動かなくなった」という事故が起こり得ます。この保守作業を誰がやるのか——お客様か、保守費を払って業者か——は、CMSでサイトを持つ限りついて回る問いです。</p>
+      <p>静的HTMLには、この義務がそもそも存在しません。<b>昨日まで動いていたサイトが、何もしていないのに今日壊れる、ということが起こらない</b>作りだからです。当社が月額制で多くのサイトをお預かりできるのは、実はこの性質に支えられています。壊れる要素が少ないから、当社の手が更新対応に集中できる。<b>静的HTMLと月額の更新代行は、セットで初めて成立する設計</b>なのです。</p>
+
+      <h2 id="mukanai">正直に書きます——向かない業態</h2>
+      <p>ここまで利点を書いてきたので、逆も書きます。<b>この作り方が向かないお客様は、はっきり存在します。</b></p>
+      <ul>
+        <li><b>毎日、ご自分の手で更新したい方。</b>日替わりメニュー、入荷情報、日々のブログなど、思い立った瞬間に自分で書いて出したい使い方には、当社の「連絡して更新」の仕組みは向きません。更新のテンポに当社が挟まる分、どうしてもタイムラグが生まれます</li>
+        <li><b>記事を大量に蓄積していくメディア運営。</b>数百本の記事を組織的に投稿・分類していくサイトは、CMSの得意分野です</li>
+        <li><b>在庫や価格が毎日動く通販サイト。</b>そもそも専用の仕組みが必要な領域で、静的HTMLの守備範囲ではありません</li>
+      </ul>
+      <p>このような使い方をお考えの方には、初回のご相談の段階でその旨をお伝えしています。なお「日々の発信はしたいが、毎日サイトを書き換えるほどではない」という方には、<b>日々の発信はSNSやブログサービスで行い、ホームページは事業の顔として構える</b>使い分けをご提案することもあります。当社自身も、この形で運用しています。</p>
+
+      <h2 id="kangae">どちらが正しいではなく、どちらが合うか</h2>
+      <p>WordPressが悪い、という話ではありません。世界の膨大なサイトを支えている、実績のある仕組みです。当社が<a href="blog-no-wordpress.html">WordPressを使わない理由</a>は別の記事に詳しく書きましたが、要は<b>「新潟の中小企業・店舗の、更新頻度がそれほど高くないサイト」に絞れば、静的HTML＋更新代行の方が、速さ・安全・手間の総和で有利</b>だと判断している、ということです。</p>
+      <p>更新の頻度が月に数回まで——多くの会社案内・店舗サイトはここに収まります——なら、管理画面を持つ理由はほとんどありません。毎日更新するなら、CMSやブログサービスを選ぶべきです。<b>ご自分のサイトの更新が実際どのくらいの頻度か</b>を数えてみることが、いちばん確かな判断材料になります。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>更新はどうやって頼めばよいですか？</summary>
+          <div class="faq-body">
+            <p>変えたい内容を、メールやメッセージで文章のまま送っていただくだけです。「営業時間を◯時までに変えてください」「この写真を差し替えてください」という一文で伝わります。管理画面の操作を覚えていただく必要はありません。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>管理画面が無いと、セキュリティ面で何が違うのですか？</summary>
+          <div class="faq-body">
+            <p>管理画面はログインの入口なので、そこを狙った攻撃を受け続けます。WordPressのようなCMSでは、本体やプラグインの弱点が日々見つかるため、更新作業を怠ると乗っ取りや改ざんの危険が高まります。管理画面もデータベースも無い静的HTMLのサイトには、この攻撃の入口そのものがありません。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>自分で毎日ブログを書きたいのですが、向いていますか？</summary>
+          <div class="faq-body">
+            <p>正直に申し上げると、向いていません。毎日ご自分の手で記事を足していく使い方なら、管理画面のあるCMSやブログサービスの方が適しています。当社のお客様でも、日々の発信はSNSやブログサービスで行い、ホームページは「事業の顔」として使い分ける形をおすすめすることがあります。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>静的HTMLで作ると、あとで別の会社に引き継げますか？</summary>
+          <div class="faq-body">
+            <p>引き継げます。HTMLとCSSはウェブの最も基本的な形式で、特定の会社しか扱えない仕組みではありません。むしろ特殊なツールで作られたサイトより、他の制作者が中身を読める分、引き継ぎやすいと言えます。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>本当の問いは「誰が更新するか」</b>——管理画面は、使われなければ価値が出ない</li>
+        <li><b>当社の答えは「連絡だけで完結」</b>——月額29,800円の中で、書き換えは当社が行う</li>
+        <li><b>管理画面が無い＝攻撃の入口が無い</b>——守るのではなく、狙われる部品を持たない</li>
+        <li><b>保守のための更新義務も無い</b>——何もしていないのに壊れる、が起こらない作り</li>
+        <li><b>毎日自分で更新したい方には向かない</b>——その場合はCMSやブログサービスをおすすめします</li>
+      </ul>
+      <p>ホームページの作り方に、万能の正解はありません。あるのは、<b>その事業の更新頻度と手間のかけ方に合うかどうか</b>だけです。ご自分のサイトが月に何回更新されているか——まずはそこを数えるところから始めてみてください。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>「うちの場合はどちらが合うのか」——というご相談も歓迎です</h3>
+      <p>いまのサイトの更新頻度と使い方を伺えれば、静的HTMLと管理画面型のどちらが合うか、率直な意見をお伝えします。ご依頼いただかなくても費用はかかりません。伺った結果、いまのWordPressのまま運用を整える方がよいと判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-no-wordpress.html">
+        <span class="stag">COLUMN</span>
+        <h3>WordPressを使わないホームページ制作</h3>
+        <p>なぜ静的HTMLで作るのか。速さ・安全性の根拠と、正直な弱点まで書いた本記事の姉妹編。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-hp-cost.html">
+        <span class="stag">COLUMN</span>
+        <h3>ホームページの費用相場</h3>
+        <p>初期費用型と月額型は何が違うのか。費用の構造から見た、サブスク型の位置づけ。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。この記事で説明した更新の仕組みは、このプランの中身です。</p>
+        <span class="slink">ホームページ制作の詳細を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

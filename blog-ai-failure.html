@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>AI活用の失敗談｜先回りした自動化は捨てる｜NextRay</title>
+<meta name="description" content="先回りして作ったAIエージェント5本を、使われないまま全部削除しました。原因は機能不足ではなく「呼ぶ判断のコスト」。失敗の経緯と、そこから得た「自動化は痛みが出てから作る」という原則を、実録としてそのまま書きます。" />
+<meta name="keywords" content="AI活用 失敗例,AI 自動化 失敗,AIエージェント 使われない,中小企業 AI導入 注意点,新潟 AI自動化" />
+<link rel="canonical" href="https://nextray.jp/blog-ai-failure.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="AI活用の失敗談｜先回りして作った自動化は、ほぼ捨てることになる" />
+<meta property="og:description" content="AIエージェント5本を使われないまま削除した実録。原因は機能不足ではなく「呼ぶ判断のコスト」でした。" />
+<meta property="og:url" content="https://nextray.jp/blog-ai-failure.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI活用の失敗談｜先回りして作った自動化は、ほぼ捨てることになる" />
+<meta name="twitter:description" content="AIエージェント5本を使われないまま削除した実録。原因は機能不足ではなく「呼ぶ判断のコスト」でした。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI活用の失敗談｜先回りして作った自動化は、ほぼ捨てることになる",
+  "description": "先回りして作ったAIエージェント5本を、使われないまま全部削除した実録。原因は機能不足ではなく「呼ぶ判断のコスト」でした。そこから得た「痛みが出てから作る」原則を解説します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-ai-failure.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "作ったAIが使われなかった一番の原因は何ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "「どのAIをどの場面で呼ぶか」を考える判断のコストです。機能は足りていました。しかし忙しい時間の中で「これはどれに頼むんだったか」と一瞬でも迷うと、人は結局自分でやってしまいます。呼ばれない自動化は、存在しないのと同じでした。" } },
+    { "@type": "Question", "name": "失敗しないためには、何から自動化すべきですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "今まさに痛みを感じている作業からです。毎週確実に発生していて、時間を取られていて、手順が言葉で説明できる作業が最優先です。「いずれ必要になりそうだから」で作るものは、使われ方を想像で決めることになり、高い確率で外れます。" } },
+    { "@type": "Question", "name": "AIを呼ぶ手間を減らすには、どう設計すればよいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "2つあります。場面と担当を1対1にして「この場面ならこれ」と迷わず決まる粒度にすること。そして、人間が呼ぶのを待たず、条件が揃ったらAIの側から動き出す設計にすることです。当社は作り直しでこの2点を変えてから、使われるようになりました。" } },
+    { "@type": "Question", "name": "捨てた5本の開発費用は無駄になったのでは？",
+      "acceptedAnswer": { "@type": "Answer", "text": "作る作業自体はAIが行うため、金銭的な損失はごく小さいものでした。これはAI時代の自動化の大きな特徴で、作るコストが下がった分、試して捨てることの痛みも小さくなっています。ただし「作った気になって満足する」時間の損失はあり、それがこの記事の教訓です。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "AI活用の失敗談｜先回りして作った自動化は、ほぼ捨てることになる", "item": "https://nextray.jp/blog-ai-failure.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ AI活用の失敗談</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">AI活用</span></div>
+      <h1>AI活用の<span class="grad-text">失敗談</span>｜先回りして作った自動化は、ほぼ捨てることになる</h1>
+      <p class="summary">当社はAI活用を仕事にしていますが、自社のAI活用で<b>はっきり失敗した</b>ことがあります。「こういう場面で使うだろう」と先回りして作ったAIエージェント5本が、<b>使われないまま、全部削除になりました</b>。この記事はその実録です。何を作り、なぜ使われず、作り直しで何を変えたのか。同じ失敗をこれからAIを入れる会社に繰り返してほしくないので、そのまま書きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#nani">何を作ったか：5本のエージェント</a></li>
+        <li><a href="#kekka">何が起きたか：一度も定着せず、削除</a></li>
+        <li><a href="#genin">原因は機能不足ではなかった</a></li>
+        <li><a href="#yobu-cost">「呼ぶ判断のコスト」という見えない敵</a></li>
+        <li><a href="#tsukurinaoshi">作り直しで変えた2つのこと</a></li>
+        <li><a href="#gensoku">得た原則：自動化は痛みが出てから作る</a></li>
+        <li><a href="#sutekata">AI時代は「捨てるのが安い」——だから試してよい</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="nani">何を作ったか：5本のエージェント</h2>
+      <p>当社は<a href="blog-ai-agent-org.html">従業員の代わりにAIエージェントが働く会社</a>です。その体制を整える初期に、「これから必要になるはずの仕事」を想定して、専任のAIエージェントを5本作りました。</p>
+      <p>内訳は、営業先のホームページを診断するもの、商談相手を調べるもの、しばらく連絡していない相手を掘り起こすもの、デモサイトを作るもの、議事録を作るもの。<b>どれも単体ではきちんと動きました</b>。テストでは期待どおりの結果を返してきましたし、「これで営業も商談も楽になる」と当時は考えていました。</p>
+      <p>いま振り返ると、この時点でひとつ予兆がありました。5本のうちのいくつかは、<b>まだ一度も発生していない仕事のために作った</b>ものだったのです。「商談が増えたら要るはず」「掘り起こしはいずれやるはず」。全部「はず」でした。</p>
+
+      <h2 id="kekka">何が起きたか：一度も定着せず、削除</h2>
+      <p>結果はあっけないものでした。<b>5本とも、日々の仕事の中で使われないまま数日が過ぎ、まとめて削除することになりました</b>。</p>
+      <p>壊れたわけではありません。呼べば動く状態のまま、ただ呼ばれませんでした。毎日仕事は回っているのに、その横でエージェントたちは一度も出番がない。「せっかく作ったのだから使おう」と意識した日すらありました。道具を使うために仕事を探す——明らかに何かが逆でした。</p>
+      <p>削除を決めたときは、正直なところ悔しさより違和感が勝っていました。<b>機能は足りているのに、なぜ使わなかったのか</b>。ここを言葉にできないと、また同じものを作ってしまいます。</p>
+
+      <h2 id="genin">原因は機能不足ではなかった</h2>
+      <p>原因を突き詰めていくと、2つに行き着きました。</p>
+      <h3>1. 情報の置き場所が二重になっていて、入り口で迷った</h3>
+      <p>当時、社内の情報が2つの場所に分かれており、エージェントによって参照先が違いました。何かを頼む前に「この答えはどっちにあるのか」を人間が先に判断する必要があり、<b>その一瞬の迷いが、忙しい時間帯には致命的</b>でした。迷うくらいなら自分でやる——毎回そうなりました。</p>
+      <h3>2. 呼ばれないと動けなかった</h3>
+      <p>情報の置き場所を一本化した後も、状況は変わりませんでした。つまり原因1だけでは説明がつかない。残ったのがこれです。5本はどれも<b>「人間が呼んで、初めて動く」</b>設計でした。そして人間は、呼ぶという小さな手間を、想像以上にやらないのです。</p>
+
+      <h2 id="yobu-cost">「呼ぶ判断のコスト」という見えない敵</h2>
+      <p>ここがこの記事でいちばん伝えたい部分です。</p>
+      <p>自動化の検討では、普通「作るコスト」と「作業が減る効果」を比べます。しかし実際に運用を左右したのは、そのどちらでもなく、<b>使うたびに発生する「呼ぶ判断のコスト」</b>でした。</p>
+      <ul>
+        <li>この作業は、どのエージェントの担当だったか<b>思い出す</b></li>
+        <li>頼むより自分でやった方が速くないかを<b>見積もる</b></li>
+        <li>頼むための指示文を<b>組み立てる</b></li>
+      </ul>
+      <p>ひとつひとつは数秒の負担です。ただ、この数秒は<b>作業が発生するたびに、毎回</b>払うことになります。しかも払うのは、一日でいちばん余裕のない時間帯です。結果、判断コストがゼロの選択肢——「自分でやる」——が毎回勝ちました。</p>
+      <p><b>使われない自動化は、存在しない自動化と同じです</b>。そして自動化が使われるかどうかは、性能ではなく、この見えないコストで決まっていました。これは作る前の当社には、まったく見えていなかった変数です。</p>
+
+      <h2 id="tsukurinaoshi">作り直しで変えた2つのこと</h2>
+      <p>5本を削除した後、エージェント体制を一から作り直しました。機能はほぼ同じです。変えたのは構造だけで、2点です。</p>
+      <h3>1. 場面と担当を1対1にした</h3>
+      <p>「診断」「リサーチ」「掘り起こし」といった<b>機能の単位</b>でエージェントを分けるのをやめ、「商談の前後」「新しい接点づくり」「デモ制作」という<b>場面の単位</b>で束ね直しました。場面が来れば担当が決まる。「どれに頼むか」という思考が発生しない粒度です。</p>
+      <h3>2. AIが指示を待たずに動く設計にした</h3>
+      <p>もうひとつが決定打でした。<b>呼ばれるのを待つのではなく、条件が揃ったらAIの側から動き出す</b>ようにしたのです。カレンダーに商談の予定が入っていたら、頼まれる前に相手先の下調べを始める。商談が終わった気配があれば、議事録の支度を始める。</p>
+      <p>「呼ぶ判断のコスト」が問題なら、呼ぶという行為自体を人間から取り上げればいい。理屈にすれば単純ですが、5本を捨てるまで、この発想には至りませんでした。もちろん、AIが先に動いてよいのは下書きと準備までで、<a href="blog-ai-gate.html">送信や公開は人間が押す</a>という一線はそのままです。</p>
+
+      <h2 id="gensoku">得た原則：自動化は痛みが出てから作る</h2>
+      <p>この失敗から、当社はひとつの原則を決めました。<b>自動化は、先回りして作らない。痛みが出てから作る</b>。</p>
+      <p>先回りの自動化がほぼ失敗する理由は、シンプルです。<b>まだ発生していない仕事は、使われ方を想像で決めるしかない</b>からです。どの場面で、どんな頻度で、どんな形式の答えが要るのか。この想像は高い確率で外れます。外れた道具は使われず、使われない道具は削除されます。</p>
+      <p>逆に、すでに痛い作業は、使われ方が確定しています。毎週発生している、時間を取られている、手順が説明できる。この3つが揃った作業の自動化は、外しようがありません。当社が今も残しているエージェントや、<a href="blog-ai-appsscript.html">台帳の自動起票</a>は、すべて「先に痛みがあった」ものです。</p>
+      <div class="callout">
+        <p><strong>順序を言葉にすると</strong></p>
+        <p>①まず手作業でやる → ②毎回同じ痛みを感じる → ③その作業だけ自動化する。<b>①と②を飛ばした自動化が、当社の場合は全滅しました。</b>手で回っていない仕事は、自動化しても回りません。</p>
+      </div>
+
+      <h2 id="sutekata">AI時代は「捨てるのが安い」——だから試してよい</h2>
+      <p>最後に、この失敗談を暗い話で終わらせないために、金額の面も正直に書いておきます。</p>
+      <p>削除した5本に、外注費はかかっていません。作る作業自体をAIがやるため、<b>失ったのは主に、作って満足していた時間</b>です。従来のシステム開発で「作って捨てる」と数十万円〜数百万円の損失になり得ますが、AIエージェントの試作はその桁ではありません。</p>
+      <p>つまりこう整理できます。<b>作って試すこと自体は、安くなった。だからこそ、見極めるべきは「作れるか」ではなく「使われるか」に完全に移った</b>。作れるかどうかは、もうほとんど問題にならないのです。</p>
+      <p>これからAIを導入する会社への提案としては、こうなります。小さく作って、2週間使われるかを見て、使われなければためらわず捨てる。<b>捨てた数を失敗の数と数えない</b>。当社は5本捨てて、ようやく使われる形にたどり着きました。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>作ったAIが使われなかった一番の原因は何ですか？</summary>
+          <div class="faq-body">
+            <p>「どのAIをどの場面で呼ぶか」を考える判断のコストです。機能は足りていました。しかし忙しい時間の中で「これはどれに頼むんだったか」と一瞬でも迷うと、人は結局自分でやってしまいます。呼ばれない自動化は、存在しないのと同じでした。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>失敗しないためには、何から自動化すべきですか？</summary>
+          <div class="faq-body">
+            <p>今まさに痛みを感じている作業からです。毎週確実に発生していて、時間を取られていて、手順が言葉で説明できる作業が最優先です。「いずれ必要になりそうだから」で作るものは、使われ方を想像で決めることになり、高い確率で外れます。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>AIを呼ぶ手間を減らすには、どう設計すればよいですか？</summary>
+          <div class="faq-body">
+            <p>2つあります。場面と担当を1対1にして「この場面ならこれ」と迷わず決まる粒度にすること。そして、人間が呼ぶのを待たず、条件が揃ったらAIの側から動き出す設計にすることです。当社は作り直しでこの2点を変えてから、使われるようになりました。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>捨てた5本の開発費用は無駄になったのでは？</summary>
+          <div class="faq-body">
+            <p>作る作業自体はAIが行うため、金銭的な損失はごく小さいものでした。これはAI時代の自動化の大きな特徴で、作るコストが下がった分、試して捨てることの痛みも小さくなっています。ただし「作った気になって満足する」時間の損失はあり、それがこの記事の教訓です。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>起きたこと</b>——先回りして作ったAIエージェント5本が、使われないまま削除になった</li>
+        <li><b>原因</b>——機能不足ではなく、使うたびに発生する「呼ぶ判断のコスト」</li>
+        <li><b>作り直しの要点</b>——場面と担当を1対1にする／AIが指示を待たずに動く設計にする</li>
+        <li><b>原則</b>——自動化は痛みが出てから作る。手で回っていない仕事は自動化しても回らない</li>
+        <li><b>救い</b>——AI時代は作って捨てるのが安い。見極めるべきは「作れるか」ではなく「使われるか」</li>
+      </ul>
+      <p>AI活用の記事は成功談ばかりが並びがちですが、実際の導入は、こういう地味な失敗の積み重ねの上にあります。当社はこの失敗を経たからこそ、お客様への提案でも<b>「それはまだ自動化しない方がいいです」</b>と言えるようになりました。この記事が、これからAIを入れる方の遠回りを1つでも減らせれば幸いです。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>「AIを入れたいが、何から手をつけるべきか」というご相談を受け付けています</h3>
+      <p>この失敗を踏まえて、ご提案は<b>「今いちばん痛い作業はどれか」</b>を特定するところから始めます。ご相談は無料です。伺った結果「それはまだ自動化しない方がいい」と判断した場合は、この記事に書いたとおり、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="service-ai-office.html" class="btn btn-ghost">AI自動化サービスの詳細</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-ai-agent-org.html">
+        <span class="stag">COLUMN</span>
+        <h3>従業員ゼロの会社をAIエージェントで回す</h3>
+        <p>この失敗を経てたどり着いた、現在の組織図。3層構造と設計原理を公開しています。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-ai-appsscript.html">
+        <span class="stag">COLUMN</span>
+        <h3>スプレッドシート×Apps Scriptで台帳を自動化する</h3>
+        <p>「痛みが出てから作る」を守って残った自動化の実例。高価なシステムを入れる前の現実解。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-ai-smallbiz.html">
+        <span class="stag">COLUMN</span>
+        <h3>中小企業のAI活用</h3>
+        <p>小さな会社が現実的に使えるAI活用の入り口を、導入の順序とあわせて整理しています。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

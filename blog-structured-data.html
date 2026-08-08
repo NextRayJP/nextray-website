@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>構造化データ（JSON-LD）とは｜検索とAIへの自己紹介文｜NextRay</title>
+<meta name="description" content="構造化データ（JSON-LD）は、検索エンジンとAIに「このページは何者か」を機械の言葉で伝える自己紹介文です。当社サイトに実際に実装している事業者情報・記事・FAQ・パンくずの4種類を実物のコードで解説。リッチリザルトが保証されない点も明記します。" />
+<meta name="keywords" content="構造化データ とは,JSON-LD とは,リッチリザルト,schema.org 書き方,FAQPage 構造化データ,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-structured-data.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="構造化データ（JSON-LD）とは｜検索エンジンとAIへの自己紹介文" />
+<meta property="og:description" content="当社サイトに実際に実装している4種類の構造化データを、実物のコードで平易に解説します。" />
+<meta property="og:url" content="https://nextray.jp/blog-structured-data.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="構造化データ（JSON-LD）とは｜検索エンジンとAIへの自己紹介文" />
+<meta name="twitter:description" content="当社サイトに実際に実装している4種類の構造化データを、実物のコードで平易に解説します。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "構造化データ（JSON-LD）とは｜検索エンジンとAIへの自己紹介文",
+  "description": "構造化データ（JSON-LD）とは何かを、当社サイトに実際に実装している事業者情報・記事・FAQ・パンくずの4種類の実物コードで平易に解説します。リッチリザルトが保証されない点も明記します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-structured-data.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "構造化データを入れると検索順位は上がりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "順位が直接上がるとは言えません。構造化データの主な役割は、検索エンジンやAIにページの内容を正確に理解してもらうことと、検索結果の見た目が豊かになる可能性（リッチリザルト）です。順位を保証するものではなく、当社も順位の保証はしていません。" } },
+    { "@type": "Question", "name": "構造化データを入れれば、必ずリッチリザルトが表示されますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "表示されるとは限りません。Googleは、構造化データが正しく書かれていても、リッチリザルトを表示するかどうかは検索エンジン側が判断すると明言しています。正しく書くことは表示の前提条件であって、表示の約束ではありません。" } },
+    { "@type": "Question", "name": "構造化データはページを見ても見えないのに、なぜ入れるのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "読み手が人間だけではなくなったからです。検索エンジンとAIは、ページの見た目ではなくHTMLの中身を読んでいます。人間には同じに見えるページでも、機械にとっては「内容を推測するしかないページ」と「内容が明記されているページ」の差があります。構造化データはその明記の部分です。" } },
+    { "@type": "Question", "name": "自分のサイトに構造化データが入っているか確認できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "できます。Googleが無料で公開している「リッチリザルトテスト」にURLを入力すると、そのページの構造化データが検出されるか、エラーがないかを誰でも確認できます。当社にURLをお送りいただければ、こちらで確認してお伝えすることもできます。費用はかかりません。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "構造化データ（JSON-LD）とは｜検索エンジンとAIへの自己紹介文", "item": "https://nextray.jp/blog-structured-data.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .codebox{margin:22px 0;padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:var(--bg-soft);overflow-x:auto}
+  .codebox pre{margin:0;font-size:.82rem;line-height:1.9;white-space:pre;color:var(--ink-2)}
+  .codebox .cap{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+</style>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ 構造化データ（JSON-LD）とは</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">制作の裏側</span></div>
+      <h1>構造化データ（JSON-LD）とは｜検索エンジンとAIへの<span class="grad-text">「自己紹介文」</span></h1>
+      <p class="summary">ホームページには、画面に表示される文章のほかに、<b>検索エンジンとAIだけが読む「自己紹介文」</b>を埋め込むことができます。構造化データと呼ばれるもので、当社サイト（nextray.jp）にも4種類を実装しています。この記事では、<b>当社サイトに実際に入っているコードの実物を抜粋しながら</b>、何を書いているのか、何の役に立つのか、そして<b>「入れれば検索結果が豪華になる」とは限らない</b>ことまで、平易に説明します。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#toha">構造化データとは何か</a></li>
+        <li><a href="#naze">なぜ「自己紹介文」が要るのか</a></li>
+        <li><a href="#org">実物① 事業者情報——「NextRayは何者か」</a></li>
+        <li><a href="#blogposting">実物② 記事情報——「誰がいつ書いたか」</a></li>
+        <li><a href="#faqpage">実物③ FAQ——「よくある質問と答え」</a></li>
+        <li><a href="#breadcrumb">実物④ パンくずリスト——「サイト内の現在地」</a></li>
+        <li><a href="#rich">リッチリザルトは保証されない</a></li>
+        <li><a href="#kakunin">自分のサイトを確認する方法</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="toha">構造化データとは何か</h2>
+      <p>構造化データとは、<b>ページの内容を、機械が誤解なく読める形式で書き添えたもの</b>です。画面には表示されず、HTMLの中に埋め込まれます。</p>
+      <p>書き方はいくつかありますが、現在Googleが推奨している方式が<b>JSON-LD（ジェイソン・エルディー）</b>です。「項目名: 値」の組み合わせを並べるだけの、住所録のような単純な形式です。たとえば「name: NextRay」「telephone: 080-7517-4514」のように書きます。</p>
+      <p>項目名は自己流ではなく、<b>schema.org（スキーマ・ドット・オルグ）</b>という共通の語彙集から選びます。GoogleやMicrosoftなどが共同で策定したもので、世界中のサイトが同じ語彙を使うことで、機械が迷わず読めるようになっています。</p>
+
+      <h2 id="naze">なぜ「自己紹介文」が要るのか</h2>
+      <p>人間は、ページを見れば「これは会社案内だな」「この数字は電話番号だな」と文脈で分かります。しかし機械にとって、HTMLの中の「080-7517-4514」という文字列が電話番号なのか、商品番号なのかは、<b>推測するしかありません</b>。</p>
+      <p>構造化データは、この推測をなくします。「これは電話番号です」「これは記事の公開日です」と<b>ラベル付きで明記する</b>ので、検索エンジンは安心してその情報を使えます。</p>
+      <p>そしてもうひとつ、読み手が増えました。<b>AIです。</b>ChatGPTやGeminiに「新潟のホームページ制作会社を教えて」と尋ねる人が増えており、AIがページを読んで答えを組み立てる場面では、内容が明記されているページの方が誤読されにくいはずです。当社が<a href="blog-llms-txt.html">llms.txtというAI向けの案内ファイル</a>と併せて構造化データを整備しているのは、この流れを見てのことです。</p>
+
+      <h2 id="org">実物① 事業者情報——「NextRayは何者か」</h2>
+      <p>ここからは、当社サイトに実際に入っているコードを抜粋して見ていきます。まずトップページに入れている事業者情報です。</p>
+      <div class="codebox">
+        <span class="cap">nextray.jp トップページのJSON-LD（抜粋・整形）</span>
+        <pre>{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "NextRay",
+  "alternateName": "ネクストレイ",
+  "url": "https://nextray.jp/",
+  "founder": {
+    "@type": "Person",
+    "name": "谷川恵介",
+    "jobTitle": "代表"
+  },
+  "numberOfEmployees": { "@type": "QuantitativeValue", "value": 1 }
+}</pre>
+      </div>
+      <p>「@type」がこのデータの種類です。ProfessionalServiceは事業者情報（Organization）の一種で、専門サービス業を表します。読み方はそのままで、<b>「NextRayという専門サービス業者で、読み仮名はネクストレイ、代表は谷川恵介、人数は1名」</b>と機械の言葉で自己紹介しています。</p>
+      <p>実物にはこのほか、所在地、電話番号、営業エリア、サービス内容、保有資格まで書いています。ポイントは<b>「従業員1名」まで正直に書いている</b>ことです。構造化データは機械への申告なので、実態と違うことを書く場所ではありません。</p>
+
+      <h2 id="blogposting">実物② 記事情報——「誰がいつ書いたか」</h2>
+      <p>コラムの各記事には、BlogPosting（ブログ記事）というデータを入れています。いまお読みのこのページにも入っています。</p>
+      <div class="codebox">
+        <span class="cap">この記事のJSON-LD（抜粋・整形）</span>
+        <pre>{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "構造化データ（JSON-LD）とは",
+  "datePublished": "2026-08-08",
+  "author": { "@type": "Person", "name": "谷川恵介" },
+  "publisher": { "@type": "Organization", "name": "NextRay" }
+}</pre>
+      </div>
+      <p>見出し、公開日、書いた人、発行元を明記しています。検索エンジンが「いつの情報か」「誰が書いたか」を判定する材料になります。<b>情報の鮮度と書き手が分かる記事</b>として扱ってもらうための申告です。</p>
+
+      <h2 id="faqpage">実物③ FAQ——「よくある質問と答え」</h2>
+      <p>記事の中に「よくあるご質問」の節がある場合、その質問と答えをFAQPageというデータでも書いています。</p>
+      <div class="codebox">
+        <span class="cap">この記事のFAQPage（抜粋・整形）</span>
+        <pre>{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question",
+      "name": "構造化データを入れると検索順位は上がりますか？",
+      "acceptedAnswer": { "@type": "Answer",
+        "text": "順位が直接上がるとは言えません。……" } }
+  ]
+}</pre>
+      </div>
+      <p>注意点がひとつあります。<b>本文に書いていない質問と答えを、構造化データにだけ書いてはいけません。</b>Googleのガイドラインでも、ページに表示されている内容と一致させることが求められています。当社は、本文のFAQ節とJSON-LDのFAQを必ず同じ内容にしています。</p>
+
+      <h2 id="breadcrumb">実物④ パンくずリスト——「サイト内の現在地」</h2>
+      <p>4つ目はBreadcrumbList（パンくずリスト）です。ページ上部の「ホーム ／ コラム ／ 記事名」という表示の、機械向けの写しです。</p>
+      <div class="codebox">
+        <span class="cap">この記事のBreadcrumbList（抜粋・整形）</span>
+        <pre>{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム" },
+    { "@type": "ListItem", "position": 2, "name": "コラム" },
+    { "@type": "ListItem", "position": 3, "name": "この記事" }
+  ]
+}</pre>
+      </div>
+      <p>このページがサイトのどの位置にあるかを伝えます。検索結果でURLの代わりに「nextray.jp › コラム」のような階層表示が使われることがあり、その材料になります。</p>
+
+      <h2 id="rich">リッチリザルトは保証されない</h2>
+      <p>構造化データの話には、よく「リッチリザルト」という言葉がついてきます。検索結果に星やFAQや階層表示が付く、<b>通常より情報の多い表示</b>のことです。</p>
+      <p>ここで正直に書いておきます。<b>構造化データを正しく入れても、リッチリザルトが表示されるとは限りません。</b>Google自身が、表示するかどうかは検索エンジン側の判断だと明言しています。実際、表示の仕様は年々変わっており、以前はよく見かけたFAQの展開表示も、現在はほとんどのサイトで出なくなりました。</p>
+      <p>ですから当社は、リッチリザルトを目的に構造化データを入れているのではありません。<b>目的は、検索エンジンとAIに内容を正確に伝えること</b>です。見た目の恩恵はあれば幸運、というくらいの位置づけが実態に合っていると思います。「構造化データで検索結果が豪華になります」という売り文句だけを聞いたら、この保証されない性質もセットで確認することをおすすめします。</p>
+      <p>同じ理由で、<b>構造化データを入れれば検索順位が上がる、とも言えません。</b>順位を決めるのはあくまで内容です。当社は順位の保証をしていませんし、この記事もその立場で書いています。</p>
+
+      <h2 id="kakunin">自分のサイトを確認する方法</h2>
+      <p>自社サイトに構造化データが入っているかは、無料で確認できます。</p>
+      <ul class="checklist">
+        <li>検索で「リッチリザルトテスト」と調べ、Googleの公式ツールを開く</li>
+        <li>自社サイトのURLを入力してテストする</li>
+        <li>検出された構造化データの種類と、エラーの有無が表示される</li>
+        <li>「検出されませんでした」なら、そのページに構造化データは入っていない</li>
+      </ul>
+      <p>制作会社に依頼しているサイトなら、これで「見えない部分の仕事」がひとつ確認できます。入っていないから悪い、と短絡する必要はありませんが、<b>「SEO対策込み」をうたう契約で基本的な構造化データが何も入っていないなら、何をもってSEO対策としているのか</b>を聞いてみる価値はあると思います。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>構造化データを入れると検索順位は上がりますか？</summary>
+          <div class="faq-body">
+            <p>順位が直接上がるとは言えません。構造化データの主な役割は、検索エンジンやAIにページの内容を正確に理解してもらうことと、検索結果の見た目が豊かになる可能性（リッチリザルト）です。順位を保証するものではなく、当社も順位の保証はしていません。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>構造化データを入れれば、必ずリッチリザルトが表示されますか？</summary>
+          <div class="faq-body">
+            <p>表示されるとは限りません。Googleは、構造化データが正しく書かれていても、リッチリザルトを表示するかどうかは検索エンジン側が判断すると明言しています。正しく書くことは表示の前提条件であって、表示の約束ではありません。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>構造化データはページを見ても見えないのに、なぜ入れるのですか？</summary>
+          <div class="faq-body">
+            <p>読み手が人間だけではなくなったからです。検索エンジンとAIは、ページの見た目ではなくHTMLの中身を読んでいます。人間には同じに見えるページでも、機械にとっては「内容を推測するしかないページ」と「内容が明記されているページ」の差があります。構造化データはその明記の部分です。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>自分のサイトに構造化データが入っているか確認できますか？</summary>
+          <div class="faq-body">
+            <p>できます。Googleが無料で公開している「リッチリザルトテスト」にURLを入力すると、そのページの構造化データが検出されるか、エラーがないかを誰でも確認できます。当社にURLをお送りいただければ、こちらで確認してお伝えすることもできます。費用はかかりません。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>構造化データ</b>——検索エンジンとAIに向けた、機械の言葉の自己紹介文。JSON-LD形式が主流</li>
+        <li><b>当社の実装は4種類</b>——事業者情報、記事情報、FAQ、パンくずリスト</li>
+        <li><b>本文と一致させる</b>——ページに書いていないことを構造化データにだけ書かない</li>
+        <li><b>リッチリザルトは保証されない</b>——表示するかどうかはGoogle側の判断。順位が上がるとも言えない</li>
+        <li><b>確認は無料</b>——リッチリザルトテストにURLを入れるだけ</li>
+      </ul>
+      <p>構造化データは、画面上は1ミリも変わらない、完全に裏方の仕事です。ですが、検索エンジンとAIという<b>「人間ではない読者」が増え続けている</b>いま、その読者に向けて正確に名乗っておくことの価値は、少しずつ上がっていくと考えています。当社は制作するすべてのページで、この裏方の仕事を標準で行っています。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>自社サイトの「機械からの見え方」を確認したい方へ</h3>
+      <p>URLをお送りいただければ、構造化データの有無とエラー、検索エンジン・AIからどう見えているかを確認してお伝えします。当社にご依頼いただかなくても、費用は一切かかりません。「今のままで問題ない」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-llms-txt.html">
+        <span class="stag">COLUMN</span>
+        <h3>llms.txtとは｜AIに読まれるサイトにするための準備</h3>
+        <p>構造化データと並ぶAI対策。当社が実際に設置している案内ファイルの中身を公開しています。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-seo-local.html">
+        <span class="stag">COLUMN</span>
+        <h3>新潟の中小企業のSEO入門</h3>
+        <p>「地域名＋業種」で見つけてもらうための5つの手順。構造化データの土台になる考え方です。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。構造化データの実装は、制作の標準工程に含めています。</p>
+        <span class="slink">ホームページ制作の詳細を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

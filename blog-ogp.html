@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>OGP設定とは｜LINEでリンクを送るとどう見えるか｜NextRay</title>
+<meta name="description" content="LINEやSNSでホームページのリンクを送ったとき、画像付きのカードで表示されるか、素っ気ないURLだけになるかは、OGPという設定で決まります。当社の実際の設定（og:image 1200×630など）を例に、仕組みと確認方法を平易に解説します。" />
+<meta name="keywords" content="OGP とは,OGP設定 方法,og:image サイズ,LINE リンク サムネイル,SNS シェア 画像,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-ogp.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="OGP設定とは｜LINEやSNSでリンクを送ったとき、どう見えるか" />
+<meta property="og:description" content="リンクが画像付きカードになるか、素っ気ないURLだけになるかを決める設定。当社の実際の設定を例に、仕組みと確認方法を解説します。" />
+<meta property="og:url" content="https://nextray.jp/blog-ogp.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="OGP設定とは｜LINEやSNSでリンクを送ったとき、どう見えるか" />
+<meta name="twitter:description" content="リンクが画像付きカードになるか、素っ気ないURLだけになるかを決める設定。当社の実際の設定を例に、仕組みと確認方法を解説します。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "OGP設定とは｜LINEやSNSでリンクを送ったとき、どう見えるか",
+  "description": "LINEやSNSでリンクを送ったとき、画像付きのカードで表示されるか、素っ気ないURLだけになるかを決めるOGPという設定について、当社の実際の設定を例に、仕組みと確認方法を平易に解説します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-ogp.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "OGP画像のサイズはいくつにすればよいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "横1200ピクセル×縦630ピクセルが定番です。主要なSNSの大きなカード表示に対応できる比率（約1.91:1）で、当社サイトもこのサイズで設定しています。小さすぎる画像はカード表示の対象にならないことがあるため、迷ったらこのサイズをおすすめします。" } },
+    { "@type": "Question", "name": "OGPを設定し直したのに、LINEで古い画像が出ます。なぜですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "SNS側が以前の情報を一定期間記憶（キャッシュ）しているためです。設定を直しても、すぐには反映されないことがあります。Facebookのシェアデバッガーのように、キャッシュの更新を依頼できるツールを持つSNSもありますが、基本的には時間を置くと新しい情報に入れ替わります。" } },
+    { "@type": "Question", "name": "OGPが未設定だと、何か損をしますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "リンクを送ってもらったときの第一印象が弱くなります。画像もタイトルもないURLだけの表示は、押される前に素通りされやすく、せっかくの紹介や口コミの効果が目減りします。ページの表示や検索順位に直接影響するものではありませんが、紹介されて広がる経路を大切にするなら設定しておくべきものです。" } },
+    { "@type": "Question", "name": "自分のサイトのOGPがどう見えるか確認できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "できます。一番確実なのは、自分ひとりのLINEグループやKeepメモに実際にURLを送ってみることです。開発者向けにはFacebookのシェアデバッガーなどの確認ツールもあります。当社にURLをお送りいただければ、確認してお伝えすることもできます。費用はかかりません。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "OGP設定とは｜LINEやSNSでリンクを送ったとき、どう見えるか", "item": "https://nextray.jp/blog-ogp.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .codebox{margin:22px 0;padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:var(--bg-soft);overflow-x:auto}
+  .codebox pre{margin:0;font-size:.82rem;line-height:1.9;white-space:pre;color:var(--ink-2)}
+  .codebox .cap{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+</style>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ OGP設定とは</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">制作の裏側</span></div>
+      <h1>OGP設定とは｜LINEやSNSでリンクを送ったとき、<span class="grad-text">どう見えるか</span></h1>
+      <p class="summary">LINEでホームページのリンクを送ると、<b>画像とタイトルの付いたカード</b>で表示されるサイトと、<b>青い文字のURLがぽつんと出るだけ</b>のサイトがあります。この差を決めているのが <b>OGP</b> という設定です。この記事では、当社サイト（nextray.jp）の実際の設定を例に、仕組み・作り方・確認方法を平易に説明します。「知り合いに送ってもらったのに、リンクが素っ気なくて押されなかった」を防ぐための話です。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#toha">OGPとは何か</a></li>
+        <li><a href="#sa">設定あり・なしで、何がどう変わるか</a></li>
+        <li><a href="#jitsubutsu">当社サイトの実際の設定</a></li>
+        <li><a href="#gazou">画像は1200×630ピクセルが定番</a></li>
+        <li><a href="#kakunin">どう見えるかを確認する方法</a></li>
+        <li><a href="#chuui">つまずきやすいポイント</a></li>
+        <li><a href="#shoujiki">正直に書いておきたいこと</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="toha">OGPとは何か</h2>
+      <p>OGP（Open Graph Protocol）は、<b>「このページがSNSやメッセージアプリで共有されたとき、どう表示してほしいか」をあらかじめ指定しておく仕組み</b>です。ページのHTMLの中に、タイトル・説明文・画像などを書いておきます。</p>
+      <p>LINE、Instagram、Facebook、X（旧Twitter）などは、リンクが送られてくると、そのページを読みに行ってOGPの指定を探します。<b>指定があればカード表示に使い、なければ表示は素っ気なくなる</b>——それだけの、単純な約束事です。</p>
+      <p>画面に表示される本文とは別の場所（HTMLのhead内）に書くため、ページを普通に見ているだけでは存在に気づきません。構造化データと同じく、完全に裏方の設定です。</p>
+
+      <h2 id="sa">設定あり・なしで、何がどう変わるか</h2>
+      <p>具体的な場面で比べます。たとえば、お客様が「ここのお店いいよ」と友人にLINEでリンクを送ってくれたとします。</p>
+      <ul>
+        <li><b>OGPが設定されているサイト</b>——お店の写真、店名、ひとこと説明の付いたカードが表示される。何のリンクかが一目で分かり、押す理由がある</li>
+        <li><b>OGPが未設定のサイト</b>——URLの文字列だけ、あるいはタイトルらしき文字が1行出るだけ。何のリンクか分からず、押されないまま流れやすい</li>
+      </ul>
+      <p>中身のページはまったく同じでも、<b>入口の見た目でクリックされる確率が変わります</b>。紹介や口コミで広がる経路——小さな会社にとって一番ありがたい経路——の受け取り方を左右するのがOGPです。</p>
+      <p>放置されたサイトが信用を削る話は<a href="blog-minus-promotion.html">別の記事</a>に書きましたが、リンクの見た目もその一部だと考えています。素っ気ないリンクは、送ってくれた人の「いいよ」という気持ちまで薄めてしまいます。</p>
+
+      <h2 id="jitsubutsu">当社サイトの実際の設定</h2>
+      <p>当社サイトの全ページに入れているOGP設定から、主要な部分を抜粋します。いまお読みのこのページにも、同じ形式で入っています。</p>
+      <div class="codebox">
+        <span class="cap">nextray.jp トップページのOGP（抜粋）</span>
+        <pre>&lt;meta property="og:type" content="website" /&gt;
+&lt;meta property="og:site_name" content="NextRay" /&gt;
+&lt;meta property="og:title"
+  content="新潟のホームページ制作・MEO対策｜初期費用0円｜NextRay" /&gt;
+&lt;meta property="og:description"
+  content="新潟の集客と人手不足を、ホームページとAIで解決。……" /&gt;
+&lt;meta property="og:url" content="https://nextray.jp/" /&gt;
+&lt;meta property="og:image" content="https://nextray.jp/assets/ogp.png" /&gt;
+&lt;meta property="og:image:width" content="1200" /&gt;
+&lt;meta property="og:image:height" content="630" /&gt;
+&lt;meta property="og:locale" content="ja_JP" /&gt;</pre>
+      </div>
+      <p>それぞれの意味はほぼ読んで字のとおりです。</p>
+      <ul class="checklist">
+        <li><b>og:title</b>——カードに表示するタイトル</li>
+        <li><b>og:description</b>——タイトルの下に出る説明文</li>
+        <li><b>og:image</b>——カードの画像。どのファイルを使うかをURLで指定する</li>
+        <li><b>og:image:width／height</b>——画像の寸法。書いておくと初回共有時の表示が安定する</li>
+        <li><b>og:url</b>——このページの正式なURL</li>
+      </ul>
+      <p>このほか当社は、X（旧Twitter）向けの指定（twitter:card）も併記しています。Xは独自の指定を優先的に読むため、大きな画像カードで表示されるよう「summary_large_image」を指定しています。</p>
+
+      <h2 id="gazou">画像は1200×630ピクセルが定番</h2>
+      <p>OGPでいちばん効くのは画像です。サイズは<b>横1200ピクセル×縦630ピクセル</b>が定番で、当社もこのサイズで作っています。主要なSNSの大きなカード表示に対応できる比率（約1.91:1）です。</p>
+      <p>作るときの注意点をいくつか挙げます。</p>
+      <ul class="checklist">
+        <li><b>小さすぎる画像を使わない</b>——一定サイズ未満だとカード表示の対象にならないことがある</li>
+        <li><b>文字を入れるなら大きく</b>——カードはスマートフォンの画面では小さく表示される。細かい文字は読めない</li>
+        <li><b>端に重要な要素を置かない</b>——表示面によっては上下や左右が少し切られることがある</li>
+        <li><b>ファイルを重くしすぎない</b>——読み込みに時間がかかると、共有時に画像なしで表示されてしまう場合がある</li>
+      </ul>
+      <p>凝ったデザインである必要はありません。<b>店名やロゴがはっきり見える1枚</b>があるだけで、URLだけの表示とは受け取られ方が変わります。</p>
+
+      <h2 id="kakunin">どう見えるかを確認する方法</h2>
+      <p>設定したら、必ず実際の見え方を確認します。方法は2つあります。</p>
+      <h3>方法1：自分に送ってみる（一番確実）</h3>
+      <p>LINEの<b>自分ひとりだけのグループやKeepメモに、URLを送ってみる</b>方法です。実際の表示そのものを確認でき、誰にも通知は行きません。当社もページを公開したら、まずこれで確認しています。</p>
+      <h3>方法2：確認ツールを使う</h3>
+      <p>SNS側が用意している開発者向けツールもあります。代表的なのはFacebookの<b>「シェアデバッガー」</b>で、URLを入れると、Facebookがそのページから読み取ったOGPの内容と、エラーの有無を表示してくれます。汎用のOGP確認ツールも検索すれば複数見つかります。</p>
+      <p>ツールを使う利点は、後述する<b>「キャッシュの更新」</b>ができることです。</p>
+
+      <h2 id="chuui">つまずきやすいポイント</h2>
+      <h3>直したのに、古い画像が出続ける</h3>
+      <p>OGPで一番よくある混乱です。SNSやメッセージアプリは、一度読み取ったOGPの内容を<b>一定期間記憶（キャッシュ）します</b>。そのため、画像を差し替えても、しばらくは古いカードが表示され続けることがあります。</p>
+      <p>Facebookはシェアデバッガーで「もう一度スクレイピング」を実行すると再読み込みされます。キャッシュ更新の窓口がないアプリでは、時間を置いて反映を待つのが基本です。<b>故障ではないので、慌てて設定をいじり回さないでください。</b></p>
+      <h3>画像のURLが間違っている</h3>
+      <p>og:imageには、画像の完全なURL（https://から始まる形）を書く必要があります。相対的な書き方（assets/ogp.pngだけ、など）だと読み取れないことがあります。</p>
+      <h3>ページごとの設定になっていない</h3>
+      <p>全ページが同じタイトル・同じ画像になっているサイトをよく見かけます。動作はしますが、たとえばメニューのページを共有したのにトップページの案内が出る、といったズレが起きます。当社は<b>ページごとにタイトルと説明文を変えて</b>設定しています。</p>
+
+      <h2 id="shoujiki">正直に書いておきたいこと</h2>
+      <p>OGPについて、過大な期待をさせないために書いておきます。</p>
+      <p>まず、<b>OGPは検索順位とは直接関係ありません。</b>共有されたときの見た目を整える設定であって、SEO対策そのものではありません。順位への効果をうたってOGP設定を売る話があったら、それは筋が違います。</p>
+      <p>また、<b>各SNSの表示仕様は変わり続けています。</b>カードの形も、画像の切り取られ方も、アプリの更新で変わることがあります。この記事に書いたサイズや挙動も、時間が経てば古くなる可能性があります。定番の1200×630で作っておくのは、その変化にいちばん巻き込まれにくい選択だから、という消極的な理由も含んでいます。</p>
+      <p>それでも設定する価値はあると考えています。手間は一度きりで、費用はかからず、<b>紹介してもらえたときの受け皿が確実に良くなる</b>からです。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>OGP画像のサイズはいくつにすればよいですか？</summary>
+          <div class="faq-body">
+            <p>横1200ピクセル×縦630ピクセルが定番です。主要なSNSの大きなカード表示に対応できる比率（約1.91:1）で、当社サイトもこのサイズで設定しています。小さすぎる画像はカード表示の対象にならないことがあるため、迷ったらこのサイズをおすすめします。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>OGPを設定し直したのに、LINEで古い画像が出ます。なぜですか？</summary>
+          <div class="faq-body">
+            <p>SNS側が以前の情報を一定期間記憶（キャッシュ）しているためです。設定を直しても、すぐには反映されないことがあります。Facebookのシェアデバッガーのように、キャッシュの更新を依頼できるツールを持つSNSもありますが、基本的には時間を置くと新しい情報に入れ替わります。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>OGPが未設定だと、何か損をしますか？</summary>
+          <div class="faq-body">
+            <p>リンクを送ってもらったときの第一印象が弱くなります。画像もタイトルもないURLだけの表示は、押される前に素通りされやすく、せっかくの紹介や口コミの効果が目減りします。ページの表示や検索順位に直接影響するものではありませんが、紹介されて広がる経路を大切にするなら設定しておくべきものです。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>自分のサイトのOGPがどう見えるか確認できますか？</summary>
+          <div class="faq-body">
+            <p>できます。一番確実なのは、自分ひとりのLINEグループやKeepメモに実際にURLを送ってみることです。開発者向けにはFacebookのシェアデバッガーなどの確認ツールもあります。当社にURLをお送りいただければ、確認してお伝えすることもできます。費用はかかりません。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>OGP</b>——リンクが共有されたときのカード表示（画像・タイトル・説明文）を指定する裏方の設定</li>
+        <li><b>効くのは紹介の場面</b>——LINEやSNSで送ってもらったときの第一印象を左右する</li>
+        <li><b>画像は1200×630ピクセル</b>——文字は大きく、端に重要な要素を置かない</li>
+        <li><b>確認は自分に送るのが確実</b>——直しても古い表示が出るのはキャッシュのせい。故障ではない</li>
+        <li><b>検索順位とは直接関係ない</b>——SEOの代わりにはならない。過大な期待は禁物</li>
+      </ul>
+      <p>OGPは、サイトを作った側にしか見えない、地味な設定です。ですが実際に働くのは、<b>お客様が誰かにリンクを送ってくれた瞬間</b>——こちらの営業がいっさい届かない場面です。その瞬間にきちんとした顔で表示されるかどうかは、事前の設定だけで決まります。当社は制作するすべてのページで、この設定を標準で行っています。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>「うちのサイト、LINEで送るとどう見える？」という確認だけでも歓迎です</h3>
+      <p>URLをお送りいただければ、OGPの設定状況と、共有されたときの見え方を確認してお伝えします。当社にご依頼いただかなくても、費用は一切かかりません。「今のままで問題ない」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-structured-data.html">
+        <span class="stag">COLUMN</span>
+        <h3>構造化データ（JSON-LD）とは</h3>
+        <p>OGPと同じく画面には見えない裏方の実装。検索エンジンとAIへの「自己紹介文」を解説します。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-minus-promotion.html">
+        <span class="stag">COLUMN</span>
+        <h3>そのホームページは「マイナスプロモーション」では</h3>
+        <p>放置されたサイトが信用を削る8つのサイン。素っ気ないリンク表示もその入口のひとつです。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。OGP設定は全ページ、制作の標準工程に含めています。</p>
+        <span class="slink">ホームページ制作の詳細を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

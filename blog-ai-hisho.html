@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>AI秘書の作り方｜下書きまで、送信はしない｜NextRay</title>
+<meta name="description" content="毎時巡回してメールの下書きと予定の起票までを行い、送信は絶対にしないAI秘書。当社が実際に運用している2本立ての設計と、「変化が無ければ何も作らない」「深夜は動かさない」というルールの理由を、作り方の考え方から解説します。" />
+<meta name="keywords" content="AI秘書 作り方,AI メール 下書き 自動化,AI カレンダー 自動登録,中小企業 AI活用,新潟 AI自動化" />
+<link rel="canonical" href="https://nextray.jp/blog-ai-hisho.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="AI秘書の作り方｜毎時巡回して下書きまで、送信はしない" />
+<meta property="og:description" content="当社で実際に動いているAI秘書2本立ての設計を公開。「変化が無ければ何も作らない」ルールの理由まで。" />
+<meta property="og:url" content="https://nextray.jp/blog-ai-hisho.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI秘書の作り方｜毎時巡回して下書きまで、送信はしない" />
+<meta name="twitter:description" content="当社で実際に動いているAI秘書2本立ての設計を公開。「変化が無ければ何も作らない」ルールの理由まで。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI秘書の作り方｜毎時巡回して下書きまで、送信はしない",
+  "description": "毎時巡回してメール下書き・予定の起票・巡回ログまでを作り、送信は絶対にしないAI秘書。当社で実際に動いている2本立ての設計と運用ルールを解説します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-ai-hisho.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "AI秘書は勝手にメールを送りますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "送りません。当社のAI秘書は設計の段階で「送信は絶対にしない」と決めており、できるのは下書きを作ってフォルダに置くところまでです。送信のボタンは必ず人間が押します。この一線を守るからこそ、巡回や下書きを安心して任せられます。" } },
+    { "@type": "Question", "name": "毎時動かすと、通知だらけになりませんか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "なりません。「変化が無ければ何も作らない」というルールを入れているためです。新しいメールも予定の変化も無ければ、AI秘書は何も出力せずに終わります。毎時「異常なし」と報告させると人間が読まなくなるので、動きがあったときだけ形に残す設計にしています。" } },
+    { "@type": "Question", "name": "なぜクラウドとPCの2本立てなのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "見える範囲が違うからです。クラウド側はPCを閉じていても動き、メール・カレンダー・クラウド上のファイルを見回ります。PC側はローカルの作業フォルダなど、クラウドからは見えない場所を補完します。片方が止まっても、もう片方の巡回は続くという保険にもなっています。" } },
+    { "@type": "Question", "name": "専門知識がなくても、似た仕組みは作れますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "考え方は真似できます。重要なのは技術よりも「下書きまでしかさせない」「変化が無ければ黙る」「夜は動かさない」という運用ルールの設計です。まずはAIに毎朝のメール整理と返信の下書きだけを頼む、といった小さな範囲から始めることをおすすめします。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "AI秘書の作り方｜毎時巡回して下書きまで、送信はしない", "item": "https://nextray.jp/blog-ai-hisho.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ AI秘書の作り方</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">AI活用</span></div>
+      <h1><span class="grad-text">AI秘書</span>の作り方｜毎時巡回して下書きまで、送信はしない</h1>
+      <p class="summary">当社には、1時間ごとにメールと予定とフォルダを見回るAI秘書がいます。返信が要りそうなメールがあれば<b>下書きまで</b>作り、予定になりそうな用件があればカレンダーに起こし、巡回の記録を残します。ただし<b>送信は絶対にしません</b>。この記事では、実際に運用している2本立ての設計と、運用して分かった「AI秘書を使い物にするためのルール」を書きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#nani">AI秘書は何をしているか</a></li>
+        <li><a href="#nihondate">なぜ2本立てにしたか</a></li>
+        <li><a href="#soushin">ルール1：送信は絶対にしない</a></li>
+        <li><a href="#henka">ルール2：変化が無ければ何も作らない</a></li>
+        <li><a href="#shinya">ルール3：深夜は動かさない</a></li>
+        <li><a href="#kakunin">人間側の仕事は「確認する場所」を決めること</a></li>
+        <li><a href="#shoujiki">正直に書いておきたいこと</a></li>
+        <li><a href="#hajimekata">小さく始めるなら、どこからか</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="nani">AI秘書は何をしているか</h2>
+      <p>まず、実際にやっていることを具体的に並べます。1時間に1回、AIが次の巡回をします。</p>
+      <ul>
+        <li><b>メールの確認</b>——新着を読み、返信が要ると判断したものは<b>返信の下書き</b>を作って下書きフォルダに置く</li>
+        <li><b>予定の起票</b>——やり取りの中に日時のある用件を見つけたら、カレンダーに予定として起こす</li>
+        <li><b>先回りの支度</b>——2週間先までの予定を見て、「当日までに用意しないと困るもの」があれば準備の予定を立てる。判断基準は「その日、手ぶらで行って成立するか」</li>
+        <li><b>巡回ログ</b>——何を見て何を作ったかを、日付ごとの記録ファイルに残す</li>
+      </ul>
+      <p>人間である代表は、朝と夜に<b>下書きフォルダとカレンダーを見るだけ</b>です。下書きに目を通し、直すところを直して、送信ボタンを押す。秘書を雇った場合の「これでお送りしてよろしいですか」というやり取りと、構造は同じです。</p>
+
+      <h2 id="nihondate">なぜ2本立てにしたか</h2>
+      <p>AI秘書は1本ではなく、2本動かしています。</p>
+      <ul>
+        <li><b>クラウド側</b>——クラウド上で毎時動く。PCを閉じていても動き、メール・カレンダー・クラウド上のファイルを見回る</li>
+        <li><b>PC側</b>——手元のPCで毎時動く。ローカルの作業フォルダや作業履歴など、<b>クラウドからは見えない場所</b>を補完する</li>
+      </ul>
+      <p>分けた理由は、見える範囲が違うからです。クラウド側は外とのやり取り（メール・予定）に強く、PC側は社内の作業状況に強い。両方を同じ1本に任せると、どちらかが中途半端になりました。</p>
+      <p>もうひとつの利点は保険です。<b>片方が止まっても、もう片方の巡回は続きます</b>。実際、自動化は思ったより静かに止まるものです。止まったことに気づける構造を最初から入れておくことを、経験上おすすめします。</p>
+      <p>二重に動かすと起きるのが「同じ予定を2回登録してしまう」問題です。当社では<b>カレンダーへの起票はクラウド側だけ</b>と役割を切り、PC側は原則起票しない（例外時は起票者を明記する）ことで避けています。二重化するなら、書き込み先の担当は1本に絞る——これは秘書に限らず自動化全般のコツです。</p>
+
+      <h2 id="soushin">ルール1：送信は絶対にしない</h2>
+      <p>いちばん大事なルールです。AI秘書は下書きまでで、<b>送信は何があってもしません</b>。</p>
+      <p>技術的には、送信まで自動化することは簡単です。それでもしないのは、<b>送信は取り消せない</b>からです。下書きの間違いは何度でも直せますが、送ってしまったメールは回収できません。宛先の間違い、名前の間違い、事実と違う一文——どれも、送る前なら数秒で防げて、送った後では取り返しがつきません。</p>
+      <p>この「取り消せる仕事と取り消せない仕事の境界に人間を置く」という考え方は、AI活用全体の背骨だと考えているので、<a href="blog-ai-gate.html">別の記事</a>で詳しく書きました。</p>
+
+      <h2 id="henka">ルール2：変化が無ければ何も作らない</h2>
+      <p>運用してみて分かった、実務上いちばん効いているルールがこれです。<b>新しいメールも予定の変化も無ければ、AI秘書は何も出力せずに終わります</b>。</p>
+      <p>最初は「毎時、異常なしと報告してくれた方が安心では」と考えがちです。しかし毎時「異常なし」が届くと、人間は数日で読まなくなります。そして読まなくなった頃に、大事な1件が「異常なし」の山に埋もれます。</p>
+      <p><b>報告の価値は、報告が少ないことで保たれます</b>。何かが形になっているときは必ず意味がある——この状態を守ることが、AI秘書を「通知の騒音」ではなく「秘書」にする分かれ目でした。</p>
+
+      <h2 id="shinya">ルール3：深夜は動かさない</h2>
+      <p>AI秘書は深夜から早朝の時間帯は動かない設定にしています。AIは24時間働けるのに、なぜ止めるのか。</p>
+      <p>理由は、<b>夜中に作られた下書きや起票は、翌朝の確認の負担になるだけ</b>だからです。深夜に届いたメールへの返信は、どのみち朝に確認してから送ります。夜中の3時に下書きができていることに価値はなく、むしろ「夜中に何か動いた」という確認項目が増えるだけでした。</p>
+      <p>自動化の設計では「動かせる時間」ではなく<b>「人間が受け取れる時間」に合わせる</b>方が、結果として運用が続きます。</p>
+
+      <h2 id="kakunin">人間側の仕事は「確認する場所」を決めること</h2>
+      <p>AI秘書の出力は、メールの下書き、カレンダーの予定、巡回ログの3か所に分かれます。運用して痛感したのは、<b>確認場所が散らばるほど、人間は見なくなる</b>ということです。</p>
+      <p>当社では、確認の優先順位を決めています。いちばん手間がかからないのは<b>カレンダーの通知</b>で、これは待っていれば向こうから鳴ります。次がメールの下書きフォルダ。巡回ログは、何かあったときに遡って読む記録の位置づけです。</p>
+      <p>これからAI秘書的な仕組みを作る方には、先に<b>「自分は毎日どこを1か所だけ見るか」</b>を決めることをおすすめします。出力先が5か所ある仕組みは、どれだけ賢くても見られなくなります。</p>
+
+      <h2 id="shoujiki">正直に書いておきたいこと</h2>
+      <p>うまくいっている話だけでは公平でないので、弱点も書きます。</p>
+      <h3>1. 止まっていることに気づきにくい</h3>
+      <p>AI秘書は静かに止まります。エラーの通知が来て止まるのではなく、<b>ある日から単に動いていなかった</b>、という止まり方をすることがあります。当社でも、動いているはずの巡回が止まっていたことに後から気づいた経験があります。「変化が無ければ黙る」設計は通知の騒音を消す一方で、<b>「黙っている」のか「止まっている」のか</b>を区別しにくくします。定期的に巡回ログの日付を見る、という地味な点検は結局必要です。</p>
+      <h3>2. 下書きの品質は、渡している記録の品質で決まる</h3>
+      <p>AI秘書が良い下書きを書くのは、過去のやり取りや判断基準が文書として残っている場合です。記録が薄い相手への下書きは、当たり障りのない文面になりがちで、結局書き直します。<b>AIを賢くする作業の実体は、社内の記録を整える作業</b>でした。</p>
+      <h3>3. 人を雇う場合の完全な代わりではない</h3>
+      <p>電話応対、紙の書類、対面の気配り——このあたりはAI秘書には渡せません。当社が渡しているのは、あくまで「文字になっている情報の見回りと下書き」の範囲です。</p>
+
+      <h2 id="hajimekata">小さく始めるなら、どこからか</h2>
+      <p>この仕組みを丸ごと作る必要はありません。順序としては、次の形が現実的だと考えています。</p>
+      <ul class="checklist">
+        <li><b>最初の1週間</b>——AIに毎朝1回、受信箱の整理と「返信が要るもの一覧」だけを作らせる</li>
+        <li><b>慣れたら</b>——返信が要るものについて、下書きまで作らせる。送信は必ず自分で</li>
+        <li><b>次に</b>——やり取りから日時を拾ってカレンダー登録の下書きを作らせる</li>
+        <li><b>最後に</b>——頻度を上げる。毎朝1回で足りているなら、毎時にする必要はありません</li>
+      </ul>
+      <p>頻度や賢さより先に、<b>「送信しない」「変化が無ければ黙る」の2つのルール</b>を最初に固めてください。ルールなしで賢いAIを動かすより、ルールの中で単純なAIを動かす方が、実務では安全に長持ちします。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>AI秘書は勝手にメールを送りますか？</summary>
+          <div class="faq-body">
+            <p>送りません。当社のAI秘書は設計の段階で「送信は絶対にしない」と決めており、できるのは下書きを作ってフォルダに置くところまでです。送信のボタンは必ず人間が押します。この一線を守るからこそ、巡回や下書きを安心して任せられます。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>毎時動かすと、通知だらけになりませんか？</summary>
+          <div class="faq-body">
+            <p>なりません。「変化が無ければ何も作らない」というルールを入れているためです。新しいメールも予定の変化も無ければ、AI秘書は何も出力せずに終わります。毎時「異常なし」と報告させると人間が読まなくなるので、動きがあったときだけ形に残す設計にしています。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>なぜクラウドとPCの2本立てなのですか？</summary>
+          <div class="faq-body">
+            <p>見える範囲が違うからです。クラウド側はPCを閉じていても動き、メール・カレンダー・クラウド上のファイルを見回ります。PC側はローカルの作業フォルダなど、クラウドからは見えない場所を補完します。片方が止まっても、もう片方の巡回は続くという保険にもなっています。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>専門知識がなくても、似た仕組みは作れますか？</summary>
+          <div class="faq-body">
+            <p>考え方は真似できます。重要なのは技術よりも「下書きまでしかさせない」「変化が無ければ黙る」「夜は動かさない」という運用ルールの設計です。まずはAIに毎朝のメール整理と返信の下書きだけを頼む、といった小さな範囲から始めることをおすすめします。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>やること</b>——毎時の巡回、メール下書き、予定の起票、先回りの支度、巡回ログ</li>
+        <li><b>やらないこと</b>——送信。何があっても下書きまで</li>
+        <li><b>変化が無ければ黙る</b>——報告の価値は、報告が少ないことで保たれる</li>
+        <li><b>深夜は動かさない</b>——人間が受け取れる時間に合わせる</li>
+        <li><b>確認場所は絞る</b>——出力先が散らばる仕組みは見られなくなる</li>
+        <li><b>弱点もある</b>——静かに止まる。下書きの品質は記録の品質で決まる</li>
+      </ul>
+      <p>AI秘書の本体は、賢いAIではなく<b>運用のルール</b>です。ルールさえ固まっていれば、道具は入れ替えが利きます。この記事が、ご自身の会社で「まず何をAIに渡すか」を考える材料になれば幸いです。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>「毎日のメール処理と予定管理に追われている」という方へ</h3>
+      <p>お話を伺い、<b>今の業務のどこがAI秘書に渡せる範囲か、どこは人間に残すべきか</b>を一緒に整理します。ご相談は無料です。伺った結果「今は手作業のままの方がよい」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="ai-jimu.html" class="btn btn-ghost">事務作業のAI化を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-ai-agent-org.html">
+        <span class="stag">COLUMN</span>
+        <h3>従業員ゼロの会社をAIエージェントで回す</h3>
+        <p>AI秘書は組織の一部です。3層の組織図の全体像と設計原理を、この看板記事で公開しています。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-ai-gate.html">
+        <span class="stag">COLUMN</span>
+        <h3>AI自動化で外してはいけない一線</h3>
+        <p>なぜ送信だけは自動化しないのか。「取り消せない操作に人間を置く」という設計思想の話。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-ai-office.html">
+        <span class="stag">SERVICE</span>
+        <h3>AIによる事務・総務の自動化</h3>
+        <p>この記事の仕組みを自社で運用した経験をもとに、事務作業の自動化をお手伝いします。</p>
+        <span class="slink">サービスの詳細を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

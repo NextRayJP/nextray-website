@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>AIに任せてよい業務・いけない業務の線引き｜NextRay</title>
+<meta name="description" content="AIに任せてよい業務と、人間が握るべき業務はどこで分かれるのか。下書き・調査・巡回はAI、送信・公開・契約・支払は人間——当社が実際に運用しているルールと、「取り消せるか」「相手がいるか」という2軸の判断基準を公開します。" />
+<meta name="keywords" content="AI 業務 任せる範囲,AI 導入 判断基準,生成AI 業務活用 リスク,AI 自動化 どこまで,中小企業 AI活用,新潟 AI自動化" />
+<link rel="canonical" href="https://nextray.jp/blog-ai-task-select.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="AIに任せてよい業務・いけない業務の線引き｜当社の実例" />
+<meta property="og:description" content="下書き・調査・巡回はAI、送信・公開・契約・支払は人間。当社が毎日運用しているルールと、その判断基準を公開します。" />
+<meta property="og:url" content="https://nextray.jp/blog-ai-task-select.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AIに任せてよい業務・いけない業務の線引き｜当社の実例" />
+<meta name="twitter:description" content="下書き・調査・巡回はAI、送信・公開・契約・支払は人間。当社が毎日運用しているルールと、その判断基準を公開します。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AIに任せてよい業務・いけない業務の線引き｜当社の実例",
+  "description": "下書き・調査・巡回はAI、送信・公開・契約・支払は人間。当社が実際に運用しているルールと、「取り消せるか」「相手がいるか」という2軸の判断基準を公開します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-ai-task-select.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "AIに任せる業務は、どうやって決めればいいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "「失敗したとき取り消せるか」「その瞬間に相手がいるか」の2つを確認してください。取り消せて、相手のいない作業（下書き・調査・整理）はAI向きです。取り消せない、または相手に直接届く操作（送信・公開・契約・支払）は、AIが準備し人間が最終実行する形にするのが当社の方針です。" } },
+    { "@type": "Question", "name": "メールの自動送信までAIに任せてはいけませんか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "技術的には可能ですが、当社はしていません。送信は取り消せない操作で、AIの文章には事実の誤りや不自然な表現が混ざることがあるためです。当社ではAIは下書きまでを作り、送信ボタンは必ず人間が押します。この一手間で、誤送信の事故をほぼゼロにできます。" } },
+    { "@type": "Question", "name": "AIは間違えるのに、任せて大丈夫なのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "間違える前提で使い方を設計すれば大丈夫です。ポイントは、間違いが外に出る前に人間の確認を挟むことです。下書きや調査の段階の間違いは、確認時に直せば損害になりません。逆に確認なしで外に出す設計にすると、小さな間違いがそのまま事故になります。" } },
+    { "@type": "Question", "name": "小さな会社でも、この線引きは使えますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "使えます。当社自身が代表一人の会社で、この線引きを毎日運用しています。むしろ人手の少ない会社ほど、準備作業をAIに寄せて、人間は判断と実行だけに絞る効果が大きいと感じています。どの業務から始めるべきかは無料でご相談いただけます。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "AIに任せてよい業務・いけない業務の線引き｜当社の実例", "item": "https://nextray.jp/blog-ai-task-select.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  /* --- 2軸の線引き表 --- */
+  .axtable{width:100%;border-collapse:collapse;margin:22px 0 8px;font-size:.92rem}
+  .axtable th,.axtable td{border:1px solid var(--line);padding:14px 16px;text-align:left;vertical-align:top;line-height:1.8}
+  .axtable th{background:var(--bg-soft);font-weight:800;white-space:nowrap}
+  .axtable .ok{background:rgba(12,206,107,.06)}
+  .axtable .ng{background:rgba(255,99,71,.05)}
+  @media(max-width:640px){.axtable{font-size:.84rem}.axtable th,.axtable td{padding:10px 10px}}
+</style>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ AIに任せてよい業務・いけない業務</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">AI活用</span></div>
+      <h1>AIに任せてよい業務・いけない業務の<span class="grad-text">線引き</span>｜当社の実例</h1>
+      <p class="summary">「AIで業務を効率化しましょう」という話はあふれていますが、<b>どの業務を任せて、どの業務を任せないのか</b>という線引きの話は、あまり見かけません。当社はAIを使う会社であると同時に、AIの自動化を売る会社でもあります。この記事では、<b>当社自身が毎日運用しているルールをそのまま公開</b>し、線引きの判断基準を「取り消せるか」「相手がいるか」という2つの軸で説明します。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#jitsurei">まず、当社の実際のルール</a></li>
+        <li><a href="#jiku">判断基準は2つ｜取り消せるか・相手がいるか</a></li>
+        <li><a href="#makaseru">AIに任せている業務の中身</a></li>
+        <li><a href="#makasenai">人間が握っている操作の中身</a></li>
+        <li><a href="#naze">なぜ「送信ボタン」を渡さないのか</a></li>
+        <li><a href="#shoujiki">正直に書いておきたいこと</a></li>
+        <li><a href="#tejun">自社で線引きを作る手順</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="jitsurei">まず、当社の実際のルール</h2>
+      <p>理屈の前に、結論の表を出します。当社が実際に運用している線引きです。</p>
+
+      <table class="axtable">
+        <tr>
+          <th>AIに任せている</th>
+          <th>人間（代表）だけが行う</th>
+        </tr>
+        <tr>
+          <td class="ok">
+            メール・文書の<b>下書き</b><br />
+            商談相手や市場の<b>調査</b><br />
+            予定やファイルの<b>定期巡回・見落とし確認</b><br />
+            作業記録・議事録などの<b>ログ作成</b><br />
+            サイト更新の<b>案づくり</b>
+          </td>
+          <td class="ng">
+            メールの<b>送信</b><br />
+            サイトの<b>公開・更新の反映</b><br />
+            <b>契約</b>の締結<br />
+            <b>支払</b>・お金を動かす操作<br />
+            <b>金額の決定</b>（見積・値付け）
+          </td>
+        </tr>
+      </table>
+      <p>ひとことで言えば、<b>AIは「準備」まで、人間は「実行」を握る</b>という分け方です。AIが作った下書きも、必ず人間が読んでから送ります。サイトの修正案もAIが作りますが、公開ボタンを押すのは人間だけです。</p>
+      <p>これは「AIを信用していないから」ではありません。むしろ逆で、<b>この線引きがあるからこそ、準備の部分を安心してAIに全部任せられる</b>のです。</p>
+
+      <h2 id="jiku">判断基準は2つ｜取り消せるか・相手がいるか</h2>
+      <p>新しい業務が出てきたとき、当社は次の2つの質問で仕分けています。</p>
+
+      <h3>軸1：失敗したとき、取り消せるか</h3>
+      <p>下書きの間違いは、直せば済みます。調査結果の誤りも、確認の段階で捨てられます。<b>やり直しがきく作業は、AIが間違えても損害になりません</b>。</p>
+      <p>一方、送ってしまったメールは取り消せません。公開してしまった情報も、支払ってしまったお金も同じです。<b>取り消せない操作は、間違いがそのまま損害になります</b>。ここにAIを直結させるべきではない、というのが1つ目の軸です。</p>
+
+      <h3>軸2：その操作の先に、相手がいるか</h3>
+      <p>社内の整理やログ作成は、間違えても困るのは自分だけです。しかしメールの送信や公開は、<b>その瞬間にお客様や取引先へ届きます</b>。相手のいる操作は、内容の正しさだけでなく、言い回しへの配慮や関係性の判断が要ります。ここは今のAIがいちばん間違えやすい部分で、かつ間違えたときに信用を失う部分です。</p>
+
+      <h3>2軸を重ねると、こうなる</h3>
+      <table class="axtable">
+        <tr>
+          <th></th>
+          <th>取り消せる</th>
+          <th>取り消せない</th>
+        </tr>
+        <tr>
+          <th>相手がいない</th>
+          <td class="ok"><b>AIに全部任せる</b><br />調査・整理・ログ・巡回</td>
+          <td>AIが実行し、人間が定期確認<br />（当社ではファイル整理など）</td>
+        </tr>
+        <tr>
+          <th>相手がいる</th>
+          <td class="ok"><b>AIが下書き、人間が確認</b><br />メール文面・提案書の案</td>
+          <td class="ng"><b>人間だけが実行</b><br />送信・公開・契約・支払</td>
+        </tr>
+      </table>
+      <p>右下の「取り消せない × 相手がいる」の箱だけは、どれだけAIが賢くなっても人間が握る。それ以外はAIに寄せていく。これが当社の設計です。</p>
+
+      <h2 id="makaseru">AIに任せている業務の中身</h2>
+      <p>「準備」と言っても幅があるので、当社の実例をもう少し具体的に書きます。</p>
+
+      <h3>下書き</h3>
+      <p>お客様への返信、提案の文面、この記事のような発信の原稿。<b>ゼロから書く時間と、直す時間では、後者が圧倒的に短い</b>。文章業務の時間はここでいちばん減りました。</p>
+
+      <h3>調査</h3>
+      <p>商談前の相手先調査、制度や手続きの下調べ。人間なら数時間かかる情報収集が数分で形になります。ただし<b>AIの調査結果には誤りが混ざる前提</b>で、重要な数字や固有名詞は必ず元の情報源で確かめます。</p>
+
+      <h3>巡回・見落とし確認</h3>
+      <p>予定・ファイル・やりとりを定期的に見回り、「返信が漏れていないか」「期限が近い準備はないか」を拾わせています。人間は見落とす日がありますが、機械は毎回同じ精度で回ります。<b>ミスを減らすのではなく、ミスに気づく仕組みを機械化する</b>という発想です。</p>
+
+      <h3>ログ作成</h3>
+      <p>何をやったかの記録を、AIが自動で残します。記録は後回しにされがちな仕事の筆頭ですが、任せてしまえば漏れません。</p>
+
+      <h2 id="makasenai">人間が握っている操作の中身</h2>
+      <p>逆側も具体的に書きます。当社で人間だけが行うのは、送信・公開・契約・支払・金額決定の5つです。</p>
+      <ul>
+        <li><b>送信</b>——AIの下書きを読み、事実と固有名詞と言い回しを確認してから、人間がボタンを押します</li>
+        <li><b>公開</b>——ホームページの更新は、反映した瞬間に世界中から見える「取り消せない操作」です。反映操作は人間だけが行います</li>
+        <li><b>契約</b>——契約書の下書きや条項の確認補助はAIがしますが、締結の判断は人間です</li>
+        <li><b>支払</b>——お金を動かす操作にAIは一切触れさせていません</li>
+        <li><b>金額決定</b>——見積の金額は経営判断そのものなので、AIには決めさせません</li>
+      </ul>
+
+      <h2 id="naze">なぜ「送信ボタン」を渡さないのか</h2>
+      <p>技術的には、AIにメールを自動送信させることは簡単にできます。それでもやらない理由を、実感を込めて書きます。</p>
+      <p>AIの文章は、一見きれいに仕上がります。ですが読み返すと、<b>事実と違うことをもっともらしく書いていたり、こちらが意図しない強い言い回しになっていたりする</b>ことが、一定の割合で起こります。社名や人名のような固有名詞の間違いも起こり得ます。ビジネスの相手にとって、<b>自社の名前を間違えられることは「たかが誤字」では済みません</b>。</p>
+      <p>下書き段階の間違いは、確認で拾えばコストゼロです。送信後の間違いは、謝罪と信用の低下という取り返しのつかないコストになります。<b>「確認して送信する」という30秒の手間は、事故を防ぐ保険としては破格に安い</b>——これが当社の結論です。</p>
+      <p>お客様にAI自動化をご提案するときも、同じ設計にしています。「全部自動にできますよ」とは言いません。<b>取り消せない操作の手前に、必ず人間の確認を置く</b>。この設計のほうが、長く安心して使えるからです。</p>
+
+      <h2 id="shoujiki">正直に書いておきたいこと</h2>
+
+      <h3>1. この線引きは、効率だけ見れば「遅い」です</h3>
+      <p>すべて自動化すれば、人間の確認時間はゼロになります。当社の設計は、そこにあえて人間を挟むぶん遅い。<b>効率を数％捨てて、事故の芽を摘んでいる</b>という自覚はあります。それでも、一度の誤送信で失う信用のほうがはるかに高くつくと考えています。</p>
+
+      <h3>2. 確認する人間のほうが、先に手を抜きます</h3>
+      <p>運用していて痛感するのは、AIよりも<b>人間の確認のほうが崩れやすい</b>ことです。忙しい日ほど、確認を流し読みしたくなります。当社では「固有名詞は元の資料からコピーして使う」「事実の数字は原典と突き合わせる」といった確認自体の手順化を進めていますが、これも完成しているとは言えません。仕組みは今も改善の途中です。</p>
+
+      <h3>3. 線引きは、AIの進歩で変わり得ます</h3>
+      <p>この記事の線引きは2026年8月時点の当社の判断です。AIの精度が上がれば「AIに任せる」側は広がっていくでしょう。ただし、<b>右下の箱——取り消せない・相手がいる操作——を人間が握る原則は、精度の問題ではなく責任の問題なので、変えるつもりはありません</b>。</p>
+
+      <h2 id="tejun">自社で線引きを作る手順</h2>
+      <p>ここまでの内容は、そのままご自分の会社に当てはめられます。</p>
+      <ul class="checklist">
+        <li>日常業務を10個ほど書き出す（メール返信、見積作成、日報、在庫確認……）</li>
+        <li>それぞれに「失敗したら取り消せるか」で○×をつける</li>
+        <li>「操作の先に相手がいるか」で○×をつける</li>
+        <li>両方×（取り消せる・相手がいない）の業務から、AIに任せてみる</li>
+        <li>相手のいる業務は「AIが下書き→人間が確認して実行」の形にする</li>
+        <li>取り消せない×相手がいる操作は、自動化の対象から外す</li>
+      </ul>
+      <p>最初の1つは、<b>議事録やメール下書きのような「間違えても痛くない業務」</b>から始めるのがおすすめです。効果を体感してから広げるほうが、社内の納得も得やすくなります。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>AIに任せる業務は、どうやって決めればいいですか？</summary>
+          <div class="faq-body">
+            <p>「失敗したとき取り消せるか」「その瞬間に相手がいるか」の2つを確認してください。取り消せて、相手のいない作業（下書き・調査・整理）はAI向きです。取り消せない、または相手に直接届く操作（送信・公開・契約・支払）は、AIが準備し人間が最終実行する形にするのが当社の方針です。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>メールの自動送信までAIに任せてはいけませんか？</summary>
+          <div class="faq-body">
+            <p>技術的には可能ですが、当社はしていません。送信は取り消せない操作で、AIの文章には事実の誤りや不自然な表現が混ざることがあるためです。当社ではAIは下書きまでを作り、送信ボタンは必ず人間が押します。この一手間で、誤送信の事故をほぼゼロにできます。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>AIは間違えるのに、任せて大丈夫なのですか？</summary>
+          <div class="faq-body">
+            <p>間違える前提で使い方を設計すれば大丈夫です。ポイントは、間違いが外に出る前に人間の確認を挟むことです。下書きや調査の段階の間違いは、確認時に直せば損害になりません。逆に確認なしで外に出す設計にすると、小さな間違いがそのまま事故になります。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>小さな会社でも、この線引きは使えますか？</summary>
+          <div class="faq-body">
+            <p>使えます。当社自身が代表一人の会社で、この線引きを毎日運用しています。むしろ人手の少ない会社ほど、準備作業をAIに寄せて、人間は判断と実行だけに絞る効果が大きいと感じています。どの業務から始めるべきかは無料でご相談いただけます。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>AIは「準備」、人間は「実行」</b>——下書き・調査・巡回・ログはAI、送信・公開・契約・支払・金額決定は人間</li>
+        <li><b>判断の軸は2つ</b>——取り消せるか、相手がいるか</li>
+        <li><b>取り消せない×相手がいる操作は、精度の問題ではなく責任の問題</b>——AIが賢くなっても人間が握る</li>
+        <li><b>確認の30秒は、事故を防ぐ最も安い保険</b>——全自動より一手間残す設計のほうが長く使える</li>
+        <li><b>始めるなら「間違えても痛くない業務」から</b>——議事録・下書きが入口として最適</li>
+      </ul>
+      <p>AIの導入は「何ができるか」より「何をさせないか」を決めるほうが難しく、そして大事だと感じています。この記事の線引きが、そのたたき台になれば幸いです。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>「うちの業務なら、どこまで任せられるか」というご相談も歓迎です</h3>
+      <p>業務の内容をお聞かせいただければ、<b>AIに任せられる部分・人間が握るべき部分</b>を、この記事の2軸に当てはめて具体的にお伝えします。ご相談は無料です。「AIを入れるほどの業務量ではない」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="service-ai-office.html" class="btn btn-ghost">AI自動化サービスを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-ai-learning.html">
+        <span class="stag">COLUMN</span>
+        <h3>AIを体系的に学ぶ｜認定コース20本修了の記録</h3>
+        <p>この線引きの根拠になった学習の話。独学との違いと、検証できる修了証について。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="ai-jimu.html">
+        <span class="stag">SERVICE</span>
+        <h3>事務作業のAI化</h3>
+        <p>この記事の線引きをそのまま設計に使っているサービスです。対応業務を具体的に載せています。</p>
+        <span class="slink">サービスの詳細を見る →</span>
+      </a>
+      <a class="subcard reveal" href="soumu-hikaku.html">
+        <span class="stag">SERVICE</span>
+        <h3>採用・派遣との比較</h3>
+        <p>人を雇う場合と、AIに任せる場合。費用と向き不向きを並べて比較しています。</p>
+        <span class="slink">比較を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

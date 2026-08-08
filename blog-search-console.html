@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>Googleサーチコンソールの登録と見方｜無料の検索分析｜NextRay</title>
+<meta name="description" content="Googleサーチコンソールは「どんな言葉で検索されて見つかったか」が分かるGoogle公式の無料ツールです。登録の手順、サイトマップの送信、最初に見るべき2つの画面を解説します。アクセスが少ないうちはデータが薄いことも正直に。" />
+<meta name="keywords" content="サーチコンソール 登録,サーチコンソール 見方,Search Console 使い方,サイトマップ 送信,検索キーワード 調べ方,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-search-console.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="Googleサーチコンソールの登録と見方" />
+<meta property="og:description" content="「どんな言葉で検索されて見つかったか」が分かるGoogle公式の無料ツール。登録手順と、最初に見るべき2つの画面。" />
+<meta property="og:url" content="https://nextray.jp/blog-search-console.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Googleサーチコンソールの登録と見方" />
+<meta name="twitter:description" content="「どんな言葉で検索されて見つかったか」が分かるGoogle公式の無料ツール。登録手順と、最初に見るべき2つの画面。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Googleサーチコンソールの登録と見方｜検索の「どんな言葉で見つかったか」が分かる無料ツール",
+  "description": "Googleサーチコンソールの登録の手順、サイトマップの送信、最初に見るべき2つの画面（検索パフォーマンス・インデックス登録）を解説します。アクセスが少ないうちはデータが薄いことも正直に書きます。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-search-console.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Googleアナリティクスとは何が違うのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "見ている場所が違います。サーチコンソールは「サイトに来る前」——検索結果でどんな言葉で表示され、何回クリックされたか——を見るツールです。アナリティクスは「サイトに来た後」——どのページが読まれ、どれくらい滞在したか——を見るツールです。両方登録しても、どちらも無料です。" } },
+    { "@type": "Question", "name": "登録すると検索順位は上がりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "上がりません。サーチコンソールは計測のためのツールで、登録すること自体に順位を動かす効果はありません。順位を保証することは当社にもできません。価値があるのは、順位ではなく「お客様がどんな言葉で自社を見つけているか」という事実が分かることです。" } },
+    { "@type": "Question", "name": "登録したのに、データがほとんど表示されません。",
+      "acceptedAnswer": { "@type": "Answer", "text": "2つの理由が考えられます。ひとつは、登録直後はデータの蓄積が始まったばかりだということ。もうひとつは、検索結果に表示された回数そのものが少ないことです。アクセスの少ないサイトではデータが薄いのが普通で、故障ではありません。月に1回見る習慣だけ作って、蓄積を待ってください。" } },
+    { "@type": "Question", "name": "サイトマップとは何ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "サイトの中にどんなページがあるかを一覧にした、検索エンジン向けのファイル（sitemap.xml）です。人間が見るページではありません。これを送信しておくと、Googleがサイト内のページを見つけやすくなります。当社のサイトも設置・送信して運用しています。" } },
+    { "@type": "Question", "name": "どれくらいの頻度で見ればよいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "月に1回で十分です。毎日見ても数字はほとんど動きませんし、日々の変動に一喜一憂する意味もありません。月に1回、検索パフォーマンスの画面で「どんな言葉で見つかっているか」を眺め、想定と違う言葉があればサイトの文章を見直す。この程度の付き合い方が長続きします。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "Googleサーチコンソールの登録と見方", "item": "https://nextray.jp/blog-search-console.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ Googleサーチコンソールの登録と見方</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">SEO対策</span></div>
+      <h1>Googleサーチコンソールの登録と見方｜<span class="grad-text">「どんな言葉で見つかったか」が分かる無料ツール</span></h1>
+      <p class="summary">お客様は、どんな言葉で検索して、あなたのサイトを見つけているのか。<b>Googleサーチコンソール</b>を使うと、それが実際のデータで分かります。Googleが公式に、無料で提供しているツールです。この記事では、登録の手順、サイトマップの送信、最初に見るべき2つの画面を、専門用語をほどきながら説明します。<b>アクセスが少ないうちはデータが薄い</b>という現実も、正直に書きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#toha">サーチコンソールとは何か</a></li>
+        <li><a href="#chigai">アナリティクスとの違い——「来る前」と「来た後」</a></li>
+        <li><a href="#touroku">登録の手順</a></li>
+        <li><a href="#sitemap">サイトマップを送信する</a></li>
+        <li><a href="#gamen1">見るべき画面①——検索パフォーマンス</a></li>
+        <li><a href="#gamen2">見るべき画面②——インデックス登録</a></li>
+        <li><a href="#shoujiki">正直に書いておきたいこと</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="toha">サーチコンソールとは何か</h2>
+      <p>Googleサーチコンソールは、<b>自分のサイトがGoogle検索の中でどう扱われているか</b>を見せてくれる、Google公式の無料ツールです。登録すると、次のようなことが分かります。</p>
+      <ul>
+        <li><b>どんな言葉で検索されて、検索結果に表示されたか</b>——たとえば「地域名＋業種」なのか、店名なのか</li>
+        <li>その言葉で<b>何回表示され、何回クリックされたか</b></li>
+        <li>サイトのどのページがGoogleに認識されていて、どのページがされていないか</li>
+        <li>スマートフォンでの表示やセキュリティに問題が見つかったときの<b>Googleからの通知</b></li>
+      </ul>
+      <p>要するに、<b>これまで想像するしかなかった「お客様が使う検索の言葉」が、事実として見える</b>ようになります。SEO（検索エンジン対策）を考えるなら、順位を上げる施策の前に、まずこの計器を付けるのが順序だと当社は考えています。現在地が分からないまま打つ施策は、当てずっぽうになるからです。</p>
+
+      <h2 id="chigai">アナリティクスとの違い——「来る前」と「来た後」</h2>
+      <p>よく似た名前のツールに「Googleアナリティクス」があります。混同されやすいので、先に整理します。</p>
+      <ul>
+        <li><b>サーチコンソール＝サイトに来る前。</b>検索結果の中で、どんな言葉で表示され、クリックされたか</li>
+        <li><b>アナリティクス＝サイトに来た後。</b>どのページが読まれ、どれくらい滞在したか</li>
+      </ul>
+      <p>店舗にたとえるなら、サーチコンソールは<b>「お客様が店の前を通った回数と、入店のきっかけ」</b>を数える道具、アナリティクスは<b>「入店後の店内の動き」</b>を見る道具です。両方無料なので併用できますが、これから始める方には、まずサーチコンソールをおすすめします。「そもそもどう見つけられているか」の方が、打ち手に直結するからです。</p>
+
+      <h2 id="touroku">登録の手順</h2>
+      <p>必要なものは、Googleアカウントだけです。費用はかかりません。</p>
+      <ul class="checklist">
+        <li>検索で「Googleサーチコンソール」と調べ、Googleの公式ページを開く</li>
+        <li>「今すぐ開始」からGoogleアカウントでログインする</li>
+        <li>プロパティ（＝登録するサイト）の追加画面で、<b>「URLプレフィックス」</b>の方を選び、自社サイトのURLを入力する（もうひとつの「ドメイン」方式は設定が難しいため、まずはこちらで十分です）</li>
+        <li><b>所有権の確認</b>を行う——「このサイトの持ち主は本当にあなたか」の確認です。画面の案内に従い、指定されたファイルをサイトに置くか、HTMLに1行タグを追加します。Googleアナリティクス設定済みのサイトなら、それだけで自動確認される場合もあります</li>
+      </ul>
+      <p>所有権の確認だけは、サイトのファイルを触る作業が入ります。ご自分で難しければ、制作会社に「サーチコンソールの所有権確認をお願いします」と伝えれば通じます。<b>その際、管理画面を見る権限を必ず自社のGoogleアカウントにも付けてもらってください</b>。データはお客様自身の資産です。</p>
+
+      <h2 id="sitemap">サイトマップを送信する</h2>
+      <p>登録が済んだら、最初にやっておきたいのが<b>サイトマップの送信</b>です。</p>
+      <p>サイトマップ（sitemap.xml）とは、<b>「うちのサイトにはこういうページがあります」という一覧表</b>を、検索エンジン向けのファイルにしたものです。人間が見るページではありません。これを送信しておくと、Googleがサイト内のページを見つけやすくなり、新しいページを追加したときにも認識されやすくなります。</p>
+      <ul class="checklist">
+        <li>まず、自社サイトのURLの後ろに「/sitemap.xml」を付けて開いてみる。何かのコードのような内容が表示されれば、サイトマップは設置済み</li>
+        <li>サーチコンソールの左メニューから「サイトマップ」を開く</li>
+        <li>サイトマップのURL（多くの場合 sitemap.xml）を入力して送信する</li>
+        <li>ステータスが「成功しました」になれば完了。以後、手を加える必要は基本的にありません</li>
+      </ul>
+      <p>当社のサイト（nextray.jp）もsitemap.xmlを設置し、サーチコンソールに送信して運用しています。ページを追加するたびにサイトマップも更新する、というのが当社の制作の標準の工程です。表示されなかった場合はサイトマップが未設置の可能性が高いので、制作会社に設置を依頼してください。</p>
+
+      <h2 id="gamen1">見るべき画面①——検索パフォーマンス</h2>
+      <p>サーチコンソールには多くの画面がありますが、<b>最初は2つだけ</b>覚えれば十分です。ひとつ目が「検索パフォーマンス」です。</p>
+      <p>この画面には、自社サイトが検索結果に表示された記録が並びます。特に見てほしいのは、下部に出る<b>「クエリ」の一覧——実際に使われた検索の言葉</b>です。ここを眺めると、たとえばこんな発見があります。</p>
+      <ul>
+        <li>狙っていた「地域名＋業種」では、まだほとんど表示されていない</li>
+        <li>逆に、想定していなかった商品名やサービス名で見つけられている</li>
+        <li>店名の<b>打ち間違い・読み間違い</b>で検索されている（読みにくい店名のサイトでよくあります）</li>
+      </ul>
+      <p>あわせて、<b>表示回数</b>（検索結果に出た回数）と<b>クリック数</b>（実際に開かれた回数）の差も見てください。表示は多いのにクリックが少ない言葉があれば、検索結果に出る題名や紹介文（titleとdescription）がその言葉に応えられていない可能性があります。<b>ここで見つけた「実際に使われている言葉」をページの見出しや本文に反映していく</b>のが、地に足のついたSEOの出発点です。地域名との組み合わせ方は<a href="blog-seo-local.html">地域SEOの記事</a>に書きました。</p>
+
+      <h2 id="gamen2">見るべき画面②——インデックス登録</h2>
+      <p>ふたつ目が「インデックス登録」（ページの登録状況を示す画面。<b>カバレッジ</b>と呼ばれてきた機能です)。</p>
+      <p><b>インデックスとは、Googleの索引に載ること</b>です。Googleは世界中のページを巡回して索引を作っており、この索引に載っていないページは、内容がどれだけ良くても検索結果に出ません。この画面では、自社サイトの各ページが索引に<b>載っているか、載っていないか、載っていないなら理由は何か</b>が分かります。</p>
+      <p>見方はシンプルで、<b>「登録済み」のページ数が、自分のサイトの主要なページ数とだいたい合っているか</b>を確かめるだけです。公開したはずのページが「未登録」になっていたら、そのページはまだ検索の土俵に上がっていません。理由（リンクがどこからも張られていない、検索を拒否する設定が誤って入っている、など）も画面に表示されるので、対処の手がかりになります。</p>
+
+      <h2 id="shoujiki">正直に書いておきたいこと</h2>
+      <p>良いことばかり書いてきたので、限界も書きます。</p>
+      <h3>アクセスが少ないうちは、データも薄い</h3>
+      <p>サーチコンソールは、検索結果に表示された実績を記録するツールです。つまり<b>表示される回数が少ないうちは、見られるデータもわずか</b>です。開設したばかりのサイトでは、クエリが数個しか並ばないことも普通にあります。当社のサイトも、開設からの日が浅い時期はまさにその状態で、データが語れるほど貯まるのを待つしかありませんでした。これは故障でも設定ミスでもなく、<b>そういうもの</b>です。</p>
+      <h3>登録しても、順位は上がらない</h3>
+      <p>サーチコンソールは計器であって、エンジンではありません。付ければ速くなる、という類のものではないのです。<b>登録すること自体に順位を動かす効果はありませんし、順位を保証することは当社にもできません。</b>それでも登録をおすすめするのは、この計器なしにSEOの良し悪しを判断する方法が、事実上ないからです。</p>
+      <h3>過去にはさかのぼれない</h3>
+      <p>データの記録は、登録した後から始まります。<b>登録前の期間のデータは、あとからは見られません。</b>「アクセスが増えてから登録しよう」では、いちばん知りたい成長の過程が記録に残らないことになります。データが薄くても、先に登録しておく価値はここにあります。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Googleアナリティクスとは何が違うのですか？</summary>
+          <div class="faq-body">
+            <p>見ている場所が違います。サーチコンソールは「サイトに来る前」——検索結果でどんな言葉で表示され、何回クリックされたか——を見るツールです。アナリティクスは「サイトに来た後」——どのページが読まれ、どれくらい滞在したか——を見るツールです。両方登録しても、どちらも無料です。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>登録すると検索順位は上がりますか？</summary>
+          <div class="faq-body">
+            <p>上がりません。サーチコンソールは計測のためのツールで、登録すること自体に順位を動かす効果はありません。順位を保証することは当社にもできません。価値があるのは、順位ではなく「お客様がどんな言葉で自社を見つけているか」という事実が分かることです。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>登録したのに、データがほとんど表示されません。</summary>
+          <div class="faq-body">
+            <p>2つの理由が考えられます。ひとつは、登録直後はデータの蓄積が始まったばかりだということ。もうひとつは、検索結果に表示された回数そのものが少ないことです。アクセスの少ないサイトではデータが薄いのが普通で、故障ではありません。月に1回見る習慣だけ作って、蓄積を待ってください。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>サイトマップとは何ですか？</summary>
+          <div class="faq-body">
+            <p>サイトの中にどんなページがあるかを一覧にした、検索エンジン向けのファイル（sitemap.xml）です。人間が見るページではありません。これを送信しておくと、Googleがサイト内のページを見つけやすくなります。当社のサイトも設置・送信して運用しています。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>どれくらいの頻度で見ればよいですか？</summary>
+          <div class="faq-body">
+            <p>月に1回で十分です。毎日見ても数字はほとんど動きませんし、日々の変動に一喜一憂する意味もありません。月に1回、検索パフォーマンスの画面で「どんな言葉で見つかっているか」を眺め、想定と違う言葉があればサイトの文章を見直す。この程度の付き合い方が長続きします。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>サーチコンソール＝検索の計器</b>——「どんな言葉で見つかったか」が事実として分かる、Google公式の無料ツール</li>
+        <li><b>アナリティクスとの違い</b>——サイトに「来る前」を見るのがサーチコンソール、「来た後」がアナリティクス</li>
+        <li><b>登録したらまずサイトマップ送信</b>——Googleにページの一覧表を渡しておく</li>
+        <li><b>見る画面は2つだけ</b>——検索パフォーマンス（言葉とクリック）と、インデックス登録（索引に載っているか）</li>
+        <li><b>データが薄くても、先に登録する</b>——記録は登録後から始まる。過去にはさかのぼれない</li>
+      </ul>
+      <p>順位を上げる魔法の道具ではありません。ですが、<b>お客様が実際に使っている言葉を知らずに書く文章と、知って書く文章は、確実に違ってきます</b>。まずは登録して、計器を付けるところから始めてみてください。登録も、その後の利用も無料です。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>登録してみたけれど、画面の意味が分からない——というご相談も歓迎です</h3>
+      <p>サーチコンソールの画面を一緒に見ながら、数字の意味と、そこから何を直すべきかをお伝えします。ご依頼いただかなくても費用はかかりません。データを見た結果「いまは施策より蓄積を待つ段階です」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-seo-local.html">
+        <span class="stag">COLUMN</span>
+        <h3>地域SEOの考え方</h3>
+        <p>サーチコンソールで見つけた「実際の言葉」を、地域名とどう組み合わせるか。実践編です。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-pagespeed.html">
+        <span class="stag">COLUMN</span>
+        <h3>PageSpeed Insightsの見方</h3>
+        <p>同じGoogle公式の無料ツールで、表示速度を測る。4つのスコアの意味と自社の実測結果。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。サイトマップの設置・送信は、当社の制作では標準の工程です。</p>
+        <span class="slink">ホームページ制作の詳細を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

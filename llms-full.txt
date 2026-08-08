@@ -221,6 +221,37 @@ NextRayの収益は毎月の月額が積み上がるストック型であり、�
 ## コラム
 
 - コラム一覧 https://nextray.jp/blog.html
+- 従業員ゼロの会社をAIエージェントで回す｜NextRayの組織図を公開します https://nextray.jp/blog-ai-agent-org.html
+- AI秘書の作り方｜毎時巡回して下書きまで、送信はしない https://nextray.jp/blog-ai-hisho.html
+- AI自動化で外してはいけない一線｜送信・公開・支払だけは人間が押す https://nextray.jp/blog-ai-gate.html
+- AI活用の失敗談｜先回りして作った自動化は、ほぼ捨てることになる https://nextray.jp/blog-ai-failure.html
+- スプレッドシート×Apps Scriptで台帳を自動化する｜小さな会社の現実解 https://nextray.jp/blog-ai-appsscript.html
+- AIを体系的に学ぶ｜認定20コース修了の記録 https://nextray.jp/blog-ai-learning.html
+- AIに任せてよい業務・いけない業務の線引き https://nextray.jp/blog-ai-task-select.html
+- 合同会社のつくり方｜進行中の手順と費用の実録 https://nextray.jp/blog-goudou-setsuritsu.html
+- 会社の実印はいくらで作れるか｜最安比較の実録 https://nextray.jp/blog-jitsuin-cost.html
+- 商号調査のやり方｜社名を決める前に調べておくこと https://nextray.jp/blog-shogo-chosa.html
+- 登録免許税が半額になる制度と証明書の落とし穴 https://nextray.jp/blog-touroku-menkyozei.html
+- 一人の会社が経営革新計画などの公的認定に挑む理由 https://nextray.jp/blog-koteki-nintei.html
+- 初期費用0円・月額29,800円にした理由｜価格設計の裏側 https://nextray.jp/blog-subsc-pricing.html
+- 最低契約期間を廃止した理由｜解約条件を先に書く https://nextray.jp/blog-no-minimum-term.html
+- パートナーシップ構築宣言をした話｜小さな会社でも https://nextray.jp/blog-partnership.html
+- llms.txtとは｜AIに読まれるサイトにするための準備 https://nextray.jp/blog-llms-txt.html
+- 構造化データ（JSON-LD）とは｜検索エンジンとAIへの自己紹介文 https://nextray.jp/blog-structured-data.html
+- OGP設定とは｜LINEやSNSでリンクを送ったとき、どう見えるか https://nextray.jp/blog-ogp.html
+- アクセス解析タグは意外と重い｜計測タグを読み込み完了後に回した話 https://nextray.jp/blog-analytics-weight.html
+- サーバー代0円でホームページを運営する仕組み｜GitHub Pagesという選択肢 https://nextray.jp/blog-github-pages.html
+- 独自ドメインの決め方｜社名か、屋号か、サービス名か https://nextray.jp/blog-domain-name.html
+- ホームページ公開前チェックリスト｜当社が公開ボタンを押す前に確かめていること https://nextray.jp/blog-precheck.html
+- 404ページとファビコン｜誰も見ていないようで、信用に効く細部 https://nextray.jp/blog-404-favicon.html
+- CMSが無いサイトは更新が大変？｜月額制で更新代行が成立する仕組み https://nextray.jp/blog-static-update.html
+- お客様への連絡文で気をつけていること｜読み手の手間を最小にする https://nextray.jp/blog-renraku-bunsho.html
+- Googleサーチコンソールの登録と見方｜検索の「どんな言葉で見つかったか」が分かる無料ツール https://nextray.jp/blog-search-console.html
+- 「◯◯で検索」と誘導する広告が、いまも現役である意味 https://nextray.jp/blog-kensaku-ad.html
+- 買う気のある人に届くキーワード設計｜「商品名×意図語」という考え方 https://nextray.jp/blog-buyer-keywords.html
+- Googleビジネスプロフィール投稿のネタが尽きないつくり方 https://nextray.jp/blog-gbp-post.html
+- 契約前に無料でデモサイトを作る理由 https://nextray.jp/blog-free-demo.html
+- スマホで測ったら57点でした｜自社サイトを81点まで直した話 https://nextray.jp/blog-mobile-speed.html
 - Wixのエディタは、想像以上にレイアウトが崩れます https://nextray.jp/blog-wix-layout.html
 - WordPressを使わないホームページ制作 https://nextray.jp/blog-no-wordpress.html
 - ホームページ制作を「知り合いに頼む」危険 https://nextray.jp/blog-shiriai-risk.html

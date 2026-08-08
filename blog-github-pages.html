@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>サーバー代0円でホームページを運営する仕組み｜NextRay</title>
+<meta name="description" content="当社サイトと制作物の一部は、GitHub Pagesという仕組みで公開しており、サーバー費用がかかっていません。静的HTMLだから成立するこの選択肢の仕組みと、お問い合わせフォームに外部サービスが要る・専門知識が要るといった弱点まで正直に解説します。" />
+<meta name="keywords" content="GitHub Pages とは,ホームページ サーバー代 無料,静的サイト ホスティング,ホームページ 維持費 内訳,レンタルサーバー 不要,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-github-pages.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="サーバー代0円でホームページを運営する仕組み｜GitHub Pagesという選択肢" />
+<meta property="og:description" content="当社サイトはサーバー費用0円で動いています。静的HTMLだから成立する仕組みと、その弱点まで正直に解説します。" />
+<meta property="og:url" content="https://nextray.jp/blog-github-pages.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="サーバー代0円でホームページを運営する仕組み｜GitHub Pagesという選択肢" />
+<meta name="twitter:description" content="当社サイトはサーバー費用0円で動いています。静的HTMLだから成立する仕組みと、その弱点まで正直に解説します。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "サーバー代0円でホームページを運営する仕組み｜GitHub Pagesという選択肢",
+  "description": "当社サイトと制作物の一部はGitHub Pagesという仕組みで公開しており、サーバー費用がかかっていません。静的HTMLだから成立するこの選択肢の仕組みと、フォームに外部サービスが要る・専門知識が要るといった弱点まで正直に解説します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-github-pages.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "GitHub Pagesは本当に無料ですか？なぜ無料なのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "公開機能自体は無料です。GitHubは開発者向けの有料サービスで収益を上げており、Pagesはその開発者を集めるための付帯機能という位置づけです。ただし独自ドメインの取得費用（年数千円程度）は別途かかりますし、利用規約と容量・転送量の上限があります。無条件・無制限の無料ではありません。" } },
+    { "@type": "Question", "name": "GitHub Pagesでお問い合わせフォームは作れますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "GitHub Pages単体では作れません。フォームの送信内容を受け取って処理するプログラムをサーバー側で動かせないためです。実際には、フォーム部分だけ外部のフォームサービスを利用して組み合わせるのが一般的で、当社サイトのお問い合わせフォームもその方式です。" } },
+    { "@type": "Question", "name": "通販サイトもGitHub Pagesで作れますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "推奨しません。技術的な制約に加えて、GitHubの利用規約上、商取引そのものを主目的とするサイトの運用は認められていません。通販は通販専用のサービス（ShopifyやSTORESなど）を使い、会社案内やメニュー紹介などの情報発信部分を静的サイトで持つ、という分担が現実的です。" } },
+    { "@type": "Question", "name": "WordPressのサイトをGitHub Pagesに移せますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "そのままでは移せません。WordPressはサーバー側でプログラムとデータベースを動かす仕組みで、GitHub Pagesにはその実行環境がないためです。移すには、サイトを静的なHTMLとして作り直す作業が必要になります。ページ数や機能によって手間が大きく変わるので、個別の検討が必要です。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "サーバー代0円でホームページを運営する仕組み｜GitHub Pagesという選択肢", "item": "https://nextray.jp/blog-github-pages.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ サーバー代0円でホームページを運営する仕組み</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">制作の裏側</span></div>
+      <h1><span class="grad-text">サーバー代0円</span>でホームページを運営する仕組み｜GitHub Pagesという選択肢</h1>
+      <p class="summary">いまご覧いただいているこのサイト（nextray.jp）は、<b>サーバー費用が0円</b>で動いています。使っているのは <b>GitHub Pages</b> という仕組みです。この記事では、なぜ無料で運営できるのか、どんなサイトなら成立するのかを説明したうえで、<b>お問い合わせフォームが単体では作れない、専門知識が要る</b>といった弱点も隠さずに書きます。「ホームページの維持費、何にいくら払っているんだっけ」を考え直すきっかけになれば幸いです。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#kousei">ホームページの維持費は、何にかかっているのか</a></li>
+        <li><a href="#toha">GitHub Pagesとは何か</a></li>
+        <li><a href="#naze">なぜ無料なのか</a></li>
+        <li><a href="#seiritsu">静的HTMLだから成立する</a></li>
+        <li><a href="#kouhyou">当社の実際の使い方</a></li>
+        <li><a href="#jakuten">正直に書く弱点</a></li>
+        <li><a href="#mukifumuki">向くサイト・向かないサイト</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="kousei">ホームページの維持費は、何にかかっているのか</h2>
+      <p>ホームページの維持費というと、ひとまとまりの「管理費」として請求されることが多いのですが、中身を分解すると、だいたい次の要素でできています。</p>
+      <ul>
+        <li><b>サーバー代</b>——ページのデータを24時間置いておく場所の賃料</li>
+        <li><b>ドメイン代</b>——「〇〇.jp」などの住所の年間使用料</li>
+        <li><b>SSL証明書</b>——通信を暗号化する仕組み（鍵マークの正体）</li>
+        <li><b>保守・更新の人件費</b>——中身を直したり、安全に保ったりする作業</li>
+      </ul>
+      <p>このうち、いちばん「払っている実感がないのに毎月かかる」のがサーバー代です。この記事はその部分を<b>0円にできる場合がある</b>、という話です。維持費全体の考え方は<a href="blog-hp-cost.html">費用相場の記事</a>にも書いています。</p>
+
+      <h2 id="toha">GitHub Pagesとは何か</h2>
+      <p>GitHub（ギットハブ）は、世界中のソフトウェア開発者がプログラムのコードを保管・公開するために使っている、業界では標準的なサービスです。運営はMicrosoftの傘下企業で、公開されているコードの多くがここに置かれています。</p>
+      <p>そのGitHubには、<b>「保管しているファイルを、そのままウェブサイトとして公開する」</b>という機能があります。これがGitHub Pagesです。HTMLファイルを置けば、それがそのままインターネット上のページになります。</p>
+      <ul class="checklist">
+        <li><b>公開機能は無料</b>——サーバーの賃料に相当する費用がかからない</li>
+        <li><b>独自ドメインを使える</b>——当社のnextray.jpもこの機能で接続している（ドメイン代・年数千円程度は別途かかる）</li>
+        <li><b>SSLも無料で自動</b>——鍵マーク（https）の証明書が自動で発行・更新される</li>
+        <li><b>更新の反映が仕組み化されている</b>——手元でファイルを直して送信（push）すると、本番サイトに反映される</li>
+      </ul>
+
+      <h2 id="naze">なぜ無料なのか</h2>
+      <p>「無料」と聞くと、何か裏があるのではと考えるのが健全です。ここは正直に整理しておきます。</p>
+      <p>GitHubの本業は、企業や開発者向けの有料プランです。Pagesは、<b>開発者にサービスを使い続けてもらうための付帯機能</b>という位置づけで、いわば本業のついでに提供されています。広告が勝手に入ることもありません。</p>
+      <p>ただし、無条件・無制限ではありません。</p>
+      <ul>
+        <li><b>容量と転送量に上限がある</b>——サイトの容量や月間の転送量に目安の上限が定められている。通常の会社案内サイトで届く量ではありませんが、上限は存在します</li>
+        <li><b>利用規約がある</b>——商取引そのものを主目的とするサイト（通販の決済など）の運用は認められていない。会社案内・情報発信のサイトは問題ありません</li>
+        <li><b>仕様は変わりうる</b>——外部サービスである以上、条件が将来変わる可能性は常にあります</li>
+      </ul>
+      <p>当社はこれらを理解したうえで、<b>「静的な情報発信サイトなら、規約にも上限にも余裕をもって収まる」</b>と判断して使っています。</p>
+
+      <h2 id="seiritsu">静的HTMLだから成立する</h2>
+      <p>ここが仕組みの核心です。GitHub Pagesで公開できるのは<b>静的なサイト</b>——あらかじめ完成したHTMLファイルを、そのまま配るだけのサイト——に限られます。</p>
+      <p>WordPressのようなCMSは、訪問者がページを開くたびに、サーバー側でプログラムがデータベースから記事を取り出してページを組み立てます。この<b>「サーバー側で調理する」工程があるため、調理場つきのサーバー（＝有料のレンタルサーバー）が必要</b>になります。</p>
+      <p>一方、当社は<a href="blog-no-wordpress.html">WordPressを使わず、HTMLとCSSを直接書いて</a>制作しています。ページはすべて完成品として置いてあるので、配るだけの無料の仕組みで足ります。つまり<b>「サーバー代0円」は単独の技ではなく、作り方の選択とセット</b>です。静的に作るからこそ成立します。</p>
+      <p>副産物もあります。調理の工程がないぶん表示が速く、プログラムの脆弱性を突かれる攻撃面も小さくなります。WordPressの管理画面の乗っ取りやプラグインの脆弱性といった、CMS特有の心配事が構造的に存在しません。</p>
+
+      <h2 id="kouhyou">当社の実際の使い方</h2>
+      <p>当社は、この自社サイト（nextray.jp）と、制作物の一部をGitHub Pagesで公開しています。運用の流れはこうです。</p>
+      <ul class="checklist">
+        <li>手元のパソコンでHTMLファイルを編集する</li>
+        <li>変更内容を記録して、GitHubへ送信（push）する</li>
+        <li>数十秒〜数分で、本番のサイトに反映される</li>
+      </ul>
+      <p>変更の履歴がすべて記録として残るのも利点です。「いつ、どのページの、どこを直したか」が後から全部たどれるので、<b>間違えて消しても過去の状態に戻せます</b>。バックアップを別に取る運用より確実です。</p>
+      <p>お客様のサイトの月額29,800円には、サーバー・ドメイン・SSLの費用と管理を含めています。土台の費用を抑えられる仕組みを選んでいることは、この料金を維持できている理由のひとつです。</p>
+
+      <h2 id="jakuten">正直に書く弱点</h2>
+      <p>良いことばかり書いても信用に関わるので、弱点をまとめて書きます。</p>
+      <h3>1. お問い合わせフォームが、単体では作れない</h3>
+      <p>フォームの送信内容を受け取って処理するには、サーバー側で動くプログラムが必要です。静的サイトにはそれがありません。実際には<b>フォーム部分だけ外部のフォームサービスを組み合わせる</b>のが定石で、当社サイトのお問い合わせフォームもその方式です。予約システムや会員機能など、動的な機能はすべて同様に外部サービスとの組み合わせになります。</p>
+      <h3>2. 専門知識が要る</h3>
+      <p>公開までにはgit（ギット）という変更管理の道具の操作、HTMLの知識、ドメインの接続設定が必要です。<b>WordPressのような管理画面はなく、ブラウザだけで記事を書いて公開する、という使い方は基本的にできません。</b>「無料らしいから自分で」と始めて、公開前に挫折してしまうと本末転倒です。</p>
+      <h3>3. 何かあったときのサポート窓口がない</h3>
+      <p>無料の機能なので、電話で相談できる窓口はありません。トラブル時は自力（または依頼先）での解決になります。</p>
+      <h3>4. 外部サービスへの依存になる</h3>
+      <p>GitHubの仕様変更や障害の影響を受けます。これは有料レンタルサーバーでも同じ構図ですが、「無料の機能は仕様変更の告知が淡白になりがち」という一般論は頭に入れておくべきです。当社はファイル一式が常に手元とGitHubの両方にあるため、<b>万一のときは別のサーバーへ載せ替えられる</b>状態を保っています。静的HTMLはこの引っ越しが簡単なことも利点です。</p>
+
+      <h2 id="mukifumuki">向くサイト・向かないサイト</h2>
+      <p>まとめると、次のような線引きになります。</p>
+      <ul>
+        <li><b>向いている</b>——会社案内、店舗紹介、メニューや施工実績の掲載、ブログ・コラムなど、<b>「情報を見せる」ことが主目的のサイト</b>。中小企業のホームページの大半はこちらです</li>
+        <li><b>向いていない</b>——通販の決済そのもの、会員制サイト、在庫と連動する予約システムなど、<b>サーバー側の処理が本体のサイト</b>。規約の面でも技術の面でも、専用のサービスを使うべきです</li>
+      </ul>
+      <p>なお「向いていない」側も、全部をあきらめる話ではありません。たとえば通販は、決済をShopifyやSTORESなどの専門サービスに任せ、<b>会社案内や商品紹介の部分を静的サイトで持って接続する</b>、という分担ができます。当社の制作でも、外部通販サービスとの接続はこの考え方で対応しています。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>GitHub Pagesは本当に無料ですか？なぜ無料なのですか？</summary>
+          <div class="faq-body">
+            <p>公開機能自体は無料です。GitHubは開発者向けの有料サービスで収益を上げており、Pagesはその開発者を集めるための付帯機能という位置づけです。ただし独自ドメインの取得費用（年数千円程度）は別途かかりますし、利用規約と容量・転送量の上限があります。無条件・無制限の無料ではありません。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>GitHub Pagesでお問い合わせフォームは作れますか？</summary>
+          <div class="faq-body">
+            <p>GitHub Pages単体では作れません。フォームの送信内容を受け取って処理するプログラムをサーバー側で動かせないためです。実際には、フォーム部分だけ外部のフォームサービスを利用して組み合わせるのが一般的で、当社サイトのお問い合わせフォームもその方式です。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>通販サイトもGitHub Pagesで作れますか？</summary>
+          <div class="faq-body">
+            <p>推奨しません。技術的な制約に加えて、GitHubの利用規約上、商取引そのものを主目的とするサイトの運用は認められていません。通販は通販専用のサービス（ShopifyやSTORESなど）を使い、会社案内やメニュー紹介などの情報発信部分を静的サイトで持つ、という分担が現実的です。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>WordPressのサイトをGitHub Pagesに移せますか？</summary>
+          <div class="faq-body">
+            <p>そのままでは移せません。WordPressはサーバー側でプログラムとデータベースを動かす仕組みで、GitHub Pagesにはその実行環境がないためです。移すには、サイトを静的なHTMLとして作り直す作業が必要になります。ページ数や機能によって手間が大きく変わるので、個別の検討が必要です。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>GitHub Pages</b>——完成したHTMLをそのまま公開できる仕組み。サーバー代に相当する費用が0円</li>
+        <li><b>成立条件は静的HTML</b>——サーバー側で組み立てる工程がない作り方（脱WordPress）とセットの技</li>
+        <li><b>独自ドメインもSSLも使える</b>——当社のnextray.jp自体がこの仕組みで動いている実例</li>
+        <li><b>弱点は動的機能と専門知識</b>——フォームは外部サービスの組み合わせ。管理画面はなく、gitの操作が要る</li>
+        <li><b>向き不向きがはっきりしている</b>——情報を見せるサイトには向く。決済や会員機能が本体のサイトには向かない</li>
+      </ul>
+      <p>この仕組みを紹介したのは、「自分でやってみてください」と言うためだけではありません（できる方はぜひ挑戦してください。費用はかかりません）。それ以上に、<b>維持費の内訳は分解して考えられる</b>ということをお伝えしたかったからです。毎月の管理費のうち、土台の実費はいくらで、作業の対価はいくらなのか。それが説明できる契約かどうかは、依頼先を選ぶうえでのひとつの目安になると思います。当社の料金の内訳は、すべて<a href="pricing.html">料金ページ</a>で公開しています。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>「いま払っている維持費が適正か分からない」という方へ</h3>
+      <p>現在のサイトのURLと、差し支えなければ維持費の内訳をお知らせいただければ、何にいくらかかっている構成なのかを整理してお伝えします。当社にご依頼いただかなくても、費用は一切かかりません。「今の契約のままで問題ない」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で相談する →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-no-wordpress.html">
+        <span class="stag">COLUMN</span>
+        <h3>WordPressを使わないホームページ制作</h3>
+        <p>サーバー代0円の前提になる作り方。HTMLとCSSを直接書く理由と、正直な弱点まで。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-hp-cost.html">
+        <span class="stag">COLUMN</span>
+        <h3>ホームページ制作の費用相場</h3>
+        <p>費用の内訳と、買い切り・月額制の向き不向き。維持費を分解して考える土台になります。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="service-homepage.html">
+        <span class="stag">SERVICE</span>
+        <h3>ホームページ制作</h3>
+        <p>初期費用0円＋月額29,800円。サーバー・ドメイン・SSLの費用と管理まで含みます。</p>
+        <span class="slink">ホームページ制作の詳細を見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>

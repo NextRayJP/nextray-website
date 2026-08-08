@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>document.documentElement.className+=" js";setTimeout(function(){document.documentElement.className+=" reveal-all"},2000);</script>
+<title>アクセス解析タグは意外と重い｜読み込みを後回しにした話｜NextRay</title>
+<meta name="description" content="Googleアナリティクスの計測タグ本体は、当社の実測でgzip圧縮後186KB。ページ本体より重く、描画の帯域を奪います。当社が計測タグを「読み込み完了後」に回した実装と、その代わりに計測を取りこぼす可能性というトレードオフまで正直に書きます。" />
+<meta name="keywords" content="Googleアナリティクス 重い,gtag.js サイズ,計測タグ 遅延読み込み,ホームページ 表示速度 改善,サードパーティスクリプト,新潟 ホームページ制作" />
+<link rel="canonical" href="https://nextray.jp/blog-analytics-weight.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="theme-color" content="#1e9bff" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="NextRay" />
+<meta property="og:title" content="アクセス解析タグは意外と重い｜計測タグを読み込み完了後に回した話" />
+<meta property="og:description" content="計測タグ本体はgzip後186KB。ページ本体より重い。当社の実装と、計測を取りこぼす可能性というトレードオフまで正直に書きます。" />
+<meta property="og:url" content="https://nextray.jp/blog-analytics-weight.html" />
+<meta property="og:image" content="https://nextray.jp/assets/ogp.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="NextRay｜新潟のホームページ制作・MEO対策・AI自動化" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="article:published_time" content="2026-08-08" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="アクセス解析タグは意外と重い｜計測タグを読み込み完了後に回した話" />
+<meta name="twitter:description" content="計測タグ本体はgzip後186KB。ページ本体より重い。当社の実装と、計測を取りこぼす可能性というトレードオフまで正直に書きます。" />
+<meta name="twitter:image" content="https://nextray.jp/assets/ogp.png" />
+<link rel="icon" type="image/png" href="/assets/favicon.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "アクセス解析タグは意外と重い｜計測タグを読み込み完了後に回した話",
+  "description": "Googleアナリティクスの計測タグ本体はgzip圧縮後186KBと、ページ本体より重いことがあります。当社が計測タグの取得をページの読み込み完了後に回した実装と、計測を取りこぼす可能性というトレードオフまで正直に解説します。",
+  "image": "https://nextray.jp/assets/ogp.png",
+  "datePublished": "2026-08-08",
+  "dateModified": "2026-08-08",
+  "inLanguage": "ja",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://nextray.jp/blog-analytics-weight.html" },
+  "author": { "@type": "Person", "name": "谷川恵介", "url": "https://nextray.jp/daihyo.html" },
+  "publisher": { "@type": "Organization", "@id": "https://nextray.jp/#organization", "name": "NextRay", "url": "https://nextray.jp/", "logo": { "@type": "ImageObject", "url": "https://nextray.jp/assets/logo.png", "width": 253, "height": 60 } }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "アクセス解析タグを入れると、サイトはどれくらい遅くなりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "サイトや回線の状況によるため一概には言えませんが、当社の実測ではGoogleアナリティクスの計測タグ本体はgzip圧縮後で約186KBありました。文章中心のページ1枚より重いこともある量で、標準の入れ方ではページの描画と同じタイミングで通信するため、表示に使えたはずの帯域の一部を計測が使うことになります。" } },
+    { "@type": "Question", "name": "計測タグを後回しに読み込むと、何かデメリットはありますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "あります。ページの読み込み完了前に離脱した訪問者を計測できない可能性があります。つまり表示速度を優先する代わりに、アクセス数がわずかに少なめに記録されうるというトレードオフです。当社は「訪問者の体感を優先し、計測は多少の取りこぼしを許容する」という判断でこの実装にしています。" } },
+    { "@type": "Question", "name": "アクセス解析は入れない方がよいのですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "そうではありません。どのページが見られているかを知る手段として、アクセス解析には十分な価値があります。問題は入れ方です。標準の貼り方のまま、さらに複数の計測ツールを重ねると表示速度への影響が積み上がります。入れるものを絞り、読み込みのタイミングを工夫するのが現実的な落としどころだと考えています。" } },
+    { "@type": "Question", "name": "自分のサイトに計測タグがいくつ入っているか確認できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "PageSpeed Insightsで自社サイトを測定すると、外部から読み込んでいるスクリプトの影響が診断項目に表示されます。専門知識がなくても、スコアと診断の一覧を見るだけで「外部の読み込みが多い」ことは把握できます。当社にURLをお送りいただければ、確認してお伝えすることもできます。費用はかかりません。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://nextray.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "コラム", "item": "https://nextray.jp/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "アクセス解析タグは意外と重い｜計測タグを読み込み完了後に回した話", "item": "https://nextray.jp/blog-analytics-weight.html" }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap" /></noscript>
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .codebox{margin:22px 0;padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:var(--bg-soft);overflow-x:auto}
+  .codebox pre{margin:0;font-size:.82rem;line-height:1.9;white-space:pre;color:var(--ink-2)}
+  .codebox .cap{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+</style>
+<!-- Google tag (gtag.js) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、読み込み完了後に取得する
+  addEventListener("load",function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";document.head.appendChild(s);});
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="/" class="brand"><img src="assets/logo.png" alt="NextRay" width="253" height="60" fetchpriority="high" /></a>
+    <nav class="nav-links">
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">サービス<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown">
+          <div class="dd-cols">
+            <div class="dd-col">
+              <a class="dd-head" href="service-homepage.html">ホームページ制作</a>
+              <a href="hp-koumuten.html">工務店・建築会社</a>
+              <a href="hp-restaurant.html">飲食店</a>
+              <a href="hp-salon.html">美容室・サロン</a>
+              <a href="hp-dental.html">クリニック・歯科</a>
+              <a href="hp-cafe.html">カフェ・小売店</a>
+              <a href="hp-zeirishi.html">士業・専門職</a>
+            </div>
+            <div class="dd-col">
+              <a class="dd-head" href="service-ai-office.html">AIによる事務・総務の自動化</a>
+              <a href="ai-inquiry.html">問い合わせ・予約の自動化</a>
+              <a href="ai-jimu.html">事務作業のAI化</a>
+              <a href="soumu-gyomu.html">対応業務の詳細</a>
+              <a href="soumu-hikaku.html">採用・派遣との比較</a>
+            </div>
+          </div>
+          <div class="dd-foot">
+            <a href="/#works">制作実績を見る →</a>
+            <a href="pricing.html">2サービスの料金を見る →</a>
+          </div>
+        </div>
+      </div>
+      <a href="pricing.html">料金</a>
+      <a href="blog.html">コラム</a>
+      <a href="faq.html">よくある質問</a>
+      <div class="navitem has-menu">
+        <button class="navtrigger" aria-expanded="false" aria-haspopup="true">会社案内<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown right">
+          <div class="dd-cols one">
+            <div class="dd-col">
+              <a class="dd-head" href="company.html">会社概要</a>
+              <a href="daihyo.html">代表メッセージ</a>
+              <a href="certifications.html">認定・資格</a>
+              <a href="area.html">対応エリア</a>
+              <a href="limited.html">受付件数を制限する理由</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:080-7517-4514" class="nav-phone">080-7517-4514<span>24時間受付</span></a>
+      <a href="/#contact" class="btn btn-primary">無料相談</a>
+      <button class="burger" id="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="閉じる">&times;</button>
+  <p class="mm-head">Services</p>
+  <a href="service-homepage.html">ホームページ制作</a>
+  <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+  <a href="pricing.html">料金一覧</a>
+  <p class="mm-head">Company</p>
+  <a href="blog.html">コラム</a>
+  <a href="company.html">会社概要</a>
+  <a href="daihyo.html">代表メッセージ</a>
+  <a href="certifications.html">認定・資格</a>
+  <a href="area.html">対応エリア</a>
+  <a href="faq.html">よくある質問</a>
+  <a href="/#contact" class="btn btn-primary">無料相談する</a>
+  <a href="tel:080-7517-4514" class="btn btn-ghost">080-7517-4514 に電話</a>
+</div>
+
+<section class="page-hero" style="padding-bottom:40px">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="wrap reveal">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> ／ <a href="blog.html">コラム</a> ／ アクセス解析タグは意外と重い</nav>
+    <div class="article-head">
+      <div class="post-meta"><time datetime="2026-08-08">2026.08.08</time><span class="post-cat">制作の裏側</span></div>
+      <h1>アクセス解析タグは<span class="grad-text">意外と重い</span>｜計測タグを「読み込み完了後」に回した話</h1>
+      <p class="summary">ホームページに貼るGoogleアナリティクスの計測タグ。「貼るだけ」と言われるあの1枚のコードの裏で、実は<b>ページ本体より重いプログラム</b>がダウンロードされています。当社の実測では<b>gzip圧縮後で186KB</b>。この記事では、当社サイトがこの計測タグを<b>ページの読み込みが終わってから取得する</b>実装にした理由と、その代わりに<b>計測を取りこぼす可能性がある</b>というトレードオフまで、実物のコードつきで正直に書きます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap">
+    <nav class="toc reveal" aria-label="目次">
+      <p>目次</p>
+      <ol>
+        <li><a href="#omosa">計測タグ本体は、gzip後186KBありました</a></li>
+        <li><a href="#naze">なぜ重さが問題になるのか</a></li>
+        <li><a href="#hyoujun">標準の貼り方で何が起きているか</a></li>
+        <li><a href="#jissou">当社の実装——読み込み完了後に取得する</a></li>
+        <li><a href="#tradeoff">トレードオフ——計測を取りこぼす可能性</a></li>
+        <li><a href="#tsumiagari">計測ツールは積み上がる</a></li>
+        <li><a href="#dekirukoto">読者の方が自分でできること</a></li>
+        <li><a href="#faq">よくあるご質問</a></li>
+        <li><a href="#matome">まとめ</a></li>
+      </ol>
+    </nav>
+
+    <article class="article reveal">
+      <h2 id="omosa">計測タグ本体は、gzip後186KBありました</h2>
+      <p>Googleアナリティクスを導入するとき、管理画面から数行のコードを渡され、「これをサイトに貼ってください」と案内されます。貼るコード自体は短いので、軽い作業に見えます。</p>
+      <p>ですが、あの数行は<b>「本体を呼びに行くための呼び鈴」</b>です。訪問者がページを開くたび、そのブラウザはGoogleのサーバーから計測プログラムの本体（gtag.jsというファイル)をダウンロードします。当社が自社サイトで実測したところ、この本体は<b>gzip圧縮された転送時点で約186KB</b>ありました。</p>
+      <p>186KBがどれくらいかというと、当社サイトは<a href="blog-mobile-speed.html">日本語Webフォントを撤去する改善</a>を経て、ページ全体を大きく軽量化してあります。<b>文章中心のページなら、本文・スタイル・ロゴを合わせたよりも計測タグ1本の方が重い</b>、ということが普通に起こる量です。</p>
+
+      <h2 id="naze">なぜ重さが問題になるのか</h2>
+      <p>回線には、同時に流せるデータ量（帯域）の上限があります。特にスマートフォンの移動中の回線では、この上限が体感を直接左右します。</p>
+      <p>ページを開いた直後は、本文・スタイル・画像といった<b>「見えるもの」を運ぶ通信</b>が集中する時間帯です。ここに計測タグの186KBが割り込むと、<b>表示に使えたはずの帯域の一部を、画面に何も映さない計測プログラムが使う</b>ことになります。</p>
+      <p>計測タグは訪問者に何も見せません。それ自体は悪いことではなく、裏方の仕事とはそういうものです。ただ、<b>裏方が主役より先に舞台へ出て通路をふさぐ必要はない</b>——当社はそう考えました。</p>
+
+      <h2 id="hyoujun">標準の貼り方で何が起きているか</h2>
+      <p>Googleが案内する標準のコードは、async（非同期）という指定つきでhead内に置かれます。asyncは「ダウンロード中もページの組み立てを止めない」という指定で、これ自体は良い仕組みです。</p>
+      <p>ただしasyncでも、<b>ダウンロード自体はページの描画と同じ時間帯に走ります</b>。組み立ては止まらなくても、回線は共用です。遅い回線ほど、この同居の影響は大きくなります。</p>
+      <p>表示速度の測定については<a href="blog-pagespeed.html">PageSpeed Insightsの解説記事</a>に書きましたが、外部から読み込むスクリプトの量は、パフォーマンススコアを左右する主要因のひとつです。</p>
+
+      <h2 id="jissou">当社の実装——読み込み完了後に取得する</h2>
+      <p>当社サイトの全ページに実際に入っているコードを、そのまま載せます。</p>
+      <div class="codebox">
+        <span class="cap">nextray.jp 全ページ共通の計測タグ（実物）</span>
+        <pre>&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F1Z6NP6M68');
+  // 計測タグ本体（gzip後186KB）は描画の帯域を奪うため、
+  // 読み込み完了後に取得する
+  addEventListener("load",function(){
+    var s=document.createElement("script");
+    s.async=true;
+    s.src="https://www.googletagmanager.com/gtag/js?id=G-F1Z6NP6M68";
+    document.head.appendChild(s);
+  });
+&lt;/script&gt;</pre>
+      </div>
+      <p>やっていることを日本語にすると、こうなります。</p>
+      <ul class="checklist">
+        <li>計測の「受付窓口」（dataLayerという記録帳）だけは先に用意しておく</li>
+        <li>計測プログラムの<b>本体186KBは、ページの読み込みがすべて終わってから</b>（loadイベント後に）取りに行く</li>
+        <li>本体が届いたら、記録帳に溜まっていた分をまとめて処理してもらう</li>
+      </ul>
+      <p>つまり、<b>主役（本文・画像）が舞台に出そろってから、裏方（計測）が入場する</b>順番に入れ替えただけです。計測の内容そのものは変えていません。コード中のコメントに「gzip後186KB」と書いてあるのは、将来の自分がこの行を消しそうになったときのための、理由のメモです。</p>
+
+      <h2 id="tradeoff">トレードオフ——計測を取りこぼす可能性</h2>
+      <p>この実装には、はっきりした代償があります。正直に書きます。</p>
+      <p><b>ページの読み込みが完了する前に離脱した訪問者は、計測されない可能性があります。</b>開いて1〜2秒で「違うな」と閉じた人は、本体が届く前に去っているため、記録に残らないことがあります。つまり、<b>アクセス数が実際より少なめに記録されうる</b>ということです。</p>
+      <p>当社がそれでもこの実装を選んだ理由は、天秤のかけ方です。</p>
+      <ul>
+        <li><b>計測を優先する</b>——数字は正確に近づくが、すべての訪問者の表示がわずかに遅くなる</li>
+        <li><b>表示を優先する</b>——すべての訪問者の表示が軽くなるが、直帰の一部を数え損ねる</li>
+      </ul>
+      <p>当社にとってアクセス解析は「どのページが読まれているか」の傾向をつかむ道具であって、1件単位の正確さを求めるものではありません。一方、表示の速さは<b>全訪問者が毎回受け取る体感</b>です。傾向把握のための数字の精度を少し譲って、体感を取る——これが当社の判断です。</p>
+      <p>逆に言えば、<b>広告の費用対効果を1件単位で追っているサイトでは、この実装は向かない場合があります</b>。何を計測の目的にしているかで、正解は変わります。</p>
+
+      <h2 id="tsumiagari">計測ツールは積み上がる</h2>
+      <p>もうひとつ、お伝えしたいことがあります。重いのはGoogleアナリティクスだけではない、ということです。</p>
+      <p>サイトを長く運用していると、アクセス解析のほかに、広告の計測タグ、ヒートマップ、チャットボット、SNSの埋め込み——と、外部のスクリプトが少しずつ増えていきます。1つ1つは「貼るだけ」でも、<b>訪問者のブラウザはそのすべてを毎回ダウンロードします</b>。</p>
+      <p>数年運用したサイトの表示が遅い原因を調べると、<b>誰も見ていない計測ツールが3つも4つも残っていた</b>、ということは珍しくありません。入れた記録は残っても、やめた記録は残りにくいからです。</p>
+      <p>当社が自社サイトに入れている外部の計測はGoogleアナリティクス1本だけです。増やすときは「その数字を、誰が、何の判断に使うのか」を先に決めることにしています。答えられない計測は、帯域の無駄遣いだからです。</p>
+
+      <h2 id="dekirukoto">読者の方が自分でできること</h2>
+      <p>専門知識がなくても、ここまでの話は自分のサイトで点検できます。</p>
+      <ul class="checklist">
+        <li><b>PageSpeed Insightsで自社サイトを測る</b>——検索で「PageSpeed Insights」と調べ、URLを入れるだけ。無料です</li>
+        <li>診断の一覧に「使用していないJavaScript」「第三者コードの影響」といった項目が出ていないかを見る</li>
+        <li><b>入れている計測ツールを棚卸しする</b>——管理会社や過去の担当者に「外部のタグは何が入っているか」を聞く</li>
+        <li>それぞれについて「最後にその数字を見たのはいつか」を思い出す。<b>1年見ていない計測は、外す候補</b></li>
+      </ul>
+      <p>読み込みタイミングの変更（この記事の実装）は、サイトの作りに手を入れる作業になるので、管理している会社に相談してください。その際、この記事を見せていただいて構いません。</p>
+
+      <h2 id="faq">よくあるご質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>アクセス解析タグを入れると、サイトはどれくらい遅くなりますか？</summary>
+          <div class="faq-body">
+            <p>サイトや回線の状況によるため一概には言えませんが、当社の実測ではGoogleアナリティクスの計測タグ本体はgzip圧縮後で約186KBありました。文章中心のページ1枚より重いこともある量で、標準の入れ方ではページの描画と同じタイミングで通信するため、表示に使えたはずの帯域の一部を計測が使うことになります。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>計測タグを後回しに読み込むと、何かデメリットはありますか？</summary>
+          <div class="faq-body">
+            <p>あります。ページの読み込み完了前に離脱した訪問者を計測できない可能性があります。つまり表示速度を優先する代わりに、アクセス数がわずかに少なめに記録されうるというトレードオフです。当社は「訪問者の体感を優先し、計測は多少の取りこぼしを許容する」という判断でこの実装にしています。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>アクセス解析は入れない方がよいのですか？</summary>
+          <div class="faq-body">
+            <p>そうではありません。どのページが見られているかを知る手段として、アクセス解析には十分な価値があります。問題は入れ方です。標準の貼り方のまま、さらに複数の計測ツールを重ねると表示速度への影響が積み上がります。入れるものを絞り、読み込みのタイミングを工夫するのが現実的な落としどころだと考えています。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>自分のサイトに計測タグがいくつ入っているか確認できますか？</summary>
+          <div class="faq-body">
+            <p>PageSpeed Insightsで自社サイトを測定すると、外部から読み込んでいるスクリプトの影響が診断項目に表示されます。専門知識がなくても、スコアと診断の一覧を見るだけで「外部の読み込みが多い」ことは把握できます。当社にURLをお送りいただければ、確認してお伝えすることもできます。費用はかかりません。</p>
+          </div>
+        </details>
+      </div>
+
+      <h2 id="matome">まとめ</h2>
+      <p>整理します。</p>
+      <ul>
+        <li><b>「貼るだけ」の計測タグの裏で、本体186KB（当社実測・gzip後）がダウンロードされている</b></li>
+        <li><b>標準の貼り方では、表示と計測が同じ帯域を取り合う</b>——遅い回線ほど影響が大きい</li>
+        <li><b>当社は本体の取得を「読み込み完了後」に回した</b>——主役が出そろってから裏方が入場する順番</li>
+        <li><b>代償は計測の取りこぼし</b>——早期離脱が記録されない可能性がある。計測の目的次第では向かない</li>
+        <li><b>計測ツールは棚卸しする</b>——1年見ていない数字のために、全訪問者を待たせない</li>
+      </ul>
+      <p>表示速度の改善というと、画像の圧縮やサーバーの話になりがちですが、<b>「画面に何も映さない通信を、いつ流すか」</b>という地味な設計も同じくらい効きます。そしてこの種の工夫は、公開後のスコアを測っても項目名としては出てきません。制作会社が裏で何をしているか——その一例として、当社の実装をそのまま公開しました。</p>
+    </article>
+
+    <div class="article-cta reveal">
+      <h3>「うちのサイト、外部のタグがどれだけ入っているか分からない」という方へ</h3>
+      <p>URLをお送りいただければ、表示速度を測定し、外部スクリプトの状況と、直すとしたらどこから手をつけるべきかをお伝えします。当社にご依頼いただかなくても、費用は一切かかりません。「今のままで問題ない」と判断した場合は、正直にそうお伝えします。無理な営業や、しつこい追客は行いません。</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a href="/#contact" class="btn btn-primary">無料で診断してもらう →</a>
+        <a href="pricing.html" class="btn btn-ghost">料金を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block soft">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Related</span>
+      <h2>関連する記事・ページ</h2>
+    </div>
+    <div class="subgrid">
+      <a class="subcard reveal" href="blog-mobile-speed.html">
+        <span class="stag">COLUMN</span>
+        <h3>スマホで測ったら57点でした</h3>
+        <p>自社サイトを81点まで直した改善記録。原因の大半は日本語Webフォントでした。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-pagespeed.html">
+        <span class="stag">COLUMN</span>
+        <h3>PageSpeed Insightsの見方</h3>
+        <p>表示速度を自分で測る方法。4つのスコアとFCP／LCP／CLSの意味を解説しています。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+      <a class="subcard reveal" href="blog-no-wordpress.html">
+        <span class="stag">COLUMN</span>
+        <h3>WordPressを使わないホームページ制作</h3>
+        <p>速さは作り方の段階でほぼ決まります。HTMLとCSSを直接書く理由と、正直な弱点まで。</p>
+        <span class="slink">記事を読む →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="NextRay" width="253" height="60" loading="lazy" />
+        <p>お客様と共に――新潟のホームページ制作・MEO対策・AI自動化はNextRayにお任せください。</p>
+        <div class="foot-sns-row">
+          <a class="foot-sns" href="https://www.instagram.com/nextray_gk/" target="_blank" rel="noopener" aria-label="@nextray_gk（NextRay Instagram）">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            <span>@nextray_gk</span>
+          </a>
+          <a class="foot-sns" href="https://www.linkedin.com/in/keisuke-tanikawa-nextray" target="_blank" rel="noopener" aria-label="谷川恵介 LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="foot-sns" href="https://note.com/nextray_jp" target="_blank" rel="noopener" aria-label="NextRay note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+            <span>note</span>
+          </a>
+          <a class="foot-sns" href="https://ameblo.jp/nextray/" target="_blank" rel="noopener" aria-label="NextRay アメブロ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span>アメブロ</span>
+          </a>
+        </div>
+        <a class="foot-pship" href="certifications.html" aria-label="パートナーシップ構築宣言について">
+          <img src="assets/partnership.png" alt="パートナーシップ構築宣言" width="410" height="180" loading="lazy" />
+          <span>取引先との共存共栄を宣言しています</span>
+        </a>
+      </div>
+      <div class="foot-col">
+        <h3>Services</h3>
+        <a href="service-homepage.html">ホームページ制作</a>
+        <a href="service-ai-office.html">AIによる事務・総務の自動化</a>
+        <a href="pricing.html">料金一覧</a>
+      </div>
+      <div class="foot-col">
+        <h3>Company</h3>
+        <a href="company.html">会社概要</a>
+        <a href="daihyo.html">代表メッセージ</a>
+        <a href="blog.html">コラム</a>
+        <a href="area.html">対応エリア</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="certifications.html">認定・資格</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="tel:080-7517-4514">TEL：080-7517-4514</a>
+        <a>受付時間：24時間</a>
+        <a>新潟県新潟市西蒲区<br />中之口1885-11</a>
+        <a href="/#contact">お問い合わせフォーム</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 NextRay. All rights reserved.</span>
+      <span>新潟のホームページ制作・MEO・AI自動化パートナー</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  const mm=document.getElementById('mobileMenu');
+  document.getElementById('burger').onclick=()=>mm.classList.add('open');
+  document.getElementById('mobileClose').onclick=()=>mm.classList.remove('open');
+  mm.querySelectorAll('a').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el);});
+  // フォールバック: IntersectionObserver が発火しない場合でも本文が必ず表示されるようにする
+  var revealFallback=function(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    Array.prototype.forEach.call(document.querySelectorAll('.reveal:not(.in)'),function(el){
+      var r=el.getBoundingClientRect();
+      if(r.top<vh*0.95&&r.bottom>-1){el.classList.add('in');}
+    });
+  };
+  requestAnimationFrame(revealFallback);
+  window.addEventListener('scroll',revealFallback,{passive:true});
+  window.addEventListener('resize',revealFallback,{passive:true});
+  window.addEventListener('load',revealFallback);
+  setTimeout(revealFallback,600);
+
+
+  // ドロップダウンナビ
+  var navItems=document.querySelectorAll('.navitem.has-menu');
+  var isDesktop=function(){return window.matchMedia('(min-width:1001px)').matches;};
+  var closeAll=function(except){
+    Array.prototype.forEach.call(navItems,function(it){
+      if(it!==except){it.classList.remove('open');
+        var b=it.querySelector('.navtrigger'); if(b)b.setAttribute('aria-expanded','false');}
+    });
+  };
+  Array.prototype.forEach.call(navItems,function(it){
+    var btn=it.querySelector('.navtrigger'); if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var open=!it.classList.contains('open');
+      closeAll(it); it.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    it.addEventListener('mouseenter',function(){
+      if(!isDesktop())return; closeAll(it); it.classList.add('open'); btn.setAttribute('aria-expanded','true');
+    });
+    it.addEventListener('mouseleave',function(){
+      if(!isDesktop())return; it.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('click',function(){closeAll(null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')closeAll(null);});
+</script>
+</body>
+</html>
